@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "jaavaa:block/test_block"
+    }
+  }
+}

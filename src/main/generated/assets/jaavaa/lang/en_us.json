@@ -1,0 +1,10 @@
+{
+  "block.jaavaa.adjustable_redstone_lamp": "Adjustable Redstone Lamp",
+  "block.jaavaa.starsteel_block": "Block of Starsteel",
+  "block.jaavaa.test_block": "Test",
+  "item.jaavaa.allay_essence": "Allay Essence",
+  "item.jaavaa.starsteel_ingot": "Starsteel Ingot",
+  "item.jaavaa.starsteel_nugget": "Starsteel Nugget",
+  "itemGroup.jaavaa.jaavaa_blocks": "JAAVAA Blocks",
+  "itemGroup.jaavaa.jaavaa_items": "JAAVAA Items"
+}
