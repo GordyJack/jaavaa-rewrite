@@ -10,6 +10,8 @@ import net.minecraft.data.client.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
 
+import java.util.*;
+
 public class ModelProvider extends FabricModelProvider {
     public ModelProvider(FabricDataOutput output) {
         super(output);
@@ -19,6 +21,14 @@ public class ModelProvider extends FabricModelProvider {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.EXAMPLE_BLOCK);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, "adjustable_redstone_lamp"));
+        registerEncasedPillarModel(bsmGen, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR,
+                Identifier.ofVanilla("block/quartz_pillar"),
+                Identifier.ofVanilla("block/quartz_pillar_top"),
+                Identifier.ofVanilla("block/redstone_block"));
+        registerEncasedPillarModel(bsmGen, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR,
+                Identifier.ofVanilla("block/ancient_debris_side"),
+                Identifier.ofVanilla("block/ancient_debris_top"),
+                Identifier.ofVanilla("block/redstone_block"));
     }
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
@@ -38,5 +48,13 @@ public class ModelProvider extends FabricModelProvider {
             variantMap.register(luminance, variant);
         }
         return variantSupplier.coordinate(variantMap);
+    }
+    private void registerEncasedPillarModel(BlockStateModelGenerator bsmGen, Block block, Identifier casing, Identifier edge, Identifier end) {
+        bsmGen.registerAxisRotated(block, TexturedModel.makeFactory((block1) -> {
+            TextureMap textureMap = TextureMap.all(casing);
+            textureMap.put(TextureKey.EDGE, edge);
+            textureMap.put(TextureKey.END, end);
+            return textureMap;
+        }, new Model(Optional.of(JAAVAA.id("block/encased_pillar")), Optional.empty(), TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
     }
 }
