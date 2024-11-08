@@ -21,6 +21,8 @@ public class JAAVAABlocks {
                     .luminance(state -> state.get(AdjustableRedstoneLampBlock.LUMINANCE))
                     .sounds(BlockSoundGroup.GLASS)
                     .strength(0.3F));
+    public static final Block ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR = register("ancient_debris_encased_redstone_pillar", EncasedRedstoneBlock::new,
+            AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS));
     public static final Block EXAMPLE_BLOCK = register("test_block", Block::new,
             AbstractBlock.Settings.create()
                     .mapColor(MapColor.WHITE)
@@ -35,6 +37,8 @@ public class JAAVAABlocks {
                     .sounds(BlockSoundGroup.METAL)
                     .strength(50.0F, 1200.0F),
             Rarity.RARE);
+    public static final Block QUARTZ_ENCASED_REDSTONE_PILLAR = register("quartz_encased_redstone_pillar", EncasedRedstoneBlock::new,
+            AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
     
     private static Block register(String path, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
         return register(path, factory, settings, Rarity.COMMON, true);
@@ -59,6 +63,8 @@ public class JAAVAABlocks {
             entries.add(EXAMPLE_BLOCK);
             entries.add(STARSTEEL_BLOCK);
             entries.add(ADJUSTABLE_REDSTONE_LAMP);
+            entries.add(ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
+            entries.add(QUARTZ_ENCASED_REDSTONE_PILLAR);
         });
     }
 }
