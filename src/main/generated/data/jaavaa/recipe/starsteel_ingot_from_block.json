@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "starsteel_ingot",
+  "ingredients": [
+    "jaavaa:starsteel_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "jaavaa:starsteel_ingot"
+  }
+}

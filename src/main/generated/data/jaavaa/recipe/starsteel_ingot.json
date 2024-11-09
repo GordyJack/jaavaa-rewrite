@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "starsteel_ingot",
+  "key": {
+    "I": "minecraft:netherite_ingot",
+    "S": "minecraft:nether_star"
+  },
+  "pattern": [
+    " I ",
+    "ISI",
+    " I "
+  ],
+  "result": {
+    "count": 2,
+    "id": "jaavaa:starsteel_ingot"
+  }
+}

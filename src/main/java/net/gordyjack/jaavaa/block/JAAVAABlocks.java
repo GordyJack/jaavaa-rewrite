@@ -21,6 +21,11 @@ public class JAAVAABlocks {
                     .luminance(state -> state.get(AdjustableRedstoneLampBlock.LUMINANCE))
                     .sounds(BlockSoundGroup.GLASS)
                     .strength(0.3F));
+    public static final Block ALLOY_FURNACE = register("alloy_furnace", AlloyFurnaceBlock::new,
+            AbstractBlock.Settings.create()
+                    .luminance(state -> state.get(AlloyFurnaceBlock.LIT) ? 13 : 0)
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(3.5F));
     public static final Block ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR = register("ancient_debris_encased_redstone_pillar", EncasedRedstoneBlock::new,
             AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS));
     public static final Block EXAMPLE_BLOCK = register("test_block", Block::new,

@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.screen.*;
 import net.minecraft.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +16,12 @@ public class JAAVAA implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log("Initializing JAAVAA");
+		
 		JAAVAABlocks.init();
 		JAAVAAItems.init();
+		
+		JAAVAABlockEntityTypes.init();
+		JAAVAAScreenHandlers.init();
 	}
 	
 	public static Identifier id(String path) {
