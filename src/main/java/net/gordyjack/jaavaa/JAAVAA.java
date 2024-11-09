@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.recipe.JAAVAARecipes;
 import net.gordyjack.jaavaa.screen.*;
 import net.minecraft.util.*;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ public class JAAVAA implements ModInitializer {
 		JAAVAAItems.init();
 		
 		JAAVAABlockEntityTypes.init();
+		JAAVAARecipes.init();
 		JAAVAAScreenHandlers.init();
 	}
 	

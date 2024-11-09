@@ -11,29 +11,24 @@ import net.minecraft.util.math.*;
 
 public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
     private final Inventory INV;
-    private final PropertyDelegate DELEGATE;
     private final AlloyFurnaceBlockEntity ALLOY_FURNACE_BLOCK_ENTITY;
     
     public AlloyFurnaceBlockEntityScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
-        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
+        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos));
     }
     public AlloyFurnaceBlockEntityScreenHandler(int syncId, PlayerInventory playerInventory,
-                                     BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
+                                     BlockEntity blockEntity) {
         super(JAAVAAScreenHandlers.ALLOY_FURNACE_SCREEN_HANDLER, syncId);
-        checkSize((Inventory) blockEntity, 4);
+        checkSize((Inventory) blockEntity, 3);
         this.INV = (Inventory) blockEntity;
-        this.DELEGATE = arrayPropertyDelegate;
         this.ALLOY_FURNACE_BLOCK_ENTITY = ((AlloyFurnaceBlockEntity) blockEntity);
         
-        this.addSlot(new Slot(INV, 0, 8, 62));
-        this.addSlot(new Slot(INV, 1, 54, 34));
-        this.addSlot(new Slot(INV, 2, 104, 34));
-        this.addSlot(new Slot(INV, 3, 152, 62));
+        this.addSlot(new Slot(INV, 0, 53, 9));
+        this.addSlot(new Slot(INV, 1, 107, 9));
+        this.addSlot(new Slot(INV, 2, 79, 49));
         
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
-        
-        addProperties(arrayPropertyDelegate);
     }
     @Override
     public ItemStack quickMove(PlayerEntity player, int slot) {

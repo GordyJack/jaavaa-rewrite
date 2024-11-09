@@ -6,6 +6,7 @@ import net.gordyjack.jaavaa.block.custom.entity.*;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.entity.player.*;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.particle.*;
 import net.minecraft.screen.*;
 import net.minecraft.server.world.*;
@@ -13,6 +14,8 @@ import net.minecraft.sound.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.*;
 import net.minecraft.world.*;
+import net.minecraft.world.block.WireOrientation;
+import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.*;
 
 public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
@@ -57,9 +60,17 @@ public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
         }
     }
     @Override
-    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        var state = this.getLitState(this.getDefaultState(), ctx.getWorld(), ctx.getBlockPos());
+        return state.with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+    }
+    @Override
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
+        return this.getLitState(state, (World) world, pos);
+    }
+    private BlockState getLitState(BlockState state, World world, BlockPos pos) {
         boolean lit = state.get(LIT);
-        
+
         boolean northLava = world.getBlockState(pos.north()).isOf(Blocks.LAVA);
         boolean southLava = world.getBlockState(pos.south()).isOf(Blocks.LAVA);
         boolean eastLava = world.getBlockState(pos.east()).isOf(Blocks.LAVA);
@@ -67,13 +78,7 @@ public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
         boolean upLava = world.getBlockState(pos.up()).isOf(Blocks.LAVA);
         boolean downLava = world.getBlockState(pos.down()).isOf(Blocks.LAVA);
         boolean lavaExists = northLava || southLava || eastLava || westLava || upLava || downLava;
-        
-        if (!lit && lavaExists) {
-            world.setBlockState(pos, state.with(LIT, true));
-        } else if (lit && !lavaExists) {
-            world.setBlockState(pos, state.with(LIT, false));
-        }
-        
-        super.scheduledTick(state, world, pos, random);
+
+        return lavaExists ? state.with(LIT, true) : state.with(LIT, false);
     }
 }

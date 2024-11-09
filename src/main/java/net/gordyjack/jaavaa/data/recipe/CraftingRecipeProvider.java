@@ -6,6 +6,7 @@ import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.*;
+import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.recipe.book.*;
 import net.minecraft.registry.*;
 
@@ -21,6 +22,17 @@ public class CraftingRecipeProvider extends FabricRecipeProvider {
             @Override
             public void generate() {
                 RegistryEntryLookup<Item> registryLookup = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
+                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAABlocks.ALLOY_FURNACE)
+                        .input('I', Items.IRON_INGOT)
+                        .input('B', Items.BLAST_FURNACE)
+                        .input('N', Items.NETHERITE_INGOT)
+                        .input('D', Items.POLISHED_DEEPSLATE)
+                        .pattern("IDI")
+                        .pattern("DND")
+                        .pattern("IBI")
+                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
+                        .criterion(hasItem(Items.BLAST_FURNACE), conditionsFromItem(Items.BLAST_FURNACE))
+                        .offerTo(exporter);
                 ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 2)
                         .input('I', Items.NETHERITE_INGOT)
                         .input('S', Items.NETHER_STAR)
@@ -40,6 +52,6 @@ public class CraftingRecipeProvider extends FabricRecipeProvider {
     }
     @Override
     public String getName() {
-        return "";
+        return "crafting_recipe_provider";
     }
 }
