@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": "minecraft:blast_furnace",
+    "D": "minecraft:polished_deepslate",
+    "I": "minecraft:iron_ingot",
+    "N": "minecraft:netherite_ingot"
+  },
+  "pattern": [
+    "IDI",
+    "DND",
+    "IBI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:alloy_furnace"
+  }
+}
