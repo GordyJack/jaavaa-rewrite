@@ -2,13 +2,17 @@ package net.gordyjack.jaavaa.data.recipe;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.data.tags.JAAVAATags;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.*;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.recipe.book.*;
 import net.minecraft.registry.*;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.*;
 
@@ -22,6 +26,15 @@ public class CraftingRecipeProvider extends FabricRecipeProvider {
             @Override
             public void generate() {
                 RegistryEntryLookup<Item> registryLookup = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
+                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.ADDER_ITEM)
+                        .input('R', Items.REDSTONE)
+                        .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
+                        .input('C', Items.COMPARATOR)
+                        .pattern(" R ")
+                        .pattern("RCR")
+                        .pattern(" D ")
+                        .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
+                        .offerTo(exporter);
                 ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAABlocks.ALLOY_FURNACE)
                         .input('I', Items.IRON_INGOT)
                         .input('B', Items.BLAST_FURNACE)
@@ -32,6 +45,16 @@ public class CraftingRecipeProvider extends FabricRecipeProvider {
                         .pattern("IBI")
                         .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
                         .criterion(hasItem(Items.BLAST_FURNACE), conditionsFromItem(Items.BLAST_FURNACE))
+                        .offerTo(exporter);
+                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.DECODER_ITEM)
+                        .input('R', Items.REDSTONE)
+                        .input('T', Items.REDSTONE_TORCH)
+                        .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
+                        .input('C', Items.COMPARATOR)
+                        .pattern("RTR")
+                        .pattern("TCT")
+                        .pattern("RDR")
+                        .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .offerTo(exporter);
                 ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 2)
                         .input('I', Items.NETHERITE_INGOT)
