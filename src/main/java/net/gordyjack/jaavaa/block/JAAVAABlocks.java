@@ -15,7 +15,10 @@ import java.util.function.*;
 
 public class JAAVAABlocks {
     public static final ArrayList<Block> BLOCKS = new ArrayList<>();
-    
+
+    //TODO: Add textures and states for ADDER_BLOCK and DECODER_BLOCK
+    public static final Block ADDER_BLOCK = register("adder", AdderBlock::new,
+            AbstractBlock.Settings.copy(Blocks.REPEATER), Rarity.COMMON, false);
     public static final Block ADJUSTABLE_REDSTONE_LAMP = register("adjustable_redstone_lamp", AdjustableRedstoneLampBlock::new,
             AbstractBlock.Settings.create()
                     .luminance(state -> state.get(AdjustableRedstoneLampBlock.LUMINANCE))
@@ -28,6 +31,8 @@ public class JAAVAABlocks {
                     .strength(3.5F));
     public static final Block ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR = register("ancient_debris_encased_redstone_pillar", EncasedRedstoneBlock::new,
             AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS));
+    public static final Block DECODER_BLOCK = register("decoder", DecoderBlock::new,
+            AbstractBlock.Settings.copy(Blocks.REPEATER), Rarity.COMMON, false);
     public static final Block EXAMPLE_BLOCK = register("test_block", Block::new,
             AbstractBlock.Settings.create()
                     .mapColor(MapColor.WHITE)

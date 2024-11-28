@@ -10,18 +10,23 @@ import net.minecraft.screen.slot.*;
 import net.minecraft.util.math.*;
 
 public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
+    private static final int INPUT_SLOT_1 = 0;
+    private static final int INPUT_SLOT_2 = 1;
+    private static final int OUTPUT_SLOT = 2;
     private final Inventory INV;
-    private final AlloyFurnaceBlockEntity ALLOY_FURNACE_BLOCK_ENTITY;
+    private final PropertyDelegate PROPERTY_DELEGATE;
+    private AlloyFurnaceBlockEntity alloyFurnaceBlockEntity;
     
     public AlloyFurnaceBlockEntityScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
-        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos));
+        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
     }
     public AlloyFurnaceBlockEntityScreenHandler(int syncId, PlayerInventory playerInventory,
-                                     BlockEntity blockEntity) {
+                                     BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(JAAVAAScreenHandlers.ALLOY_FURNACE_SCREEN_HANDLER, syncId);
         checkSize((Inventory) blockEntity, 3);
         this.INV = (Inventory) blockEntity;
-        this.ALLOY_FURNACE_BLOCK_ENTITY = ((AlloyFurnaceBlockEntity) blockEntity);
+        this.PROPERTY_DELEGATE = propertyDelegate;
+        this.alloyFurnaceBlockEntity = ((AlloyFurnaceBlockEntity) blockEntity);
         
         this.addSlot(new Slot(INV, 0, 53, 9));
         this.addSlot(new Slot(INV, 1, 107, 9));
@@ -29,14 +34,43 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
         
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+
+        addProperties(propertyDelegate);
     }
     @Override
-    public ItemStack quickMove(PlayerEntity player, int slot) {
-        return null;
+    public ItemStack quickMove(PlayerEntity player, int invSlot) {
+        ItemStack newStack = ItemStack.EMPTY;
+        Slot slot = this.slots.get(invSlot);
+        if (slot != null && slot.hasStack() && invSlot!=OUTPUT_SLOT) {
+            ItemStack originalStack = slot.getStack();
+            newStack = originalStack.copy();
+            if (invSlot < this.INV.size()) {
+                if (!this.insertItem(originalStack, this.INV.size(), this.slots.size(), true)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (!this.insertItem(originalStack, 0, this.INV.size(), false)) {
+                return ItemStack.EMPTY;
+            }
+
+            if (originalStack.isEmpty()) {
+                slot.setStack(ItemStack.EMPTY);
+            } else {
+                slot.markDirty();
+            }
+        }
+        return newStack;
     }
+    @Override
+    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
+        if (slot.inventory == this.INV && slot.id != OUTPUT_SLOT) {
+            return super.canInsertIntoSlot(stack, slot);
+        }
+        return false;
+    }
+
     @Override
     public boolean canUse(PlayerEntity player) {
-        return !player.isSneaking();
+        return this.INV.canPlayerUse(player);
     }
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
@@ -51,6 +85,16 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
         }
     }
     public boolean isLit() {
-        return this.ALLOY_FURNACE_BLOCK_ENTITY.isLit();
+        return this.alloyFurnaceBlockEntity.isLit();
+    }
+    public boolean isCrafting() {
+        return this.PROPERTY_DELEGATE.get(0) > 0;
+    }
+    public int getScaledArrowProgress() {
+        int progress = this.PROPERTY_DELEGATE.get(0);
+        int maxProgress = this.PROPERTY_DELEGATE.get(1); // Max Progress
+        int arrowPixelSize = 36; // This is the width in pixels of your arrow
+
+        return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
     }
 }

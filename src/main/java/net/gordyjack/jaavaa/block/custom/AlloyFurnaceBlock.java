@@ -1,7 +1,10 @@
 package net.gordyjack.jaavaa.block.custom;
 
+import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.*;
 import com.mojang.serialization.*;
+import net.gordyjack.jaavaa.JAAVAA;
+import net.gordyjack.jaavaa.block.JAAVAABlockEntityTypes;
 import net.gordyjack.jaavaa.block.custom.entity.*;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
@@ -13,10 +16,13 @@ import net.minecraft.server.world.*;
 import net.minecraft.sound.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.*;
+import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.*;
 import net.minecraft.world.block.WireOrientation;
 import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.*;
+
+import java.util.function.Function;
 
 public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
     public static final MapCodec<AlloyFurnaceBlock> CODEC = createCodec(AlloyFurnaceBlock::new);
@@ -68,9 +74,12 @@ public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
     protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         return this.getLitState(state, (World) world, pos);
     }
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, JAAVAABlockEntityTypes.ALLOY_FURNACE_BLOCK_ENTITY_TYPE, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+    }
     private BlockState getLitState(BlockState state, World world, BlockPos pos) {
-        boolean lit = state.get(LIT);
-
         boolean northLava = world.getBlockState(pos.north()).isOf(Blocks.LAVA);
         boolean southLava = world.getBlockState(pos.south()).isOf(Blocks.LAVA);
         boolean eastLava = world.getBlockState(pos.east()).isOf(Blocks.LAVA);
@@ -78,6 +87,8 @@ public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
         boolean upLava = world.getBlockState(pos.up()).isOf(Blocks.LAVA);
         boolean downLava = world.getBlockState(pos.down()).isOf(Blocks.LAVA);
         boolean lavaExists = northLava || southLava || eastLava || westLava || upLava || downLava;
+
+        JAAVAA.log("Block: getLitState: " + lavaExists);
 
         return lavaExists ? state.with(LIT, true) : state.with(LIT, false);
     }

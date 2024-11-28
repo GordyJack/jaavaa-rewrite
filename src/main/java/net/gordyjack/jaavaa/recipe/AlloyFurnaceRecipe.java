@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.sun.jdi.connect.Connector;
+import net.gordyjack.jaavaa.JAAVAA;
 import net.minecraft.command.argument.serialize.IntegerArgumentSerializer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
@@ -19,33 +20,50 @@ import java.util.List;
 import java.util.Optional;
 
 public record AlloyFurnaceRecipe(int burnTime, float experience, ItemStack inputStack1, ItemStack inputStack2, ItemStack output)
-implements Recipe<AlloyFurnaceRecipeInput> {
+        implements Recipe<AlloyFurnaceRecipeInput> {
+
     @Override
     public boolean matches(AlloyFurnaceRecipeInput input, World world) {
         if(world.isClient()) {
             return false;
         }
-        return false;
+        return (input.getStackInSlot(0).itemMatches(inputStack1.getRegistryEntry()) && input.getStackInSlot(1).itemMatches(inputStack2.getRegistryEntry())) ||
+                (input.getStackInSlot(0).itemMatches(inputStack2.getRegistryEntry()) && input.getStackInSlot(1).itemMatches(inputStack1.getRegistryEntry()));
     }
+
     @Override
     public ItemStack craft(AlloyFurnaceRecipeInput input, RegistryWrapper.WrapperLookup registries) {
-        return output.copy();
+        ItemStack result = output.copy();
+        return result;
     }
+
     @Override
     public RecipeSerializer<? extends Recipe<AlloyFurnaceRecipeInput>> getSerializer() {
-        return JAAVAARecipes.ALLOY_FURNACE_RECIPE_SERIALIZER;
+        RecipeSerializer<? extends Recipe<AlloyFurnaceRecipeInput>> serializer = JAAVAARecipes.ALLOY_FURNACE_RECIPE_SERIALIZER;
+        return serializer;
     }
+
     @Override
     public RecipeType<? extends Recipe<AlloyFurnaceRecipeInput>> getType() {
-        return JAAVAARecipes.ALLOY_FURNACE_RECIPE_TYPE;
+        RecipeType<? extends Recipe<AlloyFurnaceRecipeInput>> type = JAAVAARecipes.ALLOY_FURNACE_RECIPE_TYPE;
+        return type;
     }
+
     @Override
     public IngredientPlacement getIngredientPlacement() {
-        return IngredientPlacement.forMultipleSlots(List.of(Optional.of(Ingredient.ofItem(inputStack1.getItem())), Optional.of(Ingredient.ofItem(inputStack2.getItem()))));
+        IngredientPlacement placement = IngredientPlacement.forMultipleSlots(List.of(Optional.of(Ingredient.ofItem(inputStack1.getItem())), Optional.of(Ingredient.ofItem(inputStack2.getItem()))));
+        return placement;
     }
+
     @Override
     public RecipeBookCategory getRecipeBookCategory() {
-        return JAAVAARecipes.ALLOY_FURNACE_RECIPE_CATEGORY;
+        RecipeBookCategory category = JAAVAARecipes.ALLOY_FURNACE_RECIPE_CATEGORY;
+        return category;
+    }
+
+    public ItemStack getResult() {
+        ItemStack result = output;
+        return result;
     }
 
     public static class Serializer implements RecipeSerializer<AlloyFurnaceRecipe> {
