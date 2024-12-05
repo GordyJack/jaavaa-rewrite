@@ -4,9 +4,12 @@ import com.mojang.serialization.MapCodec;
 import net.gordyjack.jaavaa.block.JAAVAABlockProperties;
 import net.gordyjack.jaavaa.block.enums.DecoderMode;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.ComparatorMode;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.particle.DustParticleEffect;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Property;
@@ -48,27 +51,15 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (world.isClient()) {
-            return ActionResult.FAIL;
+        if (!player.getAbilities().allowModifyWorld) {
+            return ActionResult.PASS;
+        } else {
+            state = state.cycle(MODE);
+            float f = state.get(MODE) == DecoderMode.DECODE ? 0.55F : 0.5F;
+            world.playSound(player, pos, SoundEvents.BLOCK_COMPARATOR_CLICK, SoundCategory.BLOCKS, 0.3F, f);
+            world.setBlockState(pos, state, Block.NOTIFY_LISTENERS);
+            return ActionResult.SUCCESS;
         }
-        DecoderMode mode = state.get(MODE);
-        switch(mode) {
-            case DECODE -> {
-                world.setBlockState(pos, state.with(MODE, DecoderMode.DEMUX));
-                return ActionResult.SUCCESS;
-            }
-            case DEMUX -> {
-                world.setBlockState(pos, state.with(MODE, DecoderMode.DECODE));
-                return ActionResult.SUCCESS;
-            }
-            default -> {
-                return super.onUse(state, world, pos, player, hit);
-            }
-        }
-    }
-    @Override
-    protected int getPower(World world, BlockPos pos, BlockState state) {
-        return super.getPower(world, pos, state);
     }
     @Override
     protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
@@ -107,6 +98,8 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         };
     }
 
+    //TODO: Cannot call getWeakRedstonePower from getWeakRedstonePower. It causes a stack overflow when you place two of the same gate next to each-other.
+    //TODO: Fix the Adder first, then implement a similar fix here.
     @Override
     protected int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
         if (direction == Direction.UP || direction == Direction.DOWN) {

@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 
+//TODO: Adder is not updating appropriately in game. Or at all really. Need to put together a solution based on the comparator's function.
 public class AdderBlock extends AbstractRedstoneGateBlock {
     public static final MapCodec<AdderBlock> CODEC = createCodec(AdderBlock::new);
     public static final BooleanProperty BACK_POWERED = JAAVAABlockProperties.BACK_POWERED;
@@ -71,7 +72,7 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
         return 2;
     }
     @Override
-    protected int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
+    protected int getOutputLevel(BlockView world, BlockPos pos, BlockState state) {
         Direction inputDirection = state.get(FACING);
         Direction leftInputDirection = inputDirection.rotateYCounterclockwise();
         Direction rightInputDirection = inputDirection.rotateYClockwise();
@@ -79,8 +80,8 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
         int inputPower = world.getBlockState(pos.offset(inputDirection)).getWeakRedstonePower(world, pos.offset(inputDirection), inputDirection);
         int leftInputPower = world.getBlockState(pos.offset(leftInputDirection)).getWeakRedstonePower(world, pos.offset(leftInputDirection), leftInputDirection);
         int rightInputPower = world.getBlockState(pos.offset(rightInputDirection)).getWeakRedstonePower(world, pos.offset(rightInputDirection), rightInputDirection);
-        int outputPower = Math.min(inputPower + leftInputPower + rightInputPower, 15);
-        return direction == inputDirection ? outputPower : 0;
+
+        return Math.min(inputPower + leftInputPower + rightInputPower, 15);
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

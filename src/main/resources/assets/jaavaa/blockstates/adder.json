@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=east,powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "facing=north,powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "facing=south,powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "facing=west,powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "facing=east,powered=true": {
+      "model": "jaavaa:block/adder_on",
+      "y": 270
+    },
+    "facing=north,powered=true": {
+      "model": "jaavaa:block/adder_on",
+        "y": 180
+    },
+    "facing=south,powered=true": {
+      "model": "jaavaa:block/adder_on",
+      "y": 0
+    },
+    "facing=west,powered=true": {
+      "model": "jaavaa:block/adder_on",
+      "y": 90
+    }
+  }
+}

@@ -38,6 +38,8 @@ public class JAAVAABlocks {
                     .mapColor(MapColor.WHITE)
                     .sounds(BlockSoundGroup.WOOL)
                     .strength(0.8F));
+    public static final Block SMOOTH_POLISHED_DEEPSLATE = register("smooth_polished_deepslate", Block::new,
+            AbstractBlock.Settings.copy(Blocks.POLISHED_DEEPSLATE));
     public static final Block STARSTEEL_BLOCK = register("starsteel_block", Block::new,
             AbstractBlock.Settings.create()
                     .allowsSpawning(Blocks::never)

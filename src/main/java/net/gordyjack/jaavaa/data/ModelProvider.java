@@ -19,9 +19,12 @@ public class ModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.EXAMPLE_BLOCK);
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
+
         bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, "adjustable_redstone_lamp"));
+
         registerEncasedPillarModel(bsmGen, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR,
                 Identifier.ofVanilla("block/quartz_pillar"),
                 Identifier.ofVanilla("block/quartz_pillar_top"),
@@ -56,6 +59,7 @@ public class ModelProvider extends FabricModelProvider {
             textureMap.put(TextureKey.EDGE, edge);
             textureMap.put(TextureKey.END, end);
             return textureMap;
-        }, new Model(Optional.of(JAAVAA.id("block/encased_pillar")), Optional.empty(), TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
+        }, new Model(Optional.of(JAAVAA.id("block/encased_pillar")), Optional.empty(),
+                TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
     }
 }
