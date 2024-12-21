@@ -73,7 +73,9 @@ public class JAAVAABlocks {
         
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKS).register(entries -> {
             entries.add(EXAMPLE_BLOCK);
+            entries.add(SMOOTH_POLISHED_DEEPSLATE);
             entries.add(STARSTEEL_BLOCK);
+            entries.add(ALLOY_FURNACE);
             entries.add(ADJUSTABLE_REDSTONE_LAMP);
             entries.add(ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
             entries.add(QUARTZ_ENCASED_REDSTONE_PILLAR);

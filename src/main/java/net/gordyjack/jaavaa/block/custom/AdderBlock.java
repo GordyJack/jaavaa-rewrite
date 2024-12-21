@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -18,9 +19,10 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.block.WireOrientation;
 import net.minecraft.world.tick.ScheduledTickView;
+import org.jetbrains.annotations.Nullable;
 
-//TODO: Adder is not updating appropriately in game. Or at all really. Need to put together a solution based on the comparator's function.
 public class AdderBlock extends AbstractRedstoneGateBlock {
     public static final MapCodec<AdderBlock> CODEC = createCodec(AdderBlock::new);
     public static final BooleanProperty LEFT_POWERED = JAAVAABlockProperties.LEFT_POWERED;
@@ -61,8 +63,7 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
         if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            this.update((World) world, pos, state);
-            return this.getUpdatedState((World) world, pos, state);
+            return this.updateState((World) world, pos, state);
         }
     }
     @Override
@@ -74,8 +75,30 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
         return state.get(POWER);
     }
     @Override
+    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
+        super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
+        if (!world.isClient) {
+            this.updateState(world, pos, state);
+        }
+    }
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        if (state.get(POWERED)) {
+            Direction direction = state.get(FACING);
+            double d = pos.getX() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
+            double e = pos.getY() + 0.4 + (random.nextDouble() - 0.5) * 0.2;
+            double f = pos.getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
+            float g = -5.0F;
+
+            g /= 16.0F;
+            double h = g * direction.getOffsetX();
+            double i = g * direction.getOffsetZ();
+            world.addParticle(DustParticleEffect.DEFAULT, d + h, e, f + i, 0.0, 0.0, 0.0);
+        }
+    }
+    @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        this.update(world, pos, state);
+        this.updateState(world, pos, state);
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -141,9 +164,10 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
      * @param pos the position of the block
      * @param state the state of the block
      */
-    private void update(World world, BlockPos pos, BlockState state) {
+    private BlockState updateState(World world, BlockPos pos, BlockState state) {
         state = this.getUpdatedState(world, pos, state);
-        world.setBlockState(pos, state);
+        world.setBlockState(pos, state, Block.NOTIFY_LISTENERS);
         this.updateTarget(world, pos, state);
+        return state;
     }
 }

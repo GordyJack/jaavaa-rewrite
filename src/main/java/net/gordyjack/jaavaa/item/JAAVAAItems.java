@@ -41,6 +41,7 @@ public class JAAVAAItems {
             entries.add(STARSTEEL_NUGGET);
         });
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKS).register(entries -> {
+            entries.add(ADDER_ITEM);
             entries.add(DECODER_ITEM);
         });
     }
