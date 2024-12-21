@@ -1,27 +1,19 @@
 package net.gordyjack.jaavaa.block.custom;
 
-import com.mojang.serialization.MapCodec;
-import net.gordyjack.jaavaa.block.JAAVAABlockProperties;
-import net.minecraft.block.AbstractRedstoneGateBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.particle.DustParticleEffect;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.block.WireOrientation;
-import net.minecraft.world.tick.ScheduledTickView;
-import org.jetbrains.annotations.Nullable;
+import com.mojang.serialization.*;
+import net.gordyjack.jaavaa.block.*;
+import net.minecraft.block.*;
+import net.minecraft.item.*;
+import net.minecraft.particle.*;
+import net.minecraft.server.world.*;
+import net.minecraft.state.*;
+import net.minecraft.state.property.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.math.random.*;
+import net.minecraft.world.*;
+import net.minecraft.world.block.*;
+import net.minecraft.world.tick.*;
+import org.jetbrains.annotations.*;
 
 public class AdderBlock extends AbstractRedstoneGateBlock {
     public static final MapCodec<AdderBlock> CODEC = createCodec(AdderBlock::new);
@@ -63,7 +55,7 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
         if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            return this.updateState((World) world, pos, state);
+            return !world.isClient() ? this.updateState((World) world, pos, state) : super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
         }
     }
     @Override
@@ -98,7 +90,12 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
     }
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        this.updateState(world, pos, state);
+        if (!world.isClient) {
+            BlockState updatedState = this.updateState(world, pos, state);
+            if (updatedState != state) {
+                world.setBlockState(pos, updatedState, Block.NOTIFY_LISTENERS);
+            }
+        }
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -117,9 +114,9 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
         Direction leftInputDirection = inputDirection.rotateYClockwise();
         Direction rightInputDirection = inputDirection.rotateYCounterclockwise();
 
-        int backInputPower = world.getBlockState(pos.offset(inputDirection)).getWeakRedstonePower(world, pos.offset(inputDirection), inputDirection);
-        int leftInputPower = world.getBlockState(pos.offset(leftInputDirection)).getWeakRedstonePower(world, pos.offset(leftInputDirection), leftInputDirection);
-        int rightInputPower = world.getBlockState(pos.offset(rightInputDirection)).getWeakRedstonePower(world, pos.offset(rightInputDirection), rightInputDirection);
+        int backInputPower = world.getEmittedRedstonePower(pos.offset(inputDirection), inputDirection);
+        int leftInputPower = world.getEmittedRedstonePower(pos.offset(leftInputDirection), leftInputDirection);
+        int rightInputPower = world.getEmittedRedstonePower(pos.offset(rightInputDirection), rightInputDirection);
 
         return new int[]{backInputPower, leftInputPower, rightInputPower};
     }

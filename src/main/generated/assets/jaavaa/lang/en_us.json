@@ -14,5 +14,6 @@
   "item.jaavaa.starsteel_ingot": "Starsteel Ingot",
   "item.jaavaa.starsteel_nugget": "Starsteel Nugget",
   "itemGroup.jaavaa.jaavaa_blocks": "JAAVAA Blocks",
-  "itemGroup.jaavaa.jaavaa_items": "JAAVAA Items"
+  "itemGroup.jaavaa.jaavaa_items": "JAAVAA Items",
+  "itemGroup.jaavaa.jaavaa_redstone": "JAAVAA Redstone"
 }

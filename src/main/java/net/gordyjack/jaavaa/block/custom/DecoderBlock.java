@@ -62,7 +62,7 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            return this.updateState((World) world, pos, state);
+            return !world.isClient() ? this.updateState((World) world, pos, state) : super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
         }
     }
     @Override
@@ -149,7 +149,12 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
     }
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        this.updateState(world, pos, state);
+        if (!world.isClient) {
+            BlockState updatedState = this.updateState(world, pos, state);
+            if (updatedState != state) {
+                world.setBlockState(pos, updatedState, Block.NOTIFY_LISTENERS);
+            }
+        }
     }
     @Override
     protected void updateTarget(World world, BlockPos pos, BlockState state) {
