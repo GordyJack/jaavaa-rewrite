@@ -2,17 +2,13 @@ package net.gordyjack.jaavaa.data.recipe;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.gordyjack.jaavaa.block.*;
-import net.gordyjack.jaavaa.data.tags.JAAVAATags;
+import net.gordyjack.jaavaa.data.tags.*;
 import net.gordyjack.jaavaa.item.*;
-import net.minecraft.data.server.recipe.*;
+import net.minecraft.data.recipe.*;
 import net.minecraft.item.*;
-import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.recipe.book.*;
 import net.minecraft.registry.*;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.*;
 

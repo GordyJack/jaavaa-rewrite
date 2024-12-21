@@ -15,7 +15,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "net.gordyjack.jaavaa.JAAVAA"
+			"net.gordyjack.jaavaa.JAAVAA"
 		],
 		"client": [
 			"net.gordyjack.jaavaa.JAAVAAClient"
@@ -29,7 +29,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.9",
-		"minecraft": "=1.21.3",
+		"minecraft": "=1.21.4",
 		"java": ">=21",
 		"fabric-api": "*"
 	},

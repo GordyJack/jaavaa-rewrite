@@ -1,7 +1,6 @@
 package net.gordyjack.jaavaa;
 
-import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.data.lang.*;
 import net.gordyjack.jaavaa.data.recipe.*;

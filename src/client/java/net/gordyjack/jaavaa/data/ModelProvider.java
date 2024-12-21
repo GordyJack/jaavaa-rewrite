@@ -1,12 +1,12 @@
 package net.gordyjack.jaavaa.data;
 
+import net.fabricmc.fabric.api.client.datagen.v1.provider.*;
 import net.fabricmc.fabric.api.datagen.v1.*;
-import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.block.*;
-import net.minecraft.data.client.*;
+import net.minecraft.client.data.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
 

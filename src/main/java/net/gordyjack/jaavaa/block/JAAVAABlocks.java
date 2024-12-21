@@ -16,7 +16,6 @@ import java.util.function.*;
 public class JAAVAABlocks {
     public static final ArrayList<Block> BLOCKS = new ArrayList<>();
 
-    //TODO: Add textures and states for ADDER_BLOCK and DECODER_BLOCK
     public static final Block ADDER_BLOCK = register("adder", AdderBlock::new,
             AbstractBlock.Settings.copy(Blocks.REPEATER), Rarity.COMMON, false);
     public static final Block ADJUSTABLE_REDSTONE_LAMP = register("adjustable_redstone_lamp", AdjustableRedstoneLampBlock::new,
