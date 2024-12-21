@@ -16,12 +16,16 @@ import net.minecraft.world.tick.*;
 import org.jetbrains.annotations.*;
 
 public class AdderBlock extends AbstractRedstoneGateBlock {
+    //Codec
     public static final MapCodec<AdderBlock> CODEC = createCodec(AdderBlock::new);
+    //Properties
     public static final BooleanProperty LEFT_POWERED = JAAVAABlockProperties.LEFT_POWERED;
     public static final BooleanProperty BACK_POWERED = JAAVAABlockProperties.BACK_POWERED;
     public static final BooleanProperty RIGHT_POWERED = JAAVAABlockProperties.RIGHT_POWERED;
     public static final IntProperty POWER = Properties.POWER;
+    //Constants
     private static final int UPDATE_DELAY = 2;
+
     //Constructor
     public AdderBlock(Settings settings) {
         super(settings);

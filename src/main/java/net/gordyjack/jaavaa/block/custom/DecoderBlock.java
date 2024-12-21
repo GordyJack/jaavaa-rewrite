@@ -27,11 +27,14 @@ import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 
 public class DecoderBlock extends AbstractRedstoneGateBlock{
+    //Codec
     public static final MapCodec<DecoderBlock> CODEC = createCodec(DecoderBlock::new);
+    //Properties
     public static final EnumProperty<DecoderMode> MODE = JAAVAABlockProperties.DECODER_MODE;
     public static final EnumProperty<DecoderTarget> TARGET = JAAVAABlockProperties.DECODER_TARGET;
     public static final IntProperty POWER = Properties.POWER;
 
+    //Constructor
     public DecoderBlock(Settings settings) {
         super(settings);
         this.setDefaultState(
@@ -45,11 +48,11 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         );
     }
 
+    //Overrides
     @Override
     protected MapCodec<? extends AbstractRedstoneGateBlock> getCodec() {
         return CODEC;
     }
-
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockState state = super.getPlacementState(ctx);
@@ -58,11 +61,14 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         return this.getUpdatedState(world, pos, state);
     }
     @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView,
+                                                   BlockPos pos, Direction direction, BlockPos neighborPos,
+                                                   BlockState neighborState, Random random) {
         if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            return !world.isClient() ? this.updateState((World) world, pos, state) : super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+            return !world.isClient() ? this.updateState((World) world, pos, state)
+                    : super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
         }
     }
     @Override
@@ -105,7 +111,8 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         return 0;
     }
     @Override
-    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
+    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock,
+                                  @Nullable WireOrientation wireOrientation, boolean notify) {
         super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
         if (!world.isClient) {
             this.updateState(world, pos, state);
@@ -126,25 +133,22 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(POWERED)) {
-            Direction facingDirection = state.get(FACING);
-            double particleX = pos.getX() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
-            double particleZ = pos.getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
-            double particleY = pos.getY() + 0.4 + (random.nextDouble() - 0.5) * 0.2;
-            particleY = state.get(MODE) == DecoderMode.DEMUX ? particleY - 0.125 : particleY;
+            Direction outputDirection = state.get(FACING);
+            double pX = pos.getX() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
+            double pY = pos.getY() + 0.4 + (random.nextDouble() - 0.5) * 0.2;
+            double pZ = pos.getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
 
-            float particleOffset = -5.0F;
+            pY = state.get(MODE) == DecoderMode.DEMUX ? pY - 0.125 : pY;
 
-            particleOffset /= 16.0F;
-            double[] offsets = switch (state.get(TARGET)) {
-                case LEFT -> new double[]{particleOffset * facingDirection.rotateYCounterclockwise().getOffsetX(),
-                        particleOffset * facingDirection.rotateYCounterclockwise().getOffsetZ()};
-                case FRONT -> new double[]{particleOffset * facingDirection.getOffsetX(),
-                        particleOffset * facingDirection.getOffsetZ()};
-                case RIGHT -> new double[]{particleOffset * facingDirection.rotateYClockwise().getOffsetX(),
-                        particleOffset * facingDirection.rotateYClockwise().getOffsetZ()};
-                case NONE -> new double[]{0, 0};
+            outputDirection = switch (state.get(TARGET)) {
+                case LEFT -> outputDirection.rotateYCounterclockwise();
+                case FRONT, NONE -> outputDirection;
+                case RIGHT -> outputDirection.rotateYClockwise();
             };
-            world.addParticle(DustParticleEffect.DEFAULT, particleX + offsets[0], particleY, particleZ + offsets[1], 0.0, 0.0, 0.0);
+            float pOffset = -5.0F / 16.0F;
+            double oX = pOffset * outputDirection.getOffsetX();
+            double oZ = pOffset * outputDirection.getOffsetZ();
+            world.addParticle(DustParticleEffect.DEFAULT, pX + oX, pY, pZ + oZ, 0.0, 0.0, 0.0);
         }
     }
     @Override
@@ -175,6 +179,7 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         builder.add(FACING, POWERED, MODE, TARGET, POWER);
     }
 
+    //Methods
     /**
      * Calculates the power level of the block
      * @param state the state of the block
@@ -192,7 +197,7 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
      * @param world the world
      * @param pos the position of the block
      * @param state the state of the block
-     * @return an array of the power levels of the inputs in the order of back, left, right
+     * @return the power level of the input
      */
     private int getInputPower(World world, BlockPos pos, BlockState state) {
         Direction inputDirection = state.get(FACING);
