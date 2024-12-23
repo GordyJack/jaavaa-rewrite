@@ -1,4 +1,4 @@
-package net.gordyjack.jaavaa.data.tags;
+package net.gordyjack.jaavaa.data.tag;
 
 import net.gordyjack.jaavaa.JAAVAA;
 import net.minecraft.block.Block;

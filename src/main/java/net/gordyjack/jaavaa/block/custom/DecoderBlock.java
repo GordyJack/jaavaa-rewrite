@@ -203,7 +203,6 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         Direction inputDirection = state.get(FACING);
         BlockPos offset = pos.offset(inputDirection);
         return world.getEmittedRedstonePower(offset, inputDirection);
-        //return world.getBlockState(offset).getWeakRedstonePower(world, offset, inputDirection);
     }
     /**
      * Updates the state of the block
