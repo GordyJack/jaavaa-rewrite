@@ -1,6 +1,7 @@
 {
   "values": [
     "minecraft:deepslate",
-    "minecraft:polished_deepslate"
+    "minecraft:polished_deepslate",
+    "jaavaa:smooth_polished_deepslate"
   ]
 }

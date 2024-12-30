@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": "minecraft:blast_furnace",
-    "D": "minecraft:polished_deepslate",
+    "D": "#jaavaa:deepslate_craftables",
     "I": "minecraft:iron_ingot",
     "N": "minecraft:netherite_ingot"
   },

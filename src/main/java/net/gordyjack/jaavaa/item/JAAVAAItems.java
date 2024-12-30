@@ -24,6 +24,8 @@ public class JAAVAAItems {
     //BlockItems
     public static final Item ADDER_ITEM = register("adder",
             settings -> new BlockItem(JAAVAABlocks.ADDER_BLOCK, settings));
+    public static final Item ADVANCED_REPEATER = register("advanced_repeater",
+            settings -> new BlockItem(JAAVAABlocks.ADVANCED_REPEATER_BLOCK, settings));
     public static final Item DECODER_ITEM = register("decoder",
             settings -> new BlockItem(JAAVAABlocks.DECODER_BLOCK, settings));
 
@@ -72,6 +74,7 @@ public class JAAVAAItems {
         //Adding BlockItems to main Block ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_REDSTONE).register(entries -> {
             entries.add(ADDER_ITEM);
+            entries.add(ADVANCED_REPEATER);
             entries.add(DECODER_ITEM);
         });
     }

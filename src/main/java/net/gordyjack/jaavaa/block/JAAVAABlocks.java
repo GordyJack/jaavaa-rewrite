@@ -24,6 +24,8 @@ public class JAAVAABlocks {
                     .luminance(state -> state.get(AdjustableRedstoneLampBlock.LUMINANCE))
                     .sounds(BlockSoundGroup.GLASS)
                     .strength(0.3F));
+    public static final Block ADVANCED_REPEATER_BLOCK = register("advanced_repeater",
+            AdvancedRepeaterBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER), false);
     public static final Block ALLOY_FURNACE = register("alloy_furnace",
             AlloyFurnaceBlock::new, AbstractBlock.Settings.create()
                     .luminance(state -> state.get(AlloyFurnaceBlock.LIT) ? 13 : 0)
@@ -51,6 +53,9 @@ public class JAAVAABlocks {
             Rarity.RARE);
     public static final Block QUARTZ_ENCASED_REDSTONE_PILLAR = register("quartz_encased_redstone_pillar",
             EncasedRedstoneBlock::new, AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
+    public static final Block WITHER_PROOF_GLASS = register("wither_proof_glass",
+            Block::new, AbstractBlock.Settings.copy(Blocks.GLASS)
+                    .strength(1.0F, 1200.0F));
 
     //Methods
     /**

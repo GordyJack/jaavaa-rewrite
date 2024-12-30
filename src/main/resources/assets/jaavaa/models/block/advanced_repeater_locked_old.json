@@ -1,0 +1,28 @@
+{
+  "parent": "jaavaa:block/advanced_repeater",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "jaavaa:block/advanced_repeater",
+    "slab": "jaavaa:block/smooth_polished_deepslate",
+    "top": "jaavaa:block/advanced_repeater",
+    "lock": "block/bedrock",
+    "unlit": "block/redstone_torch_off"
+  },
+  "elements": [
+    {
+      "from": [ 2, 2, 6 ],
+      "to": [ 14, 4, 8 ],
+      "faces": {
+        "up":    {
+          "uv": [ 7, 2, 9, 14 ],
+          "texture": "#lock",
+          "rotation": 90
+        },
+        "north": { "uv": [ 2, 7, 14,  9 ], "texture": "#lock" },
+        "south": { "uv": [ 2, 7, 14,  9 ], "texture": "#lock" },
+        "west":  { "uv": [ 6, 7,  8,  9 ], "texture": "#lock" },
+        "east":  { "uv": [ 6, 7,  8,  9 ], "texture": "#lock" }
+      }
+    }
+  ]
+}

@@ -10,6 +10,7 @@ import net.minecraft.item.*;
 import net.minecraft.recipe.book.*;
 import net.minecraft.registry.*;
 
+import java.util.*;
 import java.util.concurrent.*;
 
 public class CraftingRecipeProvider extends FabricRecipeProvider {
@@ -31,11 +32,20 @@ public class CraftingRecipeProvider extends FabricRecipeProvider {
                         .pattern(" D ")
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .offerTo(exporter);
+                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.ADVANCED_REPEATER)
+                        .input('R', Items.REDSTONE)
+                        .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
+                        .input('G', Items.REPEATER)
+                        .pattern(" R ")
+                        .pattern("RGR")
+                        .pattern(" D ")
+                        .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
+                        .offerTo(exporter);
                 ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAABlocks.ALLOY_FURNACE)
                         .input('I', Items.IRON_INGOT)
                         .input('B', Items.BLAST_FURNACE)
                         .input('N', Items.NETHERITE_INGOT)
-                        .input('D', Items.POLISHED_DEEPSLATE)
+                        .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
                         .pattern("IDI")
                         .pattern("DND")
                         .pattern("IBI")
@@ -66,6 +76,10 @@ public class CraftingRecipeProvider extends FabricRecipeProvider {
                         RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, "starsteel_ingot_from_nugget", "starsteel_ingot");
                 offerReversibleCompactingRecipesWithReverseRecipeGroup(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT,
                         RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STARSTEEL_BLOCK, "starsteel_ingot_from_block", "starsteel_ingot");
+                ArrayList<ItemConvertible> polishedDeepslate = new ArrayList<>();
+                polishedDeepslate.add(Items.POLISHED_DEEPSLATE);
+                offerSmelting(polishedDeepslate, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE,
+                        0.1F, 200, "smooth_polished_deepslate");
             }
         };
     }

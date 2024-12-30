@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "#jaavaa:deepslate_craftables",
+    "G": "minecraft:repeater",
+    "R": "minecraft:redstone"
+  },
+  "pattern": [
+    " R ",
+    "RGR",
+    " D "
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:advanced_repeater"
+  }
+}
