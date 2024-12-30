@@ -26,10 +26,8 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
     public CompletableFuture<?> run(DataWriter writer) {
         List<CompletableFuture<?>> returns = new ArrayList<>();
         List<JsonObject> models = createAdvancedRepeaterModels();
-        JAAVAA.log("Creating " + models.size() + " models for advanced_repeater...");
         for (JsonObject model : models) {
             String modelName = model.get("name").getAsString();
-            JAAVAA.log("Creating model: " + modelName);
             Path modelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName + ".json");
             returns.add(DataProvider.writeToPath(writer, GSON.toJsonTree(model), modelPath));
         }

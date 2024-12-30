@@ -1,28 +1,19 @@
 package net.gordyjack.jaavaa.block.custom;
 
-import com.google.common.collect.ImmutableMap;
-import com.mojang.datafixers.*;
 import com.mojang.serialization.*;
-import net.gordyjack.jaavaa.JAAVAA;
-import net.gordyjack.jaavaa.block.JAAVAABlockEntityTypes;
+import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.entity.*;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.*;
 import net.minecraft.particle.*;
-import net.minecraft.screen.*;
-import net.minecraft.server.world.*;
 import net.minecraft.sound.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.*;
-import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.*;
-import net.minecraft.world.block.WireOrientation;
-import net.minecraft.world.tick.ScheduledTickView;
+import net.minecraft.world.tick.*;
 import org.jetbrains.annotations.*;
-
-import java.util.function.Function;
 
 public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
     public static final MapCodec<AlloyFurnaceBlock> CODEC = createCodec(AlloyFurnaceBlock::new);
@@ -87,8 +78,6 @@ public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
         boolean upLava = world.getBlockState(pos.up()).isOf(Blocks.LAVA);
         boolean downLava = world.getBlockState(pos.down()).isOf(Blocks.LAVA);
         boolean lavaExists = northLava || southLava || eastLava || westLava || upLava || downLava;
-
-        JAAVAA.log("Block: getLitState: " + lavaExists);
 
         return lavaExists ? state.with(LIT, true) : state.with(LIT, false);
     }

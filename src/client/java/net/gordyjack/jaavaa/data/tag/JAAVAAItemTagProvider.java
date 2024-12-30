@@ -1,12 +1,12 @@
 package net.gordyjack.jaavaa.data.tag;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.*;
+import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.block.*;
-import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.item.*;
+import net.minecraft.registry.*;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.*;
 
 public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
     public JAAVAAItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {

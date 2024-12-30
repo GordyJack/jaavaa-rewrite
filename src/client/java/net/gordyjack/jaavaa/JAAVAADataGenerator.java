@@ -12,6 +12,7 @@ import net.minecraft.loot.context.*;
 
 public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider advancedRepeaterModelProvider;
+	public DataProvider blockLootTableProvider;
 	public DataProvider enUSProvider;
 	public DataProvider mobLootTableProvider;
 	public DataProvider modelProvider;
@@ -22,14 +23,17 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		
-		enUSProvider = pack.addProvider(ENUSProvider::new);
-		modelProvider = pack.addProvider(ModelProvider::new);
+		enUSProvider = pack.addProvider(JAAVAAenusProvider::new);
+		modelProvider = pack.addProvider(JAAVAAModelProvider::new);
 		advancedRepeaterModelProvider = pack.addProvider(AdvancedRepeaterModelProvider::new);
-		recipeProvider = pack.addProvider(CraftingRecipeProvider::new);
+		recipeProvider = pack.addProvider(JAAVAARecipeProvider::new);
 		tagBlockProvider = pack.addProvider(JAAVAABlockTagProvider::new);
 		tagItemProvider = pack.addProvider(JAAVAAItemTagProvider::new);
 
-		mobLootTableProvider = pack.addProvider((FabricDataGenerator.Pack.Factory<MobLootTableProvider>) output -> new MobLootTableProvider(
+		blockLootTableProvider = pack.addProvider((FabricDataGenerator.Pack.Factory<JAAVAABlockLootTableProvider>) output -> new JAAVAABlockLootTableProvider(
+				output,
+				fabricDataGenerator.getRegistries()));
+		mobLootTableProvider = pack.addProvider((FabricDataGenerator.Pack.Factory<JAAVAAMobLootTableProvider>) output -> new JAAVAAMobLootTableProvider(
 				output,
 				fabricDataGenerator.getRegistries(),
 				LootContextTypes.ENTITY));

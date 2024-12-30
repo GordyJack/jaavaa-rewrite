@@ -1,4 +1,7 @@
 // 1.21.4	-999999999-01-01T00:00:00	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
 3088693cf0974bd912dee2edbca907b15c8835dd data/jaavaa/tags/block/deepslate_craftables.json
-83676c65ec816d73ce5e3a0021bfe855376b0c65 data/minecraft/tags/block/mineable/pickaxe.json
-119dccfca11beb4a6560911e48651c766fe1511e data/minecraft/tags/block/needs_diamond_tool.json
+1e8a01876d6f6187c7ab6fdd676a4188e30ba80c data/minecraft/tags/block/beacon_base_blocks.json
+c94b1ccd955b150d0ff97e2d865f341f51bbe789 data/minecraft/tags/block/dragon_immune.json
+1a57654a6b2fe4e730e195962492416ea8433ee3 data/minecraft/tags/block/mineable/pickaxe.json
+c94b1ccd955b150d0ff97e2d865f341f51bbe789 data/minecraft/tags/block/needs_diamond_tool.json
+c94b1ccd955b150d0ff97e2d865f341f51bbe789 data/minecraft/tags/block/wither_immune.json

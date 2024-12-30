@@ -13,8 +13,8 @@ import net.minecraft.registry.*;
 import java.util.*;
 import java.util.concurrent.*;
 
-public class CraftingRecipeProvider extends FabricRecipeProvider {
-    public CraftingRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+public class JAAVAARecipeProvider extends FabricRecipeProvider {
+    public JAAVAARecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
     @Override
@@ -32,7 +32,7 @@ public class CraftingRecipeProvider extends FabricRecipeProvider {
                         .pattern(" D ")
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .offerTo(exporter);
-                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.ADVANCED_REPEATER)
+                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.ADVANCED_REPEATER_ITEM)
                         .input('R', Items.REDSTONE)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
                         .input('G', Items.REPEATER)

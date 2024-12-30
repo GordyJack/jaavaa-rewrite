@@ -49,13 +49,16 @@ public class JAAVAABlocks {
                     .mapColor(MapColor.WHITE_GRAY)
                     .requiresTool()
                     .sounds(BlockSoundGroup.METAL)
-                    .strength(50.0F, 1200.0F),
-            Rarity.RARE);
+                    .strength(50.0F, 1200.0F),false);
+    public static final Block STARSTEEL_GLASS = register("starsteel_glass",
+            Block::new, AbstractBlock.Settings.copy(Blocks.GLASS)
+                    .allowsSpawning(Blocks::never)
+                    .luminance(state -> 2)
+                    .mapColor(MapColor.WHITE_GRAY)
+                    .requiresTool()
+                    .strength(1.0F, 1200.0F), false);
     public static final Block QUARTZ_ENCASED_REDSTONE_PILLAR = register("quartz_encased_redstone_pillar",
             EncasedRedstoneBlock::new, AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
-    public static final Block WITHER_PROOF_GLASS = register("wither_proof_glass",
-            Block::new, AbstractBlock.Settings.copy(Blocks.GLASS)
-                    .strength(1.0F, 1200.0F));
 
     //Methods
     /**
@@ -121,7 +124,6 @@ public class JAAVAABlocks {
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKS).register(entries -> {
             entries.add(EXAMPLE_BLOCK);
             entries.add(SMOOTH_POLISHED_DEEPSLATE);
-            entries.add(STARSTEEL_BLOCK);
             entries.add(ALLOY_FURNACE);
         });
         //Adding Blocks to main Redstone ItemGroup

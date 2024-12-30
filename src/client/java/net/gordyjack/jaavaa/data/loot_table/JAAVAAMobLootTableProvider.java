@@ -14,9 +14,9 @@ import net.minecraft.util.context.*;
 import java.util.concurrent.*;
 import java.util.function.*;
 
-public class MobLootTableProvider extends SimpleFabricLootTableProvider {
+public class JAAVAAMobLootTableProvider extends SimpleFabricLootTableProvider {
     private final RegistryWrapper.WrapperLookup WRAPPER_LOOKUP;
-    public MobLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup, ContextType contextType) {
+    public JAAVAAMobLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup, ContextType contextType) {
         super(output, registryLookup, contextType);
         try {
             this.WRAPPER_LOOKUP = registryLookup.get();

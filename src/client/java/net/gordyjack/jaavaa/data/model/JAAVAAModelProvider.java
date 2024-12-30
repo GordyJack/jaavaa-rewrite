@@ -14,8 +14,8 @@ import net.minecraft.util.math.*;
 
 import java.util.*;
 
-public class ModelProvider extends FabricModelProvider {
-    public ModelProvider(FabricDataOutput output) {
+public class JAAVAAModelProvider extends FabricModelProvider {
+    public JAAVAAModelProvider(FabricDataOutput output) {
         super(output);
     }
     @Override

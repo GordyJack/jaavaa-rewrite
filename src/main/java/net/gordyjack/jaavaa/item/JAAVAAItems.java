@@ -3,8 +3,11 @@ package net.gordyjack.jaavaa.item;
 import net.fabricmc.fabric.api.itemgroup.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
+import net.minecraft.component.*;
+import net.minecraft.component.type.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
+import net.minecraft.registry.tag.*;
 import net.minecraft.util.*;
 
 import java.util.*;
@@ -12,22 +15,27 @@ import java.util.function.*;
 
 public class JAAVAAItems {
     public static final ArrayList<Item> ITEMS = new ArrayList<>();
+    private static final Item.Settings STARSTEEL_DEFAULT_SETTINGS = new Item.Settings().fireproof().rarity(Rarity.RARE).component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_EXPLOSION));
 
     //Items
     public static final Item ALLAY_ESSENCE = register("allay_essence",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
     public static final Item STARSTEEL_INGOT = register("starsteel_ingot",
-            Item::new, new Item.Settings().rarity(Rarity.RARE));
+            Item::new, STARSTEEL_DEFAULT_SETTINGS);
     public static final Item STARSTEEL_NUGGET = register("starsteel_nugget",
-            Item::new, new Item.Settings().rarity(Rarity.RARE));
-
+            Item::new, STARSTEEL_DEFAULT_SETTINGS);
+    //TODO: Add Starsteel weapons and items. I want to make it to where Starsteel items can't explode or burn. And possibly not despawn.
     //BlockItems
     public static final Item ADDER_ITEM = register("adder",
             settings -> new BlockItem(JAAVAABlocks.ADDER_BLOCK, settings));
-    public static final Item ADVANCED_REPEATER = register("advanced_repeater",
+    public static final Item ADVANCED_REPEATER_ITEM = register("advanced_repeater",
             settings -> new BlockItem(JAAVAABlocks.ADVANCED_REPEATER_BLOCK, settings));
     public static final Item DECODER_ITEM = register("decoder",
             settings -> new BlockItem(JAAVAABlocks.DECODER_BLOCK, settings));
+    public static final Item STARSTEEL_BLOCK_ITEM = register("starsteel_block",
+            settings -> new BlockItem(JAAVAABlocks.STARSTEEL_BLOCK, settings), STARSTEEL_DEFAULT_SETTINGS);
+    public static final Item STARSTEEL_GLASS_ITEM = register("starsteel_glass",
+            settings -> new BlockItem(JAAVAABlocks.STARSTEEL_GLASS, settings), STARSTEEL_DEFAULT_SETTINGS);
 
     //Methods
     /**
@@ -72,9 +80,14 @@ public class JAAVAAItems {
             entries.add(STARSTEEL_NUGGET);
         });
         //Adding BlockItems to main Block ItemGroup
+        ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKS).register(entries -> {
+            entries.add(STARSTEEL_BLOCK_ITEM);
+            entries.add(STARSTEEL_GLASS_ITEM);
+        });
+        //Adding redstone BlockItems to Redstone BlockItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_REDSTONE).register(entries -> {
             entries.add(ADDER_ITEM);
-            entries.add(ADVANCED_REPEATER);
+            entries.add(ADVANCED_REPEATER_ITEM);
             entries.add(DECODER_ITEM);
         });
     }

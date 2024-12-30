@@ -30,14 +30,14 @@ public class JAAVAA implements ModInitializer {
 		return Identifier.of(MOD_ID + ":" + path);
 	}
 	public static void log(String message) {
-		log(message, "info");
+		log(message, 'i');
 	}
-	public static void log(String message, String type) {
-        switch (type.toLowerCase()) {
-            case "info" -> LOGGER.info(message);
-			case "debug" -> LOGGER.debug(message);
-            case "warn" -> LOGGER.warn(message);
-            case "error" -> LOGGER.error(message);
+	public static void log(String message, char type) {
+        switch (type) {
+            case 'i' -> LOGGER.info(message);
+			case 'd' -> LOGGER.debug(message);
+            case 'w' -> LOGGER.warn(message);
+            case 'e' -> LOGGER.error(message);
             default -> throw new IllegalArgumentException("Invalid log type: " + type);
         }
 	}

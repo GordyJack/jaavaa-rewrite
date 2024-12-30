@@ -16,19 +16,32 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        //Mod Tags
         getOrCreateTagBuilder(JAAVAATags.Blocks.DEEPSLATE_CRAFTABLES).add(
                 Blocks.DEEPSLATE,
                 Blocks.POLISHED_DEEPSLATE,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE
         );
+        //Vanilla Tags
+        getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
+                JAAVAABlocks.STARSTEEL_BLOCK
+        );
+        getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE).add(
+                JAAVAABlocks.STARSTEEL_BLOCK,
+                JAAVAABlocks.STARSTEEL_GLASS
+        );
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE,
                 JAAVAABlocks.STARSTEEL_BLOCK,
-                JAAVAABlocks.WITHER_PROOF_GLASS
+                JAAVAABlocks.STARSTEEL_GLASS
         );
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(
                 JAAVAABlocks.STARSTEEL_BLOCK,
-                JAAVAABlocks.WITHER_PROOF_GLASS
+                JAAVAABlocks.STARSTEEL_GLASS
+        );
+        getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE).add(
+                JAAVAABlocks.STARSTEEL_BLOCK,
+                JAAVAABlocks.STARSTEEL_GLASS
         );
     }
 }

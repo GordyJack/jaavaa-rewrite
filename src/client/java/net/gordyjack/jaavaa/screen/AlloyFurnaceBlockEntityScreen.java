@@ -10,8 +10,6 @@ import net.minecraft.entity.player.*;
 import net.minecraft.text.*;
 import net.minecraft.util.*;
 
-import java.util.function.*;
-
 public class AlloyFurnaceBlockEntityScreen extends HandledScreen<AlloyFurnaceBlockEntityScreenHandler> {
     private static final int GUI_WIDTH = 176;
     private static final int GUI_HEIGHT = 181;
@@ -41,7 +39,6 @@ public class AlloyFurnaceBlockEntityScreen extends HandledScreen<AlloyFurnaceBlo
                 GUI_WIDTH, GUI_HEIGHT,
                 GUI_WIDTH, GUI_HEIGHT,
                 GUI_TEXTURE_SIZE, GUI_TEXTURE_SIZE);
-        JAAVAA.log("AlloyFurnaceBlockEntityScreen: drawBackground: " + handler.isLit());
         if (handler.isLit()) {
             context.drawGuiTexture(RenderLayer::getGuiTextured,
                     FLAME_TEXTURE,
