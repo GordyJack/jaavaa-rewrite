@@ -37,7 +37,7 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
     }
     @Override
     public String getName() {
-        return "";
+        return "advanced_repeater_model_provider";
     }
     private static List<JsonObject> createAdvancedRepeaterModels() {
         List<JsonObject> models = new ArrayList<>();
@@ -47,7 +47,7 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
         for (String modelName : modelNames) {
             JsonObject model = new JsonObject();
             model.addProperty("name", modelName);
-            model.addProperty("ambientOcclusion", false);
+            model.addProperty("ambientocclusion", false);
             model.addProperty("parent", "block");
             JsonObject textures = new JsonObject();
             textures.addProperty("side", JAAVAA.id("block/smooth_polished_deepslate").toString());
@@ -121,10 +121,10 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
         model.add("from", arrayOf(0, 0, 0));
         model.add("to", arrayOf(16, 2, 16));
         var faces = new JsonObject();
-        faces.add("north", createFace("#side","north", 0, 0, 16, 16, 0));
-        faces.add("south", createFace("#side","south", 0, 0, 16, 16, 0));
-        faces.add("west", createFace("#side","west", 0, 0, 16, 16, 0));
-        faces.add("east", createFace("#side","east", 0, 0, 16, 16, 0));
+        faces.add("north", createFace("#side","north", 0, 14, 16, 16, 0));
+        faces.add("south", createFace("#side","south", 0, 14, 16, 16, 0));
+        faces.add("west", createFace("#side","west", 0, 14, 16, 16, 0));
+        faces.add("east", createFace("#side","east", 0, 14, 16, 16, 0));
         faces.add("up", createFace("#top", null, 0, 0, 16, 16, 0));
         faces.add("down", createFace("#side", "down", 0, 0, 16, 16, 0));
         model.add("faces", faces);
@@ -135,12 +135,11 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
         model.add("from", arrayOf(2, 2, 7));
         model.add("to", arrayOf(14, 4, 9));
         JsonObject faces = new JsonObject();
-        faces.add("north", createFace("#lock", null, 2, 2, 14, 4, 0));
-        faces.add("south", createFace("#lock", null, 2, 2, 14, 4, 0));
-        faces.add("west", createFace("#lock", null, 2, 2, 14, 4, 0));
-        faces.add("east", createFace("#lock", null, 2, 2, 14, 4, 0));
-        faces.add("up", createFace("#lock", null, 2, 4, 14, 8, 0));
-        faces.add("down", createFace("#lock", null, 2, 4, 14, 8, 0));
+        faces.add("north", createFace("#lock", null, 2, 7, 14, 9, 0));
+        faces.add("south", createFace("#lock", null, 2, 7, 14, 9, 0));
+        faces.add("west", createFace("#lock", null, 6, 7, 8, 9, 0));
+        faces.add("east", createFace("#lock", null, 6, 7, 8, 9, 0));
+        faces.add("up", createFace("#lock", null, 7, 2, 9, 14, 90));
         model.add("faces", faces);
         return model;
     }
@@ -158,13 +157,15 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
         model.add("faces", faces);
         return model;
     }
-    //TODO: Fix the halos coordinates.
     private static List<JsonObject> createTorchModelHalos(float startX, float startZ) {
         List<JsonObject> models = new ArrayList<>();
 
+        float haloStartX = startX - 0.5f, haloStartY = 4.5f, haloStartZ = startZ - 0.5f;
+        float haloEndX = startX + 2.5f, haloEndY = haloStartY + 3.0f, haloEndZ = startZ + 2.5f;
+
         JsonObject upModel = new JsonObject();
-        upModel.add("from", arrayOf(startX - 0.5, 3.5, startZ - 0.5));
-        upModel.add("to", arrayOf(startX + 1.5, 4.5, startZ + 1.5));
+        upModel.add("from", arrayOf(haloStartX, haloStartY, haloStartZ));
+        upModel.add("to", arrayOf(haloEndX, haloStartY, haloEndZ));
         upModel.addProperty("shade", false);
         JsonObject upFace = new JsonObject();
         upFace.add("up", createFace("#torch", null, 8, 5, 9, 6, 0));
@@ -172,8 +173,8 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
         models.add(upModel);
 
         JsonObject downModel = new JsonObject();
-        downModel.add("from", arrayOf(startX - 0.5, 11.5, startZ - 0.5));
-        downModel.add("to", arrayOf(startX + 1.5, 12.5, startZ + 1.5));
+        downModel.add("from", arrayOf(haloStartX, haloEndY, haloStartZ));
+        downModel.add("to", arrayOf(haloEndX, haloEndY, haloEndZ));
         downModel.addProperty("shade", false);
         JsonObject downFace = new JsonObject();
         downFace.add("down", createFace("#torch", null, 8, 5, 9, 6, 0));
@@ -181,38 +182,38 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
         models.add(downModel);
 
         JsonObject northModel = new JsonObject();
-        northModel.add("from", arrayOf(startX - 0.5, 4.5, startZ - 0.5));
-        northModel.add("to", arrayOf(startX + 1.5, 11.5, startZ + 1.5));
+        northModel.add("from", arrayOf(haloStartX, haloStartY, haloStartZ));
+        northModel.add("to", arrayOf(haloEndX, haloEndY, haloStartZ));
         northModel.addProperty("shade", false);
         JsonObject northFace = new JsonObject();
-        northFace.add("north", createFace("#torch", null, 8, 5, 9, 6, 0));
+        northFace.add("south", createFace("#torch", null, 8, 5, 9, 6, 0));
         northModel.add("faces", northFace);
         models.add(northModel);
 
         JsonObject southModel = new JsonObject();
-        southModel.add("from", arrayOf(startX - 0.5, 4.5, startZ - 0.5));
-        southModel.add("to", arrayOf(startX + 1.5, 11.5, startZ + 1.5));
+        southModel.add("from", arrayOf(haloStartX, haloStartY, haloEndZ));
+        southModel.add("to", arrayOf(haloEndX, haloEndY, haloEndZ));
         southModel.addProperty("shade", false);
         JsonObject southFace = new JsonObject();
-        southFace.add("south", createFace("#torch", null, 8, 5, 9, 6, 0));
+        southFace.add("north", createFace("#torch", null, 8, 5, 9, 6, 0));
         southModel.add("faces", southFace);
         models.add(southModel);
 
         JsonObject westModel = new JsonObject();
-        westModel.add("from", arrayOf(startX - 0.5, 4.5, startZ - 0.5));
-        westModel.add("to", arrayOf(startX + 1.5, 11.5, startZ + 1.5));
+        westModel.add("from", arrayOf(haloStartX, haloStartY, haloStartZ));
+        westModel.add("to", arrayOf(haloStartX, haloEndY, haloEndZ));
         westModel.addProperty("shade", false);
         JsonObject westFace = new JsonObject();
-        westFace.add("west", createFace("#torch", null, 8, 5, 9, 6, 0));
+        westFace.add("east", createFace("#torch", null, 8, 5, 9, 6, 0));
         westModel.add("faces", westFace);
         models.add(westModel);
 
         JsonObject eastModel = new JsonObject();
-        eastModel.add("from", arrayOf(startX - 0.5, 4.5, startZ - 0.5));
-        eastModel.add("to", arrayOf(startX + 1.5, 11.5, startZ + 1.5));
+        eastModel.add("from", arrayOf(haloEndX, haloStartY, haloStartZ));
+        eastModel.add("to", arrayOf(haloEndX, haloEndY, haloEndZ));
         eastModel.addProperty("shade", false);
         JsonObject eastFace = new JsonObject();
-        eastFace.add("east", createFace("#torch", null, 8, 5, 9, 6, 0));
+        eastFace.add("west", createFace("#torch", null, 8, 5, 9, 6, 0));
         eastModel.add("faces", eastFace);
         models.add(eastModel);
 

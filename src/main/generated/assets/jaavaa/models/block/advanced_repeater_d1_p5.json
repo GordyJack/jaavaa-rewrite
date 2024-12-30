@@ -1,6 +1,6 @@
 {
   "parent": "block",
-  "ambientOcclusion": false,
+  "ambientocclusion": false,
   "elements": [
     {
       "faces": {
@@ -19,7 +19,7 @@
           "texture": "#side",
           "uv": [
             0,
-            0,
+            14,
             16,
             16
           ]
@@ -29,7 +29,7 @@
           "texture": "#side",
           "uv": [
             0,
-            0,
+            14,
             16,
             16
           ]
@@ -39,7 +39,7 @@
           "texture": "#side",
           "uv": [
             0,
-            0,
+            14,
             16,
             16
           ]
@@ -58,7 +58,7 @@
           "texture": "#side",
           "uv": [
             0,
-            0,
+            14,
             16,
             16
           ]

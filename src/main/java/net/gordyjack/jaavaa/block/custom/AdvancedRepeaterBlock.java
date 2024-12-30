@@ -16,6 +16,7 @@ import net.minecraft.world.*;
 import net.minecraft.world.tick.*;
 
 //This seems to be working as expected from testing. But I'm honestly not 100% sure if it is correct or not.
+//TODO: Redstone dust is connecting to the sides of the block not just input and output sides.
 public class AdvancedRepeaterBlock extends AbstractRedstoneGateBlock {
     public static final MapCodec<AdvancedRepeaterBlock> CODEC = AdvancedRepeaterBlock.createCodec(AdvancedRepeaterBlock::new);
     public static final BooleanProperty LOCKED = Properties.LOCKED;
