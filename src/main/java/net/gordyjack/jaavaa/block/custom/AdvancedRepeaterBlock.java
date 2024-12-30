@@ -44,10 +44,8 @@ public class AdvancedRepeaterBlock extends AbstractRedstoneGateBlock {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         World world = ctx.getWorld();
         BlockPos pos = ctx.getBlockPos();
-        BlockState blockState = this.getDefaultState();
-        return blockState
-                .with(FACING, ctx.getHorizontalPlayerFacing().getOpposite())
-                .with(LOCKED, this.isLocked(world, pos, blockState));
+        BlockState blockState = super.getPlacementState(ctx);
+        return blockState.with(LOCKED, this.isLocked(world, pos, blockState));
     }
     @Override
     protected boolean getSideInputFromGatesOnly() {
@@ -100,7 +98,7 @@ public class AdvancedRepeaterBlock extends AbstractRedstoneGateBlock {
         if (adjustPulse) {
             world.setBlockState(pos, state.cycle(PULSE), Block.NOTIFY_ALL);
         }
-        return ActionResult.SUCCESS_SERVER;
+        return ActionResult.SUCCESS;
     }
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
