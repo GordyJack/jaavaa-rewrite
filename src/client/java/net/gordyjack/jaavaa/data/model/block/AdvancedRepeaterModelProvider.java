@@ -67,10 +67,13 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
                 textures.addProperty("lock", Identifier.ofVanilla("block/bedrock").toString());
                 elements.add(repeaterLock);
             }
-            float initialX = 2.0f, pulseInitialZ = 3.0f, delayInitialZ = 11.0f, posFactor = 12.0f/6.0f;
-            float pulse = modelName.matches(".*_p[1-5].*") ?
+            int textureLength = 12, torchPositions = 8;
+            float initialX = 2.0f, pulseInitialZ = 3.0f, delayInitialZ = 11.0f;
+            float availableLength = textureLength - 2.0f;
+            float posFactor = availableLength / (torchPositions - 1);
+            float pulse = modelName.matches(".*_p[1-7].*") ?
                     Integer.parseInt(modelName.substring(modelName.indexOf("_p") + 2, modelName.indexOf("_p") + 3)) : 0;
-            float delay = modelName.matches(".*_d[1-5].*") ?
+            float delay = modelName.matches(".*_d[1-7].*") ?
                     Integer.parseInt(modelName.substring(modelName.indexOf("_d") + 2, modelName.indexOf("_d") + 3)) : 0;
             JsonObject pulseTorchModel = createTorchModel(initialX + (pulse * posFactor), pulseInitialZ);
             elements.add(pulseTorchModel);
