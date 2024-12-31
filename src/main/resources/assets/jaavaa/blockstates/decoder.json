@@ -1,19 +1,19 @@
 {
   "variants": {
     "facing=east,powered=false,mode=decode": {
-      "model": "jaavaa:block/decoder_decode",
+      "model": "jaavaa:block/decoder",
       "y": 270
     },
     "facing=north,powered=false,mode=decode": {
-      "model": "jaavaa:block/decoder_decode",
+      "model": "jaavaa:block/decoder",
       "y": 180
     },
     "facing=south,powered=false,mode=decode": {
-      "model": "jaavaa:block/decoder_decode",
+      "model": "jaavaa:block/decoder",
       "y": 0
     },
     "facing=west,powered=false,mode=decode": {
-      "model": "jaavaa:block/decoder_decode",
+      "model": "jaavaa:block/decoder",
       "y": 90
     },
     "facing=east,powered=false,mode=demux": {
@@ -33,51 +33,51 @@
       "y": 90
     },
     "facing=east,powered=true,mode=decode,target=left": {
-      "model": "jaavaa:block/decoder_on_decode_l",
+      "model": "jaavaa:block/decoder_on_l",
       "y": 270
     },
     "facing=north,powered=true,mode=decode,target=left": {
-      "model": "jaavaa:block/decoder_on_decode_l",
+      "model": "jaavaa:block/decoder_on_l",
       "y": 180
     },
     "facing=south,powered=true,mode=decode,target=left": {
-      "model": "jaavaa:block/decoder_on_decode_l",
+      "model": "jaavaa:block/decoder_on_l",
       "y": 0
     },
     "facing=west,powered=true,mode=decode,target=left": {
-      "model": "jaavaa:block/decoder_on_decode_l",
+      "model": "jaavaa:block/decoder_on_l",
       "y": 90
     },
     "facing=east,powered=true,mode=decode,target=front": {
-      "model": "jaavaa:block/decoder_on_decode_f",
+      "model": "jaavaa:block/decoder_on_f",
       "y": 270
     },
     "facing=north,powered=true,mode=decode,target=front": {
-      "model": "jaavaa:block/decoder_on_decode_f",
+      "model": "jaavaa:block/decoder_on_f",
       "y": 180
     },
     "facing=south,powered=true,mode=decode,target=front": {
-      "model": "jaavaa:block/decoder_on_decode_f",
+      "model": "jaavaa:block/decoder_on_f",
       "y": 0
     },
     "facing=west,powered=true,mode=decode,target=front": {
-      "model": "jaavaa:block/decoder_on_decode_f",
+      "model": "jaavaa:block/decoder_on_f",
       "y": 90
     },
     "facing=east,powered=true,mode=decode,target=right": {
-      "model": "jaavaa:block/decoder_on_decode_r",
+      "model": "jaavaa:block/decoder_on_r",
       "y": 270
     },
     "facing=north,powered=true,mode=decode,target=right": {
-      "model": "jaavaa:block/decoder_on_decode_r",
+      "model": "jaavaa:block/decoder_on_r",
       "y": 180
     },
     "facing=south,powered=true,mode=decode,target=right": {
-      "model": "jaavaa:block/decoder_on_decode_r",
+      "model": "jaavaa:block/decoder_on_r",
       "y": 0
     },
     "facing=west,powered=true,mode=decode,target=right": {
-      "model": "jaavaa:block/decoder_on_decode_r",
+      "model": "jaavaa:block/decoder_on_r",
       "y": 90
     },
     "facing=east,powered=true,mode=demux,target=left": {

@@ -16,7 +16,6 @@ import net.minecraft.world.*;
 import net.minecraft.world.tick.*;
 
 //This seems to be working as expected from testing. But I'm honestly not 100% sure if it is correct or not.
-//TODO: Redstone dust is connecting to the sides of the block not just input and output sides.
 public class AdvancedRepeaterBlock extends AbstractRedstoneGateBlock {
     public static final MapCodec<AdvancedRepeaterBlock> CODEC = AdvancedRepeaterBlock.createCodec(AdvancedRepeaterBlock::new);
     public static final BooleanProperty LOCKED = Properties.LOCKED;
@@ -76,6 +75,7 @@ public class AdvancedRepeaterBlock extends AbstractRedstoneGateBlock {
     public boolean isLocked(WorldView world, BlockPos pos, BlockState state) {
         return this.getMaxInputLevelSides(world, pos, state) > 0;
     }
+    //TODO: Some orientations adjust the delay and pulse flipped. This is not intended.
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!player.getAbilities().allowModifyWorld) {

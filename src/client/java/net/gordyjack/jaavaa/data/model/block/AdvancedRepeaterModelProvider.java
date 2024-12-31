@@ -45,8 +45,8 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
         for (String modelName : modelNames) {
             JsonObject model = new JsonObject();
             model.addProperty("name", modelName);
+            model.addProperty("parent", "block/thin_block");
             model.addProperty("ambientocclusion", false);
-            model.addProperty("parent", "block");
             JsonObject textures = new JsonObject();
             textures.addProperty("side", JAAVAA.id("block/smooth_polished_deepslate").toString());
             JsonArray elements = new JsonArray();

@@ -1,4 +1,5 @@
 {
+  "parent": "block/thin_block",
   "ambientocclusion": false,
   "textures": {
     "particle": "jaavaa:block/decoder_on_f",

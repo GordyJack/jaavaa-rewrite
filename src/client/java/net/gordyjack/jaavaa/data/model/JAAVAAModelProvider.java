@@ -40,9 +40,8 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
         for(Item item : JAAVAAItems.ITEMS) {
-            if (!(item instanceof BlockItem)) {
-                imGen.register(item, Models.GENERATED);
-            }
+            if (item instanceof BlockItem) continue;
+            imGen.register(item, Models.GENERATED);
         }
     }
     
