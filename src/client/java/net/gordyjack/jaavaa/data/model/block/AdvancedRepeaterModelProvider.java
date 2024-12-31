@@ -67,14 +67,20 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
                 textures.addProperty("lock", Identifier.ofVanilla("block/bedrock").toString());
                 elements.add(repeaterLock);
             }
-            int textureLength = 12, torchPositions = 8;
-            float initialX = 2.0f, pulseInitialZ = 3.0f, delayInitialZ = 11.0f;
-            float availableLength = textureLength - 2.0f;
-            float posFactor = availableLength / (torchPositions - 1);
-            float pulse = modelName.matches(".*_p[1-7].*") ?
+
+            int textureLength = 12; //The length of the area of the texture for the torch to move in pixels.
+            int torchWidth = 2; //The width of the torch in pixels.
+            int torchPositions = 8; //The number of positions the torch can be in.
+            float initialX = 2.0f; //The initial x position of the torches.
+            float pulseInitialZ = 3.0f; //The initial z position of the pulse torch.
+            float delayInitialZ = 11.0f; //The initial z position of the delay torch.
+            float availableLength = textureLength - torchWidth; //The available length for the torches to move.
+            float posFactor = availableLength / (torchPositions - 1); //The factor to multiply the position by to get the x position.
+            float pulse = modelName.matches(".*_p[1-7].*") ? //Gets the position index of the pulse torch from the model name.
                     Integer.parseInt(modelName.substring(modelName.indexOf("_p") + 2, modelName.indexOf("_p") + 3)) : 0;
-            float delay = modelName.matches(".*_d[1-7].*") ?
+            float delay = modelName.matches(".*_d[1-7].*") ? //Gets the position index of the delay torch from the model name.
                     Integer.parseInt(modelName.substring(modelName.indexOf("_d") + 2, modelName.indexOf("_d") + 3)) : 0;
+
             JsonObject pulseTorchModel = createTorchModel(initialX + (pulse * posFactor), pulseInitialZ);
             elements.add(pulseTorchModel);
             if (powered) {
