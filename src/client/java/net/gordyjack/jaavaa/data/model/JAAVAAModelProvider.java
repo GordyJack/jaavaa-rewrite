@@ -26,11 +26,11 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
 
-        //TODO: Add state generation for Adder and Decoder here. Add custom model generation for the Adder, Decoder, and Adjustable Lamp similar to the Advanced Repeater.
-        bsmGen.blockStateCollector.accept(generateAdderState(JAAVAABlocks.ADDER_BLOCK, "adder"));
-        bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, "adjustable_redstone_lamp"));
-        bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState(JAAVAABlocks.ADVANCED_REPEATER_BLOCK, "advanced_repeater"));
-        bsmGen.blockStateCollector.accept(generateDecoderState(JAAVAABlocks.DECODER_BLOCK, "decoder"));
+        //TODO:Add custom model generation for the Adder, Decoder, and Adjustable Lamp similar to the Advanced Repeater.
+        bsmGen.blockStateCollector.accept(generateAdderState());
+        bsmGen.blockStateCollector.accept(generateAdjustableState());
+        bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState());
+        bsmGen.blockStateCollector.accept(generateDecoderState());
 
         registerEncasedPillarModel(bsmGen, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR,
                 Identifier.ofVanilla("block/quartz_pillar"),
@@ -48,8 +48,8 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             imGen.register(item, Models.GENERATED);
         }
     }
-    private VariantsBlockStateSupplier generateAdderState(Block block, String name) {
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);
+    private VariantsBlockStateSupplier generateAdderState() {
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADDER_BLOCK);
         BlockStateVariantMap.QuintupleProperty<Direction, Boolean, Boolean, Boolean, Boolean> variantMap =
                 BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, JAAVAABlockProperties.LEFT_POWERED, JAAVAABlockProperties.BACK_POWERED, JAAVAABlockProperties.RIGHT_POWERED);
         for (Direction facing : Properties.HORIZONTAL_FACING.getValues()) {
@@ -57,7 +57,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                 for (var left : JAAVAABlockProperties.LEFT_POWERED.getValues()) {
                     for (var back : JAAVAABlockProperties.BACK_POWERED.getValues()) {
                         for (var right : JAAVAABlockProperties.RIGHT_POWERED.getValues()) {
-                            String idPath = "block/" + name;
+                            String idPath = "block/adder";
                             if (powered && (left || back || right)) {
                                 idPath += "_on_";
                                 if (left) idPath += "l";
@@ -83,9 +83,9 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         }
         return variantSupplier.coordinate(variantMap);
     }
-    private VariantsBlockStateSupplier generateAdjustableState(Block block, String name) {
-        String idPath = "block/" + name;
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);
+    private VariantsBlockStateSupplier generateAdjustableState() {
+        String idPath = "block/adjustable_redstone_lamp";
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP);
         BlockStateVariantMap.SingleProperty<Integer> variantMap = BlockStateVariantMap.create(JAAVAABlockProperties.LUMINANCE);
         
         for (int luminance = 0; luminance <= 15; luminance++) {
@@ -95,8 +95,8 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         }
         return variantSupplier.coordinate(variantMap);
     }
-    private VariantsBlockStateSupplier generateAdvancedRepeaterState(Block block, String name) {
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);
+    private VariantsBlockStateSupplier generateAdvancedRepeaterState() {
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADVANCED_REPEATER_BLOCK);
         BlockStateVariantMap.QuintupleProperty<Direction, Boolean, Boolean, Integer, Integer> variantMap =
                 BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, Properties.LOCKED, JAAVAABlockProperties.DELAY, JAAVAABlockProperties.PULSE);
 
@@ -108,7 +108,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                 for (boolean locked : new boolean[] {false, true}) {
                     for (int delay = delays.getFirst(); delay <= delays.getLast(); delay++) {
                         for (int pulse = pulses.getFirst(); pulse <= pulses.getLast(); pulse++) {
-                            String idPath = "block/" + name;
+                            String idPath = "block/advanced_repeater";
                             if (locked) {
                                 idPath += "_locked";
                             }
@@ -140,8 +140,8 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         }
         return variantSupplier.coordinate(variantMap);
     }
-    private VariantsBlockStateSupplier generateDecoderState(Block block, String name) {
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);
+    private VariantsBlockStateSupplier generateDecoderState() {
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.DECODER_BLOCK);
         BlockStateVariantMap.QuadrupleProperty<Direction, Boolean, DecoderMode, DecoderTarget> variantMap =
                 BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, JAAVAABlockProperties.DECODER_MODE, JAAVAABlockProperties.DECODER_TARGET);
 
@@ -149,7 +149,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             for (boolean powered : Properties.POWERED.getValues()) {
                 for (DecoderMode mode : JAAVAABlockProperties.DECODER_MODE.getValues()) {
                     for (DecoderTarget target : JAAVAABlockProperties.DECODER_TARGET.getValues()) {
-                        String idPath = "block/" + name;
+                        String idPath = "block/decoder";
                         if (powered) idPath += "_on";
                         if (mode == DecoderMode.DEMUX) idPath += "_demux";
                         if (powered) idPath += switch (target) {
