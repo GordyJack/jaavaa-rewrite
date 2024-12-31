@@ -75,7 +75,6 @@ public class AdvancedRepeaterBlock extends AbstractRedstoneGateBlock {
     public boolean isLocked(WorldView world, BlockPos pos, BlockState state) {
         return this.getMaxInputLevelSides(world, pos, state) > 0;
     }
-    //TODO: Some orientations adjust the delay and pulse flipped. This is not intended.
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!player.getAbilities().allowModifyWorld) {
@@ -86,9 +85,9 @@ public class AdvancedRepeaterBlock extends AbstractRedstoneGateBlock {
         double zPos = hit.getPos().z - pos.getZ();
         boolean adjustDelay = switch (facing) {
             case NORTH -> zPos <= 0.5;
-            case SOUTH -> zPos >= 0.5;
-            case WEST -> xPos >= 0.5;
-            case EAST -> xPos <= 0.5;
+            case SOUTH -> zPos > 0.5;
+            case WEST -> xPos <= 0.5;
+            case EAST -> xPos > 0.5;
             default -> false;
         };
         boolean adjustPulse = !adjustDelay;
