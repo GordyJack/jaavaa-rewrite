@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class AdvancedRepeaterModelProvider implements DataProvider {
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson GSON = new GsonBuilder().create();
     private final FabricDataOutput OUTPUT;
 
     private static final JsonObject base = createRepeaterBaseModel();
@@ -35,7 +35,7 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
     }
     @Override
     public String getName() {
-        return "advanced_repeater_model_provider";
+        return "Advanced Repeater Model Provider";
     }
     private static List<JsonObject> createAdvancedRepeaterModels() {
         List<JsonObject> models = new ArrayList<>();
