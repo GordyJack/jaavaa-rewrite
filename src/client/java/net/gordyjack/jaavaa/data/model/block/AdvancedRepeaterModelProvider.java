@@ -13,7 +13,6 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class AdvancedRepeaterModelProvider implements DataProvider {
-    private static final Gson GSON = new GsonBuilder().create();
     private final FabricDataOutput OUTPUT;
 
     private static final JsonObject base = createRepeaterBaseModel();
@@ -29,7 +28,7 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
         for (JsonObject model : models) {
             String modelName = model.get("name").getAsString();
             Path modelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName + ".json");
-            returns.add(DataProvider.writeToPath(writer, GSON.toJsonTree(model), modelPath));
+            returns.add(DataProvider.writeToPath(writer, model, modelPath));
         }
         return CompletableFuture.allOf(returns.toArray(CompletableFuture[]::new));
     }
@@ -48,6 +47,7 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
             model.addProperty("name", modelName); //The name of the model. Unused by the game, just for organization.
             model.addProperty("parent", "block/thin_block"); //The parent model to inherit from. Enables using a 3d model as the item model.
             model.addProperty("ambientocclusion", false);
+
             //Provide textures for the models.
             JsonObject textures = new JsonObject();
             textures.addProperty("side", JAAVAA.id("block/smooth_polished_deepslate").toString());
@@ -61,14 +61,18 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
                 textures.addProperty("top", JAAVAA.id("block/" + name).toString());
                 textures.addProperty("torch", Identifier.ofVanilla("block/redstone_torch_off").toString());
             }
-            JsonArray elements = new JsonArray(); //The elements that make up the model.
+
+            //Creates the elements for the model.
+            JsonArray elements = new JsonArray();
             elements.add(base);
+
             //Provides models and textures if locked.
             if (modelName.contains("_locked")) {
                 textures.addProperty("lock", Identifier.ofVanilla("block/bedrock").toString());
                 elements.add(repeaterLock);
             }
 
+            //Torch maths.
             int textureLength = 12; //The length of the area of the texture for the torch to move in pixels.
             int torchWidth = 2; //The width of the torch in pixels.
             int torchPositions = 8; //The number of positions the torch can be in.
@@ -84,8 +88,10 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
 
             JsonObject pulseTorchModel = createTorchModel(initialX + (pulse * posFactor), pulseInitialZ);
             elements.add(pulseTorchModel);
+
             JsonObject delayTorchModel = createTorchModel(initialX + (delay * posFactor), delayInitialZ);
             elements.add(delayTorchModel);
+
             if (powered) {
                 List<JsonObject> pulseHalos = createTorchModelHalos(initialX + (pulse * posFactor), pulseInitialZ);
                 for (var halo : pulseHalos) {
