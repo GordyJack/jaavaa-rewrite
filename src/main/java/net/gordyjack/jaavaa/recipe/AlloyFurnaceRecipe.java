@@ -1,23 +1,16 @@
 package net.gordyjack.jaavaa.recipe;
 
-import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.sun.jdi.connect.Connector;
-import net.gordyjack.jaavaa.JAAVAA;
-import net.minecraft.command.argument.serialize.IntegerArgumentSerializer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.codec.PacketCodecs;
+import com.mojang.serialization.*;
+import com.mojang.serialization.codecs.*;
+import net.minecraft.item.*;
+import net.minecraft.network.*;
+import net.minecraft.network.codec.*;
 import net.minecraft.recipe.*;
-import net.minecraft.recipe.book.RecipeBookCategory;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.world.World;
+import net.minecraft.recipe.book.*;
+import net.minecraft.registry.*;
+import net.minecraft.world.*;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public record AlloyFurnaceRecipe(int burnTime, float experience, ItemStack inputStack1, ItemStack inputStack2, ItemStack output)
         implements Recipe<AlloyFurnaceRecipeInput> {
@@ -33,37 +26,31 @@ public record AlloyFurnaceRecipe(int burnTime, float experience, ItemStack input
 
     @Override
     public ItemStack craft(AlloyFurnaceRecipeInput input, RegistryWrapper.WrapperLookup registries) {
-        ItemStack result = output.copy();
-        return result;
+        return output.copy();
     }
 
     @Override
     public RecipeSerializer<? extends Recipe<AlloyFurnaceRecipeInput>> getSerializer() {
-        RecipeSerializer<? extends Recipe<AlloyFurnaceRecipeInput>> serializer = JAAVAARecipes.ALLOY_FURNACE_RECIPE_SERIALIZER;
-        return serializer;
+        return JAAVAARecipes.ALLOY_FURNACE_RECIPE_SERIALIZER;
     }
 
     @Override
     public RecipeType<? extends Recipe<AlloyFurnaceRecipeInput>> getType() {
-        RecipeType<? extends Recipe<AlloyFurnaceRecipeInput>> type = JAAVAARecipes.ALLOY_FURNACE_RECIPE_TYPE;
-        return type;
+        return JAAVAARecipes.ALLOY_FURNACE_RECIPE_TYPE;
     }
 
     @Override
     public IngredientPlacement getIngredientPlacement() {
-        IngredientPlacement placement = IngredientPlacement.forMultipleSlots(List.of(Optional.of(Ingredient.ofItem(inputStack1.getItem())), Optional.of(Ingredient.ofItem(inputStack2.getItem()))));
-        return placement;
+        return IngredientPlacement.forMultipleSlots(List.of(Optional.of(Ingredient.ofItem(inputStack1.getItem())), Optional.of(Ingredient.ofItem(inputStack2.getItem()))));
     }
 
     @Override
     public RecipeBookCategory getRecipeBookCategory() {
-        RecipeBookCategory category = JAAVAARecipes.ALLOY_FURNACE_RECIPE_CATEGORY;
-        return category;
+        return JAAVAARecipes.ALLOY_FURNACE_RECIPE_CATEGORY;
     }
 
     public ItemStack getResult() {
-        ItemStack result = output;
-        return result;
+        return output;
     }
 
     public static class Serializer implements RecipeSerializer<AlloyFurnaceRecipe> {
