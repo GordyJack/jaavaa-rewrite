@@ -1,0 +1,260 @@
+{
+  "variants": {
+    "facing=east,mode=decode,powered=false,target=front": {
+      "model": "jaavaa:block/decoder",
+      "y": 270
+    },
+    "facing=east,mode=decode,powered=false,target=left": {
+      "model": "jaavaa:block/decoder",
+      "y": 270
+    },
+    "facing=east,mode=decode,powered=false,target=none": {
+      "model": "jaavaa:block/decoder",
+      "y": 270
+    },
+    "facing=east,mode=decode,powered=false,target=right": {
+      "model": "jaavaa:block/decoder",
+      "y": 270
+    },
+    "facing=east,mode=decode,powered=true,target=front": {
+      "model": "jaavaa:block/decoder_on_f",
+      "y": 270
+    },
+    "facing=east,mode=decode,powered=true,target=left": {
+      "model": "jaavaa:block/decoder_on_l",
+      "y": 270
+    },
+    "facing=east,mode=decode,powered=true,target=none": {
+      "model": "jaavaa:block/decoder_on",
+      "y": 270
+    },
+    "facing=east,mode=decode,powered=true,target=right": {
+      "model": "jaavaa:block/decoder_on_r",
+      "y": 270
+    },
+    "facing=east,mode=demux,powered=false,target=front": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 270
+    },
+    "facing=east,mode=demux,powered=false,target=left": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 270
+    },
+    "facing=east,mode=demux,powered=false,target=none": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 270
+    },
+    "facing=east,mode=demux,powered=false,target=right": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 270
+    },
+    "facing=east,mode=demux,powered=true,target=front": {
+      "model": "jaavaa:block/decoder_on_demux_f",
+      "y": 270
+    },
+    "facing=east,mode=demux,powered=true,target=left": {
+      "model": "jaavaa:block/decoder_on_demux_l",
+      "y": 270
+    },
+    "facing=east,mode=demux,powered=true,target=none": {
+      "model": "jaavaa:block/decoder_on_demux",
+      "y": 270
+    },
+    "facing=east,mode=demux,powered=true,target=right": {
+      "model": "jaavaa:block/decoder_on_demux_r",
+      "y": 270
+    },
+    "facing=north,mode=decode,powered=false,target=front": {
+      "model": "jaavaa:block/decoder",
+      "y": 180
+    },
+    "facing=north,mode=decode,powered=false,target=left": {
+      "model": "jaavaa:block/decoder",
+      "y": 180
+    },
+    "facing=north,mode=decode,powered=false,target=none": {
+      "model": "jaavaa:block/decoder",
+      "y": 180
+    },
+    "facing=north,mode=decode,powered=false,target=right": {
+      "model": "jaavaa:block/decoder",
+      "y": 180
+    },
+    "facing=north,mode=decode,powered=true,target=front": {
+      "model": "jaavaa:block/decoder_on_f",
+      "y": 180
+    },
+    "facing=north,mode=decode,powered=true,target=left": {
+      "model": "jaavaa:block/decoder_on_l",
+      "y": 180
+    },
+    "facing=north,mode=decode,powered=true,target=none": {
+      "model": "jaavaa:block/decoder_on",
+      "y": 180
+    },
+    "facing=north,mode=decode,powered=true,target=right": {
+      "model": "jaavaa:block/decoder_on_r",
+      "y": 180
+    },
+    "facing=north,mode=demux,powered=false,target=front": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 180
+    },
+    "facing=north,mode=demux,powered=false,target=left": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 180
+    },
+    "facing=north,mode=demux,powered=false,target=none": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 180
+    },
+    "facing=north,mode=demux,powered=false,target=right": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 180
+    },
+    "facing=north,mode=demux,powered=true,target=front": {
+      "model": "jaavaa:block/decoder_on_demux_f",
+      "y": 180
+    },
+    "facing=north,mode=demux,powered=true,target=left": {
+      "model": "jaavaa:block/decoder_on_demux_l",
+      "y": 180
+    },
+    "facing=north,mode=demux,powered=true,target=none": {
+      "model": "jaavaa:block/decoder_on_demux",
+      "y": 180
+    },
+    "facing=north,mode=demux,powered=true,target=right": {
+      "model": "jaavaa:block/decoder_on_demux_r",
+      "y": 180
+    },
+    "facing=south,mode=decode,powered=false,target=front": {
+      "model": "jaavaa:block/decoder",
+      "y": 0
+    },
+    "facing=south,mode=decode,powered=false,target=left": {
+      "model": "jaavaa:block/decoder",
+      "y": 0
+    },
+    "facing=south,mode=decode,powered=false,target=none": {
+      "model": "jaavaa:block/decoder",
+      "y": 0
+    },
+    "facing=south,mode=decode,powered=false,target=right": {
+      "model": "jaavaa:block/decoder",
+      "y": 0
+    },
+    "facing=south,mode=decode,powered=true,target=front": {
+      "model": "jaavaa:block/decoder_on_f",
+      "y": 0
+    },
+    "facing=south,mode=decode,powered=true,target=left": {
+      "model": "jaavaa:block/decoder_on_l",
+      "y": 0
+    },
+    "facing=south,mode=decode,powered=true,target=none": {
+      "model": "jaavaa:block/decoder_on",
+      "y": 0
+    },
+    "facing=south,mode=decode,powered=true,target=right": {
+      "model": "jaavaa:block/decoder_on_r",
+      "y": 0
+    },
+    "facing=south,mode=demux,powered=false,target=front": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 0
+    },
+    "facing=south,mode=demux,powered=false,target=left": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 0
+    },
+    "facing=south,mode=demux,powered=false,target=none": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 0
+    },
+    "facing=south,mode=demux,powered=false,target=right": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 0
+    },
+    "facing=south,mode=demux,powered=true,target=front": {
+      "model": "jaavaa:block/decoder_on_demux_f",
+      "y": 0
+    },
+    "facing=south,mode=demux,powered=true,target=left": {
+      "model": "jaavaa:block/decoder_on_demux_l",
+      "y": 0
+    },
+    "facing=south,mode=demux,powered=true,target=none": {
+      "model": "jaavaa:block/decoder_on_demux",
+      "y": 0
+    },
+    "facing=south,mode=demux,powered=true,target=right": {
+      "model": "jaavaa:block/decoder_on_demux_r",
+      "y": 0
+    },
+    "facing=west,mode=decode,powered=false,target=front": {
+      "model": "jaavaa:block/decoder",
+      "y": 90
+    },
+    "facing=west,mode=decode,powered=false,target=left": {
+      "model": "jaavaa:block/decoder",
+      "y": 90
+    },
+    "facing=west,mode=decode,powered=false,target=none": {
+      "model": "jaavaa:block/decoder",
+      "y": 90
+    },
+    "facing=west,mode=decode,powered=false,target=right": {
+      "model": "jaavaa:block/decoder",
+      "y": 90
+    },
+    "facing=west,mode=decode,powered=true,target=front": {
+      "model": "jaavaa:block/decoder_on_f",
+      "y": 90
+    },
+    "facing=west,mode=decode,powered=true,target=left": {
+      "model": "jaavaa:block/decoder_on_l",
+      "y": 90
+    },
+    "facing=west,mode=decode,powered=true,target=none": {
+      "model": "jaavaa:block/decoder_on",
+      "y": 90
+    },
+    "facing=west,mode=decode,powered=true,target=right": {
+      "model": "jaavaa:block/decoder_on_r",
+      "y": 90
+    },
+    "facing=west,mode=demux,powered=false,target=front": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 90
+    },
+    "facing=west,mode=demux,powered=false,target=left": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 90
+    },
+    "facing=west,mode=demux,powered=false,target=none": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 90
+    },
+    "facing=west,mode=demux,powered=false,target=right": {
+      "model": "jaavaa:block/decoder_demux",
+      "y": 90
+    },
+    "facing=west,mode=demux,powered=true,target=front": {
+      "model": "jaavaa:block/decoder_on_demux_f",
+      "y": 90
+    },
+    "facing=west,mode=demux,powered=true,target=left": {
+      "model": "jaavaa:block/decoder_on_demux_l",
+      "y": 90
+    },
+    "facing=west,mode=demux,powered=true,target=none": {
+      "model": "jaavaa:block/decoder_on_demux",
+      "y": 90
+    },
+    "facing=west,mode=demux,powered=true,target=right": {
+      "model": "jaavaa:block/decoder_on_demux_r",
+      "y": 90
+    }
+  }
+}

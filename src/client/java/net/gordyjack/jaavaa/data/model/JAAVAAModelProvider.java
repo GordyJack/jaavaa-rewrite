@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.*;
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.enums.*;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.block.*;
 import net.minecraft.client.data.*;
@@ -28,6 +29,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         //TODO: Add state generation for Adder and Decoder here. Add custom model generation for the Adder, Decoder, and Adjustable Lamp similar to the Advanced Repeater.
         bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, "adjustable_redstone_lamp"));
         bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState(JAAVAABlocks.ADVANCED_REPEATER_BLOCK, "advanced_repeater"));
+        bsmGen.blockStateCollector.accept(generateDecoderState(JAAVAABlocks.DECODER_BLOCK, "decoder"));
 
         registerEncasedPillarModel(bsmGen, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR,
                 Identifier.ofVanilla("block/quartz_pillar"),
@@ -97,6 +99,42 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                                     .put(VariantSettings.Y, yRotation);
                             variantMap.register(facing, powered, locked, delay, pulse, variant);
                         }
+                    }
+                }
+            }
+        }
+        return variantSupplier.coordinate(variantMap);
+    }
+    private VariantsBlockStateSupplier generateDecoderState(Block block, String name) {
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);
+        BlockStateVariantMap.QuadrupleProperty<Direction, Boolean, DecoderMode, DecoderTarget> variantMap =
+                BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, JAAVAABlockProperties.DECODER_MODE, JAAVAABlockProperties.DECODER_TARGET);
+
+        for (Direction facing : Properties.HORIZONTAL_FACING.getValues()) {
+            for (boolean powered : Properties.POWERED.getValues()) {
+                for (DecoderMode mode : JAAVAABlockProperties.DECODER_MODE.getValues()) {
+                    for (DecoderTarget target : JAAVAABlockProperties.DECODER_TARGET.getValues()) {
+                        String idPath = "block/" + name;
+                        if (powered) idPath += "_on";
+                        if (mode == DecoderMode.DEMUX) idPath += "_demux";
+                        if (powered) idPath += switch (target) {
+                            case LEFT -> "_l";
+                            case FRONT -> "_f";
+                            case RIGHT -> "_r";
+                            default -> "";
+                        };
+                        Identifier modelId = JAAVAA.id(idPath);
+                        VariantSettings.Rotation yRotation = switch (facing) {
+                            case NORTH -> VariantSettings.Rotation.R180;
+                            case SOUTH -> VariantSettings.Rotation.R0;
+                            case WEST -> VariantSettings.Rotation.R90;
+                            case EAST -> VariantSettings.Rotation.R270;
+                            default -> throw new IllegalStateException("Unexpected value: " + facing);
+                        };
+                        BlockStateVariant variant = BlockStateVariant.create()
+                                .put(VariantSettings.MODEL, modelId)
+                                .put(VariantSettings.Y, yRotation);
+                        variantMap.register(facing, powered, mode, target, variant);
                     }
                 }
             }
