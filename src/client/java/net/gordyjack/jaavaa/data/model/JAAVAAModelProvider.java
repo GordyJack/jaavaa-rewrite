@@ -27,6 +27,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
 
         //TODO: Add state generation for Adder and Decoder here. Add custom model generation for the Adder, Decoder, and Adjustable Lamp similar to the Advanced Repeater.
+        bsmGen.blockStateCollector.accept(generateAdderState(JAAVAABlocks.ADDER_BLOCK, "adder"));
         bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, "adjustable_redstone_lamp"));
         bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState(JAAVAABlocks.ADVANCED_REPEATER_BLOCK, "advanced_repeater"));
         bsmGen.blockStateCollector.accept(generateDecoderState(JAAVAABlocks.DECODER_BLOCK, "decoder"));
@@ -47,7 +48,41 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             imGen.register(item, Models.GENERATED);
         }
     }
-    
+    private VariantsBlockStateSupplier generateAdderState(Block block, String name) {
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);
+        BlockStateVariantMap.QuintupleProperty<Direction, Boolean, Boolean, Boolean, Boolean> variantMap =
+                BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, JAAVAABlockProperties.LEFT_POWERED, JAAVAABlockProperties.BACK_POWERED, JAAVAABlockProperties.RIGHT_POWERED);
+        for (Direction facing : Properties.HORIZONTAL_FACING.getValues()) {
+            for (boolean powered : Properties.POWERED.getValues()) {
+                for (var left : JAAVAABlockProperties.LEFT_POWERED.getValues()) {
+                    for (var back : JAAVAABlockProperties.BACK_POWERED.getValues()) {
+                        for (var right : JAAVAABlockProperties.RIGHT_POWERED.getValues()) {
+                            String idPath = "block/" + name;
+                            if (powered && (left || back || right)) {
+                                idPath += "_on_";
+                                if (left) idPath += "l";
+                                if (back) idPath += "b";
+                                if (right) idPath += "r";
+                            }
+                            Identifier modelId = JAAVAA.id(idPath);
+                            VariantSettings.Rotation yRotation = switch (facing) {
+                                case NORTH -> VariantSettings.Rotation.R180;
+                                case SOUTH -> VariantSettings.Rotation.R0;
+                                case WEST -> VariantSettings.Rotation.R90;
+                                case EAST -> VariantSettings.Rotation.R270;
+                                default -> throw new IllegalStateException("Unexpected value: " + facing);
+                            };
+                            BlockStateVariant variant = BlockStateVariant.create()
+                                    .put(VariantSettings.MODEL, modelId)
+                                    .put(VariantSettings.Y, yRotation);
+                            variantMap.register(facing, powered, left, back, right, variant);
+                        }
+                    }
+                }
+            }
+        }
+        return variantSupplier.coordinate(variantMap);
+    }
     private VariantsBlockStateSupplier generateAdjustableState(Block block, String name) {
         String idPath = "block/" + name;
         VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);

@@ -1,0 +1,260 @@
+{
+  "variants": {
+    "back_powered=false,facing=east,left_powered=false,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "back_powered=false,facing=east,left_powered=false,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "back_powered=false,facing=east,left_powered=false,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "back_powered=false,facing=east,left_powered=false,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_r",
+      "y": 270
+    },
+    "back_powered=false,facing=east,left_powered=true,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "back_powered=false,facing=east,left_powered=true,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "back_powered=false,facing=east,left_powered=true,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_l",
+      "y": 270
+    },
+    "back_powered=false,facing=east,left_powered=true,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_lr",
+      "y": 270
+    },
+    "back_powered=false,facing=north,left_powered=false,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "back_powered=false,facing=north,left_powered=false,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "back_powered=false,facing=north,left_powered=false,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "back_powered=false,facing=north,left_powered=false,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_r",
+      "y": 180
+    },
+    "back_powered=false,facing=north,left_powered=true,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "back_powered=false,facing=north,left_powered=true,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "back_powered=false,facing=north,left_powered=true,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_l",
+      "y": 180
+    },
+    "back_powered=false,facing=north,left_powered=true,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_lr",
+      "y": 180
+    },
+    "back_powered=false,facing=south,left_powered=false,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "back_powered=false,facing=south,left_powered=false,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "back_powered=false,facing=south,left_powered=false,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "back_powered=false,facing=south,left_powered=false,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_r",
+      "y": 0
+    },
+    "back_powered=false,facing=south,left_powered=true,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "back_powered=false,facing=south,left_powered=true,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "back_powered=false,facing=south,left_powered=true,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_l",
+      "y": 0
+    },
+    "back_powered=false,facing=south,left_powered=true,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_lr",
+      "y": 0
+    },
+    "back_powered=false,facing=west,left_powered=false,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "back_powered=false,facing=west,left_powered=false,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "back_powered=false,facing=west,left_powered=false,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "back_powered=false,facing=west,left_powered=false,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_r",
+      "y": 90
+    },
+    "back_powered=false,facing=west,left_powered=true,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "back_powered=false,facing=west,left_powered=true,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "back_powered=false,facing=west,left_powered=true,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_l",
+      "y": 90
+    },
+    "back_powered=false,facing=west,left_powered=true,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_lr",
+      "y": 90
+    },
+    "back_powered=true,facing=east,left_powered=false,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "back_powered=true,facing=east,left_powered=false,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "back_powered=true,facing=east,left_powered=false,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_b",
+      "y": 270
+    },
+    "back_powered=true,facing=east,left_powered=false,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_br",
+      "y": 270
+    },
+    "back_powered=true,facing=east,left_powered=true,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "back_powered=true,facing=east,left_powered=true,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 270
+    },
+    "back_powered=true,facing=east,left_powered=true,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_lb",
+      "y": 270
+    },
+    "back_powered=true,facing=east,left_powered=true,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_lbr",
+      "y": 270
+    },
+    "back_powered=true,facing=north,left_powered=false,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "back_powered=true,facing=north,left_powered=false,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "back_powered=true,facing=north,left_powered=false,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_b",
+      "y": 180
+    },
+    "back_powered=true,facing=north,left_powered=false,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_br",
+      "y": 180
+    },
+    "back_powered=true,facing=north,left_powered=true,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "back_powered=true,facing=north,left_powered=true,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 180
+    },
+    "back_powered=true,facing=north,left_powered=true,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_lb",
+      "y": 180
+    },
+    "back_powered=true,facing=north,left_powered=true,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_lbr",
+      "y": 180
+    },
+    "back_powered=true,facing=south,left_powered=false,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "back_powered=true,facing=south,left_powered=false,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "back_powered=true,facing=south,left_powered=false,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_b",
+      "y": 0
+    },
+    "back_powered=true,facing=south,left_powered=false,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_br",
+      "y": 0
+    },
+    "back_powered=true,facing=south,left_powered=true,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "back_powered=true,facing=south,left_powered=true,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 0
+    },
+    "back_powered=true,facing=south,left_powered=true,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_lb",
+      "y": 0
+    },
+    "back_powered=true,facing=south,left_powered=true,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_lbr",
+      "y": 0
+    },
+    "back_powered=true,facing=west,left_powered=false,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "back_powered=true,facing=west,left_powered=false,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "back_powered=true,facing=west,left_powered=false,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_b",
+      "y": 90
+    },
+    "back_powered=true,facing=west,left_powered=false,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_br",
+      "y": 90
+    },
+    "back_powered=true,facing=west,left_powered=true,powered=false,right_powered=false": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "back_powered=true,facing=west,left_powered=true,powered=false,right_powered=true": {
+      "model": "jaavaa:block/adder",
+      "y": 90
+    },
+    "back_powered=true,facing=west,left_powered=true,powered=true,right_powered=false": {
+      "model": "jaavaa:block/adder_on_lb",
+      "y": 90
+    },
+    "back_powered=true,facing=west,left_powered=true,powered=true,right_powered=true": {
+      "model": "jaavaa:block/adder_on_lbr",
+      "y": 90
+    }
+  }
+}
