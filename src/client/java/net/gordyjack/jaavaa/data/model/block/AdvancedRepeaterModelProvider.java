@@ -43,15 +43,14 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
         String name = "advanced_repeater";
         List<String> modelNames = getUniqueModelNames(name);
         for (String modelName : modelNames) {
+            //Initial setup for the model.
             JsonObject model = new JsonObject();
-            model.addProperty("name", modelName);
-            model.addProperty("parent", "block/thin_block");
+            model.addProperty("name", modelName); //The name of the model. Unused by the game, just for organization.
+            model.addProperty("parent", "block/thin_block"); //The parent model to inherit from. Enables using a 3d model as the item model.
             model.addProperty("ambientocclusion", false);
+            //Provide textures for the models.
             JsonObject textures = new JsonObject();
             textures.addProperty("side", JAAVAA.id("block/smooth_polished_deepslate").toString());
-            JsonArray elements = new JsonArray();
-            elements.add(base);
-            //Provide textures for powered.
             boolean powered = modelName.contains("_on");
             if (powered) {
                 textures.addProperty("particle", JAAVAA.id("block/" + name + "_on").toString());
@@ -62,6 +61,8 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
                 textures.addProperty("top", JAAVAA.id("block/" + name).toString());
                 textures.addProperty("torch", Identifier.ofVanilla("block/redstone_torch_off").toString());
             }
+            JsonArray elements = new JsonArray(); //The elements that make up the model.
+            elements.add(base);
             //Provides models and textures if locked.
             if (modelName.contains("_locked")) {
                 textures.addProperty("lock", Identifier.ofVanilla("block/bedrock").toString());
@@ -83,15 +84,13 @@ public class AdvancedRepeaterModelProvider implements DataProvider {
 
             JsonObject pulseTorchModel = createTorchModel(initialX + (pulse * posFactor), pulseInitialZ);
             elements.add(pulseTorchModel);
+            JsonObject delayTorchModel = createTorchModel(initialX + (delay * posFactor), delayInitialZ);
+            elements.add(delayTorchModel);
             if (powered) {
                 List<JsonObject> pulseHalos = createTorchModelHalos(initialX + (pulse * posFactor), pulseInitialZ);
                 for (var halo : pulseHalos) {
                     elements.add(halo);
                 }
-            }
-            JsonObject delayTorchModel = createTorchModel(initialX + (delay * posFactor), delayInitialZ);
-            elements.add(delayTorchModel);
-            if (powered) {
                 List<JsonObject> delayHalos = createTorchModelHalos(initialX + (delay * posFactor), delayInitialZ);
                 for (var halo : delayHalos) {
                     elements.add(halo);
