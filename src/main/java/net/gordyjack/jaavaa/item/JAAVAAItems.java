@@ -3,6 +3,7 @@ package net.gordyjack.jaavaa.item;
 import net.fabricmc.fabric.api.itemgroup.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.item.*;
@@ -25,9 +26,9 @@ public class JAAVAAItems {
     public static final Item ALLAY_ESSENCE = register("allay_essence",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
     public static final Item STARSTEEL_INGOT = register("starsteel_ingot",
-            Item::new, STARSTEEL_DEFAULT_SETTINGS);
+            EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
     public static final Item STARSTEEL_NUGGET = register("starsteel_nugget",
-            Item::new, STARSTEEL_DEFAULT_SETTINGS);
+            EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
     //TODO: Add Starsteel weapons and items. And possibly make the items not despawn.
     //BlockItems
     public static final Item ADDER_ITEM = register("adder",
@@ -37,9 +38,9 @@ public class JAAVAAItems {
     public static final Item DECODER_ITEM = register("decoder",
             settings -> new BlockItem(JAAVAABlocks.DECODER_BLOCK, settings));
     public static final Item STARSTEEL_BLOCK_ITEM = register("starsteel_block",
-            settings -> new BlockItem(JAAVAABlocks.STARSTEEL_BLOCK, settings), STARSTEEL_DEFAULT_SETTINGS);
+            settings -> new EternalBlockItem(JAAVAABlocks.STARSTEEL_BLOCK, settings), STARSTEEL_DEFAULT_SETTINGS);
     public static final Item STARSTEEL_GLASS_ITEM = register("starsteel_glass",
-            settings -> new BlockItem(JAAVAABlocks.STARSTEEL_GLASS, settings), STARSTEEL_DEFAULT_SETTINGS);
+            settings -> new EternalBlockItem(JAAVAABlocks.STARSTEEL_GLASS, settings), STARSTEEL_DEFAULT_SETTINGS);
 
     //Methods
     /**

@@ -1,14 +1,13 @@
 package net.gordyjack.jaavaa;
 
-import net.fabricmc.api.ModInitializer;
-
+import net.fabricmc.api.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.event.*;
 import net.gordyjack.jaavaa.item.*;
-import net.gordyjack.jaavaa.recipe.JAAVAARecipes;
+import net.gordyjack.jaavaa.recipe.*;
 import net.gordyjack.jaavaa.screen.*;
 import net.minecraft.util.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
 
 public class JAAVAA implements ModInitializer {
 	public static final String MOD_ID = "jaavaa";
@@ -20,6 +19,7 @@ public class JAAVAA implements ModInitializer {
 		
 		JAAVAABlocks.init();
 		JAAVAAItems.init();
+		EternalItemDespawnHandler.register();
 		
 		JAAVAABlockEntityTypes.init();
 		JAAVAARecipes.init();
