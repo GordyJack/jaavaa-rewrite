@@ -28,7 +28,7 @@ public class JAAVAAItems {
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
     public static final Item STARSTEEL_NUGGET = register("starsteel_nugget",
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
-    //TODO: Add Starsteel weapons and items. And possibly make the items not despawn.
+    //TODO: Add Starsteel weapons and items.
     //BlockItems
     public static final Item ADDER_ITEM = register("adder",
             settings -> new BlockItem(JAAVAABlocks.ADDER_BLOCK, settings));
