@@ -50,6 +50,7 @@ public class JAAVAABlocks {
                     .requiresTool()
                     .sounds(BlockSoundGroup.METAL)
                     .strength(50.0F, 1200.0F),false);
+    //TODO: Add texture for STARSTEEL_GLASS
     public static final Block STARSTEEL_GLASS = register("starsteel_glass",
             Block::new, AbstractBlock.Settings.copy(Blocks.GLASS)
                     .allowsSpawning(Blocks::never)
