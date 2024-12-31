@@ -1,7 +1,8 @@
-package net.gordyjack.jaavaa.data.tag;
+package net.gordyjack.jaavaa.data;
 
 import net.gordyjack.jaavaa.JAAVAA;
 import net.minecraft.block.Block;
+import net.minecraft.entity.damage.*;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -14,12 +15,14 @@ public class JAAVAATags {
             return TagKey.of(RegistryKeys.BLOCK, JAAVAA.id(name));
         }
     }
-
     public static class Items {
         public static final TagKey<Item> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, JAAVAA.id(name));
         }
+    }
+    public static class Other {
+        public static final TagKey<DamageType> IS_EXPLOSION_OR_FIRE = TagKey.of(RegistryKeys.DAMAGE_TYPE, JAAVAA.id("is_explosion_or_fire"));
     }
 }

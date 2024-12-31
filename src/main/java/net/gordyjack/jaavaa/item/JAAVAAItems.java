@@ -3,12 +3,12 @@ package net.gordyjack.jaavaa.item;
 import net.fabricmc.fabric.api.itemgroup.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
-import net.minecraft.registry.tag.*;
 import net.minecraft.util.*;
 
 import java.util.*;
@@ -19,8 +19,7 @@ public class JAAVAAItems {
     private static final Item.Settings STARSTEEL_DEFAULT_SETTINGS =
             new Item.Settings()
                     .rarity(Rarity.RARE)
-                    .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
-                    .component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_EXPLOSION));
+                    .component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(JAAVAATags.Other.IS_EXPLOSION_OR_FIRE));
 
     //Items
     public static final Item ALLAY_ESSENCE = register("allay_essence",
