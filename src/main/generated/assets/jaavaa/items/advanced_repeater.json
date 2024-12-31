@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jaavaa:item/advanced_repeater"
+    "model": "jaavaa:block/advanced_repeater"
   }
 }

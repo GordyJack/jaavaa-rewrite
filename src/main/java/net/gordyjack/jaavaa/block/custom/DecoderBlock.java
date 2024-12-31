@@ -114,7 +114,7 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
     protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock,
                                   @Nullable WireOrientation wireOrientation, boolean notify) {
         super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
-        if (!world.isClient) {
+        if (!world.isClient && state.canPlaceAt(world, pos)) {
             this.updateState(world, pos, state);
         }
     }

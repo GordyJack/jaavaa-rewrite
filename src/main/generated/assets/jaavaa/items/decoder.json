@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jaavaa:item/decoder"
+    "model": "jaavaa:block/decoder"
   }
 }

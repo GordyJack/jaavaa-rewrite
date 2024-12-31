@@ -15,7 +15,11 @@ import java.util.function.*;
 
 public class JAAVAAItems {
     public static final ArrayList<Item> ITEMS = new ArrayList<>();
-    private static final Item.Settings STARSTEEL_DEFAULT_SETTINGS = new Item.Settings().fireproof().rarity(Rarity.RARE).component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_EXPLOSION));
+    private static final Item.Settings STARSTEEL_DEFAULT_SETTINGS =
+            new Item.Settings()
+                    .rarity(Rarity.RARE)
+                    .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
+                    .component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(DamageTypeTags.IS_EXPLOSION));
 
     //Items
     public static final Item ALLAY_ESSENCE = register("allay_essence",
@@ -24,7 +28,7 @@ public class JAAVAAItems {
             Item::new, STARSTEEL_DEFAULT_SETTINGS);
     public static final Item STARSTEEL_NUGGET = register("starsteel_nugget",
             Item::new, STARSTEEL_DEFAULT_SETTINGS);
-    //TODO: Add Starsteel weapons and items. I want to make it to where Starsteel items can't explode or burn. And possibly not despawn.
+    //TODO: Add Starsteel weapons and items. And possibly make the items not despawn.
     //BlockItems
     public static final Item ADDER_ITEM = register("adder",
             settings -> new BlockItem(JAAVAABlocks.ADDER_BLOCK, settings));

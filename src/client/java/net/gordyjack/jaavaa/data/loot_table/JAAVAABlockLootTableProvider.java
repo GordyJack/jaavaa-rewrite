@@ -19,11 +19,11 @@ public class JAAVAABlockLootTableProvider
         for (Block block : JAAVAABlocks.BLOCKS) {
             String blockKey = block.getTranslationKey();
             if (blockKey.contains("glass")) {
-                addDrop(block,  dropsWithSilkTouch(block));
-            } else if (block instanceof SlabBlock) {
-                addDrop(block, slabDrops(block));
+                this.addDrop(block,  this.dropsWithSilkTouch(block));
+            } else if (block instanceof AbstractRedstoneGateBlock) {
+                this.addDrop(block);
             } else {
-                addDrop(block);
+                this.addDrop(block);
             }
         }
     }

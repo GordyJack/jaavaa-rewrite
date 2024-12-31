@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jaavaa:item/adder"
+    "model": "jaavaa:block/adder"
   }
 }
