@@ -25,6 +25,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
 
+        //TODO: Add state generation for Adder and Decoder here. Add custom model generation for the Adder, Decoder, and Adjustable Lamp similar to the Advanced Repeater.
         bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, "adjustable_redstone_lamp"));
         bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState(JAAVAABlocks.ADVANCED_REPEATER_BLOCK, "advanced_repeater"));
 
