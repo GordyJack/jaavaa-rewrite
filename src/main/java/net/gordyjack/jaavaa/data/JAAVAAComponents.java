@@ -19,7 +19,8 @@ public class JAAVAAComponents {
                     new StatusEffectInstance(StatusEffects.ABSORPTION, minutes(2), 1))
             )).consumeSeconds(0.5f).build();
     public static final DamageResistantComponent FIRE_AND_EXPLOSION_RESISTANT =
-            new DamageResistantComponent(JAAVAATags.Other.IS_EXPLOSION_OR_FIRE);    public static final FoodComponent MALUM_STELLAE_INCANTATAE_FOOD =
+            new DamageResistantComponent(JAAVAATags.Other.IS_EXPLOSION_OR_FIRE);
+    public static final FoodComponent MALUM_STELLAE_INCANTATAE_FOOD =
             new FoodComponent.Builder().nutrition(20).saturationModifier(2.0f).alwaysEdible().build();
 
     public static void init() {
