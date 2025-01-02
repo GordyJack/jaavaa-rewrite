@@ -7,8 +7,10 @@ import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.potion.*;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
+import net.minecraft.registry.entry.*;
 import org.apache.commons.lang3.text.*;
 
 import java.nio.file.*;
@@ -58,6 +60,11 @@ extends FabricLanguageProvider{
         }
         for (RegistryKey<ItemGroup> group : JAAVAAItemGroups.ITEM_GROUPS) {
             translationBuilder.add(("itemGroup." + group.getValue()).replace(':', '.'), getTranslatedName(group.getValue().getPath()));
+        }
+        for (RegistryEntry<StatusEffect> effect : JAAVAAStatusEffects.EFFECTS) {
+            String effectId = effect.getIdAsString();
+            String effectName = effectId.substring(effectId.indexOf(':') + 1);
+            translationBuilder.add("effect.jaavaa." + effectName, getTranslatedName(effectName));
         }
         
         try {

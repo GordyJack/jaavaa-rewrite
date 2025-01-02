@@ -23,7 +23,7 @@ public class JAAVAA implements ModInitializer {
 		JAAVAAItems.init();
 		EternalItemDespawnHandler.init();
 		JAAVAAPotions.init();
-		
+		JAAVAAStatusEffects.init();
 		JAAVAABlockEntityTypes.init();
 		JAAVAAComponents.init();
 		JAAVAARecipes.init();

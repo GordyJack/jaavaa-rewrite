@@ -16,6 +16,33 @@ public class JAAVAAPotions {
     private static final int INFINITY = StatusEffectInstance.INFINITE;
 
     // Positive Effects
+    // Absorbtion Potion
+    private static final int ABSORPTION_SHORT = minutes(3), ABSORPTION_LONG = minutes(8);
+    public static final RegistryEntry<Potion> ABSORPTION_1_POTION = registerPotion("absorption_1",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_SHORT, 0)));
+    public static final RegistryEntry<Potion> ABSORPTION_1_POTION_LONG = registerPotion("absorption_1_long",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_LONG, 0)));
+    public static final RegistryEntry<Potion> ABSORPTION_2_POTION = registerPotion("absorption_2",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_SHORT, 1)));
+    public static final RegistryEntry<Potion> ABSORPTION_2_POTION_LONG = registerPotion("absorption_2_long",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_LONG, 1)));
+    public static final RegistryEntry<Potion> ABSORPTION_3_POTION = registerPotion("absorption_3",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_SHORT, 2)));
+    public static final RegistryEntry<Potion> ABSORPTION_3_POTION_LONG = registerPotion("absorption_3_long",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_LONG, 2)));
+    public static final RegistryEntry<Potion> ABSORPTION_4_POTION = registerPotion("absorption_4",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_SHORT, 3)));
+    public static final RegistryEntry<Potion> ABSORPTION_4_POTION_LONG = registerPotion("absorption_4_long",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_LONG, 3)));
+    public static final RegistryEntry<Potion> ABSORPTION_5_POTION = registerPotion("absorption_5",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_SHORT, 4)));
+    public static final RegistryEntry<Potion> ABSORPTION_5_POTION_LONG = registerPotion("absorption_5_long",
+            new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, ABSORPTION_LONG, 4)));
+    public static final RegistryEntry<Potion> INFINITE_ABSORPTION_POTION = registerPotion("infinite_absorption",
+            new Potion("infinite_absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, INFINITY, 0, false, false)));
+    public static final RegistryEntry<Potion> ETERNAL_ABSORPTION_POTION = registerPotion("eternal_absorption",
+            new Potion("eternal_absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, INFINITY, 5, false, false)));
+
     // Glowing Potion
     public static final RegistryEntry<Potion> GLOWING_1_POTION = registerPotion("glowing_1",
             new Potion("glowing", new StatusEffectInstance(StatusEffects.GLOWING, minutes(5), 0)));

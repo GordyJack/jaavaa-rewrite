@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.data;
 
 import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.potion.*;
 import net.minecraft.component.type.*;
 import net.minecraft.entity.effect.*;
 import net.minecraft.item.consume.*;
@@ -16,8 +17,9 @@ public class JAAVAAComponents {
                     new StatusEffectInstance(StatusEffects.REGENERATION, minutes(1), 3),
                     new StatusEffectInstance(StatusEffects.RESISTANCE, minutes(5), 1),
                     new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, minutes(5), 0),
-                    new StatusEffectInstance(StatusEffects.ABSORPTION, minutes(2), 1))
-            )).consumeSeconds(0.5f).build();
+                    new StatusEffectInstance(StatusEffects.ABSORPTION, minutes(2), 1),
+                    new StatusEffectInstance(JAAVAAStatusEffects.IMPENDING_DOOM, StatusEffectInstance.INFINITE, 0, false, false, true)
+            ))).consumeSeconds(0.5f).build();
     public static final DamageResistantComponent FIRE_AND_EXPLOSION_RESISTANT =
             new DamageResistantComponent(JAAVAATags.Other.IS_EXPLOSION_OR_FIRE);
     public static final FoodComponent MALUM_STELLAE_INCANTATAE_FOOD =

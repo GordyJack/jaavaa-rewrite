@@ -18,6 +18,29 @@ public class JAAVAAPotionRecipeBuilder {
     public static void build() {
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
             // Positive Effects
+            //Absorption Potion
+            builder.registerRecipes(Items.GOLDEN_APPLE, JAAVAAPotions.ABSORPTION_1_POTION);
+            // Power up the absorption potion
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_1_POTION, TIER_1_UPGRADE, JAAVAAPotions.ABSORPTION_2_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_2_POTION, TIER_2_UPGRADE, JAAVAAPotions.ABSORPTION_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.ABSORPTION_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.ABSORPTION_5_POTION);
+            // Lengthen the absorption potion
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.ABSORPTION_1_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_2_POTION, LENGTH_UPGRADE, JAAVAAPotions.ABSORPTION_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_3_POTION, LENGTH_UPGRADE, JAAVAAPotions.ABSORPTION_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_4_POTION, LENGTH_UPGRADE, JAAVAAPotions.ABSORPTION_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_5_POTION, LENGTH_UPGRADE, JAAVAAPotions.ABSORPTION_5_POTION_LONG);
+            // Power up the lengthened absorption potion
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_1_POTION_LONG, TIER_1_UPGRADE, JAAVAAPotions.ABSORPTION_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.ABSORPTION_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.ABSORPTION_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.ABSORPTION_5_POTION_LONG);
+            // Infinite Absorption Potion
+            builder.registerPotionRecipe(JAAVAAPotions.ABSORPTION_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_ABSORPTION_POTION);
+            // Eternal Absorption Potion
+            builder.registerPotionRecipe(JAAVAAPotions.INFINITE_ABSORPTION_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_ABSORPTION_POTION);
+
             // Glowing Potion
             builder.registerRecipes(Items.GLOW_INK_SAC, JAAVAAPotions.GLOWING_1_POTION);
             builder.registerRecipes(Items.GLOW_BERRIES, JAAVAAPotions.GLOWING_1_POTION);
