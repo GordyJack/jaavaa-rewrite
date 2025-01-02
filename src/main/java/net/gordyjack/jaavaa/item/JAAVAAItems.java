@@ -9,6 +9,7 @@ import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
+import net.minecraft.text.*;
 import net.minecraft.util.*;
 
 import java.util.*;
@@ -19,18 +20,28 @@ public class JAAVAAItems {
     private static final Item.Settings STARSTEEL_DEFAULT_SETTINGS =
             new Item.Settings()
                     .rarity(Rarity.RARE)
-                    .component(DataComponentTypes.DAMAGE_RESISTANT, new DamageResistantComponent(JAAVAATags.Other.IS_EXPLOSION_OR_FIRE));
+                    .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT);
 
     //Items
     public static final Item ALLAY_ESSENCE = register("allay_essence",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    //TODO: Add textures for Malum Stellae Incantatae and Shulker Pearl
+    public static final Item MALUM_STELLAE_INCANTATAE = register("malum_stellae_incantatae",
+            EternalItem::new, new Item.Settings().rarity(Rarity.EPIC)
+                    .food(JAAVAAComponents.MALUM_STELLAE_INCANTATAE_FOOD, JAAVAAComponents.MALUM_STELLAE_INCANTATAE_CONSUMABLE)
+                    .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
+                    .component(DataComponentTypes.LORE, new LoreComponent(
+                            List.of(Text.literal("Malum Stellae Incantatae"),
+                                    Text.literal("Lorem ipsom dolor sit amet"),
+                                    Text.literal("consectetur adipiscing elit"),
+                                    Text.literal("sed do eiusmod tempor incididunt")))));
     public static final Item SHULKER_PEARL = register("shulker_pearl",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
     public static final Item STARSTEEL_INGOT = register("starsteel_ingot",
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
     public static final Item STARSTEEL_NUGGET = register("starsteel_nugget",
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
-    //TODO: Add Starsteel weapons and items.
+    //TODO: Add Starsteel weapons and items. Or make MALUM_STELLAE_INCANTATAE act like an enchanted book and give any tool/weapon/armor it's rarity and DamageResistantComponent and make it eternal. Should be able to be done by adding a custom enchantment.
     //BlockItems
     public static final Item ADDER_ITEM = register("adder",
             settings -> new BlockItem(JAAVAABlocks.ADDER_BLOCK, settings));
@@ -82,6 +93,7 @@ public class JAAVAAItems {
         //Adding Items to main Item ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_ITEMS).register(entries -> {
             entries.add(ALLAY_ESSENCE);
+            entries.add(MALUM_STELLAE_INCANTATAE);
             entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);
             entries.add(STARSTEEL_NUGGET);

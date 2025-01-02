@@ -2,6 +2,7 @@ package net.gordyjack.jaavaa;
 
 import net.fabricmc.api.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.event.*;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.potion.*;
@@ -24,6 +25,7 @@ public class JAAVAA implements ModInitializer {
 		JAAVAAPotions.init();
 		
 		JAAVAABlockEntityTypes.init();
+		JAAVAAComponents.init();
 		JAAVAARecipes.init();
 		JAAVAAPotionRecipeBuilder.build();
 		JAAVAAScreenHandlers.init();
@@ -43,5 +45,11 @@ public class JAAVAA implements ModInitializer {
             case 'e' -> LOGGER.error(message);
             default -> throw new IllegalArgumentException("Invalid log type: " + type);
         }
+	}
+	public static int seconds(Number seconds) {
+		return Math.round(seconds.floatValue() * 20);
+	}
+	public static int minutes(Number minutes) {
+		return seconds(minutes.floatValue() * 60);
 	}
 }

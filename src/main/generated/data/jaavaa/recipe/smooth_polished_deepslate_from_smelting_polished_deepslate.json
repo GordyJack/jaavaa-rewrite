@@ -3,7 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "group": "smooth_polished_deepslate",
+  "group": "jaavaa:smooth_polished_deepslate",
   "ingredient": "minecraft:polished_deepslate",
   "result": {
     "id": "jaavaa:smooth_polished_deepslate"

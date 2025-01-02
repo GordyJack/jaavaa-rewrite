@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "jaavaa:malum_stellae_incantatae",
+  "key": {
+    "A": "jaavaa:allay_essence",
+    "D": "minecraft:dragon_breath",
+    "G": "minecraft:enchanted_golden_apple",
+    "P": "jaavaa:shulker_pearl",
+    "S": "jaavaa:starsteel_ingot",
+    "W": "minecraft:wither_rose"
+  },
+  "pattern": [
+    "DSP",
+    "SGS",
+    "ASW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:malum_stellae_incantatae"
+  }
+}

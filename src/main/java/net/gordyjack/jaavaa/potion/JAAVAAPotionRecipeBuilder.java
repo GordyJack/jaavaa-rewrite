@@ -8,10 +8,10 @@ import net.minecraft.potion.*;
 public class JAAVAAPotionRecipeBuilder {
     private static final Item TIER_1_UPGRADE = Items.GLOWSTONE_DUST;
     private static final Item TIER_2_UPGRADE = JAAVAAItems.ALLAY_ESSENCE;
-    private static final Item TIER_3_UPGRADE = JAAVAAItems.ALLAY_ESSENCE;
-    private static final Item TIER_4_UPGRADE = JAAVAAItems.ALLAY_ESSENCE;
+    private static final Item TIER_3_UPGRADE = JAAVAAItems.SHULKER_PEARL;
+    private static final Item TIER_4_UPGRADE = JAAVAAItems.STARSTEEL_INGOT;
     private static final Item LENGTH_UPGRADE = Items.REDSTONE;
-    private static final Item ETERNAL_UPGRADE = JAAVAAItems.STARSTEEL_BLOCK_ITEM;
+    private static final Item ETERNAL_UPGRADE = JAAVAAItems.MALUM_STELLAE_INCANTATAE;
     private static final Item INVERTER_ITEM = Items.FERMENTED_SPIDER_EYE;
 
     public static void build() {
@@ -68,6 +68,27 @@ public class JAAVAAPotionRecipeBuilder {
             builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.RESISTANCE_5_POTION_LONG);
             // Eternal Resistance Potion
             builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_5_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_RESISTANCE_POTION);
+
+            // Saturation Potion
+            builder.registerRecipes(Items.GOLDEN_APPLE, JAAVAAPotions.SATURATION_1_POTION);
+            // Power up the saturation potion
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_1_POTION, TIER_1_UPGRADE, JAAVAAPotions.SATURATION_2_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_2_POTION, TIER_2_UPGRADE, JAAVAAPotions.SATURATION_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.SATURATION_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.SATURATION_5_POTION);
+            // Lengthen the saturation potion
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.SATURATION_1_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_2_POTION, LENGTH_UPGRADE, JAAVAAPotions.SATURATION_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_3_POTION, LENGTH_UPGRADE, JAAVAAPotions.SATURATION_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_4_POTION, LENGTH_UPGRADE, JAAVAAPotions.SATURATION_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_5_POTION, LENGTH_UPGRADE, JAAVAAPotions.SATURATION_5_POTION_LONG);
+            // Power up the lengthened saturation potion
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_1_POTION_LONG, TIER_1_UPGRADE, JAAVAAPotions.SATURATION_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.SATURATION_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.SATURATION_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.SATURATION_5_POTION_LONG);
+            // Eternal Saturation Potion
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_5_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_SATURATION_POTION);
 
             // Negative Effects
             // Bad Luck Potion
