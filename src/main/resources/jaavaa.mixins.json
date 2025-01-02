@@ -3,6 +3,8 @@
   "package": "net.gordyjack.jaavaa.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "PotionContentsComponentMixin",
+    "ItemMixin",
     "RedstoneWireBlockMixin"
   ],
   "injectors": {
