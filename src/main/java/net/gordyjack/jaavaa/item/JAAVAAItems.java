@@ -24,6 +24,8 @@ public class JAAVAAItems {
     //Items
     public static final Item ALLAY_ESSENCE = register("allay_essence",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    public static final Item SHULKER_PEARL = register("shulker_pearl",
+            Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
     public static final Item STARSTEEL_INGOT = register("starsteel_ingot",
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
     public static final Item STARSTEEL_NUGGET = register("starsteel_nugget",
@@ -80,6 +82,7 @@ public class JAAVAAItems {
         //Adding Items to main Item ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_ITEMS).register(entries -> {
             entries.add(ALLAY_ESSENCE);
+            entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);
             entries.add(STARSTEEL_NUGGET);
         });

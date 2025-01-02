@@ -1,2 +1,3 @@
 // 1.21.4	-999999999-01-01T00:00:00	JustAnotherActuallyVanillaAdditionsAddon/minecraft:entity Loot Table
 f8c7378f642b57effc1a991b140ad18b3ae5fdc2 data/minecraft/loot_table/entities/allay.json
+aedbdb2bdbe2e634ac1721a2b9ea13c757cbc1c3 data/minecraft/loot_table/entities/shulker.json

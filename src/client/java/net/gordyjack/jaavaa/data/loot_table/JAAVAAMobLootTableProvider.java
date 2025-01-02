@@ -34,9 +34,23 @@ public class JAAVAAMobLootTableProvider extends SimpleFabricLootTableProvider {
                 .pool(LootPool.builder()
                         .rolls(UniformLootNumberProvider.create(1, 2))
                         .conditionally(KilledByPlayerLootCondition.builder()) // Only when killed by player
-                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(this.WRAPPER_LOOKUP, 0.1f, 0.1f)) // 5% base chance, +2% per Looting level
+                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(this.WRAPPER_LOOKUP, 0.1f, 0.1f))
                         .with(ItemEntry.builder(JAAVAAItems.ALLAY_ESSENCE))
                 );
         // Register the loot table
-        lootTableBiConsumer.accept(allayLootTableKey, allayLootTableBuilder);    }
+        lootTableBiConsumer.accept(allayLootTableKey, allayLootTableBuilder);
+
+        // Define the Shulker's loot table
+        RegistryKey<LootTable> shulkerLootTableKey =
+                RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.ofVanilla("entities/shulker"));
+        LootTable.Builder shulkerLootTableBuilder = LootTable.builder()
+                .pool(LootPool.builder()
+                        .rolls(UniformLootNumberProvider.create(0, 1))
+                        .conditionally(KilledByPlayerLootCondition.builder()) // Only when killed by player
+                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(this.WRAPPER_LOOKUP, 0.1f, 0.1f))
+                        .with(ItemEntry.builder(JAAVAAItems.SHULKER_PEARL))
+                );
+        // Register the loot table
+        lootTableBiConsumer.accept(shulkerLootTableKey, shulkerLootTableBuilder);
+    }
 }
