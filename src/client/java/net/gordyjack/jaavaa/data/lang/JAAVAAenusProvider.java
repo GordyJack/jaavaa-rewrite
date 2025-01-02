@@ -5,12 +5,14 @@ import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.potion.*;
 import net.minecraft.block.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
 import org.apache.commons.lang3.text.*;
 
 import java.nio.file.*;
+import java.util.*;
 import java.util.concurrent.*;
 
 @SuppressWarnings({"deprecation", "OptionalGetWithoutIsPresent"})
@@ -35,6 +37,25 @@ extends FabricLanguageProvider{
             }
             translationBuilder.add(item, getTranslatedName(item));
         }
+        List<String> effectNames = new ArrayList<>();
+        for (var potionEntry : JAAVAAPotions.POTION_ENTRIES) {
+            String id = potionEntry.getIdAsString();
+            String potionName = id.substring(id.indexOf(':') + 1);
+            String effectName = potionName.replaceFirst("(_\\d.*)", "");
+
+            String preType = "item.minecraft.";
+            String postType = ".effect." + effectName;
+
+            if (effectNames.contains(effectName)) {
+                continue;
+            }
+
+            translationBuilder.add( preType + "potion" + postType, "Potion of " + getTranslatedName(effectName));
+            translationBuilder.add( preType + "splash_potion" + postType, "Splash Potion of " + getTranslatedName(effectName));
+            translationBuilder.add( preType + "lingering_potion" + postType, "Lingering Potion of " + getTranslatedName(effectName));
+            translationBuilder.add( preType + "tipped_arrow" + postType, "Arrow of " + getTranslatedName(effectName));
+            effectNames.add(effectName);
+        }
         for (RegistryKey<ItemGroup> group : JAAVAAItemGroups.ITEM_GROUPS) {
             translationBuilder.add(("itemGroup." + group.getValue()).replace(':', '.'), getTranslatedName(group.getValue().getPath()));
         }
@@ -46,12 +67,13 @@ extends FabricLanguageProvider{
             JAAVAA.log("Failed to add existing language file!", 'e');
         }
     }
-    private String getTranslatedName(ItemConvertible itemConvertible) {
+    private static String getTranslatedName(ItemConvertible itemConvertible) {
         return getTranslatedName(itemConvertible.asItem().getTranslationKey());
     }
-    private String getTranslatedName(String name) {
+    private static String getTranslatedName(String name) {
         name = name.substring(name.lastIndexOf('.') + 1);
         name = name.replaceAll("_block(?!s)", "");
+        name = name.replace('-', '_');
         name = name.replace('_', ' ');
         name = WordUtils.capitalizeFully(name);
         name = name.replace("Jaavaa", "JAAVAA");

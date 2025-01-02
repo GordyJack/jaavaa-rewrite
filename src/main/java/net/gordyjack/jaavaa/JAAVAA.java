@@ -4,6 +4,7 @@ import net.fabricmc.api.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.event.*;
 import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.potion.*;
 import net.gordyjack.jaavaa.recipe.*;
 import net.gordyjack.jaavaa.screen.*;
 import net.minecraft.util.*;
@@ -19,10 +20,12 @@ public class JAAVAA implements ModInitializer {
 		
 		JAAVAABlocks.init();
 		JAAVAAItems.init();
-		EternalItemDespawnHandler.register();
+		EternalItemDespawnHandler.init();
+		JAAVAAPotions.init();
 		
 		JAAVAABlockEntityTypes.init();
 		JAAVAARecipes.init();
+		JAAVAAPotionRecipeBuilder.build();
 		JAAVAAScreenHandlers.init();
 	}
 	
