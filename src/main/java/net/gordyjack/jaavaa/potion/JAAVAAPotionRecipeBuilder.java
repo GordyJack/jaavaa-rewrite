@@ -11,6 +11,7 @@ public class JAAVAAPotionRecipeBuilder {
     private static final Item TIER_3_UPGRADE = JAAVAAItems.SHULKER_PEARL;
     private static final Item TIER_4_UPGRADE = JAAVAAItems.STARSTEEL_INGOT;
     private static final Item LENGTH_UPGRADE = Items.REDSTONE;
+    private static final Item INFINITE_UPGRADE = Items.GOLDEN_APPLE;
     private static final Item ETERNAL_UPGRADE = JAAVAAItems.MALUM_STELLAE_INCANTATAE;
     private static final Item INVERTER_ITEM = Items.FERMENTED_SPIDER_EYE;
 
@@ -23,7 +24,7 @@ public class JAAVAAPotionRecipeBuilder {
             // Lengthen the glowing potion
             builder.registerPotionRecipe(JAAVAAPotions.GLOWING_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.GLOWING_1_POTION_LONG);
             // Eternal Glowing Potion
-            builder.registerPotionRecipe(JAAVAAPotions.GLOWING_1_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_GLOWING_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.GLOWING_1_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.INFINITE_GLOWING_POTION);
 
             // Haste Potion
             builder.registerPotionRecipe(Potions.SWIFTNESS, Items.HONEY_BOTTLE, JAAVAAPotions.HASTE_1_POTION);
@@ -45,8 +46,14 @@ public class JAAVAAPotionRecipeBuilder {
             builder.registerPotionRecipe(JAAVAAPotions.HASTE_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.HASTE_3_POTION_LONG);
             builder.registerPotionRecipe(JAAVAAPotions.HASTE_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.HASTE_4_POTION_LONG);
             builder.registerPotionRecipe(JAAVAAPotions.HASTE_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.HASTE_5_POTION_LONG);
+            // Infinite Haste Potion
+            builder.registerPotionRecipe(JAAVAAPotions.HASTE_1_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_HASTE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HASTE_2_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_HASTE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HASTE_3_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_HASTE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HASTE_4_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_HASTE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HASTE_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_HASTE_POTION);
             // Eternal Haste Potion
-            builder.registerPotionRecipe(JAAVAAPotions.HASTE_5_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_HASTE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.INFINITE_HASTE_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_HASTE_POTION);
 
             // Resistance Potion
             builder.registerRecipes(Items.DIAMOND, JAAVAAPotions.RESISTANCE_1_POTION);
@@ -66,11 +73,17 @@ public class JAAVAAPotionRecipeBuilder {
             builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.RESISTANCE_3_POTION_LONG);
             builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.RESISTANCE_4_POTION_LONG);
             builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.RESISTANCE_5_POTION_LONG);
+            // Infinite Resistance Potion
+            builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_1_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_RESISTANCE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_2_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_RESISTANCE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_3_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_RESISTANCE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_4_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_RESISTANCE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_RESISTANCE_POTION);
             // Eternal Resistance Potion
-            builder.registerPotionRecipe(JAAVAAPotions.RESISTANCE_5_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_RESISTANCE_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.INFINITE_RESISTANCE_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_RESISTANCE_POTION);
 
             // Saturation Potion
-            builder.registerRecipes(Items.GOLDEN_APPLE, JAAVAAPotions.SATURATION_1_POTION);
+            builder.registerRecipes(Items.BROWN_MUSHROOM, JAAVAAPotions.SATURATION_1_POTION);
             // Power up the saturation potion
             builder.registerPotionRecipe(JAAVAAPotions.SATURATION_1_POTION, TIER_1_UPGRADE, JAAVAAPotions.SATURATION_2_POTION);
             builder.registerPotionRecipe(JAAVAAPotions.SATURATION_2_POTION, TIER_2_UPGRADE, JAAVAAPotions.SATURATION_3_POTION);
@@ -87,8 +100,14 @@ public class JAAVAAPotionRecipeBuilder {
             builder.registerPotionRecipe(JAAVAAPotions.SATURATION_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.SATURATION_3_POTION_LONG);
             builder.registerPotionRecipe(JAAVAAPotions.SATURATION_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.SATURATION_4_POTION_LONG);
             builder.registerPotionRecipe(JAAVAAPotions.SATURATION_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.SATURATION_5_POTION_LONG);
+            // Infinite Saturation Potion
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_1_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_SATURATION_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_2_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_SATURATION_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_3_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_SATURATION_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_4_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_SATURATION_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_SATURATION_POTION);
             // Eternal Saturation Potion
-            builder.registerPotionRecipe(JAAVAAPotions.SATURATION_5_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_SATURATION_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.INFINITE_SATURATION_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_SATURATION_POTION);
 
             // Negative Effects
             // Bad Luck Potion
@@ -96,7 +115,7 @@ public class JAAVAAPotionRecipeBuilder {
             // Lengthen the bad luck potion
             builder.registerPotionRecipe(JAAVAAPotions.BAD_LUCK_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.BAD_LUCK_1_POTION_LONG);
             // Eternal Bad Luck Potion
-            builder.registerPotionRecipe(JAAVAAPotions.BAD_LUCK_1_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_BAD_LUCK_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.BAD_LUCK_1_POTION, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_BAD_LUCK_POTION);
 
             // Blindness Potion
             builder.registerRecipes(Items.INK_SAC, JAAVAAPotions.BLINDNESS_1_POTION);
@@ -104,7 +123,14 @@ public class JAAVAAPotionRecipeBuilder {
             // Lengthen the blindness potion
             builder.registerPotionRecipe(JAAVAAPotions.BLINDNESS_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.BLINDNESS_1_POTION_LONG);
             // Eternal Blindness Potion
-            builder.registerPotionRecipe(JAAVAAPotions.BLINDNESS_1_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_BLINDNESS_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.BLINDNESS_1_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_BLINDNESS_POTION);
+
+            // Darkness Potion
+            builder.registerPotionRecipe(Potions.NIGHT_VISION, INVERTER_ITEM, JAAVAAPotions.DARKNESS_1_POTION);
+            // Lengthen the darkness potion
+            builder.registerPotionRecipe(JAAVAAPotions.DARKNESS_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.DARKNESS_1_POTION_LONG);
+            // Eternal Darkness Potion
+            builder.registerPotionRecipe(JAAVAAPotions.DARKNESS_1_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_DARKNESS_POTION);
 
             // Levitation Potion
             builder.registerRecipes(JAAVAAItems.SHULKER_PEARL, JAAVAAPotions.LEVITATION_1_POTION);
@@ -124,6 +150,8 @@ public class JAAVAAPotionRecipeBuilder {
             builder.registerPotionRecipe(JAAVAAPotions.LEVITATION_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.LEVITATION_3_POTION_LONG);
             builder.registerPotionRecipe(JAAVAAPotions.LEVITATION_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.LEVITATION_4_POTION_LONG);
             builder.registerPotionRecipe(JAAVAAPotions.LEVITATION_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.LEVITATION_5_POTION_LONG);
+            // Infinite Levitation Potion
+            // TODO: Complete adding infinite potions from here.
             // Eternal Levitation Potion
             builder.registerPotionRecipe(JAAVAAPotions.LEVITATION_5_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_LEVITATION_POTION);
 
