@@ -82,14 +82,39 @@ public class JAAVAAPotions {
 
     // Blindness Potion
     public static final RegistryEntry<Potion> BLINDNESS_1_POTION = registerPotion("blindness_1",
-            new Potion("blindness", new StatusEffectInstance(StatusEffects.BLINDNESS, minutes(1.5f), 0)));
+            new Potion("blindness", new StatusEffectInstance(StatusEffects.BLINDNESS, minutes(0.5f), 0)));
     public static final RegistryEntry<Potion> BLINDNESS_1_POTION_LONG = registerPotion("blindness_1_long",
-            new Potion("blindness", new StatusEffectInstance(StatusEffects.BLINDNESS, minutes(4.0f), 0)));
+            new Potion("blindness", new StatusEffectInstance(StatusEffects.BLINDNESS, minutes(2.0f), 0)));
     public static final RegistryEntry<Potion> ETERNAL_BLINDNESS_POTION = registerPotion("eternal_blindness",
             new Potion("eternal_blindness", new StatusEffectInstance(StatusEffects.BLINDNESS, ETERNAL, 0, false, false)));
 
+    // Hunger Potion
+    public static final int HUNGER_SHORT = minutes(1.5f), HUNGER_LONG = minutes(4.0f);
+    public static final RegistryEntry<Potion> HUNGER_1_POTION = registerPotion("hunger_1",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_SHORT, 0)));
+    public static final RegistryEntry<Potion> HUNGER_1_POTION_LONG = registerPotion("hunger_1_long",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_LONG, 0)));
+    public static final RegistryEntry<Potion> HUNGER_2_POTION = registerPotion("hunger_2",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_SHORT, 1)));
+    public static final RegistryEntry<Potion> HUNGER_2_POTION_LONG = registerPotion("hunger_2_long",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_LONG, 1)));
+    public static final RegistryEntry<Potion> HUNGER_3_POTION = registerPotion("hunger_3",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_SHORT, 2)));
+    public static final RegistryEntry<Potion> HUNGER_3_POTION_LONG = registerPotion("hunger_3_long",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_LONG, 2)));
+    public static final RegistryEntry<Potion> HUNGER_4_POTION = registerPotion("hunger_4",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_SHORT, 3)));
+    public static final RegistryEntry<Potion> HUNGER_4_POTION_LONG = registerPotion("hunger_4_long",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_LONG, 3)));
+    public static final RegistryEntry<Potion> HUNGER_5_POTION = registerPotion("hunger_5",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_SHORT, 4)));
+    public static final RegistryEntry<Potion> HUNGER_5_POTION_LONG = registerPotion("hunger_5_long",
+            new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_LONG, 4)));
+    public static final RegistryEntry<Potion> ETERNAL_HUNGER_POTION = registerPotion("eternal_hunger",
+            new Potion("eternal_hunger", new StatusEffectInstance(StatusEffects.HUNGER, ETERNAL, 4, false, false)));
+
     //Levitation Potion
-    private static final int LEVITATION_SHORT = minutes(1.5f), LEVITATION_LONG = minutes(4.0f);
+    private static final int LEVITATION_SHORT = seconds(15.0f), LEVITATION_LONG = minutes(1.0f);
     public static final RegistryEntry<Potion> LEVITATION_1_POTION = registerPotion("levitation_1",
             new Potion("levitation", new StatusEffectInstance(StatusEffects.LEVITATION, LEVITATION_SHORT, 0)));
     public static final RegistryEntry<Potion> LEVITATION_1_POTION_LONG = registerPotion("levitation_1_long",
@@ -140,16 +165,44 @@ public class JAAVAAPotions {
 
     // Nausea Potion
     public static final RegistryEntry<Potion> NAUSEA_1_POTION = registerPotion("nausea_1",
-            new Potion("nausea", new StatusEffectInstance(StatusEffects.NAUSEA, minutes(1.5f), 0)));
+            new Potion("nausea", new StatusEffectInstance(StatusEffects.NAUSEA, minutes(0.5f), 0)));
     public static final RegistryEntry<Potion> NAUSEA_1_POTION_LONG = registerPotion("nausea_1_long",
-            new Potion("nausea", new StatusEffectInstance(StatusEffects.NAUSEA, minutes(4.0f), 0)));
+            new Potion("nausea", new StatusEffectInstance(StatusEffects.NAUSEA, minutes(2.0f), 0)));
     public static final RegistryEntry<Potion> ETERNAL_NAUSEA_POTION = registerPotion("eternal_nausea",
             new Potion("eternal_nauesa", new StatusEffectInstance(StatusEffects.NAUSEA, ETERNAL, 0, false, false)));
+
+    // Wither Potion
+    private static final int WITHER_SHORT = seconds(15.0f), WITHER_LONG = minutes(1.0f);
+    public static final RegistryEntry<Potion> WITHER_1_POTION = registerPotion("decay_1",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_SHORT, 0)));
+    public static final RegistryEntry<Potion> WITHER_1_POTION_LONG = registerPotion("decay_1_long",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_LONG, 0)));
+    public static final RegistryEntry<Potion> WITHER_2_POTION = registerPotion("decay_2",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_SHORT, 1)));
+    public static final RegistryEntry<Potion> WITHER_2_POTION_LONG = registerPotion("decay_2_long",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_LONG, 1)));
+    public static final RegistryEntry<Potion> WITHER_3_POTION = registerPotion("decay_3",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_SHORT, 2)));
+    public static final RegistryEntry<Potion> WITHER_3_POTION_LONG = registerPotion("decay_3_long",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_LONG, 2)));
+    public static final RegistryEntry<Potion> WITHER_4_POTION = registerPotion("decay_4",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_SHORT, 3)));
+    public static final RegistryEntry<Potion> WITHER_4_POTION_LONG = registerPotion("decay_4_long",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_LONG, 3)));
+    public static final RegistryEntry<Potion> WITHER_5_POTION = registerPotion("decay_5",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_SHORT, 4)));
+    public static final RegistryEntry<Potion> WITHER_5_POTION_LONG = registerPotion("decay_5_long",
+            new Potion("decay", new StatusEffectInstance(StatusEffects.WITHER, WITHER_LONG, 4)));
+    public static final RegistryEntry<Potion> ETERNAL_WITHER_POTION = registerPotion("eternal_decay",
+            new Potion("eternal_decay", new StatusEffectInstance(StatusEffects.WITHER, ETERNAL, 4, false, false)));
 
     private static RegistryEntry<Potion> registerPotion(String name, Potion potion) {
         var potionEntry = Registry.registerReference(Registries.POTION, JAAVAA.id(name), potion);
         POTION_ENTRIES.add(potionEntry);
         return potionEntry;
+    }
+    private static int seconds(float seconds) {
+        return Math.round(seconds * 20);
     }
     private static int minutes(float minutes) {
         return Math.round(minutes * 60 * 20);

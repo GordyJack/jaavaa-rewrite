@@ -106,6 +106,28 @@ public class JAAVAAPotionRecipeBuilder {
             // Eternal Levitation Potion
             builder.registerPotionRecipe(JAAVAAPotions.LEVITATION_5_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_LEVITATION_POTION);
 
+            // Hunger Potion;
+            builder.registerRecipes(Items.ROTTEN_FLESH, JAAVAAPotions.HUNGER_1_POTION);
+            // TODO: builder.registerPotionRecipe(JAAVAAPotions.SATURATION_1_POTION, INVERTER_ITEM, JAAVAAPotions.HUNGER_1_POTION);
+            // Power up the hunger potion
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_1_POTION, TIER_1_UPGRADE, JAAVAAPotions.HUNGER_2_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_2_POTION, TIER_2_UPGRADE, JAAVAAPotions.HUNGER_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.HUNGER_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.HUNGER_5_POTION);
+            // Lengthen the hunger potion
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.HUNGER_1_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_2_POTION, LENGTH_UPGRADE, JAAVAAPotions.HUNGER_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_3_POTION, LENGTH_UPGRADE, JAAVAAPotions.HUNGER_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_4_POTION, LENGTH_UPGRADE, JAAVAAPotions.HUNGER_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_5_POTION, LENGTH_UPGRADE, JAAVAAPotions.HUNGER_5_POTION_LONG);
+            // Power up the lengthened hunger potion
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_1_POTION_LONG, TIER_1_UPGRADE, JAAVAAPotions.HUNGER_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.HUNGER_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.HUNGER_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.HUNGER_5_POTION_LONG);
+            // Eternal Hunger Potion
+            builder.registerPotionRecipe(JAAVAAPotions.HUNGER_5_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_HUNGER_POTION);
+
 
             // Mining Fatigue Potion
             builder.registerPotionRecipe(JAAVAAPotions.HASTE_1_POTION, INVERTER_ITEM, JAAVAAPotions.MINING_FATIGUE_1_POTION);
@@ -145,6 +167,29 @@ public class JAAVAAPotionRecipeBuilder {
             builder.registerPotionRecipe(JAAVAAPotions.NAUSEA_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.NAUSEA_1_POTION_LONG);
             // Eternal Nausea Potion
             builder.registerPotionRecipe(JAAVAAPotions.NAUSEA_1_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_NAUSEA_POTION);
+
+            // Wither Potion
+            builder.registerPotionRecipe(Potions.REGENERATION, Items.WITHER_ROSE, JAAVAAPotions.WITHER_1_POTION);
+            builder.registerPotionRecipe(Potions.STRONG_REGENERATION, Items.WITHER_ROSE, JAAVAAPotions.WITHER_2_POTION);
+            builder.registerPotionRecipe(Potions.LONG_REGENERATION, Items.WITHER_ROSE, JAAVAAPotions.WITHER_1_POTION_LONG);
+            // Power up the wither potion
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_1_POTION, TIER_1_UPGRADE, JAAVAAPotions.WITHER_2_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_2_POTION, TIER_2_UPGRADE, JAAVAAPotions.WITHER_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.WITHER_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.WITHER_5_POTION);
+            // Lengthen the wither potion
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.WITHER_1_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_2_POTION, LENGTH_UPGRADE, JAAVAAPotions.WITHER_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_3_POTION, LENGTH_UPGRADE, JAAVAAPotions.WITHER_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_4_POTION, LENGTH_UPGRADE, JAAVAAPotions.WITHER_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_5_POTION, LENGTH_UPGRADE, JAAVAAPotions.WITHER_5_POTION_LONG);
+            // Power up the lengthened wither potion
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_1_POTION_LONG, TIER_1_UPGRADE, JAAVAAPotions.WITHER_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.WITHER_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.WITHER_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.WITHER_5_POTION_LONG);
+            // Eternal Wither Potion
+            builder.registerPotionRecipe(JAAVAAPotions.WITHER_5_POTION_LONG, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_WITHER_POTION);
         });
     }
 }
