@@ -59,27 +59,27 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_v")));
             }
             private void createAdvancedGateRecipes() {
-                this.createShaped(RecipeCategory.MISC, JAAVAAItems.ADDER_ITEM)
+                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ADDER)
                         .input('R', Items.REDSTONE)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
                         .input('C', Items.COMPARATOR)
                         .pattern(" R ")
                         .pattern("RCR")
                         .pattern(" D ")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.ADDER_ITEM).toString())
+                        .group(JAAVAA.idFromItem(JAAVAABlocks.ADDER).toString())
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, JAAVAAItems.ADVANCED_REPEATER_ITEM)
+                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ADVANCED_REPEATER)
                         .input('R', Items.REDSTONE)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
                         .input('G', Items.REPEATER)
                         .pattern(" R ")
                         .pattern("RGR")
                         .pattern(" D ")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.ADVANCED_REPEATER_ITEM).toString())
+                        .group(JAAVAA.idFromItem(JAAVAABlocks.ADVANCED_REPEATER).toString())
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, JAAVAAItems.DECODER_ITEM)
+                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.DECODER)
                         .input('R', Items.REDSTONE)
                         .input('T', Items.REDSTONE_TORCH)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
@@ -87,7 +87,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .pattern("RTR")
                         .pattern("TCT")
                         .pattern("RDR")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.DECODER_ITEM).toString())
+                        .group(JAAVAA.idFromItem(JAAVAABlocks.DECODER).toString())
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .offerTo(this.exporter);
             }
@@ -108,8 +108,8 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         "starsteel_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString(),
                         "starsteel_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_NUGGET).toString());
                 this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_BLOCK_ITEM,
-                        "starsteel_block_from_ingot", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_BLOCK_ITEM).toString(),
+                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, RecipeCategory.MISC, JAAVAABlocks.STARSTEEL_BLOCK,
+                        "starsteel_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.STARSTEEL_BLOCK).toString(),
                         "starsteel_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString());
             }
             private void createMiscRecipes() {

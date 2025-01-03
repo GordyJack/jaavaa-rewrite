@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.*;
 public class RedstoneWireBlockMixin {
     @Inject(method = "connectsTo(Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/Direction;)Z", at = @At("HEAD"), cancellable = true)
     private static void connectsTo(BlockState state, Direction dir, CallbackInfoReturnable<Boolean> cir) {
-        if (state.isOf(JAAVAABlocks.ADVANCED_REPEATER_BLOCK)) {
+        if (state.isOf(JAAVAABlocks.ADVANCED_REPEATER)) {
             Direction direction = state.get(AdvancedRepeaterBlock.FACING);
             cir.setReturnValue(direction == dir || direction.getOpposite() == dir);
         }

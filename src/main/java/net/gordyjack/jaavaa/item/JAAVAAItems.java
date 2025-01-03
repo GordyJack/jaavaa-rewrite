@@ -2,7 +2,6 @@ package net.gordyjack.jaavaa.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.*;
 import net.gordyjack.jaavaa.*;
-import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.component.*;
@@ -17,7 +16,7 @@ import java.util.function.*;
 
 public class JAAVAAItems {
     public static final ArrayList<Item> ITEMS = new ArrayList<>();
-    private static final Item.Settings STARSTEEL_DEFAULT_SETTINGS =
+    public static final Item.Settings STARSTEEL_DEFAULT_SETTINGS =
             new Item.Settings()
                     .rarity(Rarity.RARE)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT);
@@ -43,16 +42,20 @@ public class JAAVAAItems {
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
     //TODO: Add Starsteel weapons and items. Or make MALUM_STELLAE_INCANTATAE act like an enchanted book and give any tool/weapon/armor it's rarity and DamageResistantComponent and make it eternal. Should be able to be done by adding a custom enchantment.
     //BlockItems
-    public static final Item ADDER_ITEM = register("adder",
-            settings -> new BlockItem(JAAVAABlocks.ADDER_BLOCK, settings));
-    public static final Item ADVANCED_REPEATER_ITEM = register("advanced_repeater",
-            settings -> new BlockItem(JAAVAABlocks.ADVANCED_REPEATER_BLOCK, settings));
-    public static final Item DECODER_ITEM = register("decoder",
-            settings -> new BlockItem(JAAVAABlocks.DECODER_BLOCK, settings));
-    public static final Item STARSTEEL_BLOCK_ITEM = register("starsteel_block",
-            settings -> new EternalBlockItem(JAAVAABlocks.STARSTEEL_BLOCK, settings), STARSTEEL_DEFAULT_SETTINGS);
-    public static final Item STARSTEEL_GLASS_ITEM = register("starsteel_glass",
-            settings -> new EternalBlockItem(JAAVAABlocks.STARSTEEL_GLASS, settings), STARSTEEL_DEFAULT_SETTINGS);
+//    public static final Item ADDER_ITEM = register("adder",
+//            settings -> new BlockItem(JAAVAABlocks.ADDER, settings));
+//    public static final Item ADVANCED_REPEATER_ITEM = register("advanced_repeater",
+//            settings -> new BlockItem(JAAVAABlocks.ADVANCED_REPEATER, settings));
+//    public static final Item ALLOY_FURNACE_ITEM = register("alloy_furnace",
+//            settings -> new BlockItem(JAAVAABlocks.ALLOY_FURNACE, settings), new Item.Settings().fireproof());
+//    public static final Item ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR_ITEM = register("ancient_debris_encased_redstone_pillar",
+//            settings -> new BlockItem(JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR, settings), new Item.Settings().fireproof());
+//    public static final Item DECODER_ITEM = register("decoder",
+//            settings -> new BlockItem(JAAVAABlocks.DECODER, settings));
+//    public static final Item STARSTEEL_BLOCK_ITEM = register("starsteel_block",
+//            settings -> new EternalBlockItem(JAAVAABlocks.STARSTEEL_BLOCK, settings), STARSTEEL_DEFAULT_SETTINGS);
+//    public static final Item STARSTEEL_GLASS_ITEM = register("starsteel_glass",
+//            settings -> new EternalBlockItem(JAAVAABlocks.STARSTEEL_GLASS, settings), STARSTEEL_DEFAULT_SETTINGS);
 
     //Methods
     /**
@@ -97,17 +100,6 @@ public class JAAVAAItems {
             entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);
             entries.add(STARSTEEL_NUGGET);
-        });
-        //Adding BlockItems to main Block ItemGroup
-        ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKS).register(entries -> {
-            entries.add(STARSTEEL_BLOCK_ITEM);
-            entries.add(STARSTEEL_GLASS_ITEM);
-        });
-        //Adding redstone BlockItems to Redstone BlockItemGroup
-        ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_REDSTONE).register(entries -> {
-            entries.add(ADDER_ITEM);
-            entries.add(ADVANCED_REPEATER_ITEM);
-            entries.add(DECODER_ITEM);
         });
     }
 }

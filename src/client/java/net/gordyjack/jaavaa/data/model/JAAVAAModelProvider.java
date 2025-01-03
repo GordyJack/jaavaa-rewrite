@@ -21,7 +21,6 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
-        bsmGen.registerSimpleCubeAll(JAAVAABlocks.EXAMPLE_BLOCK);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
@@ -49,7 +48,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         }
     }
     private VariantsBlockStateSupplier generateAdderState() {
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADDER_BLOCK);
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADDER);
         BlockStateVariantMap.QuintupleProperty<Direction, Boolean, Boolean, Boolean, Boolean> variantMap =
                 BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, JAAVAABlockProperties.LEFT_POWERED, JAAVAABlockProperties.BACK_POWERED, JAAVAABlockProperties.RIGHT_POWERED);
         for (Direction facing : Properties.HORIZONTAL_FACING.getValues()) {
@@ -96,7 +95,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         return variantSupplier.coordinate(variantMap);
     }
     private VariantsBlockStateSupplier generateAdvancedRepeaterState() {
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADVANCED_REPEATER_BLOCK);
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADVANCED_REPEATER);
         BlockStateVariantMap.QuintupleProperty<Direction, Boolean, Boolean, Integer, Integer> variantMap =
                 BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, Properties.LOCKED, JAAVAABlockProperties.DELAY, JAAVAABlockProperties.PULSE);
 
@@ -141,7 +140,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         return variantSupplier.coordinate(variantMap);
     }
     private VariantsBlockStateSupplier generateDecoderState() {
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.DECODER_BLOCK);
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.DECODER);
         BlockStateVariantMap.QuadrupleProperty<Direction, Boolean, DecoderMode, DecoderTarget> variantMap =
                 BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, JAAVAABlockProperties.DECODER_MODE, JAAVAABlockProperties.DECODER_TARGET);
 

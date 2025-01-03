@@ -33,7 +33,7 @@ extends FabricLanguageProvider{
             translationBuilder.add(block, getTranslatedName(block));
         }
         for(Item item : JAAVAAItems.ITEMS) {
-            if (item == JAAVAAItems.STARSTEEL_BLOCK_ITEM) {
+            if (item == JAAVAABlocks.STARSTEEL_BLOCK.asItem()) {
                 translationBuilder.add(item, "Block of Starsteel");
                 continue;
             }
