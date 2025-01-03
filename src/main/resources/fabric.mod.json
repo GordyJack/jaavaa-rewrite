@@ -2,8 +2,8 @@
 	"schemaVersion": 1,
 	"id": "jaavaa",
 	"version": "${version}",
-	"name": "JustAnotherActuallyVanillaAdditionsAddon",
-	"description": "Fixing and Enhancing Minecraft. The way it is meant to be played.",
+	"name": "JAAVAA",
+	"description": "JustAnotherActuallyVanillaAdditionsAddon: Fixing and Enhancing Minecraft. The way it is meant to be played.",
 	"authors": [
 		"GordyJack"
 	],
