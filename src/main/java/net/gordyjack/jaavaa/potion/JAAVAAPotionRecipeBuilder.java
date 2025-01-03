@@ -143,6 +143,31 @@ public class JAAVAAPotionRecipeBuilder {
             // Eternal Darkness Potion
             builder.registerPotionRecipe(JAAVAAPotions.DARKNESS_1_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_DARKNESS_POTION);
 
+            // Fatal Poison Potion
+            builder.registerPotionRecipe(Potions.POISON, Items.POISONOUS_POTATO, JAAVAAPotions.FATAL_POISON_1_POTION);
+            builder.registerPotionRecipe(Potions.STRONG_POISON, Items.POISONOUS_POTATO, JAAVAAPotions.FATAL_POISON_2_POTION);
+            builder.registerPotionRecipe(Potions.LONG_POISON, Items.POISONOUS_POTATO, JAAVAAPotions.FATAL_POISON_1_POTION_LONG);
+            // Power up the Poison Potion
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_1_POTION, TIER_1_UPGRADE, JAAVAAPotions.FATAL_POISON_2_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_2_POTION, TIER_2_UPGRADE, JAAVAAPotions.FATAL_POISON_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.FATAL_POISON_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.FATAL_POISON_5_POTION);
+            // Lengthen the Poison Potion
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.FATAL_POISON_1_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_2_POTION, LENGTH_UPGRADE, JAAVAAPotions.FATAL_POISON_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_3_POTION, LENGTH_UPGRADE, JAAVAAPotions.FATAL_POISON_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_4_POTION, LENGTH_UPGRADE, JAAVAAPotions.FATAL_POISON_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_5_POTION, LENGTH_UPGRADE, JAAVAAPotions.FATAL_POISON_5_POTION_LONG);
+            // Power up the lengthened Poison Potion
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_1_POTION_LONG, TIER_1_UPGRADE, JAAVAAPotions.FATAL_POISON_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.FATAL_POISON_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.FATAL_POISON_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.FATAL_POISON_5_POTION_LONG);
+            // Infinite Poison Potion
+            builder.registerPotionRecipe(JAAVAAPotions.FATAL_POISON_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_FATAL_POISON_POTION);
+            // Eternal Poison Potion
+            builder.registerPotionRecipe(JAAVAAPotions.INFINITE_FATAL_POISON_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_FATAL_POISON_POTION);
+
             // Hunger Potion;
             builder.registerRecipes(Items.ROTTEN_FLESH, JAAVAAPotions.HUNGER_1_POTION);
             // Power up the hunger potion

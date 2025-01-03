@@ -5,8 +5,7 @@
   "mixins": [
     "ItemMixin",
     "PotionContentsComponentMixin",
-    "RedstoneWireBlockMixin",
-    "LivingEntityMixin"
+    "RedstoneWireBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

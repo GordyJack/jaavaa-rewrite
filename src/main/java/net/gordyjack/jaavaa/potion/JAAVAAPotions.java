@@ -157,6 +157,33 @@ public class JAAVAAPotions {
     public static final RegistryEntry<Potion> INFINITE_DARKNESS_POTION = registerPotion("infinite_darkness",
             new Potion("infinite_darkness", new StatusEffectInstance(StatusEffects.DARKNESS, INFINITY, 0, false, false)));
 
+    // Fatal Poison Potion
+    public static final int FATAL_POISON_SHORT = seconds(5), FATAL_POISON_LONG = seconds(15);
+    public static final RegistryEntry<Potion> FATAL_POISON_1_POTION = registerPotion("fatal_poison_1",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_SHORT, 0)));
+    public static final RegistryEntry<Potion> FATAL_POISON_1_POTION_LONG = registerPotion("fatal_poison_1_long",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_LONG, 0)));
+    public static final RegistryEntry<Potion> FATAL_POISON_2_POTION = registerPotion("fatal_poison_2",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_SHORT, 1)));
+    public static final RegistryEntry<Potion> FATAL_POISON_2_POTION_LONG = registerPotion("fatal_poison_2_long",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_LONG, 1)));
+    public static final RegistryEntry<Potion> FATAL_POISON_3_POTION = registerPotion("fatal_poison_3",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_SHORT, 2)));
+    public static final RegistryEntry<Potion> FATAL_POISON_3_POTION_LONG = registerPotion("fatal_poison_3_long",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_LONG, 2)));
+    public static final RegistryEntry<Potion> FATAL_POISON_4_POTION = registerPotion("fatal_poison_4",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_SHORT, 3)));
+    public static final RegistryEntry<Potion> FATAL_POISON_4_POTION_LONG = registerPotion("fatal_poison_4_long",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_LONG, 3)));
+    public static final RegistryEntry<Potion> FATAL_POISON_5_POTION = registerPotion("fatal_poison_5",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_SHORT, 4)));
+    public static final RegistryEntry<Potion> FATAL_POISON_5_POTION_LONG = registerPotion("fatal_poison_5_long",
+            new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_LONG, 4)));
+    public static final RegistryEntry<Potion> INFINITE_FATAL_POISON_POTION = registerPotion("infinite_fatal_poison",
+            new Potion("infinite_fatal_poison", new StatusEffectInstance(StatusEffects.POISON, INFINITY, 0, false, false)));
+    public static final RegistryEntry<Potion> ETERNAL_FATAL_POISON_POTION = registerPotion("eternal_fatal_poison",
+            new Potion("eternal_fatal_poison", new StatusEffectInstance(StatusEffects.POISON, INFINITY, 5, false, false)));
+
     // Hunger Potion
     public static final int HUNGER_SHORT = minutes(1.5), HUNGER_LONG = minutes(4);
     public static final RegistryEntry<Potion> HUNGER_1_POTION = registerPotion("hunger_1",

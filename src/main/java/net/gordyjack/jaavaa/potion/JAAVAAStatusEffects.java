@@ -10,6 +10,8 @@ import java.util.*;
 
 public class JAAVAAStatusEffects {
     public static final List<RegistryEntry<StatusEffect>> EFFECTS = new ArrayList<>();
+    public static final RegistryEntry<StatusEffect> FATAL_POISON =
+            register("fatal_poison", new FatalPoisonEffect());
     public static final RegistryEntry<StatusEffect> IMPENDING_DOOM =
             register("impending_doom", new ImpendingDoomEffect());
 
