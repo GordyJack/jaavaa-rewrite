@@ -271,7 +271,7 @@ public class JAAVAAPotions {
     public static final RegistryEntry<Potion> NAUSEA_1_POTION_LONG = registerPotion("nausea_1_long",
             new Potion("nausea", new StatusEffectInstance(StatusEffects.NAUSEA, minutes(2), 0)));
     public static final RegistryEntry<Potion> INFINITE_NAUSEA_POTION = registerPotion("infinite_nausea",
-            new Potion("infinite_nauesa", new StatusEffectInstance(StatusEffects.NAUSEA, INFINITY, 0, false, false)));
+            new Potion("infinite_nausea", new StatusEffectInstance(StatusEffects.NAUSEA, INFINITY, 0, false, false)));
 
     // Wither Potion
     private static final int WITHER_SHORT = seconds(15), WITHER_LONG = minutes(1);
