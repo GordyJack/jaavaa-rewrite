@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "jaavaa:advanced_repeater",
   "key": {
     "D": "#jaavaa:deepslate_craftables",
     "G": "minecraft:repeater",

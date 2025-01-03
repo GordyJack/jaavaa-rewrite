@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "jaavaa:ancient_debris_encased_redstone_pillar",
+  "key": {
+    "C": "minecraft:ancient_debris",
+    "I": "minecraft:redstone_block"
+  },
+  "pattern": [
+    "CCC",
+    "III",
+    "CCC"
+  ],
+  "result": {
+    "count": 6,
+    "id": "jaavaa:ancient_debris_encased_redstone_pillar"
+  }
+}

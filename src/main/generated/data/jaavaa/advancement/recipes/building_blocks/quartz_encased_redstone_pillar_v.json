@@ -1,31 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_nether_star": {
+    "has_quartz_pillar": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:nether_star"
+            "items": "minecraft:quartz_pillar"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_netherite_ingot": {
+    "has_redstone_block": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:netherite_ingot"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_starsteel_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": "jaavaa:starsteel_ingot"
+            "items": "minecraft:redstone_block"
           }
         ]
       },
@@ -33,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jaavaa:starsteel_ingot"
+        "recipe": "jaavaa:quartz_encased_redstone_pillar_v"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,14 +31,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_netherite_ingot",
-      "has_nether_star",
-      "has_starsteel_ingot"
+      "has_quartz_pillar",
+      "has_redstone_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "jaavaa:starsteel_ingot"
+      "jaavaa:quartz_encased_redstone_pillar_v"
     ]
   }
 }

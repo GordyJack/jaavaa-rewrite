@@ -8,6 +8,8 @@ import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.potion.*;
 import net.gordyjack.jaavaa.recipe.*;
 import net.gordyjack.jaavaa.screen.*;
+import net.minecraft.item.*;
+import net.minecraft.registry.*;
 import net.minecraft.util.*;
 import org.slf4j.*;
 
@@ -51,5 +53,8 @@ public class JAAVAA implements ModInitializer {
 	}
 	public static int minutes(Number minutes) {
 		return seconds(minutes.floatValue() * 60);
+	}
+	public static Identifier idFromItem(ItemConvertible item) {
+		return Registries.ITEM.getId(item.asItem());
 	}
 }

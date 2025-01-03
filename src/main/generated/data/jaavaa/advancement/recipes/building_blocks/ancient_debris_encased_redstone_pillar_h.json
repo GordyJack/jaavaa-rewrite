@@ -1,31 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_nether_star": {
+    "has_ancient_debris": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:nether_star"
+            "items": "minecraft:ancient_debris"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_netherite_ingot": {
+    "has_redstone_block": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:netherite_ingot"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_starsteel_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": "jaavaa:starsteel_ingot"
+            "items": "minecraft:redstone_block"
           }
         ]
       },
@@ -33,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jaavaa:starsteel_ingot"
+        "recipe": "jaavaa:ancient_debris_encased_redstone_pillar_h"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,14 +31,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_netherite_ingot",
-      "has_nether_star",
-      "has_starsteel_ingot"
+      "has_ancient_debris",
+      "has_redstone_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "jaavaa:starsteel_ingot"
+      "jaavaa:ancient_debris_encased_redstone_pillar_h"
     ]
   }
 }

@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "jaavaa:starsteel_nugget",
   "ingredients": [
     "jaavaa:starsteel_ingot"
   ],

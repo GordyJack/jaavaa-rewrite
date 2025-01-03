@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "jaavaa:adder",
   "key": {
     "C": "minecraft:comparator",
     "D": "#jaavaa:deepslate_craftables",

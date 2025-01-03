@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "jaavaa:alloy_furnace",
   "key": {
     "B": "minecraft:blast_furnace",
     "D": "#jaavaa:deepslate_craftables",

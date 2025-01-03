@@ -2,6 +2,7 @@ package net.gordyjack.jaavaa.data.recipe;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.*;
@@ -23,36 +24,62 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             @Override
             public void generate() {
                 RegistryEntryLookup<Item> registryLookup = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
-                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.ADDER_ITEM)
+                this.createAdvancedGateRecipes();
+                this.createMaterialsRecipes();
+                this.createMiscRecipes();
+                this.offerEncasedPillarRecipes(Items.QUARTZ_PILLAR, Items.REDSTONE_BLOCK, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR);
+                this.offerEncasedPillarRecipes(Items.ANCIENT_DEBRIS, Items.REDSTONE_BLOCK, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
+                this.offerSmelting(
+                        Items.POLISHED_DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE,
+                        0.1F, 200, JAAVAA.idFromItem(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE).toString());
+            }
+            private void offerSmelting(ItemConvertible item, RecipeCategory category, ItemConvertible result, float experience, int cookingTime, String group) {
+                offerSmelting(List.of(item), category, result, experience, cookingTime, group);
+            }
+            private void offerEncasedPillarRecipes(ItemConvertible casing, ItemConvertible infill, ItemConvertible output) {
+                this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 6)
+                        .input('C', casing)
+                        .input('I', infill)
+                        .pattern("CCC")
+                        .pattern("III")
+                        .pattern("CCC")
+                        .group(JAAVAA.idFromItem(output).toString())
+                        .criterion(hasItem(casing), conditionsFromItem(casing))
+                        .criterion(hasItem(infill), conditionsFromItem(infill))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_h")));
+                this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 6)
+                        .input('C', casing)
+                        .input('I', infill)
+                        .pattern("CIC")
+                        .pattern("CIC")
+                        .pattern("CIC")
+                        .group(JAAVAA.idFromItem(output).toString())
+                        .criterion(hasItem(casing), conditionsFromItem(casing))
+                        .criterion(hasItem(infill), conditionsFromItem(infill))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_v")));
+            }
+            private void createAdvancedGateRecipes() {
+                this.createShaped(RecipeCategory.MISC, JAAVAAItems.ADDER_ITEM)
                         .input('R', Items.REDSTONE)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
                         .input('C', Items.COMPARATOR)
                         .pattern(" R ")
                         .pattern("RCR")
                         .pattern(" D ")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.ADDER_ITEM).toString())
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
-                        .offerTo(exporter);
-                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.ADVANCED_REPEATER_ITEM)
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.MISC, JAAVAAItems.ADVANCED_REPEATER_ITEM)
                         .input('R', Items.REDSTONE)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
                         .input('G', Items.REPEATER)
                         .pattern(" R ")
                         .pattern("RGR")
                         .pattern(" D ")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.ADVANCED_REPEATER_ITEM).toString())
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
-                        .offerTo(exporter);
-                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAABlocks.ALLOY_FURNACE)
-                        .input('I', Items.IRON_INGOT)
-                        .input('B', Items.BLAST_FURNACE)
-                        .input('N', Items.NETHERITE_INGOT)
-                        .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
-                        .pattern("IDI")
-                        .pattern("DND")
-                        .pattern("IBI")
-                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
-                        .criterion(hasItem(Items.BLAST_FURNACE), conditionsFromItem(Items.BLAST_FURNACE))
-                        .offerTo(exporter);
-                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.DECODER_ITEM)
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.MISC, JAAVAAItems.DECODER_ITEM)
                         .input('R', Items.REDSTONE)
                         .input('T', Items.REDSTONE_TORCH)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
@@ -60,9 +87,45 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .pattern("RTR")
                         .pattern("TCT")
                         .pattern("RDR")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.DECODER_ITEM).toString())
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
-                        .offerTo(exporter);
-                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.MALUM_STELLAE_INCANTATAE)
+                        .offerTo(this.exporter);
+            }
+            private void createMaterialsRecipes() {
+                this.createShaped(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 2)
+                        .input('I', Items.NETHERITE_INGOT)
+                        .input('S', Items.NETHER_STAR)
+                        .pattern(" I ")
+                        .pattern("ISI")
+                        .pattern(" I ")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString())
+                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
+                        .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR))
+                        .criterion(hasItem(JAAVAAItems.STARSTEEL_INGOT), conditionsFromItem(JAAVAAItems.STARSTEEL_INGOT))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT)));
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_NUGGET, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT,
+                        "starsteel_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString(),
+                        "starsteel_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_NUGGET).toString());
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_BLOCK_ITEM,
+                        "starsteel_block_from_ingot", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_BLOCK_ITEM).toString(),
+                        "starsteel_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString());
+            }
+            private void createMiscRecipes() {
+                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ALLOY_FURNACE)
+                        .input('I', Items.IRON_INGOT)
+                        .input('B', Items.BLAST_FURNACE)
+                        .input('N', Items.NETHERITE_INGOT)
+                        .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
+                        .pattern("IDI")
+                        .pattern("DND")
+                        .pattern("IBI")
+                        .group(JAAVAA.idFromItem(JAAVAABlocks.ALLOY_FURNACE).toString())
+                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
+                        .criterion(hasItem(Items.BLAST_FURNACE), conditionsFromItem(Items.BLAST_FURNACE))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.MISC, JAAVAAItems.MALUM_STELLAE_INCANTATAE)
                         .input('G', Items.ENCHANTED_GOLDEN_APPLE)
                         .input('S', JAAVAAItems.STARSTEEL_INGOT)
                         .input('D', Items.DRAGON_BREATH)
@@ -72,30 +135,12 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .pattern("DSP")
                         .pattern("SGS")
                         .pattern("ASW")
-                        .group("jaavaa:malum_stellae_incantatae")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MALUM_STELLAE_INCANTATAE).toString())
                         .criterion(hasItem(Items.ENCHANTED_GOLDEN_APPLE), conditionsFromItem(Items.ENCHANTED_GOLDEN_APPLE))
                         .criterion(hasItem(Items.DRAGON_BREATH), conditionsFromItem(Items.DRAGON_BREATH))
                         .criterion(hasItem(JAAVAAItems.ALLAY_ESSENCE), conditionsFromItem(JAAVAAItems.ALLAY_ESSENCE))
                         .criterion(hasItem(JAAVAAItems.SHULKER_PEARL), conditionsFromItem(JAAVAAItems.SHULKER_PEARL))
-                        .offerTo(exporter);
-                ShapedRecipeJsonBuilder.create(registryLookup, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 2)
-                        .input('I', Items.NETHERITE_INGOT)
-                        .input('S', Items.NETHER_STAR)
-                        .pattern(" I ")
-                        .pattern("ISI")
-                        .pattern(" I ")
-                        .group("jaavaa:starsteel_ingot")
-                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
-                        .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR))
-                        .offerTo(exporter);
-                offerReversibleCompactingRecipesWithCompactingRecipeGroup(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_NUGGET,
-                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, "starsteel_ingot_from_nugget", "jaavaa:starsteel_ingot");
-                offerReversibleCompactingRecipesWithReverseRecipeGroup(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT,
-                        RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STARSTEEL_BLOCK, "starsteel_ingot_from_block", "jaavaa:starsteel_ingot");
-                ArrayList<ItemConvertible> polishedDeepslate = new ArrayList<>();
-                polishedDeepslate.add(Items.POLISHED_DEEPSLATE);
-                offerSmelting(polishedDeepslate, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE,
-                        0.1F, 200, "jaavaa:smooth_polished_deepslate");
+                        .offerTo(this.exporter);
             }
         };
     }

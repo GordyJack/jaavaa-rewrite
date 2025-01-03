@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "jaavaa:quartz_encased_redstone_pillar",
+  "key": {
+    "C": "minecraft:quartz_pillar",
+    "I": "minecraft:redstone_block"
+  },
+  "pattern": [
+    "CIC",
+    "CIC",
+    "CIC"
+  ],
+  "result": {
+    "count": 6,
+    "id": "jaavaa:quartz_encased_redstone_pillar"
+  }
+}
