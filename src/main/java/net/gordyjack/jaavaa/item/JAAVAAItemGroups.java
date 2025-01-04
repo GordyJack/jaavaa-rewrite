@@ -16,9 +16,9 @@ public class JAAVAAItemGroups {
     public static final RegistryKey<ItemGroup> JAAVAA_BLOCKS =
             registerItemGroup("jaavaa_blocks", JAAVAABlocks.STARSTEEL_BLOCK);
     public static final RegistryKey<ItemGroup> JAAVAA_ITEMS =
-            registerItemGroup("jaavaa_items", JAAVAAItems.STARSTEEL_INGOT);
+            registerItemGroup("jaavaa_items", JAAVAAItems.MALUM_STELLAE_INCANTATAE);
     public static final RegistryKey<ItemGroup> JAAVAA_REDSTONE =
-            registerItemGroup("jaavaa_redstone", JAAVAABlocks.ADDER);
+            registerItemGroup("jaavaa_redstone", JAAVAABlocks.DECODER);
 
     //Methods
     /**

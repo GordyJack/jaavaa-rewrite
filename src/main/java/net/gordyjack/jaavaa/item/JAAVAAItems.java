@@ -80,8 +80,8 @@ public class JAAVAAItems {
 
         //Adding Items to main Item ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_ITEMS).register(entries -> {
-            entries.add(ALLAY_ESSENCE);
             entries.add(MALUM_STELLAE_INCANTATAE);
+            entries.add(ALLAY_ESSENCE);
             entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);
             entries.add(STARSTEEL_NUGGET);
