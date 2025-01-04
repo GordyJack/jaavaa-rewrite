@@ -2,8 +2,9 @@ import math
 from PIL import Image
 import random
 
-reference_textures_path = r"src/main/resources/assets/jaavaa/textures/reference_textures/mod/"
-base_texture = Image.open(reference_textures_path + "starsteel_block_base.png").convert("RGBA")
+reference_textures_path = "/Users/gordyjack/IdeaProjects/jaavaa-rewrite/src/main/resources/assets/jaavaa/textures"
+image_name = "item/malum_stellae_incantatae"
+base_texture = Image.open(f"{reference_textures_path}/{image_name}.png").convert("RGBA")
 
 # Get the size of the block texture
 width, height = base_texture.size
@@ -23,7 +24,7 @@ for i in range(1, tiles):
                 continue
             if random.random() < 0.15:
                 r, g, b, a = new_image.getpixel((x, y))
-                brightness = random.uniform(1.1, 2.0)  # Random brightness factor between 1.1 and 1.5
+                brightness = random.uniform(1.1, 1.5)  # Random brightness factor between 1.1 and 1.5
                 new_r = min(int(r * brightness), 255)
                 new_g = min(int(g * brightness), 255)
                 new_b = min(int(b * brightness), 255)
@@ -32,6 +33,6 @@ for i in range(1, tiles):
 
 
 # Save the new image
-tiled_image.save(reference_textures_path + "twinkle_texture.png")
+tiled_image.save(f"{reference_textures_path}/{image_name}_tile.png")
 tiles=tiled_image.height//height
 print(f"{tiled_image.size=}, {tiles=}")

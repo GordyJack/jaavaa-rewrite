@@ -58,6 +58,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(infill), conditionsFromItem(infill))
                         .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_v")));
             }
+
             private void createAdvancedGateRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ADDER)
                         .input('R', Items.REDSTONE)
@@ -140,6 +141,23 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.DRAGON_BREATH), conditionsFromItem(Items.DRAGON_BREATH))
                         .criterion(hasItem(JAAVAAItems.ALLAY_ESSENCE), conditionsFromItem(JAAVAAItems.ALLAY_ESSENCE))
                         .criterion(hasItem(JAAVAAItems.SHULKER_PEARL), conditionsFromItem(JAAVAAItems.SHULKER_PEARL))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STARSTEEL_GLASS, 4)
+                        .input('G', Items.GLASS)
+                        .input('S', JAAVAAItems.STARSTEEL_INGOT)
+                        .input('N', JAAVAAItems.STARSTEEL_NUGGET)
+                        .pattern("NGN")
+                        .pattern("GSG")
+                        .pattern("NGN")
+                        .group(JAAVAA.idFromItem(JAAVAABlocks.STARSTEEL_GLASS).toString())
+                        .criterion(hasItem(JAAVAAItems.STARSTEEL_INGOT), conditionsFromItem(JAAVAAItems.STARSTEEL_INGOT))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STARSTEEL_GLASS_PANE, 16)
+                        .input('G', JAAVAABlocks.STARSTEEL_GLASS)
+                        .pattern("GGG")
+                        .pattern("GGG")
+                        .group(JAAVAA.idFromItem(JAAVAABlocks.STARSTEEL_GLASS_PANE).toString())
+                        .criterion(hasItem(JAAVAABlocks.STARSTEEL_GLASS), conditionsFromItem(JAAVAABlocks.STARSTEEL_GLASS))
                         .offerTo(this.exporter);
             }
         };

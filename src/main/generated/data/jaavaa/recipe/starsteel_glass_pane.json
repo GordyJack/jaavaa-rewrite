@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "jaavaa:starsteel_glass_pane",
+  "key": {
+    "G": "jaavaa:starsteel_glass"
+  },
+  "pattern": [
+    "GGG",
+    "GGG"
+  ],
+  "result": {
+    "count": 16,
+    "id": "jaavaa:starsteel_glass_pane"
+  }
+}

@@ -41,21 +41,6 @@ public class JAAVAAItems {
     public static final Item STARSTEEL_NUGGET = register("starsteel_nugget",
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
     //TODO: Add Starsteel weapons and items. Or make MALUM_STELLAE_INCANTATAE act like an enchanted book and give any tool/weapon/armor it's rarity and DamageResistantComponent and make it eternal. Should be able to be done by adding a custom enchantment.
-    //BlockItems
-//    public static final Item ADDER_ITEM = register("adder",
-//            settings -> new BlockItem(JAAVAABlocks.ADDER, settings));
-//    public static final Item ADVANCED_REPEATER_ITEM = register("advanced_repeater",
-//            settings -> new BlockItem(JAAVAABlocks.ADVANCED_REPEATER, settings));
-//    public static final Item ALLOY_FURNACE_ITEM = register("alloy_furnace",
-//            settings -> new BlockItem(JAAVAABlocks.ALLOY_FURNACE, settings), new Item.Settings().fireproof());
-//    public static final Item ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR_ITEM = register("ancient_debris_encased_redstone_pillar",
-//            settings -> new BlockItem(JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR, settings), new Item.Settings().fireproof());
-//    public static final Item DECODER_ITEM = register("decoder",
-//            settings -> new BlockItem(JAAVAABlocks.DECODER, settings));
-//    public static final Item STARSTEEL_BLOCK_ITEM = register("starsteel_block",
-//            settings -> new EternalBlockItem(JAAVAABlocks.STARSTEEL_BLOCK, settings), STARSTEEL_DEFAULT_SETTINGS);
-//    public static final Item STARSTEEL_GLASS_ITEM = register("starsteel_glass",
-//            settings -> new EternalBlockItem(JAAVAABlocks.STARSTEEL_GLASS, settings), STARSTEEL_DEFAULT_SETTINGS);
 
     //Methods
     /**

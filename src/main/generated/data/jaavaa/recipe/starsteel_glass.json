@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "jaavaa:starsteel_glass",
+  "key": {
+    "G": "minecraft:glass",
+    "N": "jaavaa:starsteel_nugget",
+    "S": "jaavaa:starsteel_ingot"
+  },
+  "pattern": [
+    "NGN",
+    "GSG",
+    "NGN"
+  ],
+  "result": {
+    "count": 4,
+    "id": "jaavaa:starsteel_glass"
+  }
+}

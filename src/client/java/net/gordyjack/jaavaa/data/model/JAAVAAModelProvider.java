@@ -23,6 +23,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
+        bsmGen.registerGlassAndPane(JAAVAABlocks.STARSTEEL_GLASS, JAAVAABlocks.STARSTEEL_GLASS_PANE);
         bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
 
         //TODO:Add custom model generation for the Adder, Decoder, and Adjustable Lamp similar to the Advanced Repeater.
@@ -183,5 +184,40 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             return textureMap;
         }, new Model(Optional.of(JAAVAA.id("block/encased_pillar")), Optional.empty(),
                 TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
+    }
+    public final void registerPane(BlockStateModelGenerator bsmGen, Block glassBlock, Block glassPane) {
+        TextureMap textureMap = TextureMap.paneAndTopForEdge(glassBlock, glassPane);
+        Identifier identifier = Models.TEMPLATE_GLASS_PANE_POST.upload(glassPane, textureMap, bsmGen.modelCollector);
+        Identifier identifier2 = Models.TEMPLATE_GLASS_PANE_SIDE.upload(glassPane, textureMap, bsmGen.modelCollector);
+        Identifier identifier3 = Models.TEMPLATE_GLASS_PANE_SIDE_ALT.upload(glassPane, textureMap, bsmGen.modelCollector);
+        Identifier identifier4 = Models.TEMPLATE_GLASS_PANE_NOSIDE.upload(glassPane, textureMap, bsmGen.modelCollector);
+        Identifier identifier5 = Models.TEMPLATE_GLASS_PANE_NOSIDE_ALT.upload(glassPane, textureMap, bsmGen.modelCollector);
+        Item item = glassPane.asItem();
+        bsmGen.registerItemModel(item, bsmGen.uploadBlockItemModel(item, glassBlock));
+        bsmGen.blockStateCollector
+                .accept(
+                        MultipartBlockStateSupplier.create(glassPane)
+                                .with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
+                                .with(When.create().set(Properties.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier2))
+                                .with(
+                                        When.create().set(Properties.EAST, true),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier2).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                                .with(When.create().set(Properties.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier3))
+                                .with(
+                                        When.create().set(Properties.WEST, true),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier3).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                                .with(When.create().set(Properties.NORTH, false), BlockStateVariant.create().put(VariantSettings.MODEL, identifier4))
+                                .with(When.create().set(Properties.EAST, false), BlockStateVariant.create().put(VariantSettings.MODEL, identifier5))
+                                .with(
+                                        When.create().set(Properties.SOUTH, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier5).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                                .with(
+                                        When.create().set(Properties.WEST, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier4).put(VariantSettings.Y, VariantSettings.Rotation.R270)
+                                )
+                );
     }
 }

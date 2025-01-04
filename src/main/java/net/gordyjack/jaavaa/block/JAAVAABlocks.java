@@ -42,16 +42,22 @@ public class JAAVAABlocks {
                     .sounds(BlockSoundGroup.METAL)
                     .strength(50.0F, 1200.0F),
             EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS);
-    //TODO: Add texture for STARSTEEL_GLASS
     public static final Block STARSTEEL_GLASS = registerBlock("starsteel_glass",
-            Block::new, AbstractBlock.Settings.copy(Blocks.GLASS)
+            TransparentBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS)
                     .allowsSpawning(Blocks::never)
                     .luminance(state -> 2)
                     .mapColor(MapColor.WHITE_GRAY)
                     .requiresTool()
                     .strength(1.0F, 1200.0F),
             EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS);
-
+    public static final Block STARSTEEL_GLASS_PANE = registerBlock("starsteel_glass_pane",
+            PaneBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS_PANE)
+                    .allowsSpawning(Blocks::never)
+                    .luminance(state -> 2)
+                    .mapColor(MapColor.WHITE_GRAY)
+                    .requiresTool()
+                    .strength(1.0F, 1200.0F),
+            EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS);
     // Redstone Gates
     public static final Block ADDER = registerBlock("adder",
             AdderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER));
@@ -109,6 +115,7 @@ public class JAAVAABlocks {
             entries.add(SMOOTH_POLISHED_DEEPSLATE);
             entries.add(STARSTEEL_BLOCK);
             entries.add(STARSTEEL_GLASS);
+            entries.add(STARSTEEL_GLASS_PANE);
         });
         //Adding Blocks to main Redstone ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_REDSTONE).register(entries -> {
@@ -118,6 +125,15 @@ public class JAAVAABlocks {
             entries.add(ADJUSTABLE_REDSTONE_LAMP);
             entries.add(ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
             entries.add(QUARTZ_ENCASED_REDSTONE_PILLAR);
+        });
+        //Adding Blocks to vanilla ItemGroups
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(SMOOTH_POLISHED_DEEPSLATE);
+            entries.add(STARSTEEL_BLOCK);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
+            entries.addAfter(Items.RED_STAINED_GLASS, STARSTEEL_GLASS);
+            entries.addAfter(Items.RED_STAINED_GLASS_PANE, STARSTEEL_GLASS_PANE);
         });
     }
 }
