@@ -24,7 +24,6 @@ public class JAAVAAItems {
     //Items
     public static final Item ALLAY_ESSENCE = register("allay_essence",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
-    //TODO: Add textures for and Shulker Pearl
     public static final Item MALUM_STELLAE_INCANTATAE = register("malum_stellae_incantatae",
             EternalItem::new, new Item.Settings().rarity(Rarity.EPIC)
                     .food(JAAVAAComponents.MALUM_STELLAE_INCANTATAE_FOOD, JAAVAAComponents.MALUM_STELLAE_INCANTATAE_CONSUMABLE)
