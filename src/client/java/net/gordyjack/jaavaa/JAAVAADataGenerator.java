@@ -14,6 +14,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider advancedRepeaterModelProvider;
 	public DataProvider blockLootTableProvider;
 	public DataProvider enUSProvider;
+	public DataProvider miniBlockModelProvider;
 	public DataProvider mobLootTableProvider;
 	public DataProvider modelProvider;
 	public DataProvider recipeProvider;
@@ -27,6 +28,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 		enUSProvider = pack.addProvider(JAAVAAenusProvider::new);
 		modelProvider = pack.addProvider(JAAVAAModelProvider::new);
 		advancedRepeaterModelProvider = pack.addProvider(AdvancedRepeaterModelProvider::new);
+		miniBlockModelProvider = pack.addProvider(MiniBlockModelProvider::new);
 		recipeProvider = pack.addProvider(JAAVAARecipeProvider::new);
 		tagBlockProvider = pack.addProvider(JAAVAABlockTagProvider::new);
 		tagDamageTypeProvider = pack.addProvider(JAAVAADamageTypeTagProvider::new);

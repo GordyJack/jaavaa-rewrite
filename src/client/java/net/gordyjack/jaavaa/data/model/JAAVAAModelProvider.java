@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.*;
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.block.enums.*;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.block.*;
@@ -33,6 +34,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState());
         bsmGen.blockStateCollector.accept(generateDecoderState());
         bsmGen.blockStateCollector.accept(generateRecyclingTableState());
+        for (Block block : JAAVAABlocks.BLOCKS) {
+            if (block instanceof MiniBlock miniBlock)
+                registerMiniBlockModel(bsmGen, miniBlock);
+        }
 
         registerEncasedPillarModel(bsmGen, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR,
                 Identifier.ofVanilla("block/quartz_pillar"),
@@ -223,6 +228,22 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             return textureMap;
         }, new Model(Optional.of(JAAVAA.id("block/encased_pillar")), Optional.empty(),
                 TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
+    }
+    private void registerMiniBlockModel(BlockStateModelGenerator bsmGen, MiniBlock miniBlock) {
+        String idPath = "block/" + JAAVAA.idFromItem(miniBlock.asItem()).getPath();
+        bsmGen.registerItemModel(miniBlock.asItem(), bsmGen.uploadBlockItemModel(miniBlock.asItem(), miniBlock));
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(miniBlock);
+        BlockStateVariantMap.SingleProperty<Integer> variantMap =
+                BlockStateVariantMap.create(JAAVAABlockProperties.MINI_BLOCK_POSITION);
+
+        for (int position = 0b00000001; position <= 0b11111111; position++) {
+            String posString = String.format("%8s", Integer.toBinaryString(position)).replace(' ', '0');
+            String subIdPath = idPath + "_" + posString;
+            Identifier modelId = JAAVAA.id(subIdPath);
+            BlockStateVariant variant = BlockStateVariant.create().put(VariantSettings.MODEL, modelId);
+            variantMap.register(position, variant);
+        }
+        bsmGen.blockStateCollector.accept(variantSupplier.coordinate(variantMap));
     }
     public final void registerPane(BlockStateModelGenerator bsmGen, Block glassBlock, Block glassPane) {
         TextureMap textureMap = TextureMap.paneAndTopForEdge(glassBlock, glassPane);

@@ -81,6 +81,11 @@ public class JAAVAABlocks {
             new Item.Settings().fireproof());
     public static final Block QUARTZ_ENCASED_REDSTONE_PILLAR = registerBlock("quartz_encased_redstone_pillar", EncasedRedstoneBlock::new,
             AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
+    // Mini Blocks
+    public static final Block STONE_MINI_BLOCK = registerBlock("stone_mini_block",
+            MiniBlock::new, AbstractBlock.Settings.copy(Blocks.STONE));
+    public static final Block SMOOTH_POLISHED_DEEPSLATE_MINI_BLOCK = registerBlock("smooth_polished_deepslate_mini_block",
+            MiniBlock::new, AbstractBlock.Settings.copy(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE));
 
     //Methods
     private static Block registerBlock(String path, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings blockSettings) {
@@ -122,6 +127,9 @@ public class JAAVAABlocks {
             entries.add(STARSTEEL_GLASS);
             entries.add(STARSTEEL_GLASS_PANE);
             entries.add(RECYCLING_TABLE);
+
+            entries.add(STONE_MINI_BLOCK);
+            entries.add(SMOOTH_POLISHED_DEEPSLATE_MINI_BLOCK);
         });
         //Adding Blocks to main Redstone ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_REDSTONE).register(entries -> {

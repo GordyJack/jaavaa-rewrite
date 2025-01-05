@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jaavaa:block/smooth_polished_deepslate_mini_block"
+  }
+}
