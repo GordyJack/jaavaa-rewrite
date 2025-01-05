@@ -105,10 +105,10 @@ public class JAAVAABlocks {
             registerMiniBlock("diorite_mini_block", Blocks.DIORITE);
     public static final Block POLISHED_DIORITE_MINI_BLOCK =
             registerMiniBlock("polished_diorite_mini_block", Blocks.POLISHED_DIORITE);
-    public static final Block DIRT_MINI_BLOCK =
-            registerMiniBlock("dirt_mini_block", Blocks.DIRT);
-    public static final Block COARSE_DIRT_MINI_BLOCK =
-            registerMiniBlock("coarse_dirt_mini_block", Blocks.COARSE_DIRT);
+//    public static final Block DIRT_MINI_BLOCK =
+//            registerMiniBlock("dirt_mini_block", Blocks.DIRT);
+//    public static final Block COARSE_DIRT_MINI_BLOCK =
+//            registerMiniBlock("coarse_dirt_mini_block", Blocks.COARSE_DIRT);
     public static final Block END_STONE_MINI_BLOCK =
             registerMiniBlock("end_stone_mini_block", Blocks.END_STONE);
     public static final Block END_STONE_BRICKS_MINI_BLOCK =

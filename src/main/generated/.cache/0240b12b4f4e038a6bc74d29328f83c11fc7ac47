@@ -3,7 +3,6 @@
 1e8a01876d6f6187c7ab6fdd676a4188e30ba80c data/minecraft/tags/block/beacon_base_blocks.json
 fafcaa25739c89e181063559b5d311c5effcecf3 data/minecraft/tags/block/dragon_immune.json
 7d910cead23fca33099edf56dd5c2fb3826a97d5 data/minecraft/tags/block/mineable/pickaxe.json
-e4418abbe4f22957599754e0d3e3b03dd0ba6cef data/minecraft/tags/block/mineable/shovel.json
 48cf242fe95ed32b89a6495245ff9a30a4d926a2 data/minecraft/tags/block/needs_diamond_tool.json
 649240732c18150f229abd41358c342afeadc02c data/minecraft/tags/block/needs_iron_tool.json
 b47b75c0308d22278ad6f9549bdf7b59091d80d0 data/minecraft/tags/block/needs_stone_tool.json

@@ -99,10 +99,10 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 JAAVAABlocks.IRON_MINI_BLOCK,
                 JAAVAABlocks.LAPIS_LAZULI_MINI_BLOCK
         );
-        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(
-                JAAVAABlocks.DIRT_MINI_BLOCK,
-                JAAVAABlocks.COARSE_DIRT_MINI_BLOCK
-        );
+//        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(
+//                JAAVAABlocks.DIRT_MINI_BLOCK,
+//                JAAVAABlocks.COARSE_DIRT_MINI_BLOCK
+//        );
         getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE).add(
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STARSTEEL_GLASS,
