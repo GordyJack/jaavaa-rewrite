@@ -78,6 +78,33 @@ public class JAAVAAPotions {
     public static final RegistryEntry<Potion> ETERNAL_HASTE_POTION = registerPotion("eternal_haste",
             new Potion("eternal_haste", new StatusEffectInstance(StatusEffects.HASTE, INFINITY, 5, false, false)));
 
+    // Health Boost Potion
+    private static final int HEALTH_BOOST_SHORT = minutes(3), HEALTH_BOOST_LONG = minutes(8);
+    public static final RegistryEntry<Potion> HEALTH_BOOST_1_POTION = registerPotion("health_boost_1",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_SHORT, 0)));
+    public static final RegistryEntry<Potion> HEALTH_BOOST_1_POTION_LONG = registerPotion("health_boost_1_long",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_LONG, 0)));
+    public static final RegistryEntry<Potion> HEALTH_BOOST_2_POTION = registerPotion("health_boost_2",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_SHORT, 1)));
+    public static final RegistryEntry<Potion> HEALTH_BOOST_2_POTION_LONG = registerPotion("health_boost_2_long",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_LONG, 1)));
+    public static final RegistryEntry<Potion> HEALTH_BOOST_3_POTION = registerPotion("health_boost_3",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_SHORT, 2)));
+    public static final RegistryEntry<Potion> HEALTH_BOOST_3_POTION_LONG = registerPotion("health_boost_3_long",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_LONG, 2)));
+    public static final RegistryEntry<Potion> HEALTH_BOOST_4_POTION = registerPotion("health_boost_4",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_SHORT, 3)));
+    public static final RegistryEntry<Potion> HEALTH_BOOST_4_POTION_LONG = registerPotion("health_boost_4_long",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_LONG, 3)));
+    public static final RegistryEntry<Potion> HEALTH_BOOST_5_POTION = registerPotion("health_boost_5",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_SHORT, 4)));
+    public static final RegistryEntry<Potion> HEALTH_BOOST_5_POTION_LONG = registerPotion("health_boost_5_long",
+            new Potion("health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, HEALTH_BOOST_LONG, 4)));
+    public static final RegistryEntry<Potion> INFINITE_HEALTH_BOOST_POTION = registerPotion("infinite_health_boost",
+            new Potion("infinite_health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, INFINITY, 0, false, false)));
+    public static final RegistryEntry<Potion> ETERNAL_HEALTH_BOOST_POTION = registerPotion("eternal_health_boost",
+            new Potion("eternal_health_boost", new StatusEffectInstance(StatusEffects.HEALTH_BOOST, INFINITY, 5, false, false)));
+
     // Resistance Potion
     private static final int RESISTANCE_SHORT = minutes(3), RESISTANCE_LONG = minutes(8);
     public static final RegistryEntry<Potion> RESISTANCE_1_POTION = registerPotion("resistance_1",

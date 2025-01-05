@@ -74,6 +74,29 @@ public class JAAVAAPotionRecipeBuilder {
             // Eternal Haste Potion
             builder.registerPotionRecipe(JAAVAAPotions.INFINITE_HASTE_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_HASTE_POTION);
 
+            // Health Boost Potion
+            builder.registerRecipes(Items.RED_MUSHROOM, JAAVAAPotions.HEALTH_BOOST_1_POTION);
+            // Power up the health boost potion
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_1_POTION, TIER_1_UPGRADE, JAAVAAPotions.HEALTH_BOOST_2_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_2_POTION, TIER_2_UPGRADE, JAAVAAPotions.HEALTH_BOOST_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.HEALTH_BOOST_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.HEALTH_BOOST_5_POTION);
+            // Lengthen the health boost potion
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_1_POTION, LENGTH_UPGRADE, JAAVAAPotions.HEALTH_BOOST_1_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_2_POTION, LENGTH_UPGRADE, JAAVAAPotions.HEALTH_BOOST_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_3_POTION, LENGTH_UPGRADE, JAAVAAPotions.HEALTH_BOOST_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_4_POTION, LENGTH_UPGRADE, JAAVAAPotions.HEALTH_BOOST_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_5_POTION, LENGTH_UPGRADE, JAAVAAPotions.HEALTH_BOOST_5_POTION_LONG);
+            // Power up the lengthened health boost potion
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_1_POTION_LONG, TIER_1_UPGRADE, JAAVAAPotions.HEALTH_BOOST_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.HEALTH_BOOST_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.HEALTH_BOOST_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.HEALTH_BOOST_5_POTION_LONG);
+            // Infinite Health Boost Potion
+            builder.registerPotionRecipe(JAAVAAPotions.HEALTH_BOOST_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_HEALTH_BOOST_POTION);
+            // Eternal Health Boost Potion
+            builder.registerPotionRecipe(JAAVAAPotions.INFINITE_HEALTH_BOOST_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_HEALTH_BOOST_POTION);
+
             // Resistance Potion
             builder.registerRecipes(Items.DIAMOND, JAAVAAPotions.RESISTANCE_1_POTION);
             // Power up the resistance potion
