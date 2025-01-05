@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_deepslate_mini_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:polished_deepslate_mini_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:polished_deepslate_from_mini_blocks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_polished_deepslate_mini_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:polished_deepslate_from_mini_blocks"
+    ]
+  }
+}

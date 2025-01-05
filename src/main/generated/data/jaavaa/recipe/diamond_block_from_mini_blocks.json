@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:diamond_block",
+  "ingredients": [
+    "jaavaa:diamond_mini_block",
+    "jaavaa:diamond_mini_block",
+    "jaavaa:diamond_mini_block",
+    "jaavaa:diamond_mini_block",
+    "jaavaa:diamond_mini_block",
+    "jaavaa:diamond_mini_block",
+    "jaavaa:diamond_mini_block",
+    "jaavaa:diamond_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:diamond_block"
+  }
+}

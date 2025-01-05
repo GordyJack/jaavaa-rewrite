@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:netherite_block",
+  "ingredients": [
+    "jaavaa:netherite_mini_block",
+    "jaavaa:netherite_mini_block",
+    "jaavaa:netherite_mini_block",
+    "jaavaa:netherite_mini_block",
+    "jaavaa:netherite_mini_block",
+    "jaavaa:netherite_mini_block",
+    "jaavaa:netherite_mini_block",
+    "jaavaa:netherite_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:netherite_block"
+  }
+}

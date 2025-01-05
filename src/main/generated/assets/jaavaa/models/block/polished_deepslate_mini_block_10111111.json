@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/mini_block_10111111",
+  "position": "10111111",
+  "textures": {
+    "down": "minecraft:block/polished_deepslate",
+    "side": "minecraft:block/polished_deepslate",
+    "up": "minecraft:block/polished_deepslate"
+  }
+}

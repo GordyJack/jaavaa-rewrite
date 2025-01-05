@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:emerald_block",
+  "ingredients": [
+    "jaavaa:emerald_mini_block",
+    "jaavaa:emerald_mini_block",
+    "jaavaa:emerald_mini_block",
+    "jaavaa:emerald_mini_block",
+    "jaavaa:emerald_mini_block",
+    "jaavaa:emerald_mini_block",
+    "jaavaa:emerald_mini_block",
+    "jaavaa:emerald_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:emerald_block"
+  }
+}

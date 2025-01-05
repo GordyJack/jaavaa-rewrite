@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.potion.*;
 import net.gordyjack.jaavaa.screen.*;
@@ -33,13 +34,13 @@ extends FabricLanguageProvider{
                 translationBuilder.add(block, "Block of Starsteel");
                 continue;
             }
+            if (block instanceof MiniBlock) {
+                translationBuilder.add(block, "Mini Block of " + getTranslatedName(block).replace(" Mini", ""));
+                continue;
+            }
             translationBuilder.add(block, getTranslatedName(block));
         }
         for(Item item : JAAVAAItems.ITEMS) {
-            if (item == JAAVAABlocks.STARSTEEL_BLOCK.asItem()) {
-                translationBuilder.add(item, "Block of Starsteel");
-                continue;
-            }
             translationBuilder.add(item, getTranslatedName(item));
         }
         List<String> effectNames = new ArrayList<>();

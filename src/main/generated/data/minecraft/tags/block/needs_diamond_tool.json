@@ -1,6 +1,10 @@
 {
   "values": [
     "jaavaa:starsteel_block",
-    "jaavaa:starsteel_glass"
+    "jaavaa:starsteel_glass",
+    "jaavaa:starsteel_glass_pane",
+    "jaavaa:netherite_mini_block",
+    "jaavaa:obsidian_mini_block",
+    "jaavaa:starsteel_block_mini_block"
   ]
 }

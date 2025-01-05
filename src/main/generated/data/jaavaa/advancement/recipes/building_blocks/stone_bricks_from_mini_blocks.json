@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stone_bricks_mini_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:stone_bricks_mini_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:stone_bricks_from_mini_blocks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stone_bricks_mini_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:stone_bricks_from_mini_blocks"
+    ]
+  }
+}

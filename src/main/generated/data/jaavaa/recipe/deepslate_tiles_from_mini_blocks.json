@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:deepslate_tiles",
+  "ingredients": [
+    "jaavaa:deepslate_tiles_mini_block",
+    "jaavaa:deepslate_tiles_mini_block",
+    "jaavaa:deepslate_tiles_mini_block",
+    "jaavaa:deepslate_tiles_mini_block",
+    "jaavaa:deepslate_tiles_mini_block",
+    "jaavaa:deepslate_tiles_mini_block",
+    "jaavaa:deepslate_tiles_mini_block",
+    "jaavaa:deepslate_tiles_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:deepslate_tiles"
+  }
+}

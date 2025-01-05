@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:polished_andesite",
+  "ingredients": [
+    "jaavaa:polished_andesite_mini_block",
+    "jaavaa:polished_andesite_mini_block",
+    "jaavaa:polished_andesite_mini_block",
+    "jaavaa:polished_andesite_mini_block",
+    "jaavaa:polished_andesite_mini_block",
+    "jaavaa:polished_andesite_mini_block",
+    "jaavaa:polished_andesite_mini_block",
+    "jaavaa:polished_andesite_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:polished_andesite"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:netherite_mini_block",
+  "ingredients": [
+    "minecraft:netherite_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 8,
+    "id": "jaavaa:netherite_mini_block"
+  }
+}

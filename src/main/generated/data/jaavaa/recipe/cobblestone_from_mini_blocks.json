@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:cobblestone",
+  "ingredients": [
+    "jaavaa:cobblestone_mini_block",
+    "jaavaa:cobblestone_mini_block",
+    "jaavaa:cobblestone_mini_block",
+    "jaavaa:cobblestone_mini_block",
+    "jaavaa:cobblestone_mini_block",
+    "jaavaa:cobblestone_mini_block",
+    "jaavaa:cobblestone_mini_block",
+    "jaavaa:cobblestone_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:cobblestone"
+  }
+}

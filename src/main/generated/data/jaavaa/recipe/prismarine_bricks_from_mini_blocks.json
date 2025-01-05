@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:prismarine_bricks",
+  "ingredients": [
+    "jaavaa:prismarine_bricks_mini_block",
+    "jaavaa:prismarine_bricks_mini_block",
+    "jaavaa:prismarine_bricks_mini_block",
+    "jaavaa:prismarine_bricks_mini_block",
+    "jaavaa:prismarine_bricks_mini_block",
+    "jaavaa:prismarine_bricks_mini_block",
+    "jaavaa:prismarine_bricks_mini_block",
+    "jaavaa:prismarine_bricks_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:prismarine_bricks"
+  }
+}

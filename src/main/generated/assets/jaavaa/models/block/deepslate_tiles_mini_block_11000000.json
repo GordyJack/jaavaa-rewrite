@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/mini_block_11000000",
+  "position": "11000000",
+  "textures": {
+    "down": "minecraft:block/deepslate_tiles",
+    "side": "minecraft:block/deepslate_tiles",
+    "up": "minecraft:block/deepslate_tiles"
+  }
+}

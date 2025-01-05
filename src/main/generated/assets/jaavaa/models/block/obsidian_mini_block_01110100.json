@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/mini_block_01110100",
+  "position": "01110100",
+  "textures": {
+    "down": "minecraft:block/obsidian",
+    "side": "minecraft:block/obsidian",
+    "up": "minecraft:block/obsidian"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/mini_block_00010010",
+  "position": "00010010",
+  "textures": {
+    "down": "minecraft:block/dirt",
+    "side": "minecraft:block/dirt",
+    "up": "minecraft:block/dirt"
+  }
+}

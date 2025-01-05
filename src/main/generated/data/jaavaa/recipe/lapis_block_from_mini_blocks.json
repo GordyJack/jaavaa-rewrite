@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:lapis_block",
+  "ingredients": [
+    "jaavaa:lapis_lazuli_mini_block",
+    "jaavaa:lapis_lazuli_mini_block",
+    "jaavaa:lapis_lazuli_mini_block",
+    "jaavaa:lapis_lazuli_mini_block",
+    "jaavaa:lapis_lazuli_mini_block",
+    "jaavaa:lapis_lazuli_mini_block",
+    "jaavaa:lapis_lazuli_mini_block",
+    "jaavaa:lapis_lazuli_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:lapis_block"
+  }
+}

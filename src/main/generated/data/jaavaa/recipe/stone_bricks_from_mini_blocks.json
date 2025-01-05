@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:stone_bricks",
+  "ingredients": [
+    "jaavaa:stone_bricks_mini_block",
+    "jaavaa:stone_bricks_mini_block",
+    "jaavaa:stone_bricks_mini_block",
+    "jaavaa:stone_bricks_mini_block",
+    "jaavaa:stone_bricks_mini_block",
+    "jaavaa:stone_bricks_mini_block",
+    "jaavaa:stone_bricks_mini_block",
+    "jaavaa:stone_bricks_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:stone_bricks"
+  }
+}

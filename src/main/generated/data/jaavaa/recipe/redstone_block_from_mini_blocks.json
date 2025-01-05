@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:redstone_block",
+  "ingredients": [
+    "jaavaa:redstone_mini_block",
+    "jaavaa:redstone_mini_block",
+    "jaavaa:redstone_mini_block",
+    "jaavaa:redstone_mini_block",
+    "jaavaa:redstone_mini_block",
+    "jaavaa:redstone_mini_block",
+    "jaavaa:redstone_mini_block",
+    "jaavaa:redstone_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:redstone_block"
+  }
+}

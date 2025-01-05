@@ -1,6 +1,8 @@
 {
   "values": [
     "jaavaa:starsteel_block",
-    "jaavaa:starsteel_glass"
+    "jaavaa:starsteel_glass",
+    "jaavaa:starsteel_glass_pane",
+    "jaavaa:starsteel_block_mini_block"
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:cobblestone_mini_block",
+  "ingredients": [
+    "minecraft:cobblestone",
+    "minecraft:cobblestone",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 16,
+    "id": "jaavaa:cobblestone_mini_block"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:purpur_block",
+  "ingredients": [
+    "jaavaa:purpur_mini_block",
+    "jaavaa:purpur_mini_block",
+    "jaavaa:purpur_mini_block",
+    "jaavaa:purpur_mini_block",
+    "jaavaa:purpur_mini_block",
+    "jaavaa:purpur_mini_block",
+    "jaavaa:purpur_mini_block",
+    "jaavaa:purpur_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:purpur_block"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:dark_prismarine_mini_block",
+  "ingredients": [
+    "minecraft:dark_prismarine",
+    "minecraft:dark_prismarine",
+    "minecraft:dark_prismarine",
+    "minecraft:dark_prismarine",
+    "minecraft:dark_prismarine",
+    "minecraft:dark_prismarine",
+    "minecraft:dark_prismarine",
+    "minecraft:dark_prismarine",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 64,
+    "id": "jaavaa:dark_prismarine_mini_block"
+  }
+}

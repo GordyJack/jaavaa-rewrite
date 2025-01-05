@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:polished_granite",
+  "ingredients": [
+    "jaavaa:polished_granite_mini_block",
+    "jaavaa:polished_granite_mini_block",
+    "jaavaa:polished_granite_mini_block",
+    "jaavaa:polished_granite_mini_block",
+    "jaavaa:polished_granite_mini_block",
+    "jaavaa:polished_granite_mini_block",
+    "jaavaa:polished_granite_mini_block",
+    "jaavaa:polished_granite_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:polished_granite"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/mini_block_01000111",
+  "position": "01000111",
+  "textures": {
+    "down": "minecraft:block/polished_diorite",
+    "side": "minecraft:block/polished_diorite",
+    "up": "minecraft:block/polished_diorite"
+  }
+}

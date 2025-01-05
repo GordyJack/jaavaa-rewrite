@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:diamond_mini_block",
+  "ingredients": [
+    "minecraft:diamond_block",
+    "minecraft:diamond_block",
+    "minecraft:diamond_block",
+    "minecraft:diamond_block",
+    "minecraft:diamond_block",
+    "minecraft:diamond_block",
+    "minecraft:diamond_block",
+    "minecraft:diamond_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 64,
+    "id": "jaavaa:diamond_mini_block"
+  }
+}

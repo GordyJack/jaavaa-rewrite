@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/mini_block_01100101",
+  "position": "01100101",
+  "textures": {
+    "down": "minecraft:block/prismarine",
+    "side": "minecraft:block/prismarine",
+    "up": "minecraft:block/prismarine"
+  }
+}

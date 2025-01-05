@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:end_stone",
+  "ingredients": [
+    "jaavaa:end_stone_mini_block",
+    "jaavaa:end_stone_mini_block",
+    "jaavaa:end_stone_mini_block",
+    "jaavaa:end_stone_mini_block",
+    "jaavaa:end_stone_mini_block",
+    "jaavaa:end_stone_mini_block",
+    "jaavaa:end_stone_mini_block",
+    "jaavaa:end_stone_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:end_stone"
+  }
+}

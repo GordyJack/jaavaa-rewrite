@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:sandstone",
+  "ingredients": [
+    "jaavaa:sandstone_mini_block",
+    "jaavaa:sandstone_mini_block",
+    "jaavaa:sandstone_mini_block",
+    "jaavaa:sandstone_mini_block",
+    "jaavaa:sandstone_mini_block",
+    "jaavaa:sandstone_mini_block",
+    "jaavaa:sandstone_mini_block",
+    "jaavaa:sandstone_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:sandstone"
+  }
+}

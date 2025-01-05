@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:emerald_mini_block",
+  "ingredients": [
+    "minecraft:emerald_block",
+    "minecraft:emerald_block",
+    "minecraft:emerald_block",
+    "minecraft:emerald_block",
+    "minecraft:emerald_block",
+    "minecraft:emerald_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 48,
+    "id": "jaavaa:emerald_mini_block"
+  }
+}

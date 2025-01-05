@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:nether_bricks",
+  "ingredients": [
+    "jaavaa:nether_brick_mini_block",
+    "jaavaa:nether_brick_mini_block",
+    "jaavaa:nether_brick_mini_block",
+    "jaavaa:nether_brick_mini_block",
+    "jaavaa:nether_brick_mini_block",
+    "jaavaa:nether_brick_mini_block",
+    "jaavaa:nether_brick_mini_block",
+    "jaavaa:nether_brick_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:nether_bricks"
+  }
+}

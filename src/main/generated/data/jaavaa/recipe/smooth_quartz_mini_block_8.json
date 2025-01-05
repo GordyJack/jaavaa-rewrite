@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:smooth_quartz_mini_block",
+  "ingredients": [
+    "minecraft:smooth_quartz",
+    "minecraft:smooth_quartz",
+    "minecraft:smooth_quartz",
+    "minecraft:smooth_quartz",
+    "minecraft:smooth_quartz",
+    "minecraft:smooth_quartz",
+    "minecraft:smooth_quartz",
+    "minecraft:smooth_quartz",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 64,
+    "id": "jaavaa:smooth_quartz_mini_block"
+  }
+}

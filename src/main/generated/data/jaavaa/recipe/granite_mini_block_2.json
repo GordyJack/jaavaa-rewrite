@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:granite_mini_block",
+  "ingredients": [
+    "minecraft:granite",
+    "minecraft:granite",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 16,
+    "id": "jaavaa:granite_mini_block"
+  }
+}

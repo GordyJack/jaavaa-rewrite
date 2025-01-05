@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:dark_prismarine",
+  "ingredients": [
+    "jaavaa:dark_prismarine_mini_block",
+    "jaavaa:dark_prismarine_mini_block",
+    "jaavaa:dark_prismarine_mini_block",
+    "jaavaa:dark_prismarine_mini_block",
+    "jaavaa:dark_prismarine_mini_block",
+    "jaavaa:dark_prismarine_mini_block",
+    "jaavaa:dark_prismarine_mini_block",
+    "jaavaa:dark_prismarine_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:dark_prismarine"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:coal_block",
+  "ingredients": [
+    "jaavaa:coal_mini_block",
+    "jaavaa:coal_mini_block",
+    "jaavaa:coal_mini_block",
+    "jaavaa:coal_mini_block",
+    "jaavaa:coal_mini_block",
+    "jaavaa:coal_mini_block",
+    "jaavaa:coal_mini_block",
+    "jaavaa:coal_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:coal_block"
+  }
+}

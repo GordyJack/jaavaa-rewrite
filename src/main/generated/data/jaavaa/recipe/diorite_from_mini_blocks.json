@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:diorite",
+  "ingredients": [
+    "jaavaa:diorite_mini_block",
+    "jaavaa:diorite_mini_block",
+    "jaavaa:diorite_mini_block",
+    "jaavaa:diorite_mini_block",
+    "jaavaa:diorite_mini_block",
+    "jaavaa:diorite_mini_block",
+    "jaavaa:diorite_mini_block",
+    "jaavaa:diorite_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:diorite"
+  }
+}

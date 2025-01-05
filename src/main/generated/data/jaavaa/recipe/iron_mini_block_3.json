@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:iron_mini_block",
+  "ingredients": [
+    "minecraft:iron_block",
+    "minecraft:iron_block",
+    "minecraft:iron_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 24,
+    "id": "jaavaa:iron_mini_block"
+  }
+}

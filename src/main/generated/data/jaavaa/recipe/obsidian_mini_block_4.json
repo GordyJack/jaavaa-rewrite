@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:obsidian_mini_block",
+  "ingredients": [
+    "minecraft:obsidian",
+    "minecraft:obsidian",
+    "minecraft:obsidian",
+    "minecraft:obsidian",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 32,
+    "id": "jaavaa:obsidian_mini_block"
+  }
+}

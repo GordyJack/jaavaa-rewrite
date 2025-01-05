@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:smooth_sandstone_mini_block",
+  "ingredients": [
+    "minecraft:smooth_sandstone",
+    "minecraft:smooth_sandstone",
+    "minecraft:smooth_sandstone",
+    "minecraft:smooth_sandstone",
+    "minecraft:smooth_sandstone",
+    "minecraft:smooth_sandstone",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 48,
+    "id": "jaavaa:smooth_sandstone_mini_block"
+  }
+}

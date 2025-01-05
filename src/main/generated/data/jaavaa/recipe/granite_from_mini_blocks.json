@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:granite",
+  "ingredients": [
+    "jaavaa:granite_mini_block",
+    "jaavaa:granite_mini_block",
+    "jaavaa:granite_mini_block",
+    "jaavaa:granite_mini_block",
+    "jaavaa:granite_mini_block",
+    "jaavaa:granite_mini_block",
+    "jaavaa:granite_mini_block",
+    "jaavaa:granite_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:granite"
+  }
+}

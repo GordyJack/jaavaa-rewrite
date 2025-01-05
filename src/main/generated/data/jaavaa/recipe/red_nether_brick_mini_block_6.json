@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:red_nether_brick_mini_block",
+  "ingredients": [
+    "minecraft:red_nether_bricks",
+    "minecraft:red_nether_bricks",
+    "minecraft:red_nether_bricks",
+    "minecraft:red_nether_bricks",
+    "minecraft:red_nether_bricks",
+    "minecraft:red_nether_bricks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 48,
+    "id": "jaavaa:red_nether_brick_mini_block"
+  }
+}

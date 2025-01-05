@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:quartz_block",
+  "ingredients": [
+    "jaavaa:quartz_mini_block",
+    "jaavaa:quartz_mini_block",
+    "jaavaa:quartz_mini_block",
+    "jaavaa:quartz_mini_block",
+    "jaavaa:quartz_mini_block",
+    "jaavaa:quartz_mini_block",
+    "jaavaa:quartz_mini_block",
+    "jaavaa:quartz_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:quartz_block"
+  }
+}

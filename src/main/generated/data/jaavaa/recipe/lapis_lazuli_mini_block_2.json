@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:lapis_lazuli_mini_block",
+  "ingredients": [
+    "minecraft:lapis_block",
+    "minecraft:lapis_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 16,
+    "id": "jaavaa:lapis_lazuli_mini_block"
+  }
+}
