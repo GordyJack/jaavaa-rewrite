@@ -4,8 +4,10 @@ import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
+import net.gordyjack.jaavaa.item.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
+import net.minecraft.registry.tag.*;
 
 import java.util.concurrent.*;
 
@@ -20,6 +22,22 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 Items.DEEPSLATE,
                 Items.POLISHED_DEEPSLATE,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE.asItem()
+        );
+        //Vanilla Tags
+        getOrCreateTagBuilder(ItemTags.AXES).add(
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS
+        );
+        getOrCreateTagBuilder(ItemTags.HOES).add(
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS
+        );
+        getOrCreateTagBuilder(ItemTags.PICKAXES).add(
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS
+        );
+        getOrCreateTagBuilder(ItemTags.SHOVELS).add(
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS
+        );
+        getOrCreateTagBuilder(ItemTags.SWORDS).add(
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS
         );
     }
 }

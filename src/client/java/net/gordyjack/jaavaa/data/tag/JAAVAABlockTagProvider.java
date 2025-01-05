@@ -23,6 +23,11 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 Blocks.POLISHED_DEEPSLATE,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE
         );
+        getOrCreateTagBuilder(JAAVAATags.Blocks.PAXEL_MINEABLE)
+                .addOptionalTag(BlockTags.AXE_MINEABLE)
+                .addOptionalTag(BlockTags.HOE_MINEABLE)
+                .addOptionalTag(BlockTags.PICKAXE_MINEABLE)
+                .addOptionalTag(BlockTags.SHOVEL_MINEABLE);
         //Vanilla Tags
         getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
                 JAAVAABlocks.STARSTEEL_BLOCK

@@ -10,6 +10,7 @@ import net.minecraft.registry.tag.TagKey;
 public class JAAVAATags {
     public static class Blocks {
         public static final TagKey<Block> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
+        public static final TagKey<Block> PAXEL_MINEABLE = createTag("paxel_mineable");
 
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, JAAVAA.id(name));
