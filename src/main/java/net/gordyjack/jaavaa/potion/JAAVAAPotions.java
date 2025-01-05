@@ -133,6 +133,7 @@ public class JAAVAAPotions {
             new Potion("eternal_resistance", new StatusEffectInstance(StatusEffects.RESISTANCE, INFINITY, 5, false, false)));
 
     // Saturation Potion
+    // TODO: Might need to add a custom StatusEffect for Saturation to work properly.
     public static final int SATURATION_SHORT = minutes(10), SATURATION_LONG = minutes(30);
     public static final RegistryEntry<Potion> SATURATION_1_POTION = registerPotion("saturation_1",
             new Potion("saturation", new StatusEffectInstance(StatusEffects.SATURATION, SATURATION_SHORT, 0)));
