@@ -6,6 +6,7 @@ import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.*;
+import net.minecraft.block.*;
 import net.minecraft.data.recipe.*;
 import net.minecraft.item.*;
 import net.minecraft.recipe.book.*;
@@ -158,6 +159,15 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .pattern("GGG")
                         .group(JAAVAA.idFromItem(JAAVAABlocks.STARSTEEL_GLASS_PANE).toString())
                         .criterion(hasItem(JAAVAABlocks.STARSTEEL_GLASS), conditionsFromItem(JAAVAABlocks.STARSTEEL_GLASS))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.RECYCLING_TABLE)
+                        .input('A', Blocks.ANVIL)
+                        .input('G', Blocks.GRINDSTONE)
+                        .input('D', Items.DEEPSLATE_BRICKS)
+                        .pattern(" G ")
+                        .pattern("DAD")
+                        .criterion(hasItem(Blocks.ANVIL), conditionsFromItem(Blocks.ANVIL))
+                        .criterion(hasItem(Blocks.GRINDSTONE), conditionsFromItem(Blocks.GRINDSTONE))
                         .offerTo(this.exporter);
             }
         };

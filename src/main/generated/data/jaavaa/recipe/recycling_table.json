@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:anvil",
+    "D": "minecraft:deepslate_bricks",
+    "G": "minecraft:grindstone"
+  },
+  "pattern": [
+    " G ",
+    "DAD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:recycling_table"
+  }
+}

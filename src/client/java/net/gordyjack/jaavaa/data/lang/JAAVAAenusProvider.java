@@ -6,11 +6,14 @@ import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.potion.*;
+import net.gordyjack.jaavaa.screen.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.effect.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.entry.*;
+import net.minecraft.screen.*;
+import net.minecraft.util.*;
 import org.apache.commons.lang3.text.*;
 
 import java.nio.file.*;
@@ -66,7 +69,14 @@ extends FabricLanguageProvider{
             String effectName = effectId.substring(effectId.indexOf(':') + 1);
             translationBuilder.add("effect.jaavaa." + effectName, getTranslatedName(effectName));
         }
-        
+        for (ScreenHandlerType<? extends ScreenHandler> handler : JAAVAAScreenHandlers.SCREEN_HANDLERS) {
+            Identifier handlerId = Registries.SCREEN_HANDLER.getId(handler);
+            String handlerName = handlerId != null ? handlerId.getPath() : "null";
+            handlerName = handlerName.replace("_screen_handler", "");
+            translationBuilder.add("container.jaavaa." + handlerName, getTranslatedName(handlerName));
+        }
+
+
         try {
             Path existingFilePath = dataOutput.getModContainer().findPath("assets/jaavaa/lang/en_us.existing.json").get();
             translationBuilder.add(existingFilePath);

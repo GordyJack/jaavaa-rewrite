@@ -13,6 +13,7 @@ public class JAAVAAClient implements ClientModInitializer {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 		JAAVAA.log("Initializing JAAVAA client");
 		HandledScreens.register(JAAVAAScreenHandlers.ALLOY_FURNACE_SCREEN_HANDLER, AlloyFurnaceBlockEntityScreen::new);
+		HandledScreens.register(JAAVAAScreenHandlers.RECYCLING_SCREEN_HANDLER, RecyclingScreen::new);
 
 		// RenderTranslucentLayers
 		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.STARSTEEL_GLASS, RenderLayer.getTranslucent());

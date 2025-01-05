@@ -25,12 +25,6 @@ public class JAAVAABlocks {
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT);
 
     // Blocks
-    public static final Block ALLOY_FURNACE = registerBlock("alloy_furnace",
-            AlloyFurnaceBlock::new, AbstractBlock.Settings.create()
-                    .luminance(state -> state.get(AlloyFurnaceBlock.LIT) ? 13 : 0)
-                    .sounds(BlockSoundGroup.STONE)
-                    .strength(3.5F),
-            new Item.Settings().fireproof());
     public static final Block SMOOTH_POLISHED_DEEPSLATE = registerBlock("smooth_polished_deepslate", Block::new,
             AbstractBlock.Settings.copy(Blocks.POLISHED_DEEPSLATE));
     public static final Block STARSTEEL_BLOCK = registerBlock("starsteel_block",
@@ -58,6 +52,17 @@ public class JAAVAABlocks {
                     .requiresTool()
                     .strength(1.0F, 1200.0F),
             EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS);
+    // Functional Blocks
+    public static final Block ALLOY_FURNACE = registerBlock("alloy_furnace",
+            AlloyFurnaceBlock::new, AbstractBlock.Settings.create()
+                    .luminance(state -> state.get(AlloyFurnaceBlock.LIT) ? 13 : 0)
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(3.5F),
+            new Item.Settings().fireproof());
+    public static final Block RECYCLING_TABLE = registerBlock("recycling_table",
+            RecyclingTableBlock::new, AbstractBlock.Settings.copy(Blocks.DEEPSLATE_BRICKS)
+                    .requiresTool(),
+            new Item.Settings().fireproof());
     // Redstone Gates
     public static final Block ADDER = registerBlock("adder",
             AdderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER));
@@ -116,6 +121,7 @@ public class JAAVAABlocks {
             entries.add(STARSTEEL_BLOCK);
             entries.add(STARSTEEL_GLASS);
             entries.add(STARSTEEL_GLASS_PANE);
+            entries.add(RECYCLING_TABLE);
         });
         //Adding Blocks to main Redstone ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_REDSTONE).register(entries -> {

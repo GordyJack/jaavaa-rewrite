@@ -16,7 +16,8 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
     private final Inventory INV;
     private final PropertyDelegate PROPERTY_DELEGATE;
     private AlloyFurnaceBlockEntity alloyFurnaceBlockEntity;
-    
+
+
     public AlloyFurnaceBlockEntityScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
         this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
     }
@@ -37,6 +38,7 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
 
         addProperties(propertyDelegate);
     }
+
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;

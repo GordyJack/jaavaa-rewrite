@@ -7,6 +7,7 @@ import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.enums.*;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.*;
 import net.minecraft.client.data.*;
 import net.minecraft.item.*;
 import net.minecraft.state.property.Properties;
@@ -26,11 +27,12 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.registerGlassAndPane(JAAVAABlocks.STARSTEEL_GLASS, JAAVAABlocks.STARSTEEL_GLASS_PANE);
         bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
 
-        //TODO:Add custom model generation for the Adder, Decoder, and Adjustable Lamp similar to the Advanced Repeater.
+        //TODO:Add custom model generation for the Adder, Decoder, Recycling Table, and Adjustable Lamp similar to the Advanced Repeater.
         bsmGen.blockStateCollector.accept(generateAdderState());
         bsmGen.blockStateCollector.accept(generateAdjustableState());
         bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState());
         bsmGen.blockStateCollector.accept(generateDecoderState());
+        bsmGen.blockStateCollector.accept(generateRecyclingTableState());
 
         registerEncasedPillarModel(bsmGen, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR,
                 Identifier.ofVanilla("block/quartz_pillar"),
@@ -175,6 +177,43 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             }
         }
         return variantSupplier.coordinate(variantMap);
+    }
+    private VariantsBlockStateSupplier generateRecyclingTableState() {
+        return VariantsBlockStateSupplier.create(
+                JAAVAABlocks.RECYCLING_TABLE, BlockStateVariant.create().put(
+                        VariantSettings.MODEL, ModelIds.getBlockModelId(JAAVAABlocks.RECYCLING_TABLE)
+                )
+        ).coordinate(
+                BlockStateVariantMap.create(Properties.BLOCK_FACE, Properties.HORIZONTAL_FACING)
+                        .register(BlockFace.FLOOR, Direction.NORTH, BlockStateVariant.create())
+                        .register(BlockFace.FLOOR, Direction.EAST, BlockStateVariant.create()
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                        .register(BlockFace.FLOOR, Direction.SOUTH, BlockStateVariant.create()
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                        .register(BlockFace.FLOOR, Direction.WEST, BlockStateVariant.create()
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                        .register(BlockFace.WALL, Direction.NORTH, BlockStateVariant.create()
+                                .put(VariantSettings.X, VariantSettings.Rotation.R90))
+                        .register(BlockFace.WALL, Direction.EAST, BlockStateVariant.create()
+                                .put(VariantSettings.X, VariantSettings.Rotation.R90)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                        .register(BlockFace.WALL, Direction.SOUTH, BlockStateVariant.create()
+                                .put(VariantSettings.X, VariantSettings.Rotation.R90)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                        .register(BlockFace.WALL, Direction.WEST, BlockStateVariant.create()
+                                .put(VariantSettings.X, VariantSettings.Rotation.R90)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                        .register(BlockFace.CEILING, Direction.SOUTH, BlockStateVariant.create()
+                                .put(VariantSettings.X, VariantSettings.Rotation.R180))
+                        .register(BlockFace.CEILING, Direction.WEST, BlockStateVariant.create()
+                                .put(VariantSettings.X, VariantSettings.Rotation.R180)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                        .register(BlockFace.CEILING, Direction.NORTH, BlockStateVariant.create()
+                                .put(VariantSettings.X, VariantSettings.Rotation.R180)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                        .register(BlockFace.CEILING, Direction.EAST, BlockStateVariant.create()
+                                .put(VariantSettings.X, VariantSettings.Rotation.R180)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270)));
     }
     private void registerEncasedPillarModel(BlockStateModelGenerator bsmGen, Block block, Identifier casing, Identifier edge, Identifier end) {
         bsmGen.registerAxisRotated(block, TexturedModel.makeFactory((block1) -> {

@@ -17,7 +17,8 @@ import org.jetbrains.annotations.*;
 
 public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
     public static final MapCodec<AlloyFurnaceBlock> CODEC = createCodec(AlloyFurnaceBlock::new);
-    
+    public static final String TITLE_KEY = "jaavaa.container.alloy_furnace";
+
     public AlloyFurnaceBlock(Settings settings) {
         super(settings);
     }
