@@ -10,8 +10,10 @@ import net.minecraft.item.*;
 import net.minecraft.state.*;
 import net.minecraft.state.property.*;
 import net.minecraft.util.math.*;
+import net.minecraft.util.math.random.*;
 import net.minecraft.util.shape.*;
 import net.minecraft.world.*;
+import net.minecraft.world.tick.*;
 import org.jetbrains.annotations.*;
 
 @SuppressWarnings("deprecation")
@@ -21,7 +23,7 @@ implements Waterloggable, VoxelShapeUtils {
     public static final IntProperty POSITION = JAAVAABlockProperties.MINI_BLOCK_POSITION;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0, 0, 0, 8, 8, 8);
-    
+
     public MiniBlock(Settings settings) {
         super(settings);
     }
@@ -74,7 +76,8 @@ implements Waterloggable, VoxelShapeUtils {
         FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         
         BlockState existingState = ctx.getWorld().getBlockState(ctx.getBlockPos());
-        int existingPosition = existingState.getBlock() == blockState.getBlock() ? existingState.get(POSITION) : 0;
+        Block existingBlock = existingState.getBlock();
+        int existingPosition = existingBlock == blockState.getBlock() ? existingState.get(POSITION) : 0;
         int placePosition = getPlacePosition(ctx);
         int newPosition = existingPosition | placePosition;
         
@@ -147,9 +150,15 @@ implements Waterloggable, VoxelShapeUtils {
     }
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        int placePosition = getPlacePosition(context);
         int existingPosition = state.get(POSITION);
-        return (existingPosition & placePosition) == 0;
+
+        if (existingPosition == 0b11111111 || !context.getStack().isOf(this.asItem())) {
+            return false;
+        } else if (context.canReplaceExisting()) {
+            return (existingPosition & getPlacePosition(context)) == 0;
+        } else {
+            return true;
+        }
     }
     @Override
     public boolean tryFillWithFluid(WorldAccess world, BlockPos pos, BlockState state, FluidState fluidState) {
@@ -171,5 +180,14 @@ implements Waterloggable, VoxelShapeUtils {
             case LAND, AIR -> false;
             case WATER -> state.get(WATERLOGGED);
         };
+    }
+    @Override
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView,
+                                                   BlockPos pos, Direction direction, BlockPos neighborPos,
+                                                   BlockState neighborState, Random random) {
+        if (state.get(WATERLOGGED)) {
+            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        }
+        return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
     }
 }
