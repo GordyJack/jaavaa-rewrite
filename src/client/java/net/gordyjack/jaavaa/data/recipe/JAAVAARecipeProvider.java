@@ -77,8 +77,8 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .group(JAAVAA.idFromItem(parentBlock).toString())
                         .criterion(hasItem(miniBlock), conditionsFromItem(miniBlock))
                         .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(parentBlock).getPath() + "_from_mini_blocks")));
+                this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, miniBlock, parentBlock, 8);
             }
-
             private void createAdvancedGateRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ADDER)
                         .input('R', Items.REDSTONE)
