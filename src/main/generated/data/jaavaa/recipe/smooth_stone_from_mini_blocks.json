@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:smooth_stone",
+  "ingredients": [
+    "jaavaa:smooth_stone_mini_block",
+    "jaavaa:smooth_stone_mini_block",
+    "jaavaa:smooth_stone_mini_block",
+    "jaavaa:smooth_stone_mini_block",
+    "jaavaa:smooth_stone_mini_block",
+    "jaavaa:smooth_stone_mini_block",
+    "jaavaa:smooth_stone_mini_block",
+    "jaavaa:smooth_stone_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:smooth_stone"
+  }
+}

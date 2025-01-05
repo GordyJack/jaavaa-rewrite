@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/mini_block_10100000",
+  "position": "10100000",
+  "textures": {
+    "down": "minecraft:block/smooth_stone",
+    "side": "minecraft:block/smooth_stone",
+    "up": "minecraft:block/smooth_stone"
+  }
+}

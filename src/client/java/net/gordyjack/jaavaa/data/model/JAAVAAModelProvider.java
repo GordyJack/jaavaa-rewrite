@@ -34,9 +34,8 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState());
         bsmGen.blockStateCollector.accept(generateDecoderState());
         bsmGen.blockStateCollector.accept(generateRecyclingTableState());
-        for (Block block : JAAVAABlocks.BLOCKS) {
-            if (block instanceof MiniBlock miniBlock)
-                registerMiniBlockModel(bsmGen, miniBlock);
+        for (MiniBlock block : JAAVAABlocks.MINI_BLOCKS.keySet()) {
+            registerMiniBlockModel(bsmGen, block);
         }
 
         registerEncasedPillarModel(bsmGen, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR,
@@ -231,7 +230,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     private void registerMiniBlockModel(BlockStateModelGenerator bsmGen, MiniBlock miniBlock) {
         String idPath = "block/" + JAAVAA.idFromItem(miniBlock.asItem()).getPath();
-        bsmGen.registerItemModel(miniBlock.asItem(), bsmGen.uploadBlockItemModel(miniBlock.asItem(), miniBlock));
+        //bsmGen.registerItemModel(miniBlock.asItem(), bsmGen.uploadBlockItemModel(miniBlock.asItem(), miniBlock));
         VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(miniBlock);
         BlockStateVariantMap.SingleProperty<Integer> variantMap =
                 BlockStateVariantMap.create(JAAVAABlockProperties.MINI_BLOCK_POSITION);

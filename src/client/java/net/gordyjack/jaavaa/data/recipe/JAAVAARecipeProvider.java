@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.block.*;
@@ -30,6 +31,9 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.createMiscRecipes();
                 this.offerEncasedPillarRecipes(Items.QUARTZ_PILLAR, Items.REDSTONE_BLOCK, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR);
                 this.offerEncasedPillarRecipes(Items.ANCIENT_DEBRIS, Items.REDSTONE_BLOCK, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
+                for (MiniBlock block : JAAVAABlocks.MINI_BLOCKS.keySet()) {
+                    this.offerMiniBlockRecipe(block, JAAVAABlocks.MINI_BLOCKS.get(block));
+                }
                 this.offerSmelting(
                         Items.POLISHED_DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE,
                         0.1F, 200, JAAVAA.idFromItem(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE).toString());
@@ -58,6 +62,21 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(casing), conditionsFromItem(casing))
                         .criterion(hasItem(infill), conditionsFromItem(infill))
                         .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_v")));
+            }
+            private void offerMiniBlockRecipe(ItemConvertible miniBlock, ItemConvertible parentBlock) {
+                for (int i = 1; i <= 8; i++) {
+                    this.createShapeless(RecipeCategory.BUILDING_BLOCKS, miniBlock, i * 8)
+                            .input(parentBlock, i)
+                            .input(JAAVAAItems.STARSTEEL_NUGGET)
+                            .group(JAAVAA.idFromItem(miniBlock).toString())
+                            .criterion(hasItem(parentBlock), conditionsFromItem(parentBlock))
+                            .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(miniBlock).getPath() + "_" + i)));
+                }
+                this.createShapeless(RecipeCategory.BUILDING_BLOCKS, parentBlock, 1)
+                        .input(miniBlock, 8)
+                        .group(JAAVAA.idFromItem(parentBlock).toString())
+                        .criterion(hasItem(miniBlock), conditionsFromItem(miniBlock))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(parentBlock).getPath() + "_from_mini_blocks")));
             }
 
             private void createAdvancedGateRecipes() {

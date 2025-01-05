@@ -19,6 +19,7 @@ import java.util.function.*;
 
 public class JAAVAABlocks {
     public static final ArrayList<Block> BLOCKS = new ArrayList<>();
+    public static final Map<MiniBlock, Block> MINI_BLOCKS = new HashMap<>();
     public static final Item.Settings STARSTEEL_DEFAULT_SETTINGS =
             new Item.Settings()
                     .rarity(Rarity.RARE)
@@ -82,10 +83,16 @@ public class JAAVAABlocks {
     public static final Block QUARTZ_ENCASED_REDSTONE_PILLAR = registerBlock("quartz_encased_redstone_pillar", EncasedRedstoneBlock::new,
             AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
     // Mini Blocks
-    public static final Block STONE_MINI_BLOCK = registerBlock("stone_mini_block",
-            MiniBlock::new, AbstractBlock.Settings.copy(Blocks.STONE));
-    public static final Block SMOOTH_POLISHED_DEEPSLATE_MINI_BLOCK = registerBlock("smooth_polished_deepslate_mini_block",
-            MiniBlock::new, AbstractBlock.Settings.copy(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE));
+    public static final Block GLOWSTONE_MINI_BLOCK =
+            registerMiniBlock("glowstone_mini_block", Blocks.GLOWSTONE);
+    public static final Block STONE_MINI_BLOCK =
+            registerMiniBlock("stone_mini_block", Blocks.STONE);
+    public static final Block SMOOTH_STONE_MINI_BLOCK =
+            registerMiniBlock("smooth_stone_mini_block", Blocks.SMOOTH_STONE);
+    public static final Block SMOOTH_POLISHED_DEEPSLATE_MINI_BLOCK =
+            registerMiniBlock("smooth_polished_deepslate_mini_block", JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
+    public static final Block STARSTEEL_BLOCK_MINI_BLOCK =
+            registerMiniBlock("starsteel_block_mini_block", JAAVAABlocks.STARSTEEL_BLOCK);
 
     //Methods
     private static Block registerBlock(String path, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings blockSettings) {
@@ -113,6 +120,11 @@ public class JAAVAABlocks {
         BLOCKS.add(BLOCK);
         return BLOCK;
     }
+    private static Block registerMiniBlock(String path, Block parentBlock) {
+        final MiniBlock BLOCK = (MiniBlock) registerBlock(path, MiniBlock::new, AbstractBlock.Settings.copy(parentBlock));
+        MINI_BLOCKS.put(BLOCK, parentBlock);
+        return BLOCK;
+    }
     /**
      * Initializes all blocks.
      */
@@ -127,9 +139,6 @@ public class JAAVAABlocks {
             entries.add(STARSTEEL_GLASS);
             entries.add(STARSTEEL_GLASS_PANE);
             entries.add(RECYCLING_TABLE);
-
-            entries.add(STONE_MINI_BLOCK);
-            entries.add(SMOOTH_POLISHED_DEEPSLATE_MINI_BLOCK);
         });
         //Adding Blocks to main Redstone ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_REDSTONE).register(entries -> {
@@ -139,6 +148,11 @@ public class JAAVAABlocks {
             entries.add(ADJUSTABLE_REDSTONE_LAMP);
             entries.add(ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
             entries.add(QUARTZ_ENCASED_REDSTONE_PILLAR);
+        });
+        //Adding Blocks to mini Block ItemGroup
+        ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_MINI_BLOCKS).register(entries -> {
+            for (Block block : MINI_BLOCKS.keySet())
+                entries.add(block);
         });
         //Adding Blocks to vanilla ItemGroups
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {

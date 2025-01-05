@@ -15,46 +15,46 @@
         "east": {
           "texture": "#side",
           "uv": [
+            8,
             0,
-            8,
-            8,
-            16
+            16,
+            8
           ]
         },
         "north": {
           "texture": "#side",
           "uv": [
+            8,
             0,
-            8,
-            8,
-            16
+            16,
+            8
           ]
         },
         "south": {
           "texture": "#side",
           "uv": [
             0,
+            0,
             8,
-            8,
-            16
+            8
           ]
         },
         "up": {
           "texture": "#up",
           "uv": [
             0,
+            0,
             8,
-            8,
-            16
+            8
           ]
         },
         "west": {
           "texture": "#side",
           "uv": [
             0,
+            0,
             8,
-            8,
-            16
+            8
           ]
         }
       },

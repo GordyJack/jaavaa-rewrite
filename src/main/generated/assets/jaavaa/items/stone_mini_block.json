@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jaavaa:item/stone_mini_block"
+    "model": "jaavaa:block/stone_mini_block_00000001"
   }
 }

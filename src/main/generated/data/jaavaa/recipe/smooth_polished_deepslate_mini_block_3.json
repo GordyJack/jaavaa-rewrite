@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:smooth_polished_deepslate_mini_block",
+  "ingredients": [
+    "jaavaa:smooth_polished_deepslate",
+    "jaavaa:smooth_polished_deepslate",
+    "jaavaa:smooth_polished_deepslate",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 24,
+    "id": "jaavaa:smooth_polished_deepslate_mini_block"
+  }
+}

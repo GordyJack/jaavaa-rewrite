@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:glowstone",
+  "ingredients": [
+    "jaavaa:glowstone_mini_block",
+    "jaavaa:glowstone_mini_block",
+    "jaavaa:glowstone_mini_block",
+    "jaavaa:glowstone_mini_block",
+    "jaavaa:glowstone_mini_block",
+    "jaavaa:glowstone_mini_block",
+    "jaavaa:glowstone_mini_block",
+    "jaavaa:glowstone_mini_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:glowstone"
+  }
+}

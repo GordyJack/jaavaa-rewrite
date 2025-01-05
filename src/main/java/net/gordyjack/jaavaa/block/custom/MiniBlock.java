@@ -18,16 +18,12 @@ import org.jetbrains.annotations.*;
 public class MiniBlock
 extends Block
 implements Waterloggable, VoxelShapeUtils {
-    private static final IntProperty POSITION = JAAVAABlockProperties.MINI_BLOCK_POSITION;
-    private static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-//    private final Block BASE_BLOCK;
-//    private final BlockState BASE_BLOCK_STATE;
+    public static final IntProperty POSITION = JAAVAABlockProperties.MINI_BLOCK_POSITION;
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0, 0, 0, 8, 8, 8);
     
     public MiniBlock(Settings settings) {
         super(settings);
-//        this.BASE_BLOCK = baseBlock;
-//        this.BASE_BLOCK_STATE = this.BASE_BLOCK.getDefaultState();
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -176,76 +172,4 @@ implements Waterloggable, VoxelShapeUtils {
             case WATER -> state.get(WATERLOGGED);
         };
     }
-
-    //Boilerplate
-//    @Override
-//    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
-//        if (state.get(WATERLOGGED)) {
-//            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-//        }
-//        return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
-//    }
-//    @Override
-//    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-//        if (state.isOf(state.getBlock())) {
-//            return;
-//        }
-//        world.updateNeighbor(this.BASE_BLOCK_STATE, pos, Blocks.AIR, pos, false);
-//        this.BASE_BLOCK.onBlockAdded(this.BASE_BLOCK_STATE, world, pos, oldState, false);
-//    }
-//    @Override
-//    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-//        if (state.isOf(newState.getBlock())) {
-//            return;
-//        }
-//        this.BASE_BLOCK_STATE.onStateReplaced(world, pos, newState, moved);
-//    }
-//
-//    @Override
-//    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-//        return this.BASE_BLOCK_STATE.onUse(world, player, hit);
-//    }
-//    @Override
-//    public FluidState getFluidState(BlockState state) {
-//        if (state.get(WATERLOGGED)) {
-//            return Fluids.WATER.getStill(false);
-//        }
-//        return super.getFluidState(state);
-//    }
-//    @Override
-//    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-//        this.BASE_BLOCK.randomTick(state, world, pos, random);
-//    }
-//    @Override
-//    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-//        this.BASE_BLOCK.scheduledTick(state, world, pos, random);
-//    }
-//    @Override
-//    public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-//        this.BASE_BLOCK_STATE.onBlockBreakStart(world, pos, player);
-//    }
-//    @Override
-//    public boolean hasRandomTicks(BlockState state) {
-//        return this.BASE_BLOCK.hasRandomTicks(state);
-//    }
-//    @Override
-//    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-//        this.BASE_BLOCK.randomDisplayTick(state, world, pos, random);
-//    }
-//    @Override
-//    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
-//        this.BASE_BLOCK.onBroken(world, pos, state);
-//    }
-//    @Override
-//    public float getBlastResistance() {
-//        return this.BASE_BLOCK.getBlastResistance();
-//    }
-//    @Override
-//    public void onDestroyedByExplosion(World world, BlockPos pos, Explosion explosion) {
-//        this.BASE_BLOCK.onDestroyedByExplosion(world, pos, explosion);
-//    }
-//    @Override
-//    public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-//        this.BASE_BLOCK.onSteppedOn(world, pos, state, entity);
-//    }
 }

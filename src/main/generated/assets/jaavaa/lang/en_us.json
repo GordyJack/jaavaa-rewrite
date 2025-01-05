@@ -5,11 +5,14 @@
   "block.jaavaa.alloy_furnace": "Alloy Furnace",
   "block.jaavaa.ancient_debris_encased_redstone_pillar": "Ancient Debris Encased Redstone Pillar",
   "block.jaavaa.decoder": "Decoder",
+  "block.jaavaa.glowstone_mini_block": "Glowstone Mini",
   "block.jaavaa.quartz_encased_redstone_pillar": "Quartz Encased Redstone Pillar",
   "block.jaavaa.recycling_table": "Recycling Table",
   "block.jaavaa.smooth_polished_deepslate": "Smooth Polished Deepslate",
   "block.jaavaa.smooth_polished_deepslate_mini_block": "Smooth Polished Deepslate Mini",
+  "block.jaavaa.smooth_stone_mini_block": "Smooth Stone Mini",
   "block.jaavaa.starsteel_block": "Block of Starsteel",
+  "block.jaavaa.starsteel_block_mini_block": "Starsteel Mini",
   "block.jaavaa.starsteel_glass": "Starsteel Glass",
   "block.jaavaa.starsteel_glass_pane": "Starsteel Glass Pane",
   "block.jaavaa.stone_mini_block": "Stone Mini",
@@ -172,5 +175,6 @@
   "item.minecraft.tipped_arrow.effect.saturation": "Arrow of Saturation",
   "itemGroup.jaavaa.jaavaa_blocks": "JAAVAA Blocks",
   "itemGroup.jaavaa.jaavaa_items": "JAAVAA Items",
+  "itemGroup.jaavaa.jaavaa_mini_blocks": "JAAVAA Mini Blocks",
   "itemGroup.jaavaa.jaavaa_redstone": "JAAVAA Redstone"
 }

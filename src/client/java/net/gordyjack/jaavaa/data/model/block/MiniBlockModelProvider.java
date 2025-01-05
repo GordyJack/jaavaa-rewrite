@@ -25,31 +25,31 @@ public class MiniBlockModelProvider implements DataProvider {
         List<CompletableFuture<?>> returns = new ArrayList<>();
         List<JsonObject> baseModels = generateBaseMiniBlockModels();
         for (var model : baseModels) {
-//            if (model.get("position").getAsString().equals("00000001")
-//                    || model.get("position").getAsString().equals("00000010")
-//                    || model.get("position").getAsString().equals("00000100")
-//                    || model.get("position").getAsString().equals("00001000")
-//                    || model.get("position").getAsString().equals("00010000")
-//                    || model.get("position").getAsString().equals("00100000")
-//                    || model.get("position").getAsString().equals("01000000")
-//                    || model.get("position").getAsString().equals("10000000")) {
-//                JAAVAA.log(model.toString(), 'e');
-//            }
             String modelName = "mini_block_" + model.get("position").getAsString();
             Path modelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName + ".json");
             returns.add(DataProvider.writeToPath(writer, model, modelPath));
         }
-        for (var model : generateMiniBlockModels((MiniBlock) JAAVAABlocks.STONE_MINI_BLOCK, Blocks.STONE)) {
-            String modelName = JAAVAA.idFromItem(JAAVAABlocks.STONE_MINI_BLOCK).getPath() + "_" + model.get("position").getAsString();
-            Path modelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName + ".json");
-            returns.add(DataProvider.writeToPath(writer, model, modelPath));
-        }
-        for (var model : generateMiniBlockModels((MiniBlock) JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE_MINI_BLOCK, JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE)) {
-            String modelName = JAAVAA.idFromItem(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE_MINI_BLOCK).getPath() + "_" + model.get("position").getAsString();
-            Path modelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName + ".json");
-            returns.add(DataProvider.writeToPath(writer, model, modelPath));
+        for (var model : JAAVAABlocks.MINI_BLOCKS.keySet()) {
+            this.writeMiniBlockModels(model, JAAVAABlocks.MINI_BLOCKS.get(model), returns, writer);
         }
         return CompletableFuture.allOf(returns.toArray(CompletableFuture[]::new));
+    }
+    private void writeMiniBlockModels(MiniBlock miniBlock, Block parentBlock, List<CompletableFuture<?>> returns, DataWriter writer) {
+        for (var model : generateMiniBlockModels(miniBlock, parentBlock)) {
+            String posString = model.get("position").getAsString();
+            String modelName = JAAVAA.idFromItem(miniBlock).getPath();
+            Path blockModelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName  + "_" + posString + ".json");
+            if (posString.equals("00000001")) {
+                Path itemModelPath = OUTPUT.getPath().resolve("assets/jaavaa/items/" + modelName + ".json");
+                JsonObject item = new JsonObject();
+                JsonObject itemModel = new JsonObject();
+                itemModel.addProperty("type", "minecraft:model");
+                itemModel.addProperty("model", "jaavaa:block/" + modelName + "_00000001");
+                item.add("model", itemModel);
+                returns.add(DataProvider.writeToPath(writer, item, itemModelPath));
+            }
+            returns.add(DataProvider.writeToPath(writer, model, blockModelPath));
+        }
     }
     @Override
     public String getName() {
@@ -85,96 +85,96 @@ public class MiniBlockModelProvider implements DataProvider {
         model00000001.add("from", arrayOf(0, 0, 0));
         model00000001.add("to", arrayOf(8, 8, 8));
         JsonObject faces00000001 = new JsonObject();
-        faces00000001.add("down", createFace("#down", null, 0, 0, 8, 8, 0));
-        faces00000001.add("up", createFace("#up", null, 0, 0, 8, 8, 0));
-        faces00000001.add("north", createFace("#side", null, 0, 0, 8, 8, 0));
-        faces00000001.add("south", createFace("#side", null, 0, 0, 8, 8, 0));
-        faces00000001.add("west", createFace("#side", null, 0, 0, 8, 8, 0));
-        faces00000001.add("east", createFace("#side", null, 0, 0, 8, 8, 0));
+        faces00000001.add("down", createCornerFace("#down", 2));
+        faces00000001.add("up", createCornerFace("#up", 1));
+        faces00000001.add("north", createCornerFace("#side", 4));
+        faces00000001.add("south", createCornerFace("#side", 2));
+        faces00000001.add("west", createCornerFace("#side", 2));
+        faces00000001.add("east", createCornerFace("#side", 4));
         model00000001.add("faces", faces00000001);
 
         JsonObject model00000010 = new JsonObject();
         model00000010.add("from", arrayOf(8, 0, 0));
         model00000010.add("to", arrayOf(16, 8, 8));
         JsonObject faces00000010 = new JsonObject();
-        faces00000010.add("down", createFace("#down", null, 8, 0, 16, 8, 0));
-        faces00000010.add("up", createFace("#up", null, 8, 0, 16, 8, 0));
-        faces00000010.add("north", createFace("#side", null, 8, 0, 16, 8, 0));
-        faces00000010.add("south", createFace("#side", null, 8, 0, 16, 8, 0));
-        faces00000010.add("west", createFace("#side", null, 8, 0, 16, 8, 0));
-        faces00000010.add("east", createFace("#side", null, 8, 0, 16, 8, 0));
+        faces00000010.add("down", createCornerFace("#down", 4));
+        faces00000010.add("up", createCornerFace("#up", 3));
+        faces00000010.add("north", createCornerFace("#side", 2));
+        faces00000010.add("south", createCornerFace("#side", 4));
+        faces00000010.add("west", createCornerFace("#side", 2));
+        faces00000010.add("east", createCornerFace("#side", 4));
         model00000010.add("faces", faces00000010);
 
         JsonObject model00000100 = new JsonObject();
         model00000100.add("from", arrayOf(0, 0, 8));
         model00000100.add("to", arrayOf(8, 8, 16));
         JsonObject faces00000100 = new JsonObject();
-        faces00000100.add("down", createFace("#down", null, 0, 0, 8, 8, 0));
-        faces00000100.add("up", createFace("#up", null, 0, 0, 8, 8, 0));
-        faces00000100.add("north", createFace("#side", null, 0, 0, 8, 8, 0));
-        faces00000100.add("south", createFace("#side", null, 0, 0, 8, 8, 0));
-        faces00000100.add("west", createFace("#side", null, 0, 0, 8, 8, 0));
-        faces00000100.add("east", createFace("#side", null, 0, 0, 8, 8, 0));
+        faces00000100.add("down", createCornerFace("#down", 1));
+        faces00000100.add("up", createCornerFace("#up", 2));
+        faces00000100.add("north", createCornerFace("#side", 4));
+        faces00000100.add("south", createCornerFace("#side", 2));
+        faces00000100.add("west", createCornerFace("#side", 4));
+        faces00000100.add("east", createCornerFace("#side", 2));
         model00000100.add("faces", faces00000100);
 
         JsonObject model00001000 = new JsonObject();
         model00001000.add("from", arrayOf(8, 0, 8));
         model00001000.add("to", arrayOf(16, 8, 16));
         JsonObject faces00001000 = new JsonObject();
-        faces00001000.add("down", createFace("#down", null, 8, 0, 16, 8, 0));
-        faces00001000.add("up", createFace("#up", null, 8, 0, 16, 8, 0));
-        faces00001000.add("north", createFace("#side", null, 8, 0, 16, 8, 0));
-        faces00001000.add("south", createFace("#side", null, 8, 0, 16, 8, 0));
-        faces00001000.add("west", createFace("#side", null, 8, 0, 16, 8, 0));
-        faces00001000.add("east", createFace("#side", null, 8, 0, 16, 8, 0));
+        faces00001000.add("down", createCornerFace("#down", 3));
+        faces00001000.add("up", createCornerFace("#up", 4));
+        faces00001000.add("north", createCornerFace("#side", 2));
+        faces00001000.add("south", createCornerFace("#side", 4));
+        faces00001000.add("west", createCornerFace("#side", 4));
+        faces00001000.add("east", createCornerFace("#side", 2));
         model00001000.add("faces", faces00001000);
 
         JsonObject model00010000 = new JsonObject();
         model00010000.add("from", arrayOf(0, 8, 0));
         model00010000.add("to", arrayOf(8, 16, 8));
         JsonObject faces00010000 = new JsonObject();
-        faces00010000.add("down", createFace("#down", null, 0, 8, 8, 16, 0));
-        faces00010000.add("up", createFace("#up", null, 0, 8, 8, 16, 0));
-        faces00010000.add("north", createFace("#side", null, 0, 8, 8, 16, 0));
-        faces00010000.add("south", createFace("#side", null, 0, 8, 8, 16, 0));
-        faces00010000.add("west", createFace("#side", null, 0, 8, 8, 16, 0));
-        faces00010000.add("east", createFace("#side", null, 0, 8, 8, 16, 0));
+        faces00010000.add("down", createCornerFace("#down", 2));
+        faces00010000.add("up", createCornerFace("#up", 1));
+        faces00010000.add("north", createCornerFace("#side", 3));
+        faces00010000.add("south", createCornerFace("#side", 1));
+        faces00010000.add("west", createCornerFace("#side", 1));
+        faces00010000.add("east", createCornerFace("#side", 3));
         model00010000.add("faces", faces00010000);
 
         JsonObject model00100000 = new JsonObject();
         model00100000.add("from", arrayOf(8, 8, 0));
         model00100000.add("to", arrayOf(16, 16, 8));
         JsonObject faces00100000 = new JsonObject();
-        faces00100000.add("down", createFace("#down", null, 8, 8, 16, 16, 0));
-        faces00100000.add("up", createFace("#up", null, 8, 8, 16, 16, 0));
-        faces00100000.add("north", createFace("#side", null, 8, 8, 16, 16, 0));
-        faces00100000.add("south", createFace("#side", null, 8, 8, 16, 16, 0));
-        faces00100000.add("west", createFace("#side", null, 8, 8, 16, 16, 0));
-        faces00100000.add("east", createFace("#side", null, 8, 8, 16, 16, 0));
+        faces00100000.add("down", createCornerFace("#down", 4));
+        faces00100000.add("up", createCornerFace("#up", 3));
+        faces00100000.add("north", createCornerFace("#side", 1));
+        faces00100000.add("south", createCornerFace("#side", 3));
+        faces00100000.add("west", createCornerFace("#side", 1));
+        faces00100000.add("east", createCornerFace("#side", 3));
         model00100000.add("faces", faces00100000);
 
         JsonObject model01000000 = new JsonObject();
         model01000000.add("from", arrayOf(0, 8, 8));
         model01000000.add("to", arrayOf(8, 16, 16));
         JsonObject faces01000000 = new JsonObject();
-        faces01000000.add("down", createFace("#down", null, 0, 8, 8, 16, 0));
-        faces01000000.add("up", createFace("#up", null, 0, 8, 8, 16, 0));
-        faces01000000.add("north", createFace("#side", null, 0, 8, 8, 16, 0));
-        faces01000000.add("south", createFace("#side", null, 0, 8, 8, 16, 0));
-        faces01000000.add("west", createFace("#side", null, 0, 8, 8, 16, 0));
-        faces01000000.add("east", createFace("#side", null, 0, 8, 8, 16, 0));
+        faces01000000.add("down", createCornerFace("#down", 1));
+        faces01000000.add("up", createCornerFace("#up", 2));
+        faces01000000.add("north", createCornerFace("#side", 3));
+        faces01000000.add("south", createCornerFace("#side", 1));
+        faces01000000.add("west", createCornerFace("#side", 3));
+        faces01000000.add("east", createCornerFace("#side", 1));
         model01000000.add("faces", faces01000000);
 
         JsonObject model10000000 = new JsonObject();
         model10000000.add("from", arrayOf(8, 8, 8));
         model10000000.add("to", arrayOf(16, 16, 16));
         JsonObject faces10000000 = new JsonObject();
-        faces10000000.add("down", createFace("#down", null, 8, 8, 16, 16, 0));
-        faces10000000.add("up", createFace("#up", null, 8, 8, 16, 16, 0));
-        faces10000000.add("north", createFace("#side", null, 8, 8, 16, 16, 0));
-        faces10000000.add("south", createFace("#side", null, 8, 8, 16, 16, 0));
-        faces10000000.add("west", createFace("#side", null, 8, 8, 16, 16, 0));
-        faces10000000.add("east", createFace("#side", null, 8, 8, 16, 16, 0));
+        faces10000000.add("down", createCornerFace("#down", 3));
+        faces10000000.add("up", createCornerFace("#up", 4));
+        faces10000000.add("north", createCornerFace("#side", 1));
+        faces10000000.add("south", createCornerFace("#side", 3));
+        faces10000000.add("west", createCornerFace("#side", 3));
+        faces10000000.add("east", createCornerFace("#side", 1));
         model10000000.add("faces", faces10000000);
 
         return switch (position) {
@@ -261,5 +261,14 @@ public class MiniBlockModelProvider implements DataProvider {
             face.addProperty("rotation", r);
         }
         return face;
+    }
+    private static JsonObject createCornerFace(String texture, int quadrant) {
+        return switch (quadrant) {
+            case 1 -> createFace(texture, null, 0, 0, 8, 8, 0);
+            case 2 -> createFace(texture, null, 0, 8, 8, 16, 0);
+            case 3 -> createFace(texture, null, 8, 0, 16, 8, 0);
+            case 4 -> createFace(texture, null, 8, 8, 16, 16, 0);
+            default -> throw new IllegalStateException("Unexpected value: " + quadrant);
+        };
     }
 }
