@@ -328,6 +328,88 @@ public class JAAVAAPotions {
     public static final RegistryEntry<Potion> ETERNAL_WITHER_POTION = registerPotion("eternal_decay",
             new Potion("eternal_decay", new StatusEffectInstance(StatusEffects.WITHER, INFINITY, 5, false, false)));
 
+    // Upgraded Vanilla Potions
+    // Instant Damage Potion
+    public static final RegistryEntry<Potion> HARMING_3_POTION = registerPotion("harming_3",
+            new Potion("harming", new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 1, 2)));
+    public static final RegistryEntry<Potion> HARMING_4_POTION = registerPotion("harming_4",
+            new Potion("harming", new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 1, 3)));
+    public static final RegistryEntry<Potion> HARMING_5_POTION = registerPotion("harming_5",
+            new Potion("harming", new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 1, 4)));
+    // Instant Health Potion
+    public static final RegistryEntry<Potion> HEALING_3_POTION = registerPotion("healing_3",
+            new Potion("healing", new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 2)));
+    public static final RegistryEntry<Potion> HEALING_4_POTION = registerPotion("healing_4",
+            new Potion("healing", new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 3)));
+    public static final RegistryEntry<Potion> HEALING_5_POTION = registerPotion("healing_5",
+            new Potion("healing", new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 4)));
+    // Jump Boost Potion
+    private static final int LEAPING_SHORT = minutes(3), LEAPING_LONG = minutes(8);
+    public static final RegistryEntry<Potion> LEAPING_2_POTION_LONG = registerPotion("leaping_2_long",
+            new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, LEAPING_LONG, 1)));
+    public static final RegistryEntry<Potion> LEAPING_3_POTION = registerPotion("leaping_3",
+            new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, LEAPING_SHORT, 2)));
+    public static final RegistryEntry<Potion> LEAPING_3_POTION_LONG = registerPotion("leaping_3_long",
+            new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, LEAPING_LONG, 2)));
+    public static final RegistryEntry<Potion> LEAPING_4_POTION = registerPotion("leaping_4",
+            new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, LEAPING_SHORT, 3)));
+    public static final RegistryEntry<Potion> LEAPING_4_POTION_LONG = registerPotion("leaping_4_long",
+            new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, LEAPING_LONG, 3)));
+    public static final RegistryEntry<Potion> LEAPING_5_POTION = registerPotion("leaping_5",
+            new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, LEAPING_SHORT, 4)));
+    public static final RegistryEntry<Potion> LEAPING_5_POTION_LONG = registerPotion("leaping_5_long",
+            new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, LEAPING_LONG, 4)));
+    public static final RegistryEntry<Potion> INFINITE_LEAPING_POTION = registerPotion("infinite_leaping",
+            new Potion("infinite_leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, INFINITY, 0, false, false)));
+    public static final RegistryEntry<Potion> ETERNAL_LEAPING_POTION = registerPotion("eternal_leaping",
+            new Potion("eternal_leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, INFINITY, 5, false, false)));
+
+    // Poison Potion
+    private static final int POISON_SHORT = seconds(15), POISON_LONG = minutes(1);
+    public static final RegistryEntry<Potion> POISON_2_POTION_LONG = registerPotion("poison_2_long",
+            new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, POISON_LONG, 1)));
+    public static final RegistryEntry<Potion> POISON_3_POTION = registerPotion("poison_3",
+            new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, POISON_SHORT, 2)));
+    public static final RegistryEntry<Potion> POISON_3_POTION_LONG = registerPotion("poison_3_long",
+            new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, POISON_LONG, 2)));
+    public static final RegistryEntry<Potion> POISON_4_POTION = registerPotion("poison_4",
+            new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, POISON_SHORT, 3)));
+    public static final RegistryEntry<Potion> POISON_4_POTION_LONG = registerPotion("poison_4_long",
+            new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, POISON_LONG, 3)));
+    public static final RegistryEntry<Potion> POISON_5_POTION = registerPotion("poison_5",
+            new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, POISON_SHORT, 4)));
+    public static final RegistryEntry<Potion> POISON_5_POTION_LONG = registerPotion("poison_5_long",
+            new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, POISON_LONG, 4)));
+    public static final RegistryEntry<Potion> INFINITE_POISON_POTION = registerPotion("infinite_poison",
+            new Potion("infinite_poison", new StatusEffectInstance(StatusEffects.POISON, INFINITY, 0, false, false)));
+    public static final RegistryEntry<Potion> ETERNAL_POISON_POTION = registerPotion("eternal_poison",
+            new Potion("eternal_poison", new StatusEffectInstance(StatusEffects.POISON, INFINITY, 5, false, false)));
+
+    // Regeneration Potion
+    private static final int REGENERATION_SHORT = 900, REGENERATION_LONG = 1800;
+    public static final RegistryEntry<Potion> REGENERATION_2_POTION_LONG = registerPotion("regeneration_2_long",
+            new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, REGENERATION_LONG, 1)));
+    public static final RegistryEntry<Potion> REGENERATION_3_POTION = registerPotion("regeneration_3",
+            new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, REGENERATION_SHORT, 2)));
+    public static final RegistryEntry<Potion> REGENERATION_3_POTION_LONG = registerPotion("regeneration_3_long",
+            new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, REGENERATION_LONG, 2)));
+    public static final RegistryEntry<Potion> REGENERATION_4_POTION = registerPotion("regeneration_4",
+            new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, REGENERATION_SHORT, 3)));
+    public static final RegistryEntry<Potion> REGENERATION_4_POTION_LONG = registerPotion("regeneration_4_long",
+            new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, REGENERATION_LONG, 3)));
+    public static final RegistryEntry<Potion> REGENERATION_5_POTION = registerPotion("regeneration_5",
+            new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, REGENERATION_SHORT, 4)));
+    public static final RegistryEntry<Potion> REGENERATION_5_POTION_LONG = registerPotion("regeneration_5_long",
+            new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, REGENERATION_LONG, 4)));
+    public static final RegistryEntry<Potion> INFINITE_REGENERATION_POTION = registerPotion("infinite_regeneration",
+            new Potion("infinite_regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, INFINITY, 0, false, false)));
+    public static final RegistryEntry<Potion> ETERNAL_REGENERATION_POTION = registerPotion("eternal_regeneration",
+            new Potion("eternal_regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, INFINITY, 5, false, false)));
+    // Slowness Potion
+    // Speed Potion
+    // Strength Potion
+    // Weakness Potion
+
     private static RegistryEntry<Potion> registerPotion(String name, Potion potion) {
         var potionEntry = Registry.registerReference(Registries.POTION, JAAVAA.id(name), potion);
         POTION_ENTRIES.add(potionEntry);

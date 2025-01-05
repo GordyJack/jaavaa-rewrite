@@ -322,6 +322,75 @@ public class JAAVAAPotionRecipeBuilder {
             builder.registerPotionRecipe(JAAVAAPotions.WITHER_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_WITHER_POTION);
             // Eternal Wither Potion
             builder.registerPotionRecipe(JAAVAAPotions.INFINITE_WITHER_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_WITHER_POTION);
+
+            // Upgraded Vanilla Potions
+            // Instant Damage Pottion
+            builder.registerPotionRecipe(Potions.STRONG_HARMING, TIER_2_UPGRADE, JAAVAAPotions.HARMING_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HARMING_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.HARMING_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HARMING_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.HARMING_5_POTION);
+
+            // Instant Health Potion
+            builder.registerPotionRecipe(Potions.STRONG_HEALING, TIER_2_UPGRADE, JAAVAAPotions.HEALING_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALING_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.HEALING_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.HEALING_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.HEALING_5_POTION);
+
+            // Jump Boost Potion
+            builder.registerPotionRecipe(Potions.STRONG_LEAPING, TIER_2_UPGRADE, JAAVAAPotions.LEAPING_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.LEAPING_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.LEAPING_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.LEAPING_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.LEAPING_5_POTION);
+            // Lengthen the jump boost potion
+            builder.registerPotionRecipe(Potions.STRONG_LEAPING, LENGTH_UPGRADE, JAAVAAPotions.LEAPING_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.LEAPING_3_POTION, LENGTH_UPGRADE, JAAVAAPotions.LEAPING_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.LEAPING_4_POTION, LENGTH_UPGRADE, JAAVAAPotions.LEAPING_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.LEAPING_5_POTION, LENGTH_UPGRADE, JAAVAAPotions.LEAPING_5_POTION_LONG);
+            // Power up the lengthened jump boost potion
+            builder.registerPotionRecipe(Potions.LONG_LEAPING, TIER_1_UPGRADE, JAAVAAPotions.LEAPING_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.LEAPING_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.LEAPING_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.LEAPING_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.LEAPING_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.LEAPING_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.LEAPING_5_POTION_LONG);
+            // Infinite Jump Boost Potion
+            builder.registerPotionRecipe(JAAVAAPotions.LEAPING_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_LEAPING_POTION);
+            // Eternal Jump Boost Potion
+            builder.registerPotionRecipe(JAAVAAPotions.INFINITE_LEAPING_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_LEAPING_POTION);
+
+            // Poison Potion
+            builder.registerPotionRecipe(Potions.STRONG_POISON, TIER_2_UPGRADE, JAAVAAPotions.POISON_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.POISON_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.POISON_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.POISON_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.POISON_5_POTION);
+            // Lengthen the poison potion
+            builder.registerPotionRecipe(Potions.STRONG_POISON, LENGTH_UPGRADE, JAAVAAPotions.POISON_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.POISON_3_POTION, LENGTH_UPGRADE, JAAVAAPotions.POISON_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.POISON_4_POTION, LENGTH_UPGRADE, JAAVAAPotions.POISON_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.POISON_5_POTION, LENGTH_UPGRADE, JAAVAAPotions.POISON_5_POTION_LONG);
+            // Power up the lengthened poison potion
+            builder.registerPotionRecipe(Potions.LONG_POISON, TIER_1_UPGRADE, JAAVAAPotions.POISON_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.POISON_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.POISON_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.POISON_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.POISON_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.POISON_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.POISON_5_POTION_LONG);
+            // Infinite Poison Potion
+            builder.registerPotionRecipe(JAAVAAPotions.POISON_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_POISON_POTION);
+            // Eternal Poison Potion
+            builder.registerPotionRecipe(JAAVAAPotions.INFINITE_POISON_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_POISON_POTION);
+
+            // Regeneration Potion
+            builder.registerPotionRecipe(Potions.STRONG_REGENERATION, TIER_2_UPGRADE, JAAVAAPotions.REGENERATION_3_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.REGENERATION_3_POTION, TIER_3_UPGRADE, JAAVAAPotions.REGENERATION_4_POTION);
+            builder.registerPotionRecipe(JAAVAAPotions.REGENERATION_4_POTION, TIER_4_UPGRADE, JAAVAAPotions.REGENERATION_5_POTION);
+            // Lengthen the regeneration potion
+            builder.registerPotionRecipe(Potions.STRONG_REGENERATION, LENGTH_UPGRADE, JAAVAAPotions.REGENERATION_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.REGENERATION_3_POTION, LENGTH_UPGRADE, JAAVAAPotions.REGENERATION_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.REGENERATION_4_POTION, LENGTH_UPGRADE, JAAVAAPotions.REGENERATION_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.REGENERATION_5_POTION, LENGTH_UPGRADE, JAAVAAPotions.REGENERATION_5_POTION_LONG);
+            // Power up the lengthened regeneration potion
+            builder.registerPotionRecipe(Potions.LONG_REGENERATION, TIER_1_UPGRADE, JAAVAAPotions.REGENERATION_2_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.REGENERATION_2_POTION_LONG, TIER_2_UPGRADE, JAAVAAPotions.REGENERATION_3_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.REGENERATION_3_POTION_LONG, TIER_3_UPGRADE, JAAVAAPotions.REGENERATION_4_POTION_LONG);
+            builder.registerPotionRecipe(JAAVAAPotions.REGENERATION_4_POTION_LONG, TIER_4_UPGRADE, JAAVAAPotions.REGENERATION_5_POTION_LONG);
+            // Infinite Regeneration Potion
+            builder.registerPotionRecipe(JAAVAAPotions.REGENERATION_5_POTION_LONG, INFINITE_UPGRADE, JAAVAAPotions.INFINITE_REGENERATION_POTION);
+            // Eternal Regeneration Potion
+            builder.registerPotionRecipe(JAAVAAPotions.INFINITE_REGENERATION_POTION, ETERNAL_UPGRADE, JAAVAAPotions.ETERNAL_REGENERATION_POTION);
+
         });
     }
 }
