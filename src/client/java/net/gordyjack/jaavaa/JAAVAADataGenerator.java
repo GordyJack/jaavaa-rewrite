@@ -1,18 +1,22 @@
 package net.gordyjack.jaavaa;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
+import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.data.lang.*;
 import net.gordyjack.jaavaa.data.loot_table.*;
 import net.gordyjack.jaavaa.data.model.*;
 import net.gordyjack.jaavaa.data.model.block.*;
 import net.gordyjack.jaavaa.data.recipe.*;
 import net.gordyjack.jaavaa.data.tag.*;
+import net.gordyjack.jaavaa.enchantment.*;
 import net.minecraft.data.*;
 import net.minecraft.loot.context.*;
+import net.minecraft.registry.*;
 
 public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider advancedRepeaterModelProvider;
 	public DataProvider blockLootTableProvider;
+	public DataProvider enchantmentProvider;
 	public DataProvider enUSProvider;
 	public DataProvider miniBlockModelProvider;
 	public DataProvider mobLootTableProvider;
@@ -20,6 +24,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider recipeProvider;
 	public DataProvider tagBlockProvider;
 	public DataProvider tagDamageTypeProvider;
+	public DataProvider tagEnchantmentProvider;
 	public DataProvider tagItemProvider;
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
@@ -29,9 +34,11 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 		modelProvider = pack.addProvider(JAAVAAModelProvider::new);
 		advancedRepeaterModelProvider = pack.addProvider(AdvancedRepeaterModelProvider::new);
 		miniBlockModelProvider = pack.addProvider(MiniBlockModelProvider::new);
+		enchantmentProvider = pack.addProvider(JAAVAARegistryProvider::new);
 		recipeProvider = pack.addProvider(JAAVAARecipeProvider::new);
 		tagBlockProvider = pack.addProvider(JAAVAABlockTagProvider::new);
 		tagDamageTypeProvider = pack.addProvider(JAAVAADamageTypeTagProvider::new);
+		tagEnchantmentProvider = pack.addProvider(JAAVAAEnchantmentTagProvider::new);
 		tagItemProvider = pack.addProvider(JAAVAAItemTagProvider::new);
 
 		blockLootTableProvider = pack.addProvider((FabricDataGenerator.Pack.Factory<JAAVAABlockLootTableProvider>) output -> new JAAVAABlockLootTableProvider(
@@ -41,5 +48,10 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 				output,
 				fabricDataGenerator.getRegistries(),
 				LootContextTypes.ENTITY));
+	}
+
+	@Override
+	public void buildRegistry(RegistryBuilder registryBuilder) {
+		registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, JAAVAAEnchantments::bootstrap);
 	}
 }

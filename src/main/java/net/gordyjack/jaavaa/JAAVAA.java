@@ -3,6 +3,7 @@ package net.gordyjack.jaavaa;
 import net.fabricmc.api.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
+import net.gordyjack.jaavaa.enchantment.*;
 import net.gordyjack.jaavaa.event.*;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.potion.*;
@@ -28,6 +29,8 @@ public class JAAVAA implements ModInitializer {
 		JAAVAAStatusEffects.init();
 		JAAVAABlockEntityTypes.init();
 		JAAVAAComponents.init();
+		JAAVAAEnchantments.init();
+		CurseOfTheCapriciousHandler.init();
 		JAAVAARecipes.init();
 		JAAVAAPotionRecipeBuilder.build();
 		JAAVAAScreenHandlers.init();
