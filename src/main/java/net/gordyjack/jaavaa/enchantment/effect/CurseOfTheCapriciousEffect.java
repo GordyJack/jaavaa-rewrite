@@ -18,14 +18,14 @@ import net.minecraft.world.*;
 import java.util.stream.*;
 
 //TODO: Fix this.
-public record CurseOfTheCapriciousEffect(EnchantmentLevelBasedValue amount) implements EnchantmentEntityEffect {
+public record CurseOfTheCapriciousEffect(EnchantmentLevelBasedValue amount) implements EnchantmentLocationBasedEffect {
     public static final MapCodec<CurseOfTheCapriciousEffect> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
                     EnchantmentLevelBasedValue.CODEC.fieldOf("amount").forGetter(CurseOfTheCapriciousEffect::amount)
             ).apply(instance, CurseOfTheCapriciousEffect::new)
     );
     @Override
-    public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
+    public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos, boolean newlyApplied) {
         JAAVAA.log("Curse of the Capricious effect applied", 'e');
         if (user instanceof PlayerEntity) {
             JAAVAA.log("Curse of the Capricious effect applied to player", 'e');
@@ -37,7 +37,7 @@ public record CurseOfTheCapriciousEffect(EnchantmentLevelBasedValue amount) impl
         }
     }
     @Override
-    public MapCodec<? extends EnchantmentEntityEffect> getCodec() {
+    public MapCodec<? extends EnchantmentLocationBasedEffect> getCodec() {
         return CODEC;
     }
     public static void onBlockMined(ItemStack tool, World world, BlockPos pos) {
@@ -45,7 +45,8 @@ public record CurseOfTheCapriciousEffect(EnchantmentLevelBasedValue amount) impl
                 tool.getEnchantments().getSize() > 0) {
             for (var enchantment : tool.getEnchantments().getEnchantmentEntries()) {
                 if (enchantment.getKey().getIdAsString().contains("curse_of_the_capricious")) {
-                    Block block = world.getBlockState(pos).getBlock();
+                    Block randomBlock = Registries.BLOCK.getRandom(Random.create()).get().value();
+                    ((ServerWorld)world).addEntities(Stream.of(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(randomBlock.asItem()))));
                 }
             }
         }
