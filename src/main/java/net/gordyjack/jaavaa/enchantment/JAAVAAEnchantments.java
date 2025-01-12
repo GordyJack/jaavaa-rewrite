@@ -51,17 +51,17 @@ public class JAAVAAEnchantments {
     public static class Effects {
         public static final MapCodec<CurseOfTheCapriciousEffect> CURSE_OF_THE_CAPRICIOUS_EFFECT = register("curse_of_the_capricious", CurseOfTheCapriciousEffect.CODEC);
 
-        private static <T extends EnchantmentEntityEffect> MapCodec<T> register(String id, MapCodec<T> codec) {
-            return Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, JAAVAA.id(id), codec);
+        private static <T extends EnchantmentLocationBasedEffect> MapCodec<T> register(String id, MapCodec<T> codec) {
+            return Registry.register(Registries.ENCHANTMENT_LOCATION_BASED_EFFECT_TYPE, JAAVAA.id(id), codec);
         }
         protected static void init() {
             JAAVAA.log("Initializing JAAVAA enchantment effects");
         }
     }
     public static class ComponentTypes {
-        public static final ComponentType<List<EnchantmentEffectEntry<EnchantmentEntityEffect>>> CURSE_OF_THE_CAPRICIOUS_COMPONENT =
+        public static final ComponentType<List<EnchantmentEffectEntry<EnchantmentLocationBasedEffect>>> CURSE_OF_THE_CAPRICIOUS_COMPONENT =
                 register("curse_of_the_capricious", builder ->
-                        builder.codec(EnchantmentEffectEntry.createCodec(EnchantmentEntityEffect.CODEC, LootContextTypes.BLOCK).listOf()));
+                        builder.codec(EnchantmentEffectEntry.createCodec(EnchantmentLocationBasedEffect.CODEC, LootContextTypes.BLOCK).listOf()));
 
         private static <T> ComponentType<T> register(String id, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
             return Registry.register(Registries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, id, builderOperator.apply(ComponentType.builder()).build());
