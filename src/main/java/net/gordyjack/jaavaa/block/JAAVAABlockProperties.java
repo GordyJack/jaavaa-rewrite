@@ -4,13 +4,9 @@ import net.gordyjack.jaavaa.block.enums.*;
 import net.minecraft.state.property.*;
 
 public class JAAVAABlockProperties {
-    public static final BooleanProperty FRONT_POWERED = BooleanProperty.of("front_powered");
     public static final BooleanProperty BACK_POWERED = BooleanProperty.of("back_powered");
     public static final BooleanProperty LEFT_POWERED = BooleanProperty.of("left_powered");
     public static final BooleanProperty RIGHT_POWERED = BooleanProperty.of("right_powered");
-    public static final BooleanProperty RECIEVING_POWER = BooleanProperty.of("recieving_power");
-    public static final EnumProperty<BlockSection> SECTION = EnumProperty.of("section", BlockSection.class);
-    public static final EnumProperty<MiniBlockType> MINI_BLOCK_TYPE = EnumProperty.of("type", MiniBlockType.class);
     public static final EnumProperty<DecoderMode> DECODER_MODE = EnumProperty.of("mode", DecoderMode.class);
     public static final EnumProperty<DecoderTarget> DECODER_TARGET = EnumProperty.of("target", DecoderTarget.class);
     public static final IntProperty MINI_BLOCK_POSITION = IntProperty.of("position", 0b00000001, 0b11111111);
