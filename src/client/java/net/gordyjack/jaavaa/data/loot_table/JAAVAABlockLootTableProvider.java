@@ -10,6 +10,7 @@ import net.minecraft.loot.condition.*;
 import net.minecraft.loot.entry.*;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.provider.number.*;
+import net.minecraft.predicate.*;
 import net.minecraft.registry.*;
 
 import java.util.*;
@@ -39,11 +40,11 @@ public class JAAVAABlockLootTableProvider
         for (int i = 0; i < 256; i++) {
             positionsList.add(i);
         }
-        return LootTable.builder()
-                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F)).with(this.applyExplosionDecay(miniBlock, ItemEntry.builder(miniBlock)
-                        .apply(positionsList, miniBlocks -> SetCountLootFunction.builder(ConstantLootNumberProvider.create((float) Integer.bitCount(miniBlocks)))
-                                .conditionally(BlockStatePropertyLootCondition.builder(miniBlock)
-                                        .properties(net.minecraft.predicate.StatePredicate.Builder.create()
-                                                .exactMatch(MiniBlock.POSITION, miniBlocks)))))));
+        return LootTable.builder().pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(this.applyExplosionDecay(miniBlock, ItemEntry.builder(miniBlock).apply(positionsList, miniBlocks ->
+                                SetCountLootFunction.builder(ConstantLootNumberProvider.create((float) Integer.bitCount(miniBlocks)))
+                                        .conditionally(BlockStatePropertyLootCondition.builder(miniBlock)
+                                                .properties(StatePredicate.Builder.create().exactMatch(MiniBlock.POSITION, miniBlocks)))))));
     }
 }

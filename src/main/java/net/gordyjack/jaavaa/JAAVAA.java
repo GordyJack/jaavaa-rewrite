@@ -34,6 +34,8 @@ public class JAAVAA implements ModInitializer {
 		JAAVAARecipes.init();
 		JAAVAAPotionRecipeBuilder.build();
 		JAAVAAScreenHandlers.init();
+
+		JAAVAALootTableEventsHandler.init();
 	}
 	
 	public static Identifier id(String path) {

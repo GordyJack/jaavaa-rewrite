@@ -10,7 +10,6 @@ import net.gordyjack.jaavaa.data.recipe.*;
 import net.gordyjack.jaavaa.data.tag.*;
 import net.gordyjack.jaavaa.enchantment.*;
 import net.minecraft.data.*;
-import net.minecraft.loot.context.*;
 import net.minecraft.registry.*;
 
 public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
@@ -20,6 +19,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider enUSProvider;
 	public DataProvider miniBlockModelProvider;
 	public DataProvider mobLootTableProvider;
+	public DataProvider structureLootTableProvider;
 	public DataProvider modelProvider;
 	public DataProvider recipeProvider;
 	public DataProvider tagBlockProvider;
@@ -44,10 +44,12 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 		blockLootTableProvider = pack.addProvider((FabricDataGenerator.Pack.Factory<JAAVAABlockLootTableProvider>) output -> new JAAVAABlockLootTableProvider(
 				output,
 				fabricDataGenerator.getRegistries()));
-		mobLootTableProvider = pack.addProvider((FabricDataGenerator.Pack.Factory<JAAVAAMobLootTableProvider>) output -> new JAAVAAMobLootTableProvider(
-				output,
-				fabricDataGenerator.getRegistries(),
-				LootContextTypes.ENTITY));
+//		mobLootTableProvider = pack.addProvider((FabricDataGenerator.Pack.Factory<JAAVAAMobLootTableProvider>) output -> new JAAVAAMobLootTableProvider(
+//				output,
+//				fabricDataGenerator.getRegistries()));
+//		structureLootTableProvider = pack.addProvider((FabricDataGenerator.Pack.Factory<JAAVAAStructureLootTableProvider>) output -> new JAAVAAStructureLootTableProvider(
+//				output,
+//				fabricDataGenerator.getRegistries()));
 	}
 
 	@Override
