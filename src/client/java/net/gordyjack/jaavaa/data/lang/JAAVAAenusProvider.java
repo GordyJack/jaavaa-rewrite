@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.*;
+import net.gordyjack.jaavaa.enchantment.*;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.potion.*;
 import net.gordyjack.jaavaa.screen.*;
@@ -75,6 +76,11 @@ extends FabricLanguageProvider{
             String handlerName = handlerId != null ? handlerId.getPath() : "null";
             handlerName = handlerName.replace("_screen_handler", "");
             translationBuilder.add("container.jaavaa." + handlerName, getTranslatedName(handlerName));
+        }
+        for (var enchantment : JAAVAAEnchantments.ENCHANTMENTS) {
+            String enchantmentName = enchantment.getValue().toString();
+            enchantmentName = enchantmentName.substring(enchantmentName.indexOf(':') + 1);
+            translationBuilder.add("enchantment.jaavaa." + enchantmentName, getTranslatedName(enchantmentName));
         }
 
 

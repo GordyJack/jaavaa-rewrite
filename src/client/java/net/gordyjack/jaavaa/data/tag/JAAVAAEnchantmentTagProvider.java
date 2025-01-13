@@ -15,7 +15,19 @@ public class JAAVAAEnchantmentTagProvider extends FabricTagProvider<Enchantment>
     }
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(EnchantmentTags.CURSE).addOptional(
+                JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS
+        );
+        getOrCreateTagBuilder(EnchantmentTags.ON_RANDOM_LOOT).addOptional(
+                JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS
+        );
         getOrCreateTagBuilder(EnchantmentTags.MINING_EXCLUSIVE_SET).addOptional(
+                JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS
+        );
+        getOrCreateTagBuilder(EnchantmentTags.TRADEABLE).addOptional(
+                JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS
+        );
+        getOrCreateTagBuilder(EnchantmentTags.TREASURE).addOptional(
                 JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS
         );
     }

@@ -181,7 +181,7 @@ public interface ImplementedInventory extends SidedInventory {
      * Replaces the current stack in the {@code slot} with the provided stack.
      *
      * <p>If the stack is too big for this inventory ({@link Inventory#getMaxCountPerStack()}),
-     * it gets resized to this inventory's maximum amount.
+     * it gets resized to this inventory's maximum value.
      *
      * @param slot the slot
      * @param stack the stack

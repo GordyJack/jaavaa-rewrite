@@ -8,23 +8,7 @@
       {
         "effect": {
           "type": "minecraft:set",
-          "value": {
-            "type": "minecraft:linear",
-            "base": 1.0,
-            "per_level_above_first": 1.0
-          }
-        }
-      }
-    ],
-    "minecraft:curse_of_the_capricious": [
-      {
-        "effect": {
-          "type": "jaavaa:curse_of_the_capricious",
-          "amount": {
-            "type": "minecraft:linear",
-            "base": 1.0,
-            "per_level_above_first": 1.0
-          }
+          "value": 0.0
         }
       }
     ]
