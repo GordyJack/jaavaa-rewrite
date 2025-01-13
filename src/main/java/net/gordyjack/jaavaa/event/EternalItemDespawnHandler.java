@@ -13,13 +13,11 @@ public class EternalItemDespawnHandler {
         ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
             if (entity instanceof ItemEntity itemEntity) {
                 ItemStack stack = itemEntity.getStack();
-                if (stack.getItem() instanceof EternalItem) {
-                    EternalItem.preventDespawning(itemEntity);
-                } else if (stack.getItem() instanceof EternalBlockItem) {
-                    EternalBlockItem.preventDespawning(itemEntity);
+                if (stack.getItem() instanceof EternalItem || stack.getItem() instanceof EternalBlockItem) {
+                    itemEntity.setNeverDespawn();
                 } else if (stack.getItem() instanceof PotionItem potionItem) {
                     if (potionItem.getName(stack).toString().toLowerCase().contains("eternal")) {
-                        EternalItem.preventDespawning(itemEntity);
+                        itemEntity.setNeverDespawn();
                     }
                 }
             }

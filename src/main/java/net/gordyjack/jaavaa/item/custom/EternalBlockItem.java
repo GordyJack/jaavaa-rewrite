@@ -1,7 +1,6 @@
 package net.gordyjack.jaavaa.item.custom;
 
 import net.minecraft.block.*;
-import net.minecraft.entity.*;
 import net.minecraft.item.*;
 
 public class EternalBlockItem extends BlockItem {
@@ -11,8 +10,5 @@ public class EternalBlockItem extends BlockItem {
     @Override
     public boolean hasGlint(ItemStack stack) {
         return true;
-    }
-    public static void preventDespawning(ItemEntity entity) {
-        entity.setNeverDespawn(); // Prevent despawning.
     }
 }
