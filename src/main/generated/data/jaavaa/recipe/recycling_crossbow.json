@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.2,
+  "inputStack": {
+    "count": 1,
+    "id": "minecraft:crossbow"
+  },
+  "result": {
+    "count": 3,
+    "id": "minecraft:iron_ingot"
+  }
+}

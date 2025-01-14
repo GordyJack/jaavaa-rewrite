@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.2,
+  "inputStack": {
+    "count": 1,
+    "id": "minecraft:chainmail_boots"
+  },
+  "result": {
+    "count": 16,
+    "id": "minecraft:iron_nugget"
+  }
+}

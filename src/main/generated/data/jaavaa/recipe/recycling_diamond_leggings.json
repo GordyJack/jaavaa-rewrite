@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.3,
+  "inputStack": {
+    "count": 1,
+    "id": "minecraft:diamond_leggings"
+  },
+  "result": {
+    "count": 7,
+    "id": "minecraft:diamond"
+  }
+}

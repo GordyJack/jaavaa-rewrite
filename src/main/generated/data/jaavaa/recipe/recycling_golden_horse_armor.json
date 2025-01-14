@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.4,
+  "inputStack": {
+    "count": 1,
+    "id": "minecraft:golden_horse_armor"
+  },
+  "result": {
+    "count": 7,
+    "id": "minecraft:gold_ingot"
+  }
+}

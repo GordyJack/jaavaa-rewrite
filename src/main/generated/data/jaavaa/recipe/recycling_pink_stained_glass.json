@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.1,
+  "inputStack": {
+    "count": 1,
+    "id": "minecraft:pink_stained_glass"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:pink_dye"
+  }
+}

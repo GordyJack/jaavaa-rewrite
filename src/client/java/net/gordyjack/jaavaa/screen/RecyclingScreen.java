@@ -35,9 +35,9 @@ public class RecyclingScreen extends HandledScreen<RecyclingScreenHandler> {
         RenderSystem.setShaderTexture(0, TEXTURE);
 
         drawContext.drawTexture(RenderLayer::getGuiTextured, TEXTURE, this.xD2(), this.yD2(), 0, 0, backgroundWidth, backgroundHeight, 256, 256);
-        if (this.handler.getSlot(0).hasStack() && !this.handler.getSlot(1).hasStack()) {
-            drawContext.drawTexture(RenderLayer::getGuiTextured, TEXTURE, this.xD2() + 92, this.yD2() + 31, this.backgroundWidth, 0, 28, 21, 256, 256);
-        }
+//        if (!this.handler.isEmpty() && !this.handler.hasRecipe()) {
+//            drawContext.drawTexture(RenderLayer::getGuiTextured, TEXTURE, this.xD2() + 92, this.yD2() + 31, this.backgroundWidth, 0, 28, 21, 256, 256);
+//        }
     }
     @Override
     protected void init() {

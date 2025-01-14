@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.screen;
 
 import net.gordyjack.jaavaa.recipe.*;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
 import net.minecraft.item.*;
@@ -9,6 +10,7 @@ import net.minecraft.recipe.input.*;
 import net.minecraft.screen.*;
 import net.minecraft.screen.slot.*;
 import net.minecraft.server.world.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
 import java.util.*;
@@ -54,15 +56,20 @@ public class RecyclingScreenHandler extends ScreenHandler {
                 return RecyclingScreenHandler.this.isInput(stack);
             }
         });
-        this.addSlot(new Slot(RESULT, 0, 129, 34) {
-            @Override
-            public boolean canInsert(ItemStack stack) {
-                return false;
-            }
+        this.addSlot(new RecyclingResultSlot(playerInventory.player, INPUT, RESULT, 0, 129, 34) {
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
-                RecyclingScreenHandler.this.decrementInput();
                 super.onTakeItem(player, stack);
+                RecyclingScreenHandler.this.CONTEXT.run((world, pos) -> {
+                    if (world instanceof ServerWorld serverWorld) {
+                        try {
+                            float experience = ((RecyclingRecipe)RESULT.getLastRecipe().value()).experience();
+                            ExperienceOrbEntity.spawn(serverWorld, Vec3d.ofCenter(pos), (int)(experience * 10));
+                        } catch (NullPointerException e) {
+                            //Do nothing
+                        }
+                    }
+                });
             }
         });
         for (int i = 0; i < 3; ++i) {
@@ -90,50 +97,41 @@ public class RecyclingScreenHandler extends ScreenHandler {
         super.onContentChanged(inventory);
         if (inventory == this.INPUT) {
             this.updateResult();
+            this.sendContentUpdates();
         }
     }
     @Override
     public ItemStack quickMove(PlayerEntity player, int slotIndex) {
-        //EasyRecycling.logError("quickMove");
         ItemStack itemStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(slotIndex);
         if (slot.hasStack()) {
-            //EasyRecycling.logError("hasStack");
             ItemStack itemStack2 = slot.getStack();
             itemStack = itemStack2.copy();
 
-            boolean INVENTORY_SLOT = slotIndex >= PLAYER_INVENTORY_START && slotIndex <= PLAYER_INVENTORY_END;
-            boolean HOTBAR_SLOT = slotIndex >= HOTBAR_START && slotIndex <= HOTBAR_END;
+            boolean isInventorySlot = slotIndex >= PLAYER_INVENTORY_START && slotIndex <= PLAYER_INVENTORY_END;
+            boolean isHotbarSlot = slotIndex >= HOTBAR_START && slotIndex <= HOTBAR_END;
 
             if (slotIndex == OUTPUT_SLOT) {
-                //EasyRecycling.logError("OUTPUT_SLOT");
+                this.CONTEXT.run((world, pos) -> itemStack2.getItem().onCraftByPlayer(itemStack2, world, player));
                 if (!this.insertItem(itemStack2, PLAYER_INVENTORY_START, HOTBAR_END, true)) {
                     return ItemStack.EMPTY;
                 }
                 slot.onQuickTransfer(itemStack2, itemStack);
             } else if (slotIndex == INPUT_SLOT && !this.insertItem(itemStack2, PLAYER_INVENTORY_START, HOTBAR_END, false)) {
-                //EasyRecycling.logError("INPUT_SLOT");
                 return ItemStack.EMPTY;
             } else if (this.INPUT.getStack(0).isEmpty() && !this.insertItem(itemStack2, INPUT_SLOT, INPUT_SLOT + 1, false)) {
-                //EasyRecycling.logError("INPUT EMPTY");
                 return ItemStack.EMPTY;
-            } else if (INVENTORY_SLOT && !this.insertItem(itemStack2, HOTBAR_START, HOTBAR_END, false)) {
-                //EasyRecycling.logError("INVENTORY_SLOT");
+            } else if (isInventorySlot && !this.insertItem(itemStack2, HOTBAR_START, HOTBAR_END, false)) {
                 return ItemStack.EMPTY;
-            } else if (HOTBAR_SLOT && !this.insertItem(itemStack2, PLAYER_INVENTORY_START, PLAYER_INVENTORY_END, false)) {
-                //EasyRecycling.logError("HOTBAR_SLOT");
+            } else if (isHotbarSlot && !this.insertItem(itemStack2, PLAYER_INVENTORY_START, PLAYER_INVENTORY_END, false)) {
                 return ItemStack.EMPTY;
             }
 
             if (itemStack2.isEmpty()) {
-                //EasyRecycling.logError("itemStack2 Empty");
                 slot.setStack(ItemStack.EMPTY);
-            } else {
-                //EasyRecycling.logError("markDirty");
-                slot.markDirty();
             }
+            slot.markDirty();
             if (itemStack2.getCount() == itemStack.getCount()) {
-                //EasyRecycling.logError("EQUALS");
                 return ItemStack.EMPTY;
             }
             slot.onTakeItem(player, itemStack2);
@@ -162,11 +160,18 @@ public class RecyclingScreenHandler extends ScreenHandler {
         return new SingleStackRecipeInput(stack);
     }
     private void decrementInput() {
+        this.decrementInput(1);
+    }
+    private void decrementInput(int count) {
         ItemStack itemStack = this.INPUT.getStack(INPUT_SLOT);
         if (!itemStack.isEmpty()) {
-            itemStack.decrement(1);
+            itemStack.decrement(count);
             this.INPUT.setStack(INPUT_SLOT, itemStack);
+            this.INPUT.markDirty();
         }
+    }
+    public boolean isEmpty() {
+        return this.INPUT.isEmpty() && this.RESULT.isEmpty();
     }
     private boolean isInput(ItemStack stack) {
         if (this.WORLD instanceof ServerWorld serverWorld) {
@@ -175,5 +180,10 @@ public class RecyclingScreenHandler extends ScreenHandler {
                     .isPresent();
         }
         return false;
+    }
+    public boolean hasRecipe() {
+        var inputStack = this.INPUT.getStack(INPUT_SLOT);
+        var outputStack = this.RESULT.getStack(OUTPUT_SLOT);
+        return !inputStack.isEmpty() && !outputStack.isEmpty();
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.1,
+  "inputStack": {
+    "count": 1,
+    "id": "minecraft:wooden_pickaxe"
+  },
+  "result": {
+    "count": 6,
+    "id": "minecraft:stick"
+  }
+}

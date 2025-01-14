@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.0,
+  "inputStack": {
+    "count": 1,
+    "id": "minecraft:warped_fungus_on_a_stick"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:warped_fungus"
+  }
+}

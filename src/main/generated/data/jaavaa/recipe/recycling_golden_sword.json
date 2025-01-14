@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.4,
+  "inputStack": {
+    "count": 1,
+    "id": "minecraft:golden_sword"
+  },
+  "result": {
+    "count": 2,
+    "id": "minecraft:gold_ingot"
+  }
+}

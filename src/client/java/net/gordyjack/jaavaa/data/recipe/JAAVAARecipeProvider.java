@@ -7,6 +7,7 @@ import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.recipe.*;
 import net.minecraft.block.*;
 import net.minecraft.data.recipe.*;
 import net.minecraft.item.*;
@@ -29,6 +30,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.createAdvancedGateRecipes();
                 this.createMaterialsRecipes();
                 this.createMiscRecipes();
+                this.createRecyclingRecipes();
                 this.offerEncasedPillarRecipes(Items.QUARTZ_PILLAR, Items.REDSTONE_BLOCK, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR);
                 this.offerEncasedPillarRecipes(Items.ANCIENT_DEBRIS, Items.REDSTONE_BLOCK, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
                 for (MiniBlock block : JAAVAABlocks.MINI_BLOCKS.keySet()) {
@@ -78,6 +80,15 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(miniBlock), conditionsFromItem(miniBlock))
                         .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(parentBlock).getPath() + "_from_mini_blocks")));
                 this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, miniBlock, parentBlock, 8);
+            }
+            private void offerRecyclingRecipe(float experience, ItemConvertible input, ItemConvertible output, int outputCount) {
+                String inputName = JAAVAA.idFromItem(input).getPath();
+                var inputStack = new ItemStack(input, 1);
+                var outputStack = new ItemStack(output, outputCount);
+                recipeExporter.accept(RegistryKey.of(
+                        RegistryKeys.RECIPE, JAAVAA.id("recycling_" + inputName)),
+                        new RecyclingRecipe(experience, inputStack, outputStack),
+                        null);
             }
             private void createAdvancedGateRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ADDER)
@@ -188,6 +199,223 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Blocks.ANVIL), conditionsFromItem(Blocks.ANVIL))
                         .criterion(hasItem(Blocks.GRINDSTONE), conditionsFromItem(Blocks.GRINDSTONE))
                         .offerTo(this.exporter);
+            }
+            private void createRecyclingRecipes() {
+                //Equipment
+                //Wood & Leather
+                //Tools
+                this.offerRecyclingRecipe(0.1f, Items.WOODEN_AXE, Items.STICK, 6);
+                this.offerRecyclingRecipe(0.1f, Items.WOODEN_HOE, Items.OAK_PLANKS, 4);
+                this.offerRecyclingRecipe(0.1f, Items.WOODEN_PICKAXE, Items.STICK, 6);
+                this.offerRecyclingRecipe(0.1f, Items.WOODEN_SHOVEL, Items.STICK, 2);
+                this.offerRecyclingRecipe(0.1f, Items.WOODEN_SWORD, Items.STICK, 4);
+                //Armor
+                this.offerRecyclingRecipe(0.1f, Items.LEATHER_HELMET, Items.LEATHER, 5);
+                this.offerRecyclingRecipe(0.1f, Items.LEATHER_CHESTPLATE, Items.LEATHER, 8);
+                this.offerRecyclingRecipe(0.1f, Items.LEATHER_LEGGINGS, Items.LEATHER, 7);
+                this.offerRecyclingRecipe(0.1f, Items.LEATHER_BOOTS, Items.LEATHER, 4);
+                this.offerRecyclingRecipe(0.1f, Items.LEATHER_HORSE_ARMOR, Items.LEATHER, 7);
+                //Chain
+                //Armor
+                this.offerRecyclingRecipe(0.2f, Items.CHAINMAIL_HELMET, Items.IRON_NUGGET, 20);
+                this.offerRecyclingRecipe(0.2f, Items.CHAINMAIL_CHESTPLATE, Items.IRON_NUGGET, 32);
+                this.offerRecyclingRecipe(0.2f, Items.CHAINMAIL_LEGGINGS, Items.IRON_NUGGET, 28);
+                this.offerRecyclingRecipe(0.2f, Items.CHAINMAIL_BOOTS, Items.IRON_NUGGET, 16);
+                //Iron
+                //Tools
+                this.offerRecyclingRecipe(0.2f, Items.IRON_AXE, Items.IRON_INGOT, 3);
+                this.offerRecyclingRecipe(0.2f, Items.IRON_HOE, Items.IRON_INGOT, 2);
+                this.offerRecyclingRecipe(0.2f, Items.IRON_PICKAXE, Items.IRON_INGOT, 3);
+                this.offerRecyclingRecipe(0.2f, Items.IRON_SHOVEL, Items.IRON_INGOT, 1);
+                this.offerRecyclingRecipe(0.2f, Items.IRON_SWORD, Items.IRON_INGOT, 2);
+                //Armor
+                this.offerRecyclingRecipe(0.2f, Items.IRON_HELMET, Items.IRON_INGOT, 5);
+                this.offerRecyclingRecipe(0.2f, Items.IRON_CHESTPLATE, Items.IRON_INGOT, 8);
+                this.offerRecyclingRecipe(0.2f, Items.IRON_LEGGINGS, Items.IRON_INGOT, 7);
+                this.offerRecyclingRecipe(0.2f, Items.IRON_BOOTS, Items.IRON_INGOT, 4);
+                this.offerRecyclingRecipe(0.2f, Items.IRON_HORSE_ARMOR, Items.IRON_INGOT, 7);
+                //Gold
+                //Tools
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_AXE, Items.GOLD_INGOT, 3);
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_HOE, Items.GOLD_INGOT, 2);
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_PICKAXE, Items.GOLD_INGOT, 3);
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_SHOVEL, Items.GOLD_INGOT, 1);
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_SWORD, Items.GOLD_INGOT, 2);
+                //Armor
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_HELMET, Items.GOLD_INGOT, 5);
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_CHESTPLATE, Items.GOLD_INGOT, 8);
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_LEGGINGS, Items.GOLD_INGOT, 7);
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_BOOTS, Items.GOLD_INGOT, 4);
+                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_HORSE_ARMOR, Items.GOLD_INGOT, 7);
+                //Diamond
+                //Tools
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_AXE, Items.DIAMOND, 3);
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_HOE, Items.DIAMOND, 2);
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_PICKAXE, Items.DIAMOND, 3);
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_SHOVEL, Items.DIAMOND, 1);
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_SWORD, Items.DIAMOND, 2);
+                //Armor
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_HELMET, Items.DIAMOND, 5);
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_CHESTPLATE, Items.DIAMOND, 8);
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_LEGGINGS, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_BOOTS, Items.DIAMOND, 4);
+                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND, 7);
+                //Netherite
+                //Tools
+                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_AXE, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_HOE, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_PICKAXE, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_SHOVEL, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_SWORD, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, JAAVAAItems.TOOL_OF_THE_ANCIENTS, Items.NETHERITE_INGOT, 2);
+                //Armor
+                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_HELMET, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_CHESTPLATE, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_LEGGINGS, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_BOOTS, Items.NETHERITE_INGOT, 1);
+                //Misc
+                this.offerRecyclingRecipe(0.2f, Items.CROSSBOW, Items.IRON_INGOT, 3);
+                this.offerRecyclingRecipe(0.5f, Items.ELYTRA, Items.PHANTOM_MEMBRANE, 2);
+                this.offerRecyclingRecipe(0.5f, Items.MACE, Blocks.HEAVY_CORE, 1);
+                this.offerRecyclingRecipe(0.2f, Items.SHIELD, Items.IRON_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, Items.TRIDENT, Items.PRISMARINE_SHARD, 3);
+                this.offerRecyclingRecipe(0.0f, Items.WARPED_FUNGUS_ON_A_STICK, Items.WARPED_FUNGUS, 1);
+
+                //Blocks
+                //Shulkers
+                this.offerRecyclingRecipe(0.1f, Items.SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.BLACK_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.BLUE_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.BROWN_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.CYAN_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.GRAY_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.GREEN_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_BLUE_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_GRAY_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.LIME_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.MAGENTA_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.ORANGE_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.PINK_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.PURPLE_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.RED_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.WHITE_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                this.offerRecyclingRecipe(0.1f, Items.YELLOW_SHULKER_BOX, Items.SHULKER_SHELL, 2);
+                //Wool
+                this.offerRecyclingRecipe(0.1f, Items.BLACK_WOOL, Items.BLACK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLUE_WOOL, Items.BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BROWN_WOOL, Items.BROWN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.CYAN_WOOL, Items.CYAN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GRAY_WOOL, Items.GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GREEN_WOOL, Items.GREEN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_BLUE_WOOL, Items.LIGHT_BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_GRAY_WOOL, Items.LIGHT_GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIME_WOOL, Items.LIME_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.MAGENTA_WOOL, Items.MAGENTA_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.ORANGE_WOOL, Items.ORANGE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PINK_WOOL, Items.PINK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PURPLE_WOOL, Items.PURPLE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.RED_WOOL, Items.RED_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.WHITE_WOOL, Items.WHITE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.YELLOW_WOOL, Items.YELLOW_DYE, 1);
+                //Concrete
+                this.offerRecyclingRecipe(0.1f, Items.BLACK_CONCRETE, Items.BLACK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLACK_CONCRETE_POWDER, Items.BLACK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLUE_CONCRETE, Items.BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLUE_CONCRETE_POWDER, Items.BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BROWN_CONCRETE, Items.BROWN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BROWN_CONCRETE_POWDER, Items.BROWN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.CYAN_CONCRETE, Items.CYAN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.CYAN_CONCRETE_POWDER, Items.CYAN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GRAY_CONCRETE, Items.GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GRAY_CONCRETE_POWDER, Items.GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GREEN_CONCRETE, Items.GREEN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GREEN_CONCRETE_POWDER, Items.GREEN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_BLUE_CONCRETE, Items.LIGHT_BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_BLUE_CONCRETE_POWDER, Items.LIGHT_BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_GRAY_CONCRETE, Items.LIGHT_GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_GRAY_CONCRETE_POWDER, Items.LIGHT_GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIME_CONCRETE, Items.LIME_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIME_CONCRETE_POWDER, Items.LIME_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.MAGENTA_CONCRETE, Items.MAGENTA_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.MAGENTA_CONCRETE_POWDER, Items.MAGENTA_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.ORANGE_CONCRETE, Items.ORANGE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.ORANGE_CONCRETE_POWDER, Items.ORANGE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PINK_CONCRETE, Items.PINK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PINK_CONCRETE_POWDER, Items.PINK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PURPLE_CONCRETE, Items.PURPLE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PURPLE_CONCRETE_POWDER, Items.PURPLE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.RED_CONCRETE, Items.RED_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.RED_CONCRETE_POWDER, Items.RED_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.WHITE_CONCRETE, Items.WHITE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.WHITE_CONCRETE_POWDER, Items.WHITE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.YELLOW_CONCRETE, Items.YELLOW_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.YELLOW_CONCRETE_POWDER, Items.YELLOW_DYE, 1);
+                //Terracotta
+                this.offerRecyclingRecipe(0.1f, Items.BLACK_TERRACOTTA, Items.BLACK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLACK_GLAZED_TERRACOTTA, Items.BLACK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLUE_TERRACOTTA, Items.BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLUE_GLAZED_TERRACOTTA, Items.BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BROWN_TERRACOTTA, Items.BROWN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BROWN_GLAZED_TERRACOTTA, Items.BROWN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.CYAN_TERRACOTTA, Items.CYAN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.CYAN_GLAZED_TERRACOTTA, Items.CYAN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GRAY_TERRACOTTA, Items.GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GRAY_GLAZED_TERRACOTTA, Items.GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GREEN_TERRACOTTA, Items.GREEN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GREEN_GLAZED_TERRACOTTA, Items.GREEN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_BLUE_TERRACOTTA, Items.LIGHT_BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_BLUE_GLAZED_TERRACOTTA, Items.LIGHT_BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_GRAY_TERRACOTTA, Items.LIGHT_GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_GRAY_GLAZED_TERRACOTTA, Items.LIGHT_GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIME_TERRACOTTA, Items.LIME_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIME_GLAZED_TERRACOTTA, Items.LIME_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.MAGENTA_TERRACOTTA, Items.MAGENTA_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.MAGENTA_GLAZED_TERRACOTTA, Items.MAGENTA_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.ORANGE_TERRACOTTA, Items.ORANGE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.ORANGE_GLAZED_TERRACOTTA, Items.ORANGE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PINK_TERRACOTTA, Items.PINK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PINK_GLAZED_TERRACOTTA, Items.PINK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PURPLE_TERRACOTTA, Items.PURPLE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PURPLE_GLAZED_TERRACOTTA, Items.PURPLE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.RED_TERRACOTTA, Items.RED_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.RED_GLAZED_TERRACOTTA, Items.RED_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.WHITE_TERRACOTTA, Items.WHITE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.WHITE_GLAZED_TERRACOTTA, Items.WHITE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.YELLOW_TERRACOTTA, Items.YELLOW_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.YELLOW_GLAZED_TERRACOTTA, Items.YELLOW_DYE, 1);
+                //Stained Glass
+                this.offerRecyclingRecipe(0.1f, Items.BLACK_STAINED_GLASS, Items.BLACK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLACK_STAINED_GLASS_PANE, Items.BLACK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLUE_STAINED_GLASS, Items.BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BLUE_STAINED_GLASS_PANE, Items.BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BROWN_STAINED_GLASS, Items.BROWN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.BROWN_STAINED_GLASS_PANE, Items.BROWN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.CYAN_STAINED_GLASS, Items.CYAN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.CYAN_STAINED_GLASS_PANE, Items.CYAN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GRAY_STAINED_GLASS, Items.GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GRAY_STAINED_GLASS_PANE, Items.GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GREEN_STAINED_GLASS, Items.GREEN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GREEN_STAINED_GLASS_PANE, Items.GREEN_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_BLUE_STAINED_GLASS, Items.LIGHT_BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_BLUE_STAINED_GLASS_PANE, Items.LIGHT_BLUE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_GRAY_STAINED_GLASS, Items.LIGHT_GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIGHT_GRAY_STAINED_GLASS_PANE, Items.LIGHT_GRAY_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIME_STAINED_GLASS, Items.LIME_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.LIME_STAINED_GLASS_PANE, Items.LIME_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.MAGENTA_STAINED_GLASS, Items.MAGENTA_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.MAGENTA_STAINED_GLASS_PANE, Items.MAGENTA_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.ORANGE_STAINED_GLASS, Items.ORANGE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.ORANGE_STAINED_GLASS_PANE, Items.ORANGE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PINK_STAINED_GLASS, Items.PINK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PINK_STAINED_GLASS_PANE, Items.PINK_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PURPLE_STAINED_GLASS, Items.PURPLE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.PURPLE_STAINED_GLASS_PANE, Items.PURPLE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.RED_STAINED_GLASS, Items.RED_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.RED_STAINED_GLASS_PANE, Items.RED_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.WHITE_STAINED_GLASS, Items.WHITE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.WHITE_STAINED_GLASS_PANE, Items.WHITE_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.YELLOW_STAINED_GLASS, Items.YELLOW_DYE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.YELLOW_STAINED_GLASS_PANE, Items.YELLOW_DYE, 1);
             }
         };
     }

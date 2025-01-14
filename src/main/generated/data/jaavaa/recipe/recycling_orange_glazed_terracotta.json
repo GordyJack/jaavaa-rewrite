@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.1,
+  "inputStack": {
+    "count": 1,
+    "id": "minecraft:orange_glazed_terracotta"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:orange_dye"
+  }
+}
