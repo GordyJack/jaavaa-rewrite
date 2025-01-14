@@ -24,6 +24,9 @@ public class JAAVAAEnchantmentTagProvider extends FabricTagProvider<Enchantment>
         getOrCreateTagBuilder(EnchantmentTags.MINING_EXCLUSIVE_SET).addOptional(
                 JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS
         );
+        getOrCreateTagBuilder(EnchantmentTags.NON_TREASURE).addOptional(
+                JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS
+        );
         getOrCreateTagBuilder(EnchantmentTags.TRADEABLE).addOptional(
                 JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS
         );
