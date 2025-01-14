@@ -49,7 +49,7 @@ implements Recipe<SingleStackRecipeInput> {
      */
     @Override
     public RecipeSerializer<? extends Recipe<SingleStackRecipeInput>> getSerializer() {
-        return JAAVAARecipes.RECYCLING_RECIPE_SERIALIZER;
+        return JAAVAARecipes.Serializers.RECYCLING;
     }
     /**
      * {@return the type of this recipe}
@@ -59,7 +59,7 @@ implements Recipe<SingleStackRecipeInput> {
      */
     @Override
     public RecipeType<? extends Recipe<SingleStackRecipeInput>> getType() {
-        return JAAVAARecipes.RECYCLING_RECIPE_TYPE;
+        return JAAVAARecipes.Types.RECYCLING;
     }
 
     @Override
@@ -69,7 +69,7 @@ implements Recipe<SingleStackRecipeInput> {
 
     @Override
     public RecipeBookCategory getRecipeBookCategory() {
-        return JAAVAARecipes.RECYCLING_RECIPE_CATEGORY;
+        return JAAVAARecipes.Categories.RECYCLING;
     }
 
     public static class Serializer implements RecipeSerializer<RecyclingRecipe> {

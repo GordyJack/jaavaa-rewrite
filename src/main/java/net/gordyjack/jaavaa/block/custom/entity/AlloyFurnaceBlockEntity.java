@@ -172,7 +172,7 @@ public class AlloyFurnaceBlockEntity
 
     private Optional<RecipeEntry<AlloyFurnaceRecipe>> getCurrentRecipe() {
         return ((ServerRecipeManager)this.getWorld().getRecipeManager())
-                .getFirstMatch(JAAVAARecipes.ALLOY_FURNACE_RECIPE_TYPE, new AlloyFurnaceRecipeInput(INV.get(INPUT_SLOT_1), INV.get(INPUT_SLOT_2)), this.getWorld());
+                .getFirstMatch(JAAVAARecipes.Types.ALLOY_FURNACE, new AlloyFurnaceRecipeInput(INV.get(INPUT_SLOT_1), INV.get(INPUT_SLOT_2)), this.getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

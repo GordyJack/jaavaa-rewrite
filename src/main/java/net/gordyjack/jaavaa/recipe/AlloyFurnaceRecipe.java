@@ -29,11 +29,11 @@ public record AlloyFurnaceRecipe(int burnTime, float experience, ItemStack input
     }
     @Override
     public RecipeSerializer<? extends Recipe<AlloyFurnaceRecipeInput>> getSerializer() {
-        return JAAVAARecipes.ALLOY_FURNACE_RECIPE_SERIALIZER;
+        return JAAVAARecipes.Serializers.ALLOY_FURNACE;
     }
     @Override
     public RecipeType<? extends Recipe<AlloyFurnaceRecipeInput>> getType() {
-        return JAAVAARecipes.ALLOY_FURNACE_RECIPE_TYPE;
+        return JAAVAARecipes.Types.ALLOY_FURNACE;
     }
     @Override
     public IngredientPlacement getIngredientPlacement() {
@@ -41,7 +41,7 @@ public record AlloyFurnaceRecipe(int burnTime, float experience, ItemStack input
     }
     @Override
     public RecipeBookCategory getRecipeBookCategory() {
-        return JAAVAARecipes.ALLOY_FURNACE_RECIPE_CATEGORY;
+        return JAAVAARecipes.Categories.ALLOY_FURNACE;
     }
     public ItemStack getResult() {
         return output;

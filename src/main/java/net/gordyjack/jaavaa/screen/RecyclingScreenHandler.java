@@ -48,8 +48,23 @@ public class RecyclingScreenHandler extends ScreenHandler {
         this.CONTEXT = context;
         this.WORLD = playerInventory.player.getWorld();
 
-        this.addSlot(new Slot(INPUT, 0, 49, 34));
-        this.addSlot(new Slot(RESULT, 0, 129, 34));
+        this.addSlot(new Slot(INPUT, 0, 49, 34) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return RecyclingScreenHandler.this.isInput(stack);
+            }
+        });
+        this.addSlot(new Slot(RESULT, 0, 129, 34) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+            @Override
+            public void onTakeItem(PlayerEntity player, ItemStack stack) {
+                RecyclingScreenHandler.this.decrementInput();
+                super.onTakeItem(player, stack);
+            }
+        });
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
                 this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
@@ -65,19 +80,6 @@ public class RecyclingScreenHandler extends ScreenHandler {
     public boolean canUse(PlayerEntity player) {
         return this.INPUT.canPlayerUse(player);
     }
-
-    @Override
-    public boolean canInsertIntoSlot(Slot slot) {
-        return slot != this.getSlot(OUTPUT_SLOT);
-    }
-
-    @Override
-    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
-        boolean canInsert = this.canInsertIntoSlot(slot);
-        //TODO: Add recipe matching logic.
-        return canInsert;
-    }
-
     @Override
     public void onClosed(PlayerEntity player) {
         super.onClosed(player);
@@ -142,7 +144,7 @@ public class RecyclingScreenHandler extends ScreenHandler {
     private void updateResult() {
         var recipeInput = this.createRecipeInput();
         Optional<RecipeEntry<RecyclingRecipe>> optional = this.WORLD instanceof ServerWorld serverWorld ?
-                serverWorld.getRecipeManager().getFirstMatch(JAAVAARecipes.RECYCLING_RECIPE_TYPE, recipeInput, serverWorld)
+                serverWorld.getRecipeManager().getFirstMatch(JAAVAARecipes.Types.RECYCLING, recipeInput, serverWorld)
                 : Optional.empty();
         optional.ifPresentOrElse(recipe -> {
             ItemStack itemStack = (recipe.value()).craft(recipeInput, this.WORLD.getRegistryManager());
@@ -154,6 +156,24 @@ public class RecyclingScreenHandler extends ScreenHandler {
         });
     }
     private SingleStackRecipeInput createRecipeInput() {
-        return new SingleStackRecipeInput(this.INPUT.getStack(0));
+        return this.createRecipeInput(this.INPUT.getStack(0));
+    }
+    private SingleStackRecipeInput createRecipeInput(ItemStack stack) {
+        return new SingleStackRecipeInput(stack);
+    }
+    private void decrementInput() {
+        ItemStack itemStack = this.INPUT.getStack(INPUT_SLOT);
+        if (!itemStack.isEmpty()) {
+            itemStack.decrement(1);
+            this.INPUT.setStack(INPUT_SLOT, itemStack);
+        }
+    }
+    private boolean isInput(ItemStack stack) {
+        if (this.WORLD instanceof ServerWorld serverWorld) {
+            return serverWorld.getRecipeManager()
+                    .getFirstMatch(JAAVAARecipes.Types.RECYCLING, this.createRecipeInput(stack), serverWorld)
+                    .isPresent();
+        }
+        return false;
     }
 }
