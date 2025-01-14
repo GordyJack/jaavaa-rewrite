@@ -18,6 +18,47 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         //Mod Tags
+        getOrCreateTagBuilder(JAAVAATags.Blocks.CAPRICIOUS_BLOCKS)
+                .addOptionalTag(BlockTags.BASE_STONE_OVERWORLD)
+                .addOptionalTag(BlockTags.DIRT)
+                .addOptionalTag(BlockTags.SAND).add(
+                        Blocks.CLAY,
+                        Blocks.GRAVEL,
+                        Blocks.SANDSTONE,
+                        Blocks.RED_SANDSTONE,
+                        Blocks.CALCITE,
+                        Blocks.RAW_COPPER_BLOCK,
+                        Blocks.RAW_IRON_BLOCK,
+                        Blocks.RAW_GOLD_BLOCK
+                ).addOptionalTag(BlockTags.BADLANDS_TERRACOTTA).add(
+                        Blocks.PRISMARINE,
+                        Blocks.DARK_PRISMARINE,
+                        Blocks.SEA_LANTERN
+                )
+                .addOptionalTag(BlockTags.BASE_STONE_NETHER)
+                .addOptionalTag(BlockTags.NYLIUM)
+                .addOptionalTag(BlockTags.WART_BLOCKS).add(
+                        Blocks.SOUL_SAND,
+                        Blocks.SOUL_SOIL
+                ).addOptionalTag(BlockTags.OVERWORLD_NATURAL_LOGS).add(
+                        Blocks.CRIMSON_STEM,
+                        Blocks.WARPED_STEM
+                )
+                .addOptionalTag(BlockTags.COAL_ORES)
+                .addOptionalTag(BlockTags.COPPER_ORES)
+                .addOptionalTag(BlockTags.DIAMOND_ORES)
+                .addOptionalTag(BlockTags.EMERALD_ORES)
+                .addOptionalTag(BlockTags.GOLD_ORES)
+                .addOptionalTag(BlockTags.IRON_ORES)
+                .addOptionalTag(BlockTags.LAPIS_ORES)
+                .addOptionalTag(BlockTags.REDSTONE_ORES).add(
+                        Blocks.NETHER_QUARTZ_ORE,
+                        Blocks.ANCIENT_DEBRIS,
+                        Blocks.GLOWSTONE,
+                        Blocks.OCHRE_FROGLIGHT,
+                        Blocks.PEARLESCENT_FROGLIGHT,
+                        Blocks.VERDANT_FROGLIGHT
+                );
         getOrCreateTagBuilder(JAAVAATags.Blocks.DEEPSLATE_CRAFTABLES).add(
                 Blocks.DEEPSLATE,
                 Blocks.POLISHED_DEEPSLATE,

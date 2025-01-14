@@ -1,0 +1,89 @@
+{
+  "values": [
+    {
+      "id": "#minecraft:base_stone_overworld",
+      "required": false
+    },
+    {
+      "id": "#minecraft:dirt",
+      "required": false
+    },
+    {
+      "id": "#minecraft:sand",
+      "required": false
+    },
+    "minecraft:clay",
+    "minecraft:gravel",
+    "minecraft:sandstone",
+    "minecraft:red_sandstone",
+    "minecraft:calcite",
+    "minecraft:raw_copper_block",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_gold_block",
+    {
+      "id": "#minecraft:badlands_terracotta",
+      "required": false
+    },
+    "minecraft:prismarine",
+    "minecraft:dark_prismarine",
+    "minecraft:sea_lantern",
+    {
+      "id": "#minecraft:base_stone_nether",
+      "required": false
+    },
+    {
+      "id": "#minecraft:nylium",
+      "required": false
+    },
+    {
+      "id": "#minecraft:wart_blocks",
+      "required": false
+    },
+    "minecraft:soul_sand",
+    "minecraft:soul_soil",
+    {
+      "id": "#minecraft:overworld_natural_logs",
+      "required": false
+    },
+    "minecraft:crimson_stem",
+    "minecraft:warped_stem",
+    {
+      "id": "#minecraft:coal_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:copper_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:diamond_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:emerald_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:gold_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:iron_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:lapis_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:redstone_ores",
+      "required": false
+    },
+    "minecraft:nether_quartz_ore",
+    "minecraft:ancient_debris",
+    "minecraft:glowstone",
+    "minecraft:ochre_froglight",
+    "minecraft:pearlescent_froglight",
+    "minecraft:verdant_froglight"
+  ]
+}
