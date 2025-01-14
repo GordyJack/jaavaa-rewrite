@@ -19,6 +19,7 @@ public class JAAVAATags {
     }
     public static class Items {
         public static final TagKey<Item> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
+        public static final TagKey<Item> RECYCLABLE = createTag("recyclable");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, JAAVAA.id(name));

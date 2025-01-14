@@ -1,6 +1,8 @@
 package net.gordyjack.jaavaa.screen;
 
-import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.data.*;
+import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
@@ -24,7 +26,6 @@ public class RecyclingScreenHandler extends ScreenHandler {
     private final Inventory RESULT = new CraftingResultInventory();
     private final ScreenHandlerContext CONTEXT;
     private final PlayerEntity PLAYER;
-    private final List<Item> LEGALITEMS = new ArrayList<>();
 
     private final int INPUT_SLOT = 0;
     private final int OUTPUT_SLOT = 1;
@@ -42,80 +43,10 @@ public class RecyclingScreenHandler extends ScreenHandler {
         this.CONTEXT = context;
         this.PLAYER = playerInventory.player;
 
-        LEGALITEMS.add(Items.WOODEN_AXE);
-        LEGALITEMS.add(Items.STONE_AXE);
-        LEGALITEMS.add(Items.IRON_AXE);
-        LEGALITEMS.add(Items.GOLDEN_AXE);
-        LEGALITEMS.add(Items.DIAMOND_AXE);
-        LEGALITEMS.add(Items.NETHERITE_AXE);
-
-        LEGALITEMS.add(Items.WOODEN_HOE);
-        LEGALITEMS.add(Items.STONE_HOE);
-        LEGALITEMS.add(Items.IRON_HOE);
-        LEGALITEMS.add(Items.GOLDEN_HOE);
-        LEGALITEMS.add(Items.DIAMOND_HOE);
-        LEGALITEMS.add(Items.NETHERITE_HOE);
-
-        LEGALITEMS.add(Items.WOODEN_PICKAXE);
-        LEGALITEMS.add(Items.STONE_PICKAXE);
-        LEGALITEMS.add(Items.IRON_PICKAXE);
-        LEGALITEMS.add(Items.GOLDEN_PICKAXE);
-        LEGALITEMS.add(Items.DIAMOND_PICKAXE);
-        LEGALITEMS.add(Items.NETHERITE_PICKAXE);
-
-        LEGALITEMS.add(Items.WOODEN_SHOVEL);
-        LEGALITEMS.add(Items.STONE_SHOVEL);
-        LEGALITEMS.add(Items.IRON_SHOVEL);
-        LEGALITEMS.add(Items.GOLDEN_SHOVEL);
-        LEGALITEMS.add(Items.DIAMOND_SHOVEL);
-        LEGALITEMS.add(Items.NETHERITE_SHOVEL);
-
-        LEGALITEMS.add(Items.WOODEN_SWORD);
-        LEGALITEMS.add(Items.STONE_SWORD);
-        LEGALITEMS.add(Items.IRON_SWORD);
-        LEGALITEMS.add(Items.GOLDEN_SWORD);
-        LEGALITEMS.add(Items.DIAMOND_SWORD);
-        LEGALITEMS.add(Items.NETHERITE_SWORD);
-
-        LEGALITEMS.add(Items.LEATHER_HELMET);
-        LEGALITEMS.add(Items.CHAINMAIL_HELMET);
-        LEGALITEMS.add(Items.IRON_HELMET);
-        LEGALITEMS.add(Items.GOLDEN_HELMET);
-        LEGALITEMS.add(Items.DIAMOND_HELMET);
-        LEGALITEMS.add(Items.NETHERITE_HELMET);
-        LEGALITEMS.add(Items.TURTLE_HELMET);
-
-        LEGALITEMS.add(Items.LEATHER_CHESTPLATE);
-        LEGALITEMS.add(Items.CHAINMAIL_CHESTPLATE);
-        LEGALITEMS.add(Items.IRON_CHESTPLATE);
-        LEGALITEMS.add(Items.GOLDEN_CHESTPLATE);
-        LEGALITEMS.add(Items.DIAMOND_CHESTPLATE);
-        LEGALITEMS.add(Items.NETHERITE_CHESTPLATE);
-        LEGALITEMS.add(Items.ELYTRA);
-
-        LEGALITEMS.add(Items.LEATHER_LEGGINGS);
-        LEGALITEMS.add(Items.CHAINMAIL_LEGGINGS);
-        LEGALITEMS.add(Items.IRON_LEGGINGS);
-        LEGALITEMS.add(Items.GOLDEN_LEGGINGS);
-        LEGALITEMS.add(Items.DIAMOND_LEGGINGS);
-        LEGALITEMS.add(Items.NETHERITE_LEGGINGS);
-
-        LEGALITEMS.add(Items.LEATHER_BOOTS);
-        LEGALITEMS.add(Items.CHAINMAIL_BOOTS);
-        LEGALITEMS.add(Items.IRON_BOOTS);
-        LEGALITEMS.add(Items.GOLDEN_BOOTS);
-        LEGALITEMS.add(Items.DIAMOND_BOOTS);
-        LEGALITEMS.add(Items.NETHERITE_BOOTS);
-
-        //TODO Mod Compatibility
-        if (false) {
-
-        }
-
         this.addSlot(new Slot(INPUT, 0, 49, 34) {
             @Override
             public boolean canInsert(ItemStack stack) {
-                return LEGALITEMS.contains(stack.getItem());
+                return stack.isIn(JAAVAATags.Items.RECYCLABLE);
             }
         });
         this.addSlot(new Slot(RESULT, 0, 129, 34) {
@@ -210,6 +141,7 @@ public class RecyclingScreenHandler extends ScreenHandler {
         return itemStack;
     }
 
+    //TODO: Switch this to use a recipe system.
     private void updateResult() {
         ItemStack input = this.INPUT.getStack(0);
         Item inputItem = input.getItem();
@@ -222,15 +154,16 @@ public class RecyclingScreenHandler extends ScreenHandler {
             boolean iron = itemIs("iron", inputItem) || itemIs("chainmail", inputItem);
             boolean gold = itemIs("gold", inputItem);
             boolean diamond = itemIs("diamond", inputItem);
-            boolean netherite = itemIs("netherite", inputItem);
+            boolean netherite = itemIs("netherite", inputItem) || inputItem == JAAVAAItems.TOOL_OF_THE_ANCIENTS;
             boolean leather = itemIs("leather", inputItem);
             boolean turtle = itemIs("turtle", inputItem);
 
-            boolean axe = itemClassIs("axe", inputItem);
-            boolean hoe = itemClassIs("hoe", inputItem);
-            boolean pickaxe = itemClassIs("pickaxe", inputItem);
-            boolean shovel = itemClassIs("shovel", inputItem);
-            boolean sword = itemClassIs("sword", inputItem);
+            boolean axe = inputItem instanceof AxeItem;
+            boolean hoe = inputItem instanceof HoeItem;
+            boolean pickaxe = inputItem instanceof PickaxeItem;
+            boolean shovel = inputItem instanceof ShovelItem;
+            boolean sword = inputItem instanceof SwordItem;
+            boolean paxel = inputItem instanceof PaxelItem;
 
             boolean helmet = itemIs("helmet", inputItem);
             boolean chestplate = itemIs("chestplate", inputItem);
@@ -239,14 +172,19 @@ public class RecyclingScreenHandler extends ScreenHandler {
 
             int itemCount = 0;
 
-            JAAVAA.log(inputItem.getClass().getCanonicalName() + " | " + inputItem.getTranslationKey(), 'e');
-
             if (inputItem.equals(Items.ELYTRA)) {
                 itemCount = 2;
                 outputItem = Items.PHANTOM_MEMBRANE;
+            } else if (inputItem.equals(Items.MACE)) {
+                itemCount = 1;
+                outputItem = Items.HEAVY_CORE;
+            } else if (inputItem.equals(Items.TRIDENT)) {
+                itemCount = 3;
+                outputItem = Items.PRISMARINE_SHARD;
             } else if (axe || pickaxe) itemCount = 3;
             else if (hoe || sword) itemCount = 2;
             else if (shovel) itemCount = 1;
+            else if (paxel) itemCount = 5;
             else if (helmet) itemCount = 5;
             else if (chestplate) itemCount = 8;
             else if (legging) itemCount = 7;
@@ -274,8 +212,5 @@ public class RecyclingScreenHandler extends ScreenHandler {
     }
     private boolean itemIs(String type, Item item) {
         return item.getTranslationKey().contains(type);
-    }
-    private boolean itemClassIs(String type, Item item) {
-        return item.getClass().getCanonicalName().toLowerCase().contains(type.toLowerCase());
     }
 }

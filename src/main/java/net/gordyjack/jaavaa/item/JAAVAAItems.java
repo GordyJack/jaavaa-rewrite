@@ -43,7 +43,7 @@ public class JAAVAAItems {
     public static final Item TOOL_OF_THE_ANCIENTS = register("tool_of_the_ancients",
             settings -> new PaxelItem(ToolMaterial.NETHERITE, 5.0f, -1.5f, settings),
             new Item.Settings().rarity(Rarity.EPIC).fireproof().maxCount(1).maxDamage(3000));
-    //TODO: Add texture for Tool of the Ancients and add it to Bastion Loot as a rare drop.
+    //TODO: Add texture for Tool of the Ancients.
 
     //Methods
     /**

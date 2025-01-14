@@ -23,6 +23,20 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 Items.POLISHED_DEEPSLATE,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE.asItem()
         );
+        getOrCreateTagBuilder(JAAVAATags.Items.RECYCLABLE)
+                .addOptionalTag(ItemTags.AXES)
+                .addOptionalTag(ItemTags.HOES)
+                .addOptionalTag(ItemTags.PICKAXES)
+                .addOptionalTag(ItemTags.SHOVELS)
+                .addOptionalTag(ItemTags.SWORDS)
+                .addOptionalTag(ItemTags.CHEST_ARMOR)
+                .addOptionalTag(ItemTags.LEG_ARMOR)
+                .addOptionalTag(ItemTags.FOOT_ARMOR)
+                .addOptionalTag(ItemTags.HEAD_ARMOR).add(
+                        Items.ELYTRA,
+                        Items.MACE,
+                        Items.TRIDENT
+                );
         //Vanilla Tags
         getOrCreateTagBuilder(ItemTags.AXES).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS
