@@ -23,32 +23,26 @@ public record AlloyFurnaceRecipe(int burnTime, float experience, ItemStack input
         return (input.getStackInSlot(0).itemMatches(inputStack1.getRegistryEntry()) && input.getStackInSlot(1).itemMatches(inputStack2.getRegistryEntry())) ||
                 (input.getStackInSlot(0).itemMatches(inputStack2.getRegistryEntry()) && input.getStackInSlot(1).itemMatches(inputStack1.getRegistryEntry()));
     }
-
     @Override
     public ItemStack craft(AlloyFurnaceRecipeInput input, RegistryWrapper.WrapperLookup registries) {
         return output.copy();
     }
-
     @Override
     public RecipeSerializer<? extends Recipe<AlloyFurnaceRecipeInput>> getSerializer() {
         return JAAVAARecipes.ALLOY_FURNACE_RECIPE_SERIALIZER;
     }
-
     @Override
     public RecipeType<? extends Recipe<AlloyFurnaceRecipeInput>> getType() {
         return JAAVAARecipes.ALLOY_FURNACE_RECIPE_TYPE;
     }
-
     @Override
     public IngredientPlacement getIngredientPlacement() {
         return IngredientPlacement.forMultipleSlots(List.of(Optional.of(Ingredient.ofItem(inputStack1.getItem())), Optional.of(Ingredient.ofItem(inputStack2.getItem()))));
     }
-
     @Override
     public RecipeBookCategory getRecipeBookCategory() {
         return JAAVAARecipes.ALLOY_FURNACE_RECIPE_CATEGORY;
     }
-
     public ItemStack getResult() {
         return output;
     }

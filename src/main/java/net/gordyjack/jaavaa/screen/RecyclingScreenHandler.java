@@ -1,16 +1,15 @@
 package net.gordyjack.jaavaa.screen;
 
-import net.gordyjack.jaavaa.data.*;
-import net.gordyjack.jaavaa.item.*;
-import net.gordyjack.jaavaa.item.custom.*;
-import net.minecraft.entity.*;
+import net.gordyjack.jaavaa.recipe.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
 import net.minecraft.item.*;
+import net.minecraft.recipe.*;
+import net.minecraft.recipe.input.*;
 import net.minecraft.screen.*;
 import net.minecraft.screen.slot.*;
 import net.minecraft.server.world.*;
-import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 
 import java.util.*;
 
@@ -23,9 +22,15 @@ public class RecyclingScreenHandler extends ScreenHandler {
             RecyclingScreenHandler.this.onContentChanged(this);
         }
     };
-    private final Inventory RESULT = new CraftingResultInventory();
+    private final CraftingResultInventory RESULT = new CraftingResultInventory() {
+        @Override
+        public void markDirty() {
+            super.markDirty();
+            RecyclingScreenHandler.this.sendContentUpdates();
+        }
+    };
     private final ScreenHandlerContext CONTEXT;
-    private final PlayerEntity PLAYER;
+    private final World WORLD;
 
     private final int INPUT_SLOT = 0;
     private final int OUTPUT_SLOT = 1;
@@ -41,30 +46,10 @@ public class RecyclingScreenHandler extends ScreenHandler {
     public RecyclingScreenHandler(int syncId, PlayerInventory playerInventory, final ScreenHandlerContext context) {
         super(JAAVAAScreenHandlers.RECYCLING_SCREEN_HANDLER, syncId);
         this.CONTEXT = context;
-        this.PLAYER = playerInventory.player;
+        this.WORLD = playerInventory.player.getWorld();
 
-        this.addSlot(new Slot(INPUT, 0, 49, 34) {
-            @Override
-            public boolean canInsert(ItemStack stack) {
-                return stack.isIn(JAAVAATags.Items.RECYCLABLE);
-            }
-        });
-        this.addSlot(new Slot(RESULT, 0, 129, 34) {
-            @Override
-            public boolean canInsert(ItemStack stack) {
-                return false;
-            }
-            @Override
-            public void onTakeItem(PlayerEntity player, ItemStack stack) {
-                Random random = new Random();
-                context.run((world, pos) -> {
-                    if (world instanceof ServerWorld) {
-                        ExperienceOrbEntity.spawn((ServerWorld)world, Vec3d.ofCenter(pos), random.nextInt(0, 5));
-                    }
-                });
-                RecyclingScreenHandler.this.INPUT.setStack(0, ItemStack.EMPTY);
-            }
-        });
+        this.addSlot(new Slot(INPUT, 0, 49, 34));
+        this.addSlot(new Slot(RESULT, 0, 129, 34));
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
                 this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
@@ -80,6 +65,19 @@ public class RecyclingScreenHandler extends ScreenHandler {
     public boolean canUse(PlayerEntity player) {
         return this.INPUT.canPlayerUse(player);
     }
+
+    @Override
+    public boolean canInsertIntoSlot(Slot slot) {
+        return slot != this.getSlot(OUTPUT_SLOT);
+    }
+
+    @Override
+    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
+        boolean canInsert = this.canInsertIntoSlot(slot);
+        //TODO: Add recipe matching logic.
+        return canInsert;
+    }
+
     @Override
     public void onClosed(PlayerEntity player) {
         super.onClosed(player);
@@ -141,76 +139,21 @@ public class RecyclingScreenHandler extends ScreenHandler {
         return itemStack;
     }
 
-    //TODO: Switch this to use a recipe system.
     private void updateResult() {
-        ItemStack input = this.INPUT.getStack(0);
-        Item inputItem = input.getItem();
-        Item outputItem = Items.AIR;
-
-        if (!input.equals(ItemStack.EMPTY)) {
-
-            boolean wood = itemIs("wood", inputItem);
-            boolean stone = itemIs("stone", inputItem);
-            boolean iron = itemIs("iron", inputItem) || itemIs("chainmail", inputItem);
-            boolean gold = itemIs("gold", inputItem);
-            boolean diamond = itemIs("diamond", inputItem);
-            boolean netherite = itemIs("netherite", inputItem) || inputItem == JAAVAAItems.TOOL_OF_THE_ANCIENTS;
-            boolean leather = itemIs("leather", inputItem);
-            boolean turtle = itemIs("turtle", inputItem);
-
-            boolean axe = inputItem instanceof AxeItem;
-            boolean hoe = inputItem instanceof HoeItem;
-            boolean pickaxe = inputItem instanceof PickaxeItem;
-            boolean shovel = inputItem instanceof ShovelItem;
-            boolean sword = inputItem instanceof SwordItem;
-            boolean paxel = inputItem instanceof PaxelItem;
-
-            boolean helmet = itemIs("helmet", inputItem);
-            boolean chestplate = itemIs("chestplate", inputItem);
-            boolean legging = itemIs("legging", inputItem);
-            boolean boot = itemIs("boot", inputItem);
-
-            int itemCount = 0;
-
-            if (inputItem.equals(Items.ELYTRA)) {
-                itemCount = 2;
-                outputItem = Items.PHANTOM_MEMBRANE;
-            } else if (inputItem.equals(Items.MACE)) {
-                itemCount = 1;
-                outputItem = Items.HEAVY_CORE;
-            } else if (inputItem.equals(Items.TRIDENT)) {
-                itemCount = 3;
-                outputItem = Items.PRISMARINE_SHARD;
-            } else if (axe || pickaxe) itemCount = 3;
-            else if (hoe || sword) itemCount = 2;
-            else if (shovel) itemCount = 1;
-            else if (paxel) itemCount = 5;
-            else if (helmet) itemCount = 5;
-            else if (chestplate) itemCount = 8;
-            else if (legging) itemCount = 7;
-            else if (boot) itemCount = 4;
-
-            if (wood) {
-                itemCount *= 2;
-                outputItem = Items.STICK;
-            } else if (stone) outputItem = Items.COBBLESTONE;
-            else if (leather) outputItem = Items.LEATHER;
-            else if (iron) outputItem = Items.IRON_INGOT;
-            else if (gold) outputItem = Items.GOLD_INGOT;
-            else if (diamond) outputItem = Items.DIAMOND;
-            else if (netherite) {
-                itemCount = 1;
-                outputItem = Items.NETHERITE_INGOT;
-            } else if (turtle) outputItem = Items.TURTLE_SCUTE;
-            itemCount *= (int) ((double) (input.getMaxDamage() - input.getDamage()) / input.getMaxDamage());
-
-            this.RESULT.setStack(0, itemCount > 0 ? new ItemStack(outputItem, itemCount) : ItemStack.EMPTY);
-        } else {
+        var recipeInput = this.createRecipeInput();
+        Optional<RecipeEntry<RecyclingRecipe>> optional = this.WORLD instanceof ServerWorld serverWorld ?
+                serverWorld.getRecipeManager().getFirstMatch(JAAVAARecipes.RECYCLING_RECIPE_TYPE, recipeInput, serverWorld)
+                : Optional.empty();
+        optional.ifPresentOrElse(recipe -> {
+            ItemStack itemStack = (recipe.value()).craft(recipeInput, this.WORLD.getRegistryManager());
+            this.RESULT.setLastRecipe(recipe);
+            this.RESULT.setStack(0, itemStack);
+        }, () -> {
+            this.RESULT.setLastRecipe(null);
             this.RESULT.setStack(0, ItemStack.EMPTY);
-        }
-        this.sendContentUpdates();
+        });
     }
-    private boolean itemIs(String type, Item item) {
-        return item.getTranslationKey().contains(type);
+    private SingleStackRecipeInput createRecipeInput() {
+        return new SingleStackRecipeInput(this.INPUT.getStack(0));
     }
 }
