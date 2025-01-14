@@ -29,8 +29,8 @@ public class JAAVAAEnchantments {
         register(registerable, CURSE_OF_THE_CAPRICIOUS, Enchantment.builder(Enchantment.definition(
                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                 1, 1,
-                Enchantment.leveledCost(21, 75),
-                Enchantment.leveledCost(75, 75),
+                Enchantment.leveledCost(21, 0),
+                Enchantment.leveledCost(75, 0),
                 5,
                 AttributeModifierSlot.HAND))
                 .exclusiveSet(enchantments.getOrThrow(EnchantmentTags.MINING_EXCLUSIVE_SET))
