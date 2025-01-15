@@ -20,11 +20,6 @@ public class CurseOfTheCapriciousHandler {
                     && player.getInventory().getMainHandStack().getEnchantments().getEnchantments().toString().contains("jaavaa:curse_of_the_capricious")
                     && serverWorld.breakBlock(pos, false, player)) {
                 state.getBlock().onBreak(world, pos, state, player);
-//                Block randomBlock = Registries.BLOCK.stream()
-//                        .filter(block -> !block.getDefaultState().isAir() && block != Blocks.BEDROCK)
-//                        .skip(Random.create().nextInt(Registries.BLOCK.size()))
-//                        .findFirst()
-//                        .orElse(Blocks.COBBLESTONE);
 
                 Stream<Block> blockRegistryStream = serverWorld.getRegistryManager().getOptional(RegistryKeys.BLOCK).get().stream();
                 List<Block> blockList = blockRegistryStream.filter(block -> block.getDefaultState().isIn(JAAVAATags.Blocks.CAPRICIOUS_BLOCKS)).toList();

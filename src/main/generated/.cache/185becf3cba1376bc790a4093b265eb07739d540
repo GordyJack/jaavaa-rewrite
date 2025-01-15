@@ -1,7 +1,7 @@
 // 1.21.4	-999999999-01-01T00:00:00	JAAVAA/Tags for minecraft:enchantment
-88d490f670669c0218dd753c487a61ace29e0738 data/minecraft/tags/enchantment/curse.json
-88d490f670669c0218dd753c487a61ace29e0738 data/minecraft/tags/enchantment/exclusive_set/mining.json
+7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/curse.json
+7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/exclusive_set/mining.json
 88d490f670669c0218dd753c487a61ace29e0738 data/minecraft/tags/enchantment/non_treasure.json
-88d490f670669c0218dd753c487a61ace29e0738 data/minecraft/tags/enchantment/on_random_loot.json
-88d490f670669c0218dd753c487a61ace29e0738 data/minecraft/tags/enchantment/tradeable.json
-88d490f670669c0218dd753c487a61ace29e0738 data/minecraft/tags/enchantment/treasure.json
+7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/on_random_loot.json
+7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/tradeable.json
+7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/treasure.json
