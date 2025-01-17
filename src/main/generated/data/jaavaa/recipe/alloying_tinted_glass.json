@@ -1,0 +1,17 @@
+{
+  "type": "jaavaa:alloying",
+  "burnTime": 150,
+  "experience": 0.5,
+  "inputStack1": {
+    "count": 1,
+    "id": "minecraft:sand"
+  },
+  "inputStack2": {
+    "count": 2,
+    "id": "minecraft:amethyst_shard"
+  },
+  "result": {
+    "count": 2,
+    "id": "minecraft:tinted_glass"
+  }
+}

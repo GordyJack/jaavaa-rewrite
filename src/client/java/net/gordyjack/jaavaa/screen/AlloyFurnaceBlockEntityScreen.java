@@ -29,12 +29,10 @@ public class AlloyFurnaceBlockEntityScreen extends HandledScreen<AlloyFurnaceBlo
         RenderSystem.setShader(ShaderProgramKeys.POSITION_TEX);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, GUI_TEXTURE);
-        int x = (width - GUI_WIDTH) / 2;
-        int y = (height - GUI_HEIGHT) / 2;
         
         context.drawTexture(RenderLayer::getGuiTextured,
                 GUI_TEXTURE,
-                x, y,
+                xD2(), yD2(),
                 0f, 0f,
                 GUI_WIDTH, GUI_HEIGHT,
                 GUI_WIDTH, GUI_HEIGHT,
@@ -42,14 +40,14 @@ public class AlloyFurnaceBlockEntityScreen extends HandledScreen<AlloyFurnaceBlo
         if (handler.isLit()) {
             context.drawGuiTexture(RenderLayer::getGuiTextured,
                     FLAME_TEXTURE,
-                    x + 81, y + 28,
+                    xD2() + 81, yD2() + 28,
                     FLAME_SIZE, FLAME_SIZE);
         }
         if (handler.isCrafting()) {
             int scaledProgress = handler.getScaledArrowProgress();
             context.drawTexture(RenderLayer::getGuiTextured,
                     PROGRESS_ARROW_TEXTURE,
-                    x + 59, y + 35,
+                    xD2() + 59, yD2() + 35,
                     0, 0,
                     PROGRESS_ARROW_WIDTH, scaledProgress,
                     PROGRESS_ARROW_WIDTH, PROGRESS_ARROW_HEIGHT);
@@ -58,8 +56,26 @@ public class AlloyFurnaceBlockEntityScreen extends HandledScreen<AlloyFurnaceBlo
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         // Draw the title of the screen
-        context.drawText(textRenderer, title, (GUI_WIDTH - textRenderer.getWidth(title)) / 2, -2, 0x404040, false);
+        context.drawText(textRenderer, title, titleX, titleY, 0x404040, false);
         // Draw the "Inventory" label for the player inventory
-        context.drawText(textRenderer, playerInventoryTitle, 8, GUI_HEIGHT - 108, 0x404040, false);
+        context.drawText(textRenderer, playerInventoryTitle, 8, GUI_HEIGHT - 101, 0x404040, false);
+    }
+    @Override
+    public void render(DrawContext drawContext, int mouseX, int mouseY, float delta) {
+        renderBackground(drawContext, mouseX, mouseY, delta);
+        super.render(drawContext, mouseX, mouseY, delta);
+        drawMouseoverTooltip(drawContext, mouseX, mouseY);
+    }
+    @Override
+    protected void init() {
+        super.init();
+        titleX = (backgroundWidth-textRenderer.getWidth(title))/2;
+    }
+    //Custom Methods
+    private int xD2() {
+        return (width-backgroundWidth)/2;
+    }
+    private int yD2() {
+        return (height-backgroundHeight)/2;
     }
 }

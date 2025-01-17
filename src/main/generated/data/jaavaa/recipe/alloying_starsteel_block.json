@@ -1,0 +1,17 @@
+{
+  "type": "jaavaa:alloying",
+  "burnTime": 1800,
+  "experience": 1.0,
+  "inputStack1": {
+    "count": 1,
+    "id": "minecraft:nether_star"
+  },
+  "inputStack2": {
+    "count": 1,
+    "id": "minecraft:netherite_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "jaavaa:starsteel_block"
+  }
+}

@@ -28,6 +28,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             public void generate() {
                 RegistryEntryLookup<Item> registryLookup = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
                 this.createAdvancedGateRecipes();
+                this.createAlloyingRecipes();
                 this.createMaterialsRecipes();
                 this.createMiscRecipes();
                 this.createRecyclingRecipes();
@@ -39,56 +40,6 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerSmelting(
                         Items.POLISHED_DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE,
                         0.1F, 200, JAAVAA.idFromItem(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE).toString());
-            }
-            private void offerSmelting(ItemConvertible item, RecipeCategory category, ItemConvertible result, float experience, int cookingTime, String group) {
-                offerSmelting(List.of(item), category, result, experience, cookingTime, group);
-            }
-            private void offerEncasedPillarRecipes(ItemConvertible casing, ItemConvertible infill, ItemConvertible output) {
-                this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 6)
-                        .input('C', casing)
-                        .input('I', infill)
-                        .pattern("CCC")
-                        .pattern("III")
-                        .pattern("CCC")
-                        .group(JAAVAA.idFromItem(output).toString())
-                        .criterion(hasItem(casing), conditionsFromItem(casing))
-                        .criterion(hasItem(infill), conditionsFromItem(infill))
-                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_h")));
-                this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 6)
-                        .input('C', casing)
-                        .input('I', infill)
-                        .pattern("CIC")
-                        .pattern("CIC")
-                        .pattern("CIC")
-                        .group(JAAVAA.idFromItem(output).toString())
-                        .criterion(hasItem(casing), conditionsFromItem(casing))
-                        .criterion(hasItem(infill), conditionsFromItem(infill))
-                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_v")));
-            }
-            private void offerMiniBlockRecipe(ItemConvertible miniBlock, ItemConvertible parentBlock) {
-                for (int i = 1; i <= 8; i++) {
-                    this.createShapeless(RecipeCategory.BUILDING_BLOCKS, miniBlock, i * 8)
-                            .input(parentBlock, i)
-                            .input(JAAVAAItems.STARSTEEL_NUGGET)
-                            .group(JAAVAA.idFromItem(miniBlock).toString())
-                            .criterion(hasItem(parentBlock), conditionsFromItem(parentBlock))
-                            .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(miniBlock).getPath() + "_" + i)));
-                }
-                this.createShapeless(RecipeCategory.BUILDING_BLOCKS, parentBlock, 1)
-                        .input(miniBlock, 8)
-                        .group(JAAVAA.idFromItem(parentBlock).toString())
-                        .criterion(hasItem(miniBlock), conditionsFromItem(miniBlock))
-                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(parentBlock).getPath() + "_from_mini_blocks")));
-                this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, miniBlock, parentBlock, 8);
-            }
-            private void offerRecyclingRecipe(float experience, ItemConvertible input, ItemConvertible output, int outputCount) {
-                String inputName = JAAVAA.idFromItem(input).getPath();
-                var inputStack = new ItemStack(input, 1);
-                var outputStack = new ItemStack(output, outputCount);
-                recipeExporter.accept(RegistryKey.of(
-                        RegistryKeys.RECIPE, JAAVAA.id("recycling_" + inputName)),
-                        new RecyclingRecipe(experience, inputStack, outputStack),
-                        null);
             }
             private void createAdvancedGateRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ADDER)
@@ -122,6 +73,11 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .group(JAAVAA.idFromItem(JAAVAABlocks.DECODER).toString())
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .offerTo(this.exporter);
+            }
+            private void createAlloyingRecipes() {
+                this.offerAlloyingRecipe(150, 0.5f, Items.SAND, 1, Items.AMETHYST_SHARD, 2, Items.TINTED_GLASS, 2);
+                this.offerAlloyingRecipe(200, 0.7f, Items.NETHERITE_SCRAP, 2, Items.GOLD_INGOT, 1, Items.NETHERITE_INGOT, 1);
+                this.offerAlloyingRecipe(1800, 1.0f, Items.NETHER_STAR, 1, Items.NETHERITE_BLOCK, 1, JAAVAABlocks.STARSTEEL_BLOCK, 1);
             }
             private void createMaterialsRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 2)
@@ -416,6 +372,69 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerRecyclingRecipe(0.1f, Items.WHITE_STAINED_GLASS_PANE, Items.WHITE_DYE, 1);
                 this.offerRecyclingRecipe(0.1f, Items.YELLOW_STAINED_GLASS, Items.YELLOW_DYE, 1);
                 this.offerRecyclingRecipe(0.1f, Items.YELLOW_STAINED_GLASS_PANE, Items.YELLOW_DYE, 1);
+            }
+            private void offerAlloyingRecipe(int burnTime, float experience,
+                                             ItemConvertible input1, int input1Count,
+                                             ItemConvertible input2, int input2Count,
+                                             ItemConvertible output, int outputCount) {
+               String outputName = JAAVAA.idFromItem(output).getPath();
+                var input1Stack = new ItemStack(input1, input1Count);
+                var input2Stack = new ItemStack(input2, input2Count);
+                var outputStack = new ItemStack(output, outputCount);
+                recipeExporter.accept(RegistryKey.of(
+                                RegistryKeys.RECIPE, JAAVAA.id("alloying_" + outputName)),
+                        new AlloyingRecipe(burnTime, experience, input1Stack, input2Stack, outputStack),
+                        null);
+            }
+            private void offerEncasedPillarRecipes(ItemConvertible casing, ItemConvertible infill, ItemConvertible output) {
+                this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 6)
+                        .input('C', casing)
+                        .input('I', infill)
+                        .pattern("CCC")
+                        .pattern("III")
+                        .pattern("CCC")
+                        .group(JAAVAA.idFromItem(output).toString())
+                        .criterion(hasItem(casing), conditionsFromItem(casing))
+                        .criterion(hasItem(infill), conditionsFromItem(infill))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_h")));
+                this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 6)
+                        .input('C', casing)
+                        .input('I', infill)
+                        .pattern("CIC")
+                        .pattern("CIC")
+                        .pattern("CIC")
+                        .group(JAAVAA.idFromItem(output).toString())
+                        .criterion(hasItem(casing), conditionsFromItem(casing))
+                        .criterion(hasItem(infill), conditionsFromItem(infill))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_v")));
+            }
+            private void offerMiniBlockRecipe(ItemConvertible miniBlock, ItemConvertible parentBlock) {
+                for (int i = 1; i <= 8; i++) {
+                    this.createShapeless(RecipeCategory.BUILDING_BLOCKS, miniBlock, i * 8)
+                            .input(parentBlock, i)
+                            .input(JAAVAAItems.STARSTEEL_NUGGET)
+                            .group(JAAVAA.idFromItem(miniBlock).toString())
+                            .criterion(hasItem(parentBlock), conditionsFromItem(parentBlock))
+                            .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(miniBlock).getPath() + "_" + i)));
+                }
+                this.createShapeless(RecipeCategory.BUILDING_BLOCKS, parentBlock, 1)
+                        .input(miniBlock, 8)
+                        .group(JAAVAA.idFromItem(parentBlock).toString())
+                        .criterion(hasItem(miniBlock), conditionsFromItem(miniBlock))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(parentBlock).getPath() + "_from_mini_blocks")));
+                this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, miniBlock, parentBlock, 8);
+            }
+            private void offerRecyclingRecipe(float experience, ItemConvertible input, ItemConvertible output, int outputCount) {
+                String inputName = JAAVAA.idFromItem(input).getPath();
+                var inputStack = new ItemStack(input, 1);
+                var outputStack = new ItemStack(output, outputCount);
+                recipeExporter.accept(RegistryKey.of(
+                                RegistryKeys.RECIPE, JAAVAA.id("recycling_" + inputName)),
+                        new RecyclingRecipe(experience, inputStack, outputStack),
+                        null);
+            }
+            private void offerSmelting(ItemConvertible item, RecipeCategory category, ItemConvertible result, float experience, int cookingTime, String group) {
+                offerSmelting(List.of(item), category, result, experience, cookingTime, group);
             }
         };
     }

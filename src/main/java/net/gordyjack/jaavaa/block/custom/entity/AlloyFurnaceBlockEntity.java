@@ -3,8 +3,8 @@ package net.gordyjack.jaavaa.block.custom.entity;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.*;
-import net.gordyjack.jaavaa.recipe.AlloyFurnaceRecipe;
-import net.gordyjack.jaavaa.recipe.AlloyFurnaceRecipeInput;
+import net.gordyjack.jaavaa.recipe.AlloyingRecipe;
+import net.gordyjack.jaavaa.recipe.AlloyingRecipeInput;
 import net.gordyjack.jaavaa.recipe.JAAVAARecipes;
 import net.gordyjack.jaavaa.screen.*;
 import net.minecraft.block.*;
@@ -138,7 +138,7 @@ public class AlloyFurnaceBlockEntity
         this.maxProgress = DEFAULT_MAX_PROGRESS;
     }
     private void craftItem() {
-        Optional<RecipeEntry<AlloyFurnaceRecipe>> recipe = getCurrentRecipe();
+        Optional<RecipeEntry<AlloyingRecipe>> recipe = getCurrentRecipe();
         ItemStack input1 = recipe.get().value().inputStack1();
         ItemStack input2 = recipe.get().value().inputStack2();
         int input1Count = input1.getCount();
@@ -161,7 +161,7 @@ public class AlloyFurnaceBlockEntity
                 this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
     }
     private boolean hasRecipe() {
-        Optional<RecipeEntry<AlloyFurnaceRecipe>> recipe = getCurrentRecipe();
+        Optional<RecipeEntry<AlloyingRecipe>> recipe = getCurrentRecipe();
         if(recipe.isEmpty()) {
             return false;
         }
@@ -170,9 +170,9 @@ public class AlloyFurnaceBlockEntity
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
     }
 
-    private Optional<RecipeEntry<AlloyFurnaceRecipe>> getCurrentRecipe() {
+    private Optional<RecipeEntry<AlloyingRecipe>> getCurrentRecipe() {
         return ((ServerRecipeManager)this.getWorld().getRecipeManager())
-                .getFirstMatch(JAAVAARecipes.Types.ALLOY_FURNACE, new AlloyFurnaceRecipeInput(INV.get(INPUT_SLOT_1), INV.get(INPUT_SLOT_2)), this.getWorld());
+                .getFirstMatch(JAAVAARecipes.Types.ALLOY_FURNACE, new AlloyingRecipeInput(INV.get(INPUT_SLOT_1), INV.get(INPUT_SLOT_2)), this.getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

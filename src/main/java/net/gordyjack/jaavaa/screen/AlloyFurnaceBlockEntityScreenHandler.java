@@ -29,9 +29,14 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
         this.PROPERTY_DELEGATE = propertyDelegate;
         this.alloyFurnaceBlockEntity = ((AlloyFurnaceBlockEntity) blockEntity);
         
-        this.addSlot(new Slot(INV, 0, 53, 9));
-        this.addSlot(new Slot(INV, 1, 107, 9));
-        this.addSlot(new Slot(INV, 2, 79, 49));
+        this.addSlot(new Slot(INV, 0, 53, 17));
+        this.addSlot(new Slot(INV, 1, 107, 17));
+        this.addSlot(new Slot(INV, 2, 79, 57) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+        });
         
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
@@ -77,13 +82,13 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 92 + i * 18));
             }
         }
     }
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 150));
         }
     }
     public boolean isLit() {
