@@ -39,7 +39,10 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addOptionalTag(BlockTags.NYLIUM)
                 .addOptionalTag(BlockTags.WART_BLOCKS).add(
                         Blocks.SOUL_SAND,
-                        Blocks.SOUL_SOIL
+                        Blocks.SOUL_SOIL,
+                        Blocks.CRYING_OBSIDIAN,
+                        Blocks.OBSIDIAN,
+                        Blocks.END_STONE
                 ).addOptionalTag(BlockTags.OVERWORLD_NATURAL_LOGS).add(
                         Blocks.CRIMSON_STEM,
                         Blocks.WARPED_STEM
@@ -57,7 +60,9 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         Blocks.GLOWSTONE,
                         Blocks.OCHRE_FROGLIGHT,
                         Blocks.PEARLESCENT_FROGLIGHT,
-                        Blocks.VERDANT_FROGLIGHT
+                        Blocks.VERDANT_FROGLIGHT,
+                        Blocks.AMETHYST_BLOCK,
+                        Blocks.RESIN_BLOCK
                 );
         getOrCreateTagBuilder(JAAVAATags.Blocks.DEEPSLATE_CRAFTABLES).add(
                 Blocks.DEEPSLATE,

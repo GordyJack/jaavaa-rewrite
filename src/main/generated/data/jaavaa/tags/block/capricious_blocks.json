@@ -41,6 +41,9 @@
     },
     "minecraft:soul_sand",
     "minecraft:soul_soil",
+    "minecraft:crying_obsidian",
+    "minecraft:obsidian",
+    "minecraft:end_stone",
     {
       "id": "#minecraft:overworld_natural_logs",
       "required": false
@@ -84,6 +87,8 @@
     "minecraft:glowstone",
     "minecraft:ochre_froglight",
     "minecraft:pearlescent_froglight",
-    "minecraft:verdant_froglight"
+    "minecraft:verdant_froglight",
+    "minecraft:amethyst_block",
+    "minecraft:resin_block"
   ]
 }
