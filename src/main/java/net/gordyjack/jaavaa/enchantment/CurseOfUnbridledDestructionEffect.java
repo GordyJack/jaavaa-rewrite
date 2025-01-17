@@ -2,8 +2,10 @@ package net.gordyjack.jaavaa.enchantment;
 
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
-import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.data.*;
+import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.block.*;
+import net.minecraft.block.pattern.*;
 import net.minecraft.enchantment.*;
 import net.minecraft.enchantment.effect.*;
 import net.minecraft.entity.*;
@@ -20,22 +22,21 @@ public record CurseOfUnbridledDestructionEffect(EnchantmentLevelBasedValue level
             ).apply(instance, CurseOfUnbridledDestructionEffect::new)
     );
 
-    //TODO: It seems like the block is getting broken before world.breakBlock() can be called in apply().
-    // I might need to use an event handler instead of an enchantment effect.
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
-        JAAVAA.log("Curse of Unbridled Destruction effect applied", 'e');
         if (user instanceof PlayerEntity player && !player.isCreative()) {
-            JAAVAA.log("Player is not in creative mode", 'e');
-            BlockPos blockPos = new BlockPos((int) pos.x, (int) pos.y, (int) pos.z);
-            Block currentBlock = world.getBlockState(blockPos).getBlock();
+            BlockPos blockPos = new BlockPos((int) Math.floor(pos.x), (int) Math.floor(pos.y), (int) Math.floor(pos.z));
+            BlockState currentState = world.getBlockState(blockPos);
             ItemStack tool = player.getMainHandStack();
-            if (world.breakBlock(blockPos, false, player)) {
-                JAAVAA.log("Block broken", 'e');
+
+            boolean isPaxelCorrect = tool.getItem() instanceof PaxelItem && currentState.isIn(JAAVAATags.Blocks.PAXEL_MINEABLE);
+
+            if ((tool.canBreak(new CachedBlockPosition(world, blockPos, true)) || isPaxelCorrect)
+                    && world.breakBlock(blockPos, false, player)) {
                 if (tool.isDamageable()) {
-                    tool.damage(1, player);
+                    tool.damage(2, player);
                 }
-                currentBlock.onBreak(world, blockPos, world.getBlockState(blockPos), player);
+                currentState.getBlock().onBreak(world, blockPos, world.getBlockState(blockPos), player);
             }
         }
     }

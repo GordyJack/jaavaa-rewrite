@@ -2,6 +2,7 @@ package net.gordyjack.jaavaa.enchantment;
 
 import com.mojang.serialization.*;
 import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.data.*;
 import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.enchantment.*;
@@ -48,8 +49,10 @@ public class JAAVAAEnchantments {
                 5,
                 AttributeModifierSlot.HAND))
                 .exclusiveSet(enchantments.getOrThrow(EnchantmentTags.MINING_EXCLUSIVE_SET))
+                .exclusiveSet(enchantments.getOrThrow(JAAVAATags.Other.UNBRIDLED_DESTRUCTION_EXCLUSIVE_SET))
                 .addEffect(EnchantmentEffectComponentTypes.HIT_BLOCK,
-                        new CurseOfUnbridledDestructionEffect(EnchantmentLevelBasedValue.constant(0)))
+                        new CurseOfUnbridledDestructionEffect(
+                                EnchantmentLevelBasedValue.constant(0)))
         );
 
     }

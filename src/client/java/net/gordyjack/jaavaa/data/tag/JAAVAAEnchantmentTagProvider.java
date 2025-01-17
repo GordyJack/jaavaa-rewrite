@@ -2,6 +2,7 @@ package net.gordyjack.jaavaa.data.tag;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.enchantment.*;
 import net.minecraft.enchantment.*;
 import net.minecraft.registry.*;
@@ -15,6 +16,11 @@ public class JAAVAAEnchantmentTagProvider extends FabricTagProvider<Enchantment>
     }
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(JAAVAATags.Other.UNBRIDLED_DESTRUCTION_EXCLUSIVE_SET)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION)
+                .addOptional(Enchantments.EFFICIENCY)
+                .addOptionalTag(EnchantmentTags.MINING_EXCLUSIVE_SET);
+
         getOrCreateTagBuilder(EnchantmentTags.CURSE)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);

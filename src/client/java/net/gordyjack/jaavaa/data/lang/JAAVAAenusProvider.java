@@ -95,12 +95,15 @@ extends FabricLanguageProvider{
         return getTranslatedName(itemConvertible.asItem().getTranslationKey());
     }
     private static String getTranslatedName(String name) {
-        name = name.substring(name.lastIndexOf('.') + 1);
-        name = name.replaceAll("_block(?!s)", "");
-        name = name.replace('-', '_');
-        name = name.replace('_', ' ');
-        name = WordUtils.capitalizeFully(name);
+        name = name.substring(name.lastIndexOf('.') + 1); // Remove namespace
+        name = name.replaceAll("_block(?!s)", ""); // Remove block suffix
+        name = name.replace('-', '_'); // Replace hyphens with underscores
+        name = name.replace('_', ' '); // Replace underscores with spaces
+        name = WordUtils.capitalizeFully(name); // Capitalize each word
+        // Special cases
         name = name.replace("Jaavaa", "JAAVAA");
+        name = name.replace(" Of ", " of ");
+        name = name.replace(" The ", " the ");
         return name;
     }
 }

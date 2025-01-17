@@ -13,7 +13,7 @@
       }
     ]
   },
-  "exclusive_set": "#minecraft:exclusive_set/mining",
+  "exclusive_set": "#jaavaa:exclusive_set/unbridled_destruction",
   "max_cost": {
     "base": 75,
     "per_level_above_first": 0
