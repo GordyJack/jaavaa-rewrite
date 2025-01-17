@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa;
 
 import net.fabricmc.api.*;
+import net.fabricmc.loader.api.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.enchantment.*;
@@ -36,6 +37,11 @@ public class JAAVAA implements ModInitializer {
 		JAAVAAScreenHandlers.init();
 
 		JAAVAALootTableEventsHandler.init();
+
+		if (FabricLoader.getInstance().isModLoaded("roughlyenoughitems")) {
+			JAAVAA.log("REI detected, adding plugin");
+			//TODO: Add REI plugin
+		}
 	}
 	
 	public static Identifier id(String path) {
