@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.event;
 
 import net.fabricmc.fabric.api.loot.v3.*;
+import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.loot.*;
 import net.minecraft.loot.condition.*;
@@ -14,6 +15,7 @@ import net.minecraft.world.*;
 
 public class JAAVAALootTableEventsHandler {
     public static void init() {
+        JAAVAA.log("Initializing JAAVAA Loot Table Events Handler");
         LootTableEvents.MODIFY.register((lootTable, lootManager, id, supplier) -> {
             if (lootTable == LootTables.BASTION_BRIDGE_CHEST
                     || lootTable == LootTables.BASTION_HOGLIN_STABLE_CHEST
