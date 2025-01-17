@@ -22,6 +22,9 @@
 		],
 		"fabric-datagen": [
 			"net.gordyjack.jaavaa.JAAVAADataGenerator"
+		],
+		"rei_client": [
+			"net.gordyjack.jaavaa.plugin.JAAVAAREIPlugin"
 		]
 	},
 	"mixins": [

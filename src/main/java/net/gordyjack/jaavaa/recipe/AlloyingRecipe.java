@@ -20,8 +20,13 @@ public record AlloyingRecipe(int burnTime, float experience, ItemStack inputStac
         if(world.isClient()) {
             return false;
         }
-        return (input.getStackInSlot(0).itemMatches(inputStack1.getRegistryEntry()) && input.getStackInSlot(1).itemMatches(inputStack2.getRegistryEntry())) ||
-                (input.getStackInSlot(0).itemMatches(inputStack2.getRegistryEntry()) && input.getStackInSlot(1).itemMatches(inputStack1.getRegistryEntry()));
+        ItemStack item1 = input.getStackInSlot(0);
+        ItemStack item2 = input.getStackInSlot(1);
+        boolean item1Matches1 = item1.itemMatches(inputStack1.getRegistryEntry());
+        boolean item1Matches2 = item1.itemMatches(inputStack2.getRegistryEntry());
+        boolean item2Matches1 = item2.itemMatches(inputStack1.getRegistryEntry());
+        boolean item2Matches2 = item2.itemMatches(inputStack2.getRegistryEntry());
+        return (item1Matches1 && item2Matches2) || (item1Matches2 && item2Matches1);
     }
     @Override
     public ItemStack craft(AlloyingRecipeInput input, RegistryWrapper.WrapperLookup registries) {
@@ -29,11 +34,11 @@ public record AlloyingRecipe(int burnTime, float experience, ItemStack inputStac
     }
     @Override
     public RecipeSerializer<? extends Recipe<AlloyingRecipeInput>> getSerializer() {
-        return JAAVAARecipes.Serializers.ALLOY_FURNACE;
+        return JAAVAARecipes.Serializers.ALLOYING;
     }
     @Override
     public RecipeType<? extends Recipe<AlloyingRecipeInput>> getType() {
-        return JAAVAARecipes.Types.ALLOY_FURNACE;
+        return JAAVAARecipes.Types.ALLOYING;
     }
     @Override
     public IngredientPlacement getIngredientPlacement() {
@@ -41,7 +46,7 @@ public record AlloyingRecipe(int burnTime, float experience, ItemStack inputStac
     }
     @Override
     public RecipeBookCategory getRecipeBookCategory() {
-        return JAAVAARecipes.Categories.ALLOY_FURNACE;
+        return JAAVAARecipes.Categories.ALLOYING;
     }
     public ItemStack getResult() {
         return output;

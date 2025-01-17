@@ -15,7 +15,7 @@ public class JAAVAARecipes {
     }
 
     public static class Categories {
-        public static final RecipeBookCategory ALLOY_FURNACE = register("alloying");
+        public static final RecipeBookCategory ALLOYING = register("alloying");
         public static final RecipeBookCategory RECYCLING = register("recycling");
 
         private static RecipeBookCategory register(String name) {
@@ -36,7 +36,7 @@ public class JAAVAARecipes {
         }
     }
     public static class Serializers {
-        public static final RecipeSerializer<AlloyingRecipe> ALLOY_FURNACE =
+        public static final RecipeSerializer<AlloyingRecipe> ALLOYING =
                 register("alloying", new AlloyingRecipe.Serializer());
         public static final RecipeSerializer<RecyclingRecipe> RECYCLING =
                 register("recycling", new RecyclingRecipe.Serializer());
@@ -49,7 +49,7 @@ public class JAAVAARecipes {
         }
     }
     public static class Types {
-        public static final RecipeType<AlloyingRecipe> ALLOY_FURNACE = register("alloying");
+        public static final RecipeType<AlloyingRecipe> ALLOYING = register("alloying");
         public static final RecipeType<RecyclingRecipe> RECYCLING = register("recycling");
 
         private static <T extends Recipe<?>> RecipeType<T> register(String name) {

@@ -44,6 +44,7 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
         addProperties(propertyDelegate);
     }
 
+    //TODO: Fix quickMove. Cannot shift-click items from output slot.
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
@@ -67,14 +68,6 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
         }
         return newStack;
     }
-    @Override
-    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
-        if (slot.inventory == this.INV && slot.id != OUTPUT_SLOT) {
-            return super.canInsertIntoSlot(stack, slot);
-        }
-        return false;
-    }
-
     @Override
     public boolean canUse(PlayerEntity player) {
         return this.INV.canPlayerUse(player);

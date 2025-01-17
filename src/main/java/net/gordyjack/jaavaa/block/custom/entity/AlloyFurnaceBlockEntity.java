@@ -1,34 +1,30 @@
 package net.gordyjack.jaavaa.block.custom.entity;
 
-import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.fabricmc.fabric.api.screenhandler.v1.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.*;
-import net.gordyjack.jaavaa.recipe.AlloyingRecipe;
-import net.gordyjack.jaavaa.recipe.AlloyingRecipeInput;
-import net.gordyjack.jaavaa.recipe.JAAVAARecipes;
+import net.gordyjack.jaavaa.recipe.*;
 import net.gordyjack.jaavaa.screen.*;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.SidedInventory;
+import net.minecraft.inventory.*;
 import net.minecraft.item.*;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.ServerRecipeManager;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.nbt.*;
+import net.minecraft.network.listener.*;
+import net.minecraft.network.packet.*;
+import net.minecraft.network.packet.s2c.play.*;
+import net.minecraft.recipe.*;
+import net.minecraft.registry.*;
 import net.minecraft.screen.*;
-import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.network.*;
 import net.minecraft.text.*;
 import net.minecraft.util.collection.*;
 import net.minecraft.util.math.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import org.jetbrains.annotations.*;
 
-import java.util.Optional;
+import java.util.*;
 
 public class AlloyFurnaceBlockEntity
         extends BlockEntity
@@ -43,7 +39,7 @@ public class AlloyFurnaceBlockEntity
     private final DefaultedList<ItemStack> INV = DefaultedList.ofSize(SIZE, ItemStack.EMPTY);
     private final PropertyDelegate PROPERTY_DELEGATE;
     private int progress = 0;
-    private int maxProgress = 200;
+    private int maxProgress = DEFAULT_MAX_PROGRESS;
 
     public AlloyFurnaceBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(JAAVAABlockEntityTypes.ALLOY_FURNACE_BLOCK_ENTITY_TYPE, blockPos, blockState);
@@ -121,8 +117,7 @@ public class AlloyFurnaceBlockEntity
         if(world.isClient()) {
             return;
         }
-
-        if(hasRecipe() && canInsertIntoOutputSlot() && isLit()) {
+        if(hasRecipe() && isOutputNotFull() && isLit()) {
             increaseCraftingProgress();
             markDirty(world, pos, state);
             if(hasCraftingFinished()) {
@@ -135,20 +130,20 @@ public class AlloyFurnaceBlockEntity
     }
     private void resetProgress() {
         this.progress = 0;
-        this.maxProgress = DEFAULT_MAX_PROGRESS;
+        this.maxProgress = this.getCurrentRecipe().isPresent() ? this.getCurrentRecipe().get().value().burnTime() : DEFAULT_MAX_PROGRESS;
     }
     private void craftItem() {
-        Optional<RecipeEntry<AlloyingRecipe>> recipe = getCurrentRecipe();
-        ItemStack input1 = recipe.get().value().inputStack1();
-        ItemStack input2 = recipe.get().value().inputStack2();
+        var recipe = getCurrentRecipe().get().value();
+        ItemStack input1 = recipe.inputStack1();
+        ItemStack input2 = recipe.inputStack2();
         int input1Count = input1.getCount();
         int input2Count = input2.getCount();
 
         boolean input1is1 = this.getStack(INPUT_SLOT_1).getItem() == input1.getItem();
         this.removeStack(INPUT_SLOT_1, input1is1 ? input1Count : input2Count);
         this.removeStack(INPUT_SLOT_2, input1is1 ? input2Count : input1Count);
-        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().value().output().getItem(),
-                this.getStack(OUTPUT_SLOT).getCount() + recipe.get().value().output().getCount()));
+        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.output().getItem(),
+                this.getStack(OUTPUT_SLOT).getCount() + recipe.output().getCount()));
     }
     private boolean hasCraftingFinished() {
         return this.progress >= this.maxProgress;
@@ -156,23 +151,24 @@ public class AlloyFurnaceBlockEntity
     private void increaseCraftingProgress() {
         this.progress++;
     }
-    private boolean canInsertIntoOutputSlot() {
+    private boolean isOutputNotFull() {
         return this.getStack(OUTPUT_SLOT).isEmpty() ||
                 this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
     }
     private boolean hasRecipe() {
-        Optional<RecipeEntry<AlloyingRecipe>> recipe = getCurrentRecipe();
-        if(recipe.isEmpty()) {
+        Optional<RecipeEntry<AlloyingRecipe>> recipeEntry = getCurrentRecipe();
+        if(recipeEntry.isEmpty()) {
             return false;
         }
-
-        ItemStack output = recipe.get().value().getResult();
+        AlloyingRecipe recipe = recipeEntry.get().value();
+        ItemStack output = recipe.output();
+        this.maxProgress = recipe.burnTime();
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
     }
 
     private Optional<RecipeEntry<AlloyingRecipe>> getCurrentRecipe() {
         return ((ServerRecipeManager)this.getWorld().getRecipeManager())
-                .getFirstMatch(JAAVAARecipes.Types.ALLOY_FURNACE, new AlloyingRecipeInput(INV.get(INPUT_SLOT_1), INV.get(INPUT_SLOT_2)), this.getWorld());
+                .getFirstMatch(JAAVAARecipes.Types.ALLOYING, new AlloyingRecipeInput(INV.get(INPUT_SLOT_1), INV.get(INPUT_SLOT_2)), this.getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

@@ -18,5 +18,10 @@ public class JAAVAAClient implements ClientModInitializer {
 		// RenderTranslucentLayers
 		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.STARSTEEL_GLASS, RenderLayer.getTranslucent());
 		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.STARSTEEL_GLASS_PANE, RenderLayer.getTranslucent());
+
+//		if (FabricLoader.getInstance().isModLoaded("roughlyenoughitems")) {
+//			JAAVAA.log("REI detected, adding plugin");
+//			new JAAVAAREIPlugin();
+//		}
 	}
 }
