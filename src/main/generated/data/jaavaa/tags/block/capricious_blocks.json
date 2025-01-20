@@ -8,10 +8,8 @@
       "id": "#minecraft:dirt",
       "required": false
     },
-    {
-      "id": "#minecraft:sand",
-      "required": false
-    },
+    "minecraft:sand",
+    "minecraft:red_sand",
     "minecraft:clay",
     "minecraft:gravel",
     "minecraft:sandstone",

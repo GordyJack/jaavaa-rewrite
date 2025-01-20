@@ -20,8 +20,9 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
         //Mod Tags
         getOrCreateTagBuilder(JAAVAATags.Blocks.CAPRICIOUS_BLOCKS)
                 .addOptionalTag(BlockTags.BASE_STONE_OVERWORLD)
-                .addOptionalTag(BlockTags.DIRT)
-                .addOptionalTag(BlockTags.SAND).add(
+                .addOptionalTag(BlockTags.DIRT).add(
+                        Blocks.SAND,
+                        Blocks.RED_SAND,
                         Blocks.CLAY,
                         Blocks.GRAVEL,
                         Blocks.SANDSTONE,
