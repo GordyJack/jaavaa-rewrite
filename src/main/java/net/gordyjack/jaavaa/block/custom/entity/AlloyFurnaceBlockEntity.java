@@ -34,45 +34,40 @@ public class AlloyFurnaceBlockEntity
     private static final int OUTPUT_SLOT = 2;
     private static final int SIZE = 3;
     private static final int DEFAULT_MAX_PROGRESS = 200;
-    private final BlockPos BLOCK_POS;
-    private BlockState blockState;
     private final DefaultedList<ItemStack> INV = DefaultedList.ofSize(SIZE, ItemStack.EMPTY);
     private final PropertyDelegate PROPERTY_DELEGATE;
     private int progress = 0;
     private int maxProgress = DEFAULT_MAX_PROGRESS;
+    private boolean isLit = false;
 
     public AlloyFurnaceBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(JAAVAABlockEntityTypes.ALLOY_FURNACE_BLOCK_ENTITY_TYPE, blockPos, blockState);
-        this.BLOCK_POS = blockPos;
-        this.blockState = blockState;
+        this.isLit = blockState.get(AlloyFurnaceBlock.LIT);
         this.PROPERTY_DELEGATE = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 return switch (index) {
                     case 0 -> AlloyFurnaceBlockEntity.this.progress;
                     case 1 -> AlloyFurnaceBlockEntity.this.maxProgress;
+                    case 2 -> AlloyFurnaceBlockEntity.this.isLit ? 1 : 0;
                     default -> 0;
                 };
             }
-
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: AlloyFurnaceBlockEntity.this.progress = value;
-                    case 1: AlloyFurnaceBlockEntity.this.maxProgress = value;
+                    case 0 -> AlloyFurnaceBlockEntity.this.progress = value;
+                    case 1 -> AlloyFurnaceBlockEntity.this.maxProgress = value;
+                    case 2 -> AlloyFurnaceBlockEntity.this.isLit = value == 1;
                 }
             }
-
             @Override
             public int size() {
-                return 2;
+                return 3;
             }
         };
     }
 
-    public boolean isLit() {
-        return this.blockState.get(AlloyFurnaceBlock.LIT);
-    }
     @Override
     public BlockPos getScreenOpeningData(ServerPlayerEntity serverPlayerEntity) {
         return this.pos;
@@ -105,19 +100,24 @@ public class AlloyFurnaceBlockEntity
         Inventories.writeNbt(nbt, this.INV, registryLookup);
         nbt.putInt("alloy_furnace.progress", this.progress);
         nbt.putInt("alloy_furnace.max_progress", this.maxProgress);
+        nbt.putBoolean("alloy_furnace.is_lit", this.isLit);
     }
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         Inventories.readNbt(nbt, this.INV, registryLookup);
         this.progress = nbt.getInt("alloy_furnace.progress");
         this.maxProgress = nbt.getInt("alloy_furnace.max_progress");
+        this.isLit = nbt.getBoolean("alloy_furnace.is_lit");
         super.readNbt(nbt, registryLookup);
     }
     public void tick(World world, BlockPos pos, BlockState state) {
         if(world.isClient()) {
             return;
         }
-        if(hasRecipe() && isOutputNotFull() && isLit()) {
+        if (state.get(AlloyFurnaceBlock.LIT) != this.isLit) {
+            this.isLit = state.get(AlloyFurnaceBlock.LIT);
+        }
+        if(hasRecipe() && isOutputNotFull() && isLit) {
             increaseCraftingProgress();
             markDirty(world, pos, state);
             if(hasCraftingFinished()) {

@@ -1,6 +1,5 @@
 package net.gordyjack.jaavaa.screen;
 
-import net.gordyjack.jaavaa.block.custom.entity.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
@@ -15,11 +14,10 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
     private static final int OUTPUT_SLOT = 2;
     private final Inventory INV;
     private final PropertyDelegate PROPERTY_DELEGATE;
-    private AlloyFurnaceBlockEntity alloyFurnaceBlockEntity;
 
 
     public AlloyFurnaceBlockEntityScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
-        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
+        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(3));
     }
     public AlloyFurnaceBlockEntityScreenHandler(int syncId, PlayerInventory playerInventory,
                                      BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
@@ -27,7 +25,6 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
         checkSize((Inventory) blockEntity, 3);
         this.INV = (Inventory) blockEntity;
         this.PROPERTY_DELEGATE = propertyDelegate;
-        this.alloyFurnaceBlockEntity = ((AlloyFurnaceBlockEntity) blockEntity);
         
         this.addSlot(new Slot(INV, 0, 53, 17));
         this.addSlot(new Slot(INV, 1, 107, 17));
@@ -72,6 +69,7 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
     public boolean canUse(PlayerEntity player) {
         return this.INV.canPlayerUse(player);
     }
+
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
@@ -84,11 +82,11 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 150));
         }
     }
-    public boolean isLit() {
-        return this.alloyFurnaceBlockEntity.isLit();
-    }
     public boolean isCrafting() {
         return this.PROPERTY_DELEGATE.get(0) > 0;
+    }
+    public boolean isLit() {
+        return this.PROPERTY_DELEGATE.get(2) == 1;
     }
     public int getScaledArrowProgress() {
         int progress = this.PROPERTY_DELEGATE.get(0);
