@@ -3,10 +3,44 @@ package net.gordyjack.jaavaa.utils;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.data.*;
 import net.minecraft.block.*;
+import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.tag.*;
+import net.minecraft.server.network.*;
+import net.minecraft.server.world.*;
+import net.minecraft.sound.*;
+import net.minecraft.util.math.*;
 
-public class JAAVAABlockUtils {
+import java.util.stream.*;
+
+public class JAAVAAUtils {
+    public static boolean damageBreakable(ItemStack itemStack, int damage, ServerWorld world, ServerPlayerEntity player) {
+        if (itemStack.isDamageable()) {
+            itemStack.damage(damage, world, player, item ->
+                    player.playSoundToPlayer(
+                            item.getBreakSound(),
+                            SoundCategory.PLAYERS,
+                            1.0F,
+                            player.getSoundPitch()));
+            return true;
+        }
+        return false;
+    }
+    public static void dropItem(ServerWorld serverWorld, BlockPos pos, Item item) {
+        dropItem(serverWorld, pos, item, 1);
+    }
+    public static void dropItem(ServerWorld serverWorld, BlockPos pos, Item item, int count) {
+        dropItemStack(serverWorld, pos, new ItemStack(item, count));
+    }
+    public static void dropItemStack(ServerWorld serverWorld, BlockPos pos, ItemStack itemStack) {
+        serverWorld.addEntities(Stream.of(new ItemEntity(
+                serverWorld,
+                pos.getX() + 0.5f,
+                pos.getY() + 0.5f,
+                pos.getZ() + 0.5f,
+                itemStack))
+        );
+    }
     public static boolean isToolCorrectForBlock(ItemStack tool, BlockState blockState) {
         return isToolCorrectForBlock(tool, blockState, true);
     }

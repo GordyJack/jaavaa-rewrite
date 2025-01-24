@@ -26,9 +26,9 @@ public record CurseOfUnbridledDestructionEffect(EnchantmentLevelBasedValue level
             BlockState currentState = serverWorld.getBlockState(blockPos);
             ItemStack tool = player.getMainHandStack();
 
-            if (JAAVAABlockUtils.isToolCorrectForBlock(tool, currentState, false)
+            if (JAAVAAUtils.isToolCorrectForBlock(tool, currentState, false)
                     && serverWorld.breakBlock(blockPos, false, player)) {
-                JAAVAAItemUtils.damageBreakable(tool, 4, serverWorld, player);
+                JAAVAAUtils.damageBreakable(tool, 4, serverWorld, player);
                 currentState.getBlock().onBreak(serverWorld, blockPos, serverWorld.getBlockState(blockPos), player);
             }
         }
