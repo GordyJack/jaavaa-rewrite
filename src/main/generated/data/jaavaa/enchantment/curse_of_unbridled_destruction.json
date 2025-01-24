@@ -1,5 +1,5 @@
 {
-  "anvil_cost": 5,
+  "anvil_cost": 6,
   "description": {
     "translate": "enchantment.jaavaa.curse_of_unbridled_destruction"
   },
@@ -15,17 +15,17 @@
   },
   "exclusive_set": "#jaavaa:exclusive_set/unbridled_destruction",
   "max_cost": {
-    "base": 75,
+    "base": 100,
     "per_level_above_first": 0
   },
   "max_level": 1,
   "min_cost": {
-    "base": 21,
+    "base": 25,
     "per_level_above_first": 0
   },
   "slots": [
     "hand"
   ],
   "supported_items": "#minecraft:enchantable/mining_loot",
-  "weight": 1
+  "weight": 2
 }
