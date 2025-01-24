@@ -33,26 +33,25 @@ public class JAAVAAEnchantments {
         register(registerable, CURSE_OF_THE_CAPRICIOUS, Enchantment.builder(Enchantment.definition(
                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                 1, 1,
-                Enchantment.leveledCost(21, 0),
-                Enchantment.leveledCost(75, 0),
+                Enchantment.constantCost(21),
+                Enchantment.constantCost(75),
                 5,
                 AttributeModifierSlot.HAND))
                 .exclusiveSet(enchantments.getOrThrow(EnchantmentTags.MINING_EXCLUSIVE_SET))
                 .addEffect(EnchantmentEffectComponentTypes.BLOCK_EXPERIENCE,
-                        new SetEnchantmentEffect(EnchantmentLevelBasedValue.constant(0)))
+                        new SetEnchantmentEffect(EnchantmentLevelBasedValue.constant(0.0f)))
         );
         register(registerable, CURSE_OF_UNBRIDLED_DESTRUCTION, Enchantment.builder(Enchantment.definition(
                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                 1, 1,
-                Enchantment.leveledCost(21, 0),
-                Enchantment.leveledCost(75, 0),
+                Enchantment.constantCost(21),
+                Enchantment.constantCost(75),
                 5,
                 AttributeModifierSlot.HAND))
                 .exclusiveSet(enchantments.getOrThrow(EnchantmentTags.MINING_EXCLUSIVE_SET))
                 .exclusiveSet(enchantments.getOrThrow(JAAVAATags.Other.UNBRIDLED_DESTRUCTION_EXCLUSIVE_SET))
                 .addEffect(EnchantmentEffectComponentTypes.HIT_BLOCK,
-                        new CurseOfUnbridledDestructionEffect(
-                                EnchantmentLevelBasedValue.constant(0)))
+                        new CurseOfUnbridledDestructionEffect(EnchantmentLevelBasedValue.constant(0.0f)))
         );
 
     }

@@ -1,4 +1,10 @@
 // 1.21.4	-999999999-01-01T00:00:00	JAAVAA/Tags for minecraft:item
+e092cbcf7c1cd2c9eb97967d323aca7aa45549d3 data/c/tags/item/tools/diamond.json
+1a0f09b0419713bd9fcdd66bb5a17b77b73a1bcc data/c/tags/item/tools/gold.json
+060c78acad38c01d974aea3a2ff8c1287b4408f1 data/c/tags/item/tools/iron.json
+10dc6b881971986713b1100e64027fb488e95794 data/c/tags/item/tools/netherite.json
+5715f1bfefb6fe4c982bc0480ac84d41c5c9f45b data/c/tags/item/tools/stone.json
+75c2367ef53ee74f77ac0b8a919163edff282904 data/c/tags/item/tools/wooden.json
 3088693cf0974bd912dee2edbca907b15c8835dd data/jaavaa/tags/item/deepslate_craftables.json
 97722194cb0eed559d0a375a147ea40176378da4 data/jaavaa/tags/item/recyclable.json
 c1ddacb5f6bf7d47b2133aa0da7b32988f0d0886 data/minecraft/tags/item/axes.json

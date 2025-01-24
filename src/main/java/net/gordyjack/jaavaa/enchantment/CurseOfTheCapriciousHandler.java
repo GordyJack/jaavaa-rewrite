@@ -7,6 +7,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
+import net.minecraft.server.network.*;
 import net.minecraft.server.world.*;
 
 import java.util.*;
@@ -20,22 +21,23 @@ public class CurseOfTheCapriciousHandler {
             if (world instanceof ServerWorld serverWorld
                     && !player.isCreative()
                     && tool.getEnchantments().getEnchantments().toString().contains("jaavaa:curse_of_the_capricious")
-                    && JAAVAABlockUtils.isToolCorrectForBlock(tool.getItem(), state)
+                    && JAAVAABlockUtils.isToolCorrectForBlock(tool, state)
                     && serverWorld.breakBlock(pos, false, player)) {
                 state.getBlock().onBreak(world, pos, state, player);
-
-                Block randomBlock;
-                do {
-                    Stream<Block> blockRegistryStream = serverWorld.getRegistryManager().getOptional(RegistryKeys.BLOCK).get().stream();
-                    List<Block> blockList = blockRegistryStream.filter(block -> block.getDefaultState().isIn(JAAVAATags.Blocks.CAPRICIOUS_BLOCKS)).toList();
-                    randomBlock = blockList.get(new Random().nextInt(blockList.size()));
-                } while (!JAAVAABlockUtils.isToolCorrectForBlock(tool.getItem(), randomBlock.getDefaultState()));
-
-                if (tool.isDamageable()) {
-                    tool.damage(4, player);
-                }
-
-                serverWorld.addEntities(Stream.of(new ItemEntity(world, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, new ItemStack(randomBlock.asItem()))));
+                List<Block> blockList = serverWorld.getRegistryManager().getOptional(RegistryKeys.BLOCK).get().stream()
+                        .filter(block ->
+                                block.getDefaultState().isIn(JAAVAATags.Blocks.CAPRICIOUS_BLOCKS)
+                                        && JAAVAABlockUtils.isToolCorrectForBlock(tool, block.getDefaultState())
+                        ).toList();
+                Block randomBlock = blockList.get(new Random().nextInt(blockList.size()));
+                JAAVAAItemUtils.damageBreakable(tool, 4, serverWorld, (ServerPlayerEntity) player);
+                serverWorld.addEntities(Stream.of(new ItemEntity(
+                        world,
+                        pos.getX() + 0.5f,
+                        pos.getY() + 0.5f,
+                        pos.getZ() + 0.5f,
+                        new ItemStack(randomBlock.asItem())))
+                );
                 return false;
             }
             return true;

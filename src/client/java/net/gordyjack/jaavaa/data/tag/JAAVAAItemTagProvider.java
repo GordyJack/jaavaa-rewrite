@@ -37,6 +37,49 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         Items.MACE,
                         Items.TRIDENT
                 );
+        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_WOODEN).add(
+                Items.WOODEN_AXE,
+                Items.WOODEN_HOE,
+                Items.WOODEN_PICKAXE,
+                Items.WOODEN_SHOVEL,
+                Items.WOODEN_SWORD
+        );
+        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_STONE).add(
+                Items.STONE_AXE,
+                Items.STONE_HOE,
+                Items.STONE_PICKAXE,
+                Items.STONE_SHOVEL,
+                Items.STONE_SWORD
+        );
+        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_GOLD).add(
+                Items.GOLDEN_AXE,
+                Items.GOLDEN_HOE,
+                Items.GOLDEN_PICKAXE,
+                Items.GOLDEN_SHOVEL,
+                Items.GOLDEN_SWORD
+        );
+        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_IRON).add(
+                Items.IRON_AXE,
+                Items.IRON_HOE,
+                Items.IRON_PICKAXE,
+                Items.IRON_SHOVEL,
+                Items.IRON_SWORD
+        );
+        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_DIAMOND).add(
+                Items.DIAMOND_AXE,
+                Items.DIAMOND_HOE,
+                Items.DIAMOND_PICKAXE,
+                Items.DIAMOND_SHOVEL,
+                Items.DIAMOND_SWORD
+        );
+        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_NETHERITE).add(
+                Items.NETHERITE_AXE,
+                Items.NETHERITE_HOE,
+                Items.NETHERITE_PICKAXE,
+                Items.NETHERITE_SHOVEL,
+                Items.NETHERITE_SWORD,
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS
+        );
         //Vanilla Tags
         getOrCreateTagBuilder(ItemTags.AXES).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS
