@@ -1,7 +1,6 @@
 package net.gordyjack.jaavaa;
 
 import net.fabricmc.api.*;
-import net.fabricmc.loader.api.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.enchantment.*;
@@ -26,8 +25,10 @@ public class JAAVAA implements ModInitializer {
 		JAAVAABlocks.init();
 		JAAVAAItems.init();
 		EternalItemDespawnHandler.init();
+
 		JAAVAAPotions.init();
 		JAAVAAStatusEffects.init();
+
 		JAAVAABlockEntityTypes.init();
 		JAAVAAComponents.init();
 		JAAVAAEnchantments.init();

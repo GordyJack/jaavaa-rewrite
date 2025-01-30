@@ -143,16 +143,16 @@ public class JAAVAABlocks {
             registerMiniBlock("purpur_mini_block", Blocks.PURPUR_BLOCK);
     public static final Block QUARTZ_MINI_BLOCK =
             registerMiniBlock("quartz_mini_block", Blocks.QUARTZ_BLOCK);
-    public static final Block SMOOTH_QUARTZ_MINI_BLOCK =
-            registerMiniBlock("smooth_quartz_mini_block", Blocks.SMOOTH_QUARTZ);
+//    public static final Block SMOOTH_QUARTZ_MINI_BLOCK =
+//            registerMiniBlock("smooth_quartz_mini_block", Blocks.SMOOTH_QUARTZ);
     public static final Block REDSTONE_MINI_BLOCK =
             registerMiniBlock("redstone_mini_block", Blocks.REDSTONE_BLOCK);
     public static final Block RED_NETHER_BRICK_MINI_BLOCK =
             registerMiniBlock("red_nether_brick_mini_block", Blocks.RED_NETHER_BRICKS);
     public static final Block SANDSTONE_MINI_BLOCK =
             registerMiniBlock("sandstone_mini_block", Blocks.SANDSTONE);
-    public static final Block SMOOTH_SANDSTONE_MINI_BLOCK =
-            registerMiniBlock("smooth_sandstone_mini_block", Blocks.SMOOTH_SANDSTONE);
+//    public static final Block SMOOTH_SANDSTONE_MINI_BLOCK =
+//            registerMiniBlock("smooth_sandstone_mini_block", Blocks.SMOOTH_SANDSTONE);
     public static final Block STONE_MINI_BLOCK =
             registerMiniBlock("stone_mini_block", Blocks.STONE);
     public static final Block SMOOTH_STONE_MINI_BLOCK =

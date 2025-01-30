@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.enchantment;
 
 import net.fabricmc.fabric.api.event.player.*;
+import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.utils.*;
 import net.minecraft.block.*;
@@ -21,6 +22,7 @@ public class CurseOfTheCapriciousHandler {
             if (world instanceof ServerWorld serverWorld
                     && !player.isCreative()
                     && tool.getEnchantments().getEnchantments().toString().contains("jaavaa:curse_of_the_capricious")
+                    && !(state.getBlock() instanceof MiniBlock)
                     && JAAVAAUtils.isToolCorrectForBlock(tool, state)
                     && serverWorld.breakBlock(pos, false, player)) {
                 state.getBlock().onBreak(world, pos, state, player);

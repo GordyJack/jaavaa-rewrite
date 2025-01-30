@@ -372,6 +372,32 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerRecyclingRecipe(0.1f, Items.WHITE_STAINED_GLASS_PANE, Items.WHITE_DYE, 1);
                 this.offerRecyclingRecipe(0.1f, Items.YELLOW_STAINED_GLASS, Items.YELLOW_DYE, 1);
                 this.offerRecyclingRecipe(0.1f, Items.YELLOW_STAINED_GLASS_PANE, Items.YELLOW_DYE, 1);
+
+                //Misc
+                this.offerRecyclingRecipe(0.1f, Items.ANCIENT_DEBRIS, Items.NETHERITE_SCRAP, 2);
+
+                //Smithing Templates
+                this.offerRecyclingRecipe(0.1f, Items.BOLT_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.EYE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.FLOW_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.HOST_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.RIB_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.WARD_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.WILD_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.VEX_ARMOR_TRIM_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, Items.DIAMOND, 7);
+
+                //Uncrafting
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_INGOT, Items.NETHERITE_SCRAP, 4);
             }
             private void offerAlloyingRecipe(int burnTime, float experience,
                                              ItemConvertible input1, int input1Count,
