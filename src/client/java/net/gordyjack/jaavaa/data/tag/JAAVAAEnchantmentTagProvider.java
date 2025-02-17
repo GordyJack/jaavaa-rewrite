@@ -23,9 +23,11 @@ public class JAAVAAEnchantmentTagProvider extends FabricTagProvider<Enchantment>
 
         getOrCreateTagBuilder(EnchantmentTags.CURSE)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);
         getOrCreateTagBuilder(EnchantmentTags.ON_RANDOM_LOOT)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);
         getOrCreateTagBuilder(EnchantmentTags.MINING_EXCLUSIVE_SET)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
@@ -34,9 +36,11 @@ public class JAAVAAEnchantmentTagProvider extends FabricTagProvider<Enchantment>
                 .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS);
         getOrCreateTagBuilder(EnchantmentTags.TRADEABLE)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);
         getOrCreateTagBuilder(EnchantmentTags.TREASURE)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE)
                 .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);
     }
 }

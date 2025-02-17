@@ -5,6 +5,10 @@
       "required": false
     },
     {
+      "id": "jaavaa:curse_of_persistence",
+      "required": false
+    },
+    {
       "id": "jaavaa:curse_of_unbridled_destruction",
       "required": false
     }

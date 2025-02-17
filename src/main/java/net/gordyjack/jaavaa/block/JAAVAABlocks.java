@@ -26,6 +26,9 @@ public class JAAVAABlocks {
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT);
 
     // Blocks
+    public static final Block RAW_VOIDIUM = registerBlock("raw_voidium",
+            Block::new, AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS)
+                    .mapColor(MapColor.BLACK));
     public static final Block SMOOTH_POLISHED_DEEPSLATE = registerBlock("smooth_polished_deepslate", Block::new,
             AbstractBlock.Settings.copy(Blocks.POLISHED_DEEPSLATE));
     public static final Block STARSTEEL_BLOCK = registerBlock("starsteel_block",
@@ -204,6 +207,7 @@ public class JAAVAABlocks {
         //Adding Blocks to main Block ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKS).register(entries -> {
             entries.add(ALLOY_FURNACE);
+            entries.add(RAW_VOIDIUM);
             entries.add(SMOOTH_POLISHED_DEEPSLATE);
             entries.add(STARSTEEL_BLOCK);
             entries.add(STARSTEEL_GLASS);

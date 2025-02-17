@@ -28,8 +28,8 @@ public record CurseOfUnbridledDestructionEffect(EnchantmentLevelBasedValue level
 
             if (JAAVAAUtils.isToolCorrectForBlock(tool, currentState, false)
                     && serverWorld.breakBlock(blockPos, false, player)) {
-                JAAVAAUtils.damageBreakable(tool, 4, serverWorld, player);
                 currentState.getBlock().onBreak(serverWorld, blockPos, serverWorld.getBlockState(blockPos), player);
+                JAAVAAUtils.damageBreakable(tool, 3, serverWorld, player);
             }
         }
     }

@@ -42,10 +42,8 @@ public class CurseOfTheCapriciousHandler {
                         tool.getEnchantments().getLevel(enchantmentReference)).orElse(1);
 
                 int dropCount = enchantmentLevel == 1 ? 1 : new Random().nextInt(enchantmentLevel) + 1;
-                int damageCount = new Random().nextInt(1, 5) * dropCount;
-
-                JAAVAAUtils.damageBreakable(tool, damageCount, serverWorld, (ServerPlayerEntity) player);
                 JAAVAAUtils.dropItem(serverWorld, pos, randomBlock.asItem(), dropCount);
+                JAAVAAUtils.damageBreakable(tool, 1 + dropCount, serverWorld, (ServerPlayerEntity) player);
                 return false;
             }
             return true;

@@ -33,6 +33,8 @@ public class JAAVAA implements ModInitializer {
 		JAAVAAComponents.init();
 		JAAVAAEnchantments.init();
 		CurseOfTheCapriciousHandler.init();
+		CurseOfPersistenceHandler.init();
+		PactedHandler.init();
 		JAAVAARecipes.init();
 		JAAVAAPotionRecipeBuilder.build();
 		JAAVAAScreenHandlers.init();

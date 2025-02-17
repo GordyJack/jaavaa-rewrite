@@ -15,7 +15,7 @@
   },
   "exclusive_set": "#jaavaa:exclusive_set/unbridled_destruction",
   "max_cost": {
-    "base": 100,
+    "base": 75,
     "per_level_above_first": 0
   },
   "max_level": 1,

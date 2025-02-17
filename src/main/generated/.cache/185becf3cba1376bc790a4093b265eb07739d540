@@ -1,8 +1,8 @@
 // 1.21.4	-999999999-01-01T00:00:00	JAAVAA/Tags for minecraft:enchantment
 078669a3c498c4db5b877809855f9e5b2498526b data/jaavaa/tags/enchantment/exclusive_set/unbridled_destruction.json
-7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/curse.json
+85441b861943278e9a9de8c928efe73a1801b19e data/minecraft/tags/enchantment/curse.json
 7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/exclusive_set/mining.json
 88d490f670669c0218dd753c487a61ace29e0738 data/minecraft/tags/enchantment/non_treasure.json
-7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/on_random_loot.json
-7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/tradeable.json
-7209f8ae9aa6096e25a8098c38a7855a765d5abe data/minecraft/tags/enchantment/treasure.json
+85441b861943278e9a9de8c928efe73a1801b19e data/minecraft/tags/enchantment/on_random_loot.json
+85441b861943278e9a9de8c928efe73a1801b19e data/minecraft/tags/enchantment/tradeable.json
+85441b861943278e9a9de8c928efe73a1801b19e data/minecraft/tags/enchantment/treasure.json
