@@ -24,6 +24,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider recipeProvider;
 	public DataProvider tagBlockProvider;
 	public DataProvider tagDamageTypeProvider;
+	public DataProvider tagEntityProvider;
 	public DataProvider tagEnchantmentProvider;
 	public DataProvider tagItemProvider;
 	@Override
@@ -38,6 +39,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 		recipeProvider = pack.addProvider(JAAVAARecipeProvider::new);
 		tagBlockProvider = pack.addProvider(JAAVAABlockTagProvider::new);
 		tagDamageTypeProvider = pack.addProvider(JAAVAADamageTypeTagProvider::new);
+		tagEntityProvider = pack.addProvider(JAAVAAEntityTypeTagProvider::new);
 		tagEnchantmentProvider = pack.addProvider(JAAVAAEnchantmentTagProvider::new);
 		tagItemProvider = pack.addProvider(JAAVAAItemTagProvider::new);
 

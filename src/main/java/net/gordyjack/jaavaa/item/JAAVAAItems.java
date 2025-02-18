@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.custom.*;
+import net.gordyjack.jaavaa.mixin.*;
 import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.item.*;
@@ -39,12 +40,41 @@ public class JAAVAAItems {
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
     public static final Item STARSTEEL_NUGGET = register("starsteel_nugget",
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
+    //TODO: Add Texture \/ Copy from Netherite sword, change blade color, add sparkle effect. Create broken texture as well that has no animation.
+    public static final Item STARSTEEL_SWORD = register("starsteel_sword",
+            settings -> new SwordItem(ToolMaterials.STARSTEEL, 3, -2.4f, settings),
+            new Item.Settings().rarity(Rarity.RARE).maxCount(1)
+                    .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT));
+    //TODO: Add Texture \/ Netherite base/starsteel core. Copy from netherite upgrade, change colors.
+    public static final Item STARSTEEL_UPGRADE_SMITHING_TEMPLATE = register("starsteel_upgrade_smithing_template",
+            JAAVAAItems::createStarsteelUpgradeSmithingTemplate,
+            new Item.Settings().rarity(Rarity.RARE)
+                    .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT));
     //TODO: Add Starsteel weapons and items. Or make MALUM_STELLAE_INCANTATAE act like an enchanted book and give any tool/weapon/armor it's rarity and DamageResistantComponent and make it eternal. Should be able to be done by adding a custom enchantment.
     public static final Item TOOL_OF_THE_ANCIENTS = register("tool_of_the_ancients",
             settings -> new PaxelItem(ToolMaterial.NETHERITE, 5.0f, -1.5f, settings),
-            new Item.Settings().rarity(Rarity.EPIC).fireproof().maxCount(1).maxDamage(3000));
+            new Item.Settings().rarity(Rarity.EPIC).fireproof().maxCount(1).maxDamage(3072));
+    //TODO: Add Texture \/
+    public static final Item STARSTEEL_TOOL_OF_THE_ANCIENTS = register("starsteel_tool_of_the_ancients",
+            settings -> new PaxelItem(ToolMaterials.STARSTEEL, 5.0f, -1.5f, settings),
+            new Item.Settings().rarity(Rarity.EPIC).fireproof().maxCount(1).maxDamage(4096)
+                    .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT));
 
     //Methods
+//    public static final String STARSTEEL_UPGRADE_APPLIES_TO_TEXT = Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.applies_to"));
+//    public static final String STARSTEEL_UPGRADE_INGREDIENTS_TEXT = Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.ingredients"));
+//    public static final String STARSTEEL_UPGRADE_BASE_SLOT_DESCRIPTION_TEXT = Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.base_slot_description"));
+//    public static final String STARSTEEL_UPGRADE_ADDITIONS_SLOT_DESCRIPTION_TEXT = Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.additions_slot_description"));
+    private static SmithingTemplateItem createStarsteelUpgradeSmithingTemplate(Item.Settings settings) {
+        return new SmithingTemplateItem(
+                Text.translatable(Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.applies_to"))).formatted(Formatting.BLUE),
+                Text.translatable(Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.ingredients"))).formatted(Formatting.BLUE),
+                Text.translatable(Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.base_slot_description"))),
+                Text.translatable(Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.additions_slot_description"))),
+                SmithingTemplateItemAccessor.getNetheriteUpgradeEmptyBaseSlotTextures(),
+                SmithingTemplateItemAccessor.getNetheriteUpgradeEmptyAdditionsSlotTextures(),
+                settings);
+    }
     /**
      * Registers an item with the given path and default settings.
      * @param path The path of the item
@@ -79,6 +109,7 @@ public class JAAVAAItems {
      */
     public static void init() {
         JAAVAA.log("Initializing items");
+        ToolMaterials.init();
 
         //Adding Items to main Item ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_ITEMS).register(entries -> {
@@ -87,7 +118,25 @@ public class JAAVAAItems {
             entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);
             entries.add(STARSTEEL_NUGGET);
+            entries.add(STARSTEEL_SWORD);
+            entries.add(STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
             entries.add(TOOL_OF_THE_ANCIENTS);
         });
+    }
+
+    public static class ToolMaterials {
+        public static final ToolMaterial STARSTEEL = new ToolMaterial(
+                JAAVAATags.Blocks.INCORRECT_FOR_STARSTEEL_TOOL,
+                3072, 12.0f, 5.0f, 20,
+                JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS
+        );
+        public static final ToolMaterial VOIDIUM = new ToolMaterial(
+                JAAVAATags.Blocks.INCORRECT_FOR_VOIDIUM_TOOL,
+                8192, 24, 10.0f, 30,
+                JAAVAATags.Items.VOIDIUM_TOOL_MATERIALS
+        );
+        public static void init() {
+            JAAVAA.log("Initializing tool materials");
+        }
     }
 }

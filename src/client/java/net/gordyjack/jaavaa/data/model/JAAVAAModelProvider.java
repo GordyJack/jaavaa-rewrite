@@ -6,6 +6,7 @@ import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.block.enums.*;
+import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.*;
@@ -23,6 +24,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.QUICKSAND);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.RAW_VOIDIUM);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
@@ -52,6 +54,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator imGen) {
         for(Item item : JAAVAAItems.ITEMS) {
             if (item instanceof BlockItem) continue;
+            if (item.getDefaultStack().isIn(JAAVAATags.Items.TOOLS_STARSTEEL)) {
+                imGen.registerWithBrokenCondition(item);
+                continue;
+            }
             imGen.register(item, Models.GENERATED);
         }
     }

@@ -22,14 +22,12 @@ repositories {
 
 loom {
 	splitEnvironmentSourceSets()
-
 	mods {
 		"jaavaa" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
 	}
-
 }
 
 fabricApi {

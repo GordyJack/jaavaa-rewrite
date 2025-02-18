@@ -87,6 +87,8 @@
     "minecraft:pearlescent_froglight",
     "minecraft:verdant_froglight",
     "minecraft:amethyst_block",
-    "minecraft:resin_block"
+    "minecraft:resin_block",
+    "jaavaa:quicksand",
+    "jaavaa:raw_voidium"
   ]
 }

@@ -26,6 +26,10 @@ public class JAAVAABlocks {
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT);
 
     // Blocks
+    public static final Block QUICKSAND = registerBlock("quicksand",
+            QuicksandBlock::new, AbstractBlock.Settings.copy(Blocks.SAND)
+                    .sounds(BlockSoundGroup.SAND)
+                    .strength(0.5F));
     public static final Block RAW_VOIDIUM = registerBlock("raw_voidium",
             Block::new, AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS)
                     .mapColor(MapColor.BLACK));
@@ -207,12 +211,13 @@ public class JAAVAABlocks {
         //Adding Blocks to main Block ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKS).register(entries -> {
             entries.add(ALLOY_FURNACE);
+            entries.add(QUICKSAND);
             entries.add(RAW_VOIDIUM);
+            entries.add(RECYCLING_TABLE);
             entries.add(SMOOTH_POLISHED_DEEPSLATE);
             entries.add(STARSTEEL_BLOCK);
             entries.add(STARSTEEL_GLASS);
             entries.add(STARSTEEL_GLASS_PANE);
-            entries.add(RECYCLING_TABLE);
         });
         //Adding Blocks to main Redstone ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_REDSTONE).register(entries -> {

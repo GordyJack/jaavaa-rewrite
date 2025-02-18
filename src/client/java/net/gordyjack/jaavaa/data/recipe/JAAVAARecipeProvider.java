@@ -11,6 +11,7 @@ import net.gordyjack.jaavaa.recipe.*;
 import net.minecraft.block.*;
 import net.minecraft.data.recipe.*;
 import net.minecraft.item.*;
+import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.*;
 import net.minecraft.registry.*;
 
@@ -32,6 +33,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.createMaterialsRecipes();
                 this.createMiscRecipes();
                 this.createRecyclingRecipes();
+                this.createStarsteelSmithingRecipes();
                 this.offerEncasedPillarRecipes(Items.QUARTZ_PILLAR, Items.REDSTONE_BLOCK, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR);
                 this.offerEncasedPillarRecipes(Items.ANCIENT_DEBRIS, Items.REDSTONE_BLOCK, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
                 for (MiniBlock block : JAAVAABlocks.MINI_BLOCKS.keySet()) {
@@ -399,6 +401,11 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 //Uncrafting
                 this.offerRecyclingRecipe(0.1f, Items.NETHERITE_INGOT, Items.NETHERITE_SCRAP, 4);
             }
+            private void createStarsteelSmithingRecipes() {
+                this.offerSmithingTemplateCopyingRecipe(JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE, Items.NETHERITE_INGOT);
+                this.offerStarsteelUpgradeRecipe(Items.NETHERITE_SWORD, RecipeCategory.TOOLS, JAAVAAItems.STARSTEEL_SWORD);
+                this.offerStarsteelUpgradeRecipe(JAAVAAItems.TOOL_OF_THE_ANCIENTS, RecipeCategory.TOOLS, JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS);
+            }
             private void offerAlloyingRecipe(int burnTime, float experience,
                                              ItemConvertible input1, int input1Count,
                                              ItemConvertible input2, int input2Count,
@@ -461,6 +468,17 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             }
             private void offerSmelting(ItemConvertible item, RecipeCategory category, ItemConvertible result, float experience, int cookingTime, String group) {
                 offerSmelting(List.of(item), category, result, experience, cookingTime, group);
+            }
+            private void offerStarsteelUpgradeRecipe(Item input, RecipeCategory category, Item result) {
+                SmithingTransformRecipeJsonBuilder.create(
+                                Ingredient.ofItem(JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE),
+                                Ingredient.ofItem(input),
+                                this.ingredientFromTag(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS),
+                                category,
+                                result
+                        )
+                        .criterion("has_starsteel_ingot", this.conditionsFromTag(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS))
+                        .offerTo(this.exporter, getItemPath(result) + "_smithing");
             }
         };
     }

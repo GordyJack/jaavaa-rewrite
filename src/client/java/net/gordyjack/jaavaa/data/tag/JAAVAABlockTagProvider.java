@@ -63,13 +63,17 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         Blocks.PEARLESCENT_FROGLIGHT,
                         Blocks.VERDANT_FROGLIGHT,
                         Blocks.AMETHYST_BLOCK,
-                        Blocks.RESIN_BLOCK
+                        Blocks.RESIN_BLOCK,
+                        JAAVAABlocks.QUICKSAND,
+                        JAAVAABlocks.RAW_VOIDIUM
                 );
         getOrCreateTagBuilder(JAAVAATags.Blocks.DEEPSLATE_CRAFTABLES).add(
                 Blocks.DEEPSLATE,
                 Blocks.POLISHED_DEEPSLATE,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE
         );
+        getOrCreateTagBuilder(JAAVAATags.Blocks.INCORRECT_FOR_STARSTEEL_TOOL);
+        getOrCreateTagBuilder(JAAVAATags.Blocks.INCORRECT_FOR_VOIDIUM_TOOL);
         getOrCreateTagBuilder(JAAVAATags.Blocks.PAXEL_MINEABLE)
                 .addOptionalTag(BlockTags.AXE_MINEABLE)
                 .addOptionalTag(BlockTags.HOE_MINEABLE)
@@ -89,6 +93,7 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(
                 Blocks.GLASS,
                 Blocks.GLOWSTONE,
+                JAAVAABlocks.RAW_VOIDIUM,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE,
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STARSTEEL_GLASS,
@@ -134,6 +139,7 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 JAAVAABlocks.STARSTEEL_BLOCK_MINI_BLOCK
         );
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(
+                JAAVAABlocks.RAW_VOIDIUM,
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STARSTEEL_GLASS,
                 JAAVAABlocks.STARSTEEL_GLASS_PANE,
@@ -151,11 +157,14 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 JAAVAABlocks.IRON_MINI_BLOCK,
                 JAAVAABlocks.LAPIS_LAZULI_MINI_BLOCK
         );
-//        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(
-//                JAAVAABlocks.DIRT_MINI_BLOCK,
-//                JAAVAABlocks.COARSE_DIRT_MINI_BLOCK
-//        );
+        getOrCreateTagBuilder(BlockTags.SAND).add(
+                JAAVAABlocks.QUICKSAND
+        );
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(
+                JAAVAABlocks.QUICKSAND
+        );
         getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE).add(
+                JAAVAABlocks.RAW_VOIDIUM,
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STARSTEEL_GLASS,
                 JAAVAABlocks.STARSTEEL_GLASS_PANE,

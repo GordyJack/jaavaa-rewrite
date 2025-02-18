@@ -83,6 +83,18 @@ extends FabricLanguageProvider{
             translationBuilder.add("enchantment.jaavaa." + enchantmentName, getTranslatedName(enchantmentName));
         }
 
+        translationBuilder.add(
+                Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.additions_slot_description")),
+                "Add Starsteel Ingot");
+        translationBuilder.add(
+                Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.applies_to")),
+                "Netherite Equipment");
+        translationBuilder.add(
+                Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.ingredients")),
+                "Starsteel Ingot");
+        translationBuilder.add(
+                Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.base_slot_description")),
+                "Add netherite armor, weapon, or tool");
 
         try {
             Path existingFilePath = dataOutput.getModContainer().findPath("assets/jaavaa/lang/en_us.existing.json").get();

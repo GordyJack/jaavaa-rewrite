@@ -3,6 +3,7 @@ package net.gordyjack.jaavaa.data;
 import net.gordyjack.jaavaa.JAAVAA;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.*;
+import net.minecraft.entity.*;
 import net.minecraft.entity.damage.*;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
@@ -13,6 +14,8 @@ public class JAAVAATags {
     public static class Blocks {
         public static final TagKey<Block> CAPRICIOUS_BLOCKS = createTag("capricious_blocks");
         public static final TagKey<Block> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
+        public static final TagKey<Block> INCORRECT_FOR_STARSTEEL_TOOL = createTag("incorrect_for_starsteel_tool");
+        public static final TagKey<Block> INCORRECT_FOR_VOIDIUM_TOOL = createTag("incorrect_for_voidium_tool");
         public static final TagKey<Block> PAXEL_MINEABLE = createTag("mineable/paxel");
 
         private static TagKey<Block> createTag(String name) {
@@ -20,8 +23,15 @@ public class JAAVAATags {
         }
     }
     public static class Items {
+        //Mod Tags
         public static final TagKey<Item> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
+        public static final TagKey<Item> PAXELS = createTag("paxels");
         public static final TagKey<Item> RECYCLABLE = createTag("recyclable");
+        public static final TagKey<Item> STARSTEEL_TOOL_MATERIALS = createTag("starsteel_tool_materials");
+        public static final TagKey<Item> VOIDIUM_TOOL_MATERIALS = createTag("voidium_tool_materials");
+        public static final TagKey<Item> TOOLS_STARSTEEL = createTag("tools/starsteel");
+        public static final TagKey<Item> TOOLS_VOIDIUM = createTag("tools/voidium");
+        //Common tags
         public static final TagKey<Item> TOOLS_WOODEN = createTagOf("c", "tools/wooden");
         public static final TagKey<Item> TOOLS_STONE = createTagOf("c", "tools/stone");
         public static final TagKey<Item> TOOLS_GOLD = createTagOf("c", "tools/gold");
@@ -39,6 +49,8 @@ public class JAAVAATags {
     public static class Other {
         public static final TagKey<DamageType> IS_EXPLOSION_OR_FIRE =
                 TagKey.of(RegistryKeys.DAMAGE_TYPE, JAAVAA.id("is_explosion_or_fire"));
+        public static final TagKey<EntityType<?>> QUICKSAND_WALKABLE_MOBS =
+                TagKey.of(RegistryKeys.ENTITY_TYPE, JAAVAA.id("quicksand_walkable_mobs"));
         public static final TagKey<Enchantment> UNBRIDLED_DESTRUCTION_EXCLUSIVE_SET =
                 TagKey.of(RegistryKeys.ENCHANTMENT, JAAVAA.id("exclusive_set/unbridled_destruction"));
     }
