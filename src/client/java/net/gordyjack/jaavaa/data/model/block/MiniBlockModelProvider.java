@@ -29,31 +29,57 @@ public class MiniBlockModelProvider implements DataProvider {
             Path modelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName + ".json");
             returns.add(DataProvider.writeToPath(writer, model, modelPath));
         }
-        for (var model : JAAVAABlocks.MINI_BLOCKS.keySet()) {
-            this.writeMiniBlockModels(model, JAAVAABlocks.MINI_BLOCKS.get(model), returns, writer);
+        for (MiniBlock miniBlock : JAAVAABlocks.MINI_BLOCKS.keySet()) {
+            for (JsonObject model : generateMiniBlockModels(JAAVAABlocks.MINI_BLOCKS.get(miniBlock))) {
+                String posString = model.get("position").getAsString();
+                String modelName = JAAVAA.idFromItem(miniBlock).getPath();
+                Path blockModelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName  + "_" + posString + ".json");
+                if (posString.equals("00000001")) {
+                    Path itemModelPath = OUTPUT.getPath().resolve("assets/jaavaa/items/" + modelName + ".json");
+                    JsonObject item = new JsonObject();
+                    JsonObject itemModel = new JsonObject();
+                    itemModel.addProperty("type", "minecraft:model");
+                    itemModel.addProperty("model", "jaavaa:block/" + modelName + "_00000001");
+                    item.add("model", itemModel);
+                    returns.add(DataProvider.writeToPath(writer, item, itemModelPath));
+                }
+                returns.add(DataProvider.writeToPath(writer, model, blockModelPath));
+            }
         }
         return CompletableFuture.allOf(returns.toArray(CompletableFuture[]::new));
-    }
-    private void writeMiniBlockModels(MiniBlock miniBlock, Block parentBlock, List<CompletableFuture<?>> returns, DataWriter writer) {
-        for (var model : generateMiniBlockModels(miniBlock, parentBlock)) {
-            String posString = model.get("position").getAsString();
-            String modelName = JAAVAA.idFromItem(miniBlock).getPath();
-            Path blockModelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName  + "_" + posString + ".json");
-            if (posString.equals("00000001")) {
-                Path itemModelPath = OUTPUT.getPath().resolve("assets/jaavaa/items/" + modelName + ".json");
-                JsonObject item = new JsonObject();
-                JsonObject itemModel = new JsonObject();
-                itemModel.addProperty("type", "minecraft:model");
-                itemModel.addProperty("model", "jaavaa:block/" + modelName + "_00000001");
-                item.add("model", itemModel);
-                returns.add(DataProvider.writeToPath(writer, item, itemModelPath));
-            }
-            returns.add(DataProvider.writeToPath(writer, model, blockModelPath));
-        }
     }
     @Override
     public String getName() {
         return "Mini Block Model Provider";
+    }
+    @SafeVarargs
+    private static <T extends Number> JsonArray arrayOf(T... values) {
+        JsonArray array = new JsonArray();
+        for (T value : values) {
+            array.add(value);
+        }
+        return array;
+    }
+    private static JsonObject createCornerFace(String texture, int quadrant) {
+        return switch (quadrant) {
+            case 1 -> createFace(texture, null, 0, 0, 8, 8, 0);
+            case 2 -> createFace(texture, null, 0, 8, 8, 16, 0);
+            case 3 -> createFace(texture, null, 8, 0, 16, 8, 0);
+            case 4 -> createFace(texture, null, 8, 8, 16, 16, 0);
+            default -> throw new IllegalStateException("Unexpected value: " + quadrant);
+        };
+    }
+    private static JsonObject createFace(String texture, @Nullable String cullface, int u1, int v1, int u2, int v2, int r) {
+        JsonObject face = new JsonObject();
+        face.addProperty("texture", texture);
+        face.add("uv", arrayOf(u1, v1, u2, v2));
+        if (cullface != null) {
+            face.addProperty("cullface", cullface);
+        }
+        if (r != 0 && r % 90 == 0) {
+            face.addProperty("rotation", r);
+        }
+        return face;
     }
     private List<JsonObject> generateBaseMiniBlockModels() {
         List<JsonObject> models = new ArrayList<>();
@@ -79,6 +105,14 @@ public class MiniBlockModelProvider implements DataProvider {
             models.add(model);
         }
         return models;
+    }
+    private static List<String> getPosStrings() {
+        List<String> posStrings = new ArrayList<>();
+        for (int i = 0b00000001; i <= 0b11111111; i++) {
+            String posString = String.format("%8s", Integer.toBinaryString(i)).replace(' ', '0');
+            posStrings.add(posString);
+        }
+        return posStrings;
     }
     private JsonObject generateMiniBlock(int position) {
         JsonObject model00000001 = new JsonObject();
@@ -189,43 +223,7 @@ public class MiniBlockModelProvider implements DataProvider {
             default -> throw new IllegalStateException("Unexpected value: " + position);
         };
     }
-    public static List<JsonObject> generateMiniBlockElements() {
-        List<JsonObject> models = new ArrayList<>();
-
-        // Iterate over all positions in x, y, z
-        for (int y = 0; y <= 8; y += 8) {
-            for (int z = 0; z <= 8; z += 8) {
-                for (int x = 0; x <= 8; x += 8) {
-                    JsonObject model = new JsonObject();
-
-                    // Define "from" and "to" dynamically based on x, y, z
-                    model.add("from", arrayOf(x, y, z));
-                    model.add("to", arrayOf(x + 8, y + 8, z + 8));
-
-                    JsonObject faces = new JsonObject();
-                    faces.add("down", createFace("#down", "down", 0, 0, 8, 8, 0));
-                    faces.add("up", createFace("#up", "up", 0, 0, 8, 8, 0));
-                    faces.add("north", createFace("#side", "north", 0, 0, 8, 8, 0));
-                    faces.add("south", createFace("#side", "south", 0, 0, 8, 8, 0));
-                    faces.add("west", createFace("#side", "west", 0, 0, 8, 8, 0));
-                    faces.add("east", createFace("#side", "east", 0, 0, 8, 8, 0));
-                    model.add("faces", faces);
-
-                    models.add(model);
-                }
-            }
-        }
-        return models;
-    }
-    private static List<String> getPosStrings() {
-        List<String> posStrings = new ArrayList<>();
-        for (int i = 0b00000001; i <= 0b11111111; i++) {
-            String posString = String.format("%8s", Integer.toBinaryString(i)).replace(' ', '0');
-            posStrings.add(posString);
-        }
-        return posStrings;
-    }
-    private static List<JsonObject> generateMiniBlockModels(@NotNull MiniBlock miniBlock, @NotNull Block parentBlock) {
+    private static List<JsonObject> generateMiniBlockModels(@NotNull Block parentBlock) {
         List<JsonObject> models = new ArrayList<>();
         String parentIdPath = JAAVAA.idFromItem(parentBlock).toString().replace(":", ":block/");
         for (String posString : getPosStrings()) {
@@ -241,34 +239,5 @@ public class MiniBlockModelProvider implements DataProvider {
             models.add(model);
         }
         return models;
-    }
-    @SafeVarargs
-    private static <T extends Number> JsonArray arrayOf(T... values) {
-        JsonArray array = new JsonArray();
-        for (T value : values) {
-            array.add(value);
-        }
-        return array;
-    }
-    private static JsonObject createFace(String texture, @Nullable String cullface, int u1, int v1, int u2, int v2, int r) {
-        JsonObject face = new JsonObject();
-        face.addProperty("texture", texture);
-        face.add("uv", arrayOf(u1, v1, u2, v2));
-        if (cullface != null) {
-            face.addProperty("cullface", cullface);
-        }
-        if (r != 0 && r % 90 == 0) {
-            face.addProperty("rotation", r);
-        }
-        return face;
-    }
-    private static JsonObject createCornerFace(String texture, int quadrant) {
-        return switch (quadrant) {
-            case 1 -> createFace(texture, null, 0, 0, 8, 8, 0);
-            case 2 -> createFace(texture, null, 0, 8, 8, 16, 0);
-            case 3 -> createFace(texture, null, 8, 0, 16, 8, 0);
-            case 4 -> createFace(texture, null, 8, 8, 16, 16, 0);
-            default -> throw new IllegalStateException("Unexpected value: " + quadrant);
-        };
     }
 }
