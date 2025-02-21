@@ -26,16 +26,16 @@ public class MiniBlockModelProvider implements DataProvider {
         List<JsonObject> baseModels = generateBaseMiniBlockModels();
         for (var model : baseModels) {
             String modelName = "mini_block_" + model.get("position").getAsString();
-            Path modelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName + ".json");
+            Path modelPath = this.OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName + ".json");
             returns.add(DataProvider.writeToPath(writer, model, modelPath));
         }
         for (MiniBlock miniBlock : JAAVAABlocks.MINI_BLOCKS.keySet()) {
             for (JsonObject model : generateMiniBlockModels(JAAVAABlocks.MINI_BLOCKS.get(miniBlock))) {
                 String posString = model.get("position").getAsString();
                 String modelName = JAAVAA.idFromItem(miniBlock).getPath();
-                Path blockModelPath = OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName  + "_" + posString + ".json");
+                Path blockModelPath = this.OUTPUT.getPath().resolve("assets/jaavaa/models/block/" + modelName  + "_" + posString + ".json");
                 if (posString.equals("00000001")) {
-                    Path itemModelPath = OUTPUT.getPath().resolve("assets/jaavaa/items/" + modelName + ".json");
+                    Path itemModelPath = this.OUTPUT.getPath().resolve("assets/jaavaa/items/" + modelName + ".json");
                     JsonObject item = new JsonObject();
                     JsonObject itemModel = new JsonObject();
                     itemModel.addProperty("type", "minecraft:model");
