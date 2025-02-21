@@ -81,7 +81,7 @@ public class MiniBlockModelProvider implements DataProvider {
         }
         return face;
     }
-    private List<JsonObject> generateBaseMiniBlockModels() {
+    private static List<JsonObject> generateBaseMiniBlockModels() {
         List<JsonObject> models = new ArrayList<>();
         for (String posString : getPosStrings()) {
             int pos = Integer.parseInt(posString, 2);
@@ -114,7 +114,7 @@ public class MiniBlockModelProvider implements DataProvider {
         }
         return posStrings;
     }
-    private JsonObject generateMiniBlock(int position) {
+    private static JsonObject generateMiniBlock(int position) {
         JsonObject model00000001 = new JsonObject();
         model00000001.add("from", arrayOf(0, 0, 0));
         model00000001.add("to", arrayOf(8, 8, 8));
