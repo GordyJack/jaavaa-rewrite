@@ -31,7 +31,6 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.registerGlassAndPane(JAAVAABlocks.STARSTEEL_GLASS, JAAVAABlocks.STARSTEEL_GLASS_PANE);
         bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
 
-        //TODO:Add custom model generation for the Adder, Decoder, Recycling Table, and Adjustable Lamp similar to the Advanced Repeater.
         bsmGen.blockStateCollector.accept(generateAdderState());
         bsmGen.blockStateCollector.accept(generateAdjustableState());
         bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState());
@@ -72,10 +71,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                         for (var right : JAAVAABlockProperties.RIGHT_POWERED.getValues()) {
                             String idPath = "block/adder";
                             if (powered && (left || back || right)) {
-                                idPath += "_on_";
-                                if (left) idPath += "l";
-                                if (back) idPath += "b";
-                                if (right) idPath += "r";
+                                idPath += "_on";
+                                if (left) idPath += "_l";
+                                if (back) idPath += "_b";
+                                if (right) idPath += "_r";
                             }
                             Identifier modelId = JAAVAA.id(idPath);
                             VariantSettings.Rotation yRotation = switch (facing) {
@@ -163,14 +162,15 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                 for (DecoderMode mode : JAAVAABlockProperties.DECODER_MODE.getValues()) {
                     for (DecoderTarget target : JAAVAABlockProperties.DECODER_TARGET.getValues()) {
                         String idPath = "block/decoder";
-                        if (powered) idPath += "_on";
+                        if (powered) {
+                            idPath += "_on" + switch (target) {
+                                case LEFT -> "_l";
+                                case FRONT -> "_f";
+                                case RIGHT -> "_r";
+                                default -> "";
+                            };
+                        }
                         if (mode == DecoderMode.DEMUX) idPath += "_demux";
-                        if (powered) idPath += switch (target) {
-                            case LEFT -> "_l";
-                            case FRONT -> "_f";
-                            case RIGHT -> "_r";
-                            default -> "";
-                        };
                         Identifier modelId = JAAVAA.id(idPath);
                         VariantSettings.Rotation yRotation = switch (facing) {
                             case NORTH -> VariantSettings.Rotation.R180;

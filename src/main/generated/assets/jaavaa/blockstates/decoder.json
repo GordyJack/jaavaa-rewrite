@@ -49,11 +49,11 @@
       "y": 270
     },
     "facing=east,mode=demux,powered=true,target=front": {
-      "model": "jaavaa:block/decoder_on_demux_f",
+      "model": "jaavaa:block/decoder_on_f_demux",
       "y": 270
     },
     "facing=east,mode=demux,powered=true,target=left": {
-      "model": "jaavaa:block/decoder_on_demux_l",
+      "model": "jaavaa:block/decoder_on_l_demux",
       "y": 270
     },
     "facing=east,mode=demux,powered=true,target=none": {
@@ -61,7 +61,7 @@
       "y": 270
     },
     "facing=east,mode=demux,powered=true,target=right": {
-      "model": "jaavaa:block/decoder_on_demux_r",
+      "model": "jaavaa:block/decoder_on_r_demux",
       "y": 270
     },
     "facing=north,mode=decode,powered=false,target=front": {
@@ -113,11 +113,11 @@
       "y": 180
     },
     "facing=north,mode=demux,powered=true,target=front": {
-      "model": "jaavaa:block/decoder_on_demux_f",
+      "model": "jaavaa:block/decoder_on_f_demux",
       "y": 180
     },
     "facing=north,mode=demux,powered=true,target=left": {
-      "model": "jaavaa:block/decoder_on_demux_l",
+      "model": "jaavaa:block/decoder_on_l_demux",
       "y": 180
     },
     "facing=north,mode=demux,powered=true,target=none": {
@@ -125,7 +125,7 @@
       "y": 180
     },
     "facing=north,mode=demux,powered=true,target=right": {
-      "model": "jaavaa:block/decoder_on_demux_r",
+      "model": "jaavaa:block/decoder_on_r_demux",
       "y": 180
     },
     "facing=south,mode=decode,powered=false,target=front": {
@@ -177,11 +177,11 @@
       "y": 0
     },
     "facing=south,mode=demux,powered=true,target=front": {
-      "model": "jaavaa:block/decoder_on_demux_f",
+      "model": "jaavaa:block/decoder_on_f_demux",
       "y": 0
     },
     "facing=south,mode=demux,powered=true,target=left": {
-      "model": "jaavaa:block/decoder_on_demux_l",
+      "model": "jaavaa:block/decoder_on_l_demux",
       "y": 0
     },
     "facing=south,mode=demux,powered=true,target=none": {
@@ -189,7 +189,7 @@
       "y": 0
     },
     "facing=south,mode=demux,powered=true,target=right": {
-      "model": "jaavaa:block/decoder_on_demux_r",
+      "model": "jaavaa:block/decoder_on_r_demux",
       "y": 0
     },
     "facing=west,mode=decode,powered=false,target=front": {
@@ -241,11 +241,11 @@
       "y": 90
     },
     "facing=west,mode=demux,powered=true,target=front": {
-      "model": "jaavaa:block/decoder_on_demux_f",
+      "model": "jaavaa:block/decoder_on_f_demux",
       "y": 90
     },
     "facing=west,mode=demux,powered=true,target=left": {
-      "model": "jaavaa:block/decoder_on_demux_l",
+      "model": "jaavaa:block/decoder_on_l_demux",
       "y": 90
     },
     "facing=west,mode=demux,powered=true,target=none": {
@@ -253,7 +253,7 @@
       "y": 90
     },
     "facing=west,mode=demux,powered=true,target=right": {
-      "model": "jaavaa:block/decoder_on_demux_r",
+      "model": "jaavaa:block/decoder_on_r_demux",
       "y": 90
     }
   }

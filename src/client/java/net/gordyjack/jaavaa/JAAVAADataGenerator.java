@@ -33,7 +33,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 		
 		enUSProvider = pack.addProvider(JAAVAAenusProvider::new);
 		modelProvider = pack.addProvider(JAAVAAModelProvider::new);
-		advancedRepeaterModelProvider = pack.addProvider(AdvancedRepeaterModelProvider::new);
+		advancedRepeaterModelProvider = pack.addProvider(AdvancedRedstoneGateModelProvider::new);
 		miniBlockModelProvider = pack.addProvider(MiniBlockModelProvider::new);
 		enchantmentProvider = pack.addProvider(JAAVAARegistryProvider::new);
 		recipeProvider = pack.addProvider(JAAVAARecipeProvider::new);

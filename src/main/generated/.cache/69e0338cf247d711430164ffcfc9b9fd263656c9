@@ -1,5 +1,5 @@
 // 1.21.4	-999999999-01-01T00:00:00	JAAVAA/Model Definitions
-3682485410af2af23a393b3453fd363bf56d2d16 assets/jaavaa/blockstates/adder.json
+650082aca065bc13bd88ad5d8b96bb94e38a85c6 assets/jaavaa/blockstates/adder.json
 22260f6e29fdaf792f5edb3b7a6c9a7132760e36 assets/jaavaa/blockstates/adjustable_redstone_lamp.json
 991aa535e9f6a6f43d30647568ce6eba9e09aee8 assets/jaavaa/blockstates/advanced_repeater.json
 42373a767950974448773d762475900bfe91dd5f assets/jaavaa/blockstates/alloy_furnace.json
@@ -9,7 +9,7 @@
 7e6bae18660dbb47311d9888b653cf54b834b90a assets/jaavaa/blockstates/coal_mini_block.json
 b39b75f9ffe17deaa8d6faba5a08226917adf6a9 assets/jaavaa/blockstates/cobblestone_mini_block.json
 a81e4dc20b331f7055964ef2c536a8e560fdf8d0 assets/jaavaa/blockstates/dark_prismarine_mini_block.json
-4140f144c7156d15727826ca914f1709b292f9cb assets/jaavaa/blockstates/decoder.json
+b2c817030a55b44141d51ee7924d628de9a0b3d0 assets/jaavaa/blockstates/decoder.json
 d104f07930e953cf2fc3e9aed3ae3ee1ebf9e462 assets/jaavaa/blockstates/deepslate_mini_block.json
 609852b1c9521f3db377f579efa94de3df34eca2 assets/jaavaa/blockstates/deepslate_tiles_mini_block.json
 6ddf7bf819df5ab9688d6faf54bc9983b0dd924e assets/jaavaa/blockstates/diamond_mini_block.json

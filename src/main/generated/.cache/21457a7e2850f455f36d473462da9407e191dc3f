@@ -1,4 +1,13 @@
-// 1.21.4	-999999999-01-01T00:00:00	JAAVAA/Advanced Repeater Model Provider
+// 1.21.4	-999999999-01-01T00:00:00	JAAVAA/Advanced Redstone Gate Model Provider
+168aa66f8338c9f184bb40641dd2c0c0af8ff420 assets/jaavaa/models/block/adder.json
+459dbacc57ec3014a12c9d026270bd2491ac4cf8 assets/jaavaa/models/block/adder_on.json
+4ddc3867f8c4596e96e76bfac1d782b30eef02b1 assets/jaavaa/models/block/adder_on_b.json
+95ad259d913840b0f1696f65382d225dc2d1c67e assets/jaavaa/models/block/adder_on_b_r.json
+ba4d195253c1d4e502f8be01abd47975208c0dfd assets/jaavaa/models/block/adder_on_l.json
+0c0ada7992375273a7507b8675a20efc30f1165e assets/jaavaa/models/block/adder_on_l_b.json
+842793a4c2726b3b6c2fe07db65b02b9d079eb2e assets/jaavaa/models/block/adder_on_l_b_r.json
+281bb35fdfad0e0a511f5c7af496ebd85ca76654 assets/jaavaa/models/block/adder_on_l_r.json
+a3fcabb9e139f121ebd97d7956c5a90e90dc7c8e assets/jaavaa/models/block/adder_on_r.json
 c4b6a5b3d398d6ddfc54149bd7176ff1154f20da assets/jaavaa/models/block/advanced_repeater.json
 9a06375d5977079ce58be8da4a7d62512789649d assets/jaavaa/models/block/advanced_repeater_d1.json
 40df8a8ce1850dacf3a3a205973b7eeb5f4a5fff assets/jaavaa/models/block/advanced_repeater_d1_p1.json
@@ -255,3 +264,11 @@ d2db1b959acec313d0df9f8e7bfa276c03a70dfd assets/jaavaa/models/block/advanced_rep
 73d38dbbded7deab0326afc4176e1d51f759aba8 assets/jaavaa/models/block/advanced_repeater_p5.json
 f38b06e95ae0a34861676b1ca4ed18fd75bfe82a assets/jaavaa/models/block/advanced_repeater_p6.json
 52a0e01f13e7be95ff1cf0248e5100704d155ce7 assets/jaavaa/models/block/advanced_repeater_p7.json
+afb695cb36efb150b3162dd8fa6899524637c132 assets/jaavaa/models/block/decoder.json
+64dfc1ca37ab7e2bc84fb10d8ee32b955a2629b8 assets/jaavaa/models/block/decoder_demux.json
+a2ecfd3f24c49a9db8c648f1c4619c3008714ebd assets/jaavaa/models/block/decoder_on_f.json
+a901306ce83d5246210964e45d36e57123b59ce1 assets/jaavaa/models/block/decoder_on_f_demux.json
+c3ec472f75552295a2fe5c3348646f1c7dbc1f53 assets/jaavaa/models/block/decoder_on_l.json
+1493e9481a5f817a4b3eed45a5a7e17ae866c0f1 assets/jaavaa/models/block/decoder_on_l_demux.json
+2c0d11cdc2e0c057960ef851d39670563946918c assets/jaavaa/models/block/decoder_on_r.json
+750704c244869b7256677e9813a874cca33e6e2b assets/jaavaa/models/block/decoder_on_r_demux.json
