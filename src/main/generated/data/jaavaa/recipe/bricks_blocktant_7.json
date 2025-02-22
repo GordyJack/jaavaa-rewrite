@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:bricks_blocktant",
+  "ingredients": [
+    "minecraft:bricks",
+    "minecraft:bricks",
+    "minecraft:bricks",
+    "minecraft:bricks",
+    "minecraft:bricks",
+    "minecraft:bricks",
+    "minecraft:bricks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 56,
+    "id": "jaavaa:bricks_blocktant"
+  }
+}

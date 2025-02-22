@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:birch_planks",
+  "ingredients": [
+    "jaavaa:birch_planks_blocktant",
+    "jaavaa:birch_planks_blocktant",
+    "jaavaa:birch_planks_blocktant",
+    "jaavaa:birch_planks_blocktant",
+    "jaavaa:birch_planks_blocktant",
+    "jaavaa:birch_planks_blocktant",
+    "jaavaa:birch_planks_blocktant",
+    "jaavaa:birch_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:birch_planks"
+  }
+}

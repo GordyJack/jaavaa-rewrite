@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:dark_oak_planks_blocktant",
+  "ingredients": [
+    "minecraft:dark_oak_planks",
+    "minecraft:dark_oak_planks",
+    "minecraft:dark_oak_planks",
+    "minecraft:dark_oak_planks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 32,
+    "id": "jaavaa:dark_oak_planks_blocktant"
+  }
+}

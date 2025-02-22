@@ -35,8 +35,18 @@ extends FabricLanguageProvider{
                 translationBuilder.add(block, "Block of Starsteel");
                 continue;
             }
-            if (block instanceof MiniBlock) {
-                translationBuilder.add(block, "Mini Block of " + getTranslatedName(block).replace(" Mini", ""));
+            if (block instanceof Blocktant) {
+                List<Block> blockOfs = List.of(
+                        JAAVAABlocks.AMETHYST_BLOCKTANT, JAAVAABlocks.COAL_BLOCKTANT, JAAVAABlocks.DIAMOND_BLOCKTANT,
+                        JAAVAABlocks.EMERALD_BLOCKTANT, JAAVAABlocks.GOLD_BLOCKTANT, JAAVAABlocks.IRON_BLOCKTANT,
+                        JAAVAABlocks.LAPIS_LAZULI_BLOCKTANT, JAAVAABlocks.NETHERITE_BLOCKTANT, JAAVAABlocks.QUARTZ_BLOCKTANT,
+                        JAAVAABlocks.RAW_COPPER_BLOCKTANT, JAAVAABlocks.RAW_GOLD_BLOCKTANT, JAAVAABlocks.RAW_IRON_BLOCKTANT,
+                        JAAVAABlocks.REDSTONE_BLOCKTANT, JAAVAABlocks.RESIN_BLOCKTANT, JAAVAABlocks.STARSTEEL_BLOCKTANT);
+                if (blockOfs.contains(block)) {
+                    translationBuilder.add(block, "Block of " + getTranslatedName(block, false));
+                    continue;
+                }
+                translationBuilder.add(block, getTranslatedName(block, false));
                 continue;
             }
             translationBuilder.add(block, getTranslatedName(block));
@@ -64,7 +74,7 @@ extends FabricLanguageProvider{
             effectNames.add(effectName);
         }
         for (RegistryKey<ItemGroup> group : JAAVAAItemGroups.ITEM_GROUPS) {
-            translationBuilder.add(("itemGroup." + group.getValue()).replace(':', '.'), getTranslatedName(group.getValue().getPath()));
+            translationBuilder.add(("itemGroup." + group.getValue()).replace(':', '.'), getTranslatedName(group.getValue().getPath(), false));
         }
         for (RegistryEntry<StatusEffect> effect : JAAVAAStatusEffects.EFFECTS) {
             String effectId = effect.getIdAsString();
@@ -104,11 +114,17 @@ extends FabricLanguageProvider{
         }
     }
     private static String getTranslatedName(ItemConvertible itemConvertible) {
-        return getTranslatedName(itemConvertible.asItem().getTranslationKey());
+        return getTranslatedName(itemConvertible.asItem().getTranslationKey(), true);
+    }
+    private static String getTranslatedName(ItemConvertible itemConvertible, boolean filterBlock) {
+        return getTranslatedName(itemConvertible.asItem().getTranslationKey(), filterBlock);
     }
     private static String getTranslatedName(String name) {
+        return getTranslatedName(name, true);
+    }
+    private static String getTranslatedName(String name, boolean filterBlock) {
         name = name.substring(name.lastIndexOf('.') + 1); // Remove namespace
-        name = name.replaceAll("_block(?!s)", ""); // Remove block suffix
+        if (filterBlock) name = name.replaceAll("_block(?!s)", ""); // Remove block suffix
         name = name.replace('-', '_'); // Replace hyphens with underscores
         name = name.replace('_', ' '); // Replace underscores with spaces
         name = WordUtils.capitalizeFully(name); // Capitalize each word

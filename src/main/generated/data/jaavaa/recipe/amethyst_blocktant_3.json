@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:amethyst_blocktant",
+  "ingredients": [
+    "minecraft:amethyst_block",
+    "minecraft:amethyst_block",
+    "minecraft:amethyst_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 24,
+    "id": "jaavaa:amethyst_blocktant"
+  }
+}

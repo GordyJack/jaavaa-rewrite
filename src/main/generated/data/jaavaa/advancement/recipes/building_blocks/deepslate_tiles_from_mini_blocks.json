@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_deepslate_tiles_mini_block": {
+    "has_deepslate_tiles_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:deepslate_tiles_mini_block"
+            "items": "jaavaa:deepslate_tiles_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_deepslate_tiles_mini_block"
+      "has_deepslate_tiles_blocktant"
     ]
   ],
   "rewards": {

@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_00000100",
+  "position": "00000100",
+  "textures": {
+    "down": "minecraft:block/red_nether_bricks",
+    "side": "minecraft:block/red_nether_bricks",
+    "up": "minecraft:block/red_nether_bricks"
+  }
+}

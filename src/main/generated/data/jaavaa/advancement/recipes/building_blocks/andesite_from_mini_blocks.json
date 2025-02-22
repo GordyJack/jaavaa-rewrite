@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_andesite_mini_block": {
+    "has_andesite_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:andesite_mini_block"
+            "items": "jaavaa:andesite_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_andesite_mini_block"
+      "has_andesite_blocktant"
     ]
   ],
   "rewards": {

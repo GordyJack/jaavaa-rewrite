@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:crimson_planks",
+  "ingredients": [
+    "jaavaa:crimson_planks_blocktant",
+    "jaavaa:crimson_planks_blocktant",
+    "jaavaa:crimson_planks_blocktant",
+    "jaavaa:crimson_planks_blocktant",
+    "jaavaa:crimson_planks_blocktant",
+    "jaavaa:crimson_planks_blocktant",
+    "jaavaa:crimson_planks_blocktant",
+    "jaavaa:crimson_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:crimson_planks"
+  }
+}

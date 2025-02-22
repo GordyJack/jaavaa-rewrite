@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:quartz_block",
   "ingredients": [
-    "jaavaa:quartz_mini_block",
-    "jaavaa:quartz_mini_block",
-    "jaavaa:quartz_mini_block",
-    "jaavaa:quartz_mini_block",
-    "jaavaa:quartz_mini_block",
-    "jaavaa:quartz_mini_block",
-    "jaavaa:quartz_mini_block",
-    "jaavaa:quartz_mini_block"
+    "jaavaa:quartz_blocktant",
+    "jaavaa:quartz_blocktant",
+    "jaavaa:quartz_blocktant",
+    "jaavaa:quartz_blocktant",
+    "jaavaa:quartz_blocktant",
+    "jaavaa:quartz_blocktant",
+    "jaavaa:quartz_blocktant",
+    "jaavaa:quartz_blocktant"
   ],
   "result": {
     "count": 1,

@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_00001100",
+  "position": "00001100",
+  "textures": {
+    "down": "minecraft:block/dark_prismarine",
+    "side": "minecraft:block/dark_prismarine",
+    "up": "minecraft:block/dark_prismarine"
+  }
+}

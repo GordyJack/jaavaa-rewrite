@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:netherite_block",
   "ingredients": [
-    "jaavaa:netherite_mini_block",
-    "jaavaa:netherite_mini_block",
-    "jaavaa:netherite_mini_block",
-    "jaavaa:netherite_mini_block",
-    "jaavaa:netherite_mini_block",
-    "jaavaa:netherite_mini_block",
-    "jaavaa:netherite_mini_block",
-    "jaavaa:netherite_mini_block"
+    "jaavaa:netherite_blocktant",
+    "jaavaa:netherite_blocktant",
+    "jaavaa:netherite_blocktant",
+    "jaavaa:netherite_blocktant",
+    "jaavaa:netherite_blocktant",
+    "jaavaa:netherite_blocktant",
+    "jaavaa:netherite_blocktant",
+    "jaavaa:netherite_blocktant"
   ],
   "result": {
     "count": 1,

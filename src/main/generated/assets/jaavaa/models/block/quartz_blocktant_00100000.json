@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_00100000",
+  "position": "00100000",
+  "textures": {
+    "down": "minecraft:block/quartz_block",
+    "side": "minecraft:block/quartz_block",
+    "up": "minecraft:block/quartz_block"
+  }
+}

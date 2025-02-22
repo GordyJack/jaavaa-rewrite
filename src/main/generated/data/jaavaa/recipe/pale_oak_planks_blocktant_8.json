@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:pale_oak_planks_blocktant",
+  "ingredients": [
+    "minecraft:pale_oak_planks",
+    "minecraft:pale_oak_planks",
+    "minecraft:pale_oak_planks",
+    "minecraft:pale_oak_planks",
+    "minecraft:pale_oak_planks",
+    "minecraft:pale_oak_planks",
+    "minecraft:pale_oak_planks",
+    "minecraft:pale_oak_planks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 64,
+    "id": "jaavaa:pale_oak_planks_blocktant"
+  }
+}

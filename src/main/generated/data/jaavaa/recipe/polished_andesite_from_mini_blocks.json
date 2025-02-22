@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:polished_andesite",
   "ingredients": [
-    "jaavaa:polished_andesite_mini_block",
-    "jaavaa:polished_andesite_mini_block",
-    "jaavaa:polished_andesite_mini_block",
-    "jaavaa:polished_andesite_mini_block",
-    "jaavaa:polished_andesite_mini_block",
-    "jaavaa:polished_andesite_mini_block",
-    "jaavaa:polished_andesite_mini_block",
-    "jaavaa:polished_andesite_mini_block"
+    "jaavaa:polished_andesite_blocktant",
+    "jaavaa:polished_andesite_blocktant",
+    "jaavaa:polished_andesite_blocktant",
+    "jaavaa:polished_andesite_blocktant",
+    "jaavaa:polished_andesite_blocktant",
+    "jaavaa:polished_andesite_blocktant",
+    "jaavaa:polished_andesite_blocktant",
+    "jaavaa:polished_andesite_blocktant"
   ],
   "result": {
     "count": 1,

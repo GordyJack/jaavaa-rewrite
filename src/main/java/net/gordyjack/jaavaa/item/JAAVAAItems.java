@@ -45,7 +45,6 @@ public class JAAVAAItems {
             settings -> new SwordItem(ToolMaterials.STARSTEEL, 3, -2.4f, settings),
             new Item.Settings().rarity(Rarity.RARE).maxCount(1)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT));
-    //TODO: Add Texture \/ Netherite base/starsteel core. Copy from netherite upgrade, change colors.
     public static final Item STARSTEEL_UPGRADE_SMITHING_TEMPLATE = register("starsteel_upgrade_smithing_template",
             JAAVAAItems::createStarsteelUpgradeSmithingTemplate,
             new Item.Settings().rarity(Rarity.RARE)
@@ -61,10 +60,6 @@ public class JAAVAAItems {
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT));
 
     //Methods
-//    public static final String STARSTEEL_UPGRADE_APPLIES_TO_TEXT = Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.applies_to"));
-//    public static final String STARSTEEL_UPGRADE_INGREDIENTS_TEXT = Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.ingredients"));
-//    public static final String STARSTEEL_UPGRADE_BASE_SLOT_DESCRIPTION_TEXT = Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.base_slot_description"));
-//    public static final String STARSTEEL_UPGRADE_ADDITIONS_SLOT_DESCRIPTION_TEXT = Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.additions_slot_description"));
     private static SmithingTemplateItem createStarsteelUpgradeSmithingTemplate(Item.Settings settings) {
         return new SmithingTemplateItem(
                 Text.translatable(Util.createTranslationKey("item", JAAVAA.id("smithing_template.starsteel_upgrade.applies_to"))).formatted(Formatting.BLUE),

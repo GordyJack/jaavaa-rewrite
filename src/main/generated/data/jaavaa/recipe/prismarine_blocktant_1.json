@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:prismarine_blocktant",
+  "ingredients": [
+    "minecraft:prismarine",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 8,
+    "id": "jaavaa:prismarine_blocktant"
+  }
+}

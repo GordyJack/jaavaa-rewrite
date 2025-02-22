@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cobblestone_mini_block": {
+    "has_cobblestone_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:cobblestone_mini_block"
+            "items": "jaavaa:cobblestone_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_cobblestone_mini_block"
+      "has_cobblestone_blocktant"
     ]
   ],
   "rewards": {

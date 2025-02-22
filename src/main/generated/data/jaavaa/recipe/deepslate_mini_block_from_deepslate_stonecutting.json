@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:deepslate",
-  "result": {
-    "count": 8,
-    "id": "jaavaa:deepslate_mini_block"
-  }
-}

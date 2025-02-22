@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:granite",
   "ingredients": [
-    "jaavaa:granite_mini_block",
-    "jaavaa:granite_mini_block",
-    "jaavaa:granite_mini_block",
-    "jaavaa:granite_mini_block",
-    "jaavaa:granite_mini_block",
-    "jaavaa:granite_mini_block",
-    "jaavaa:granite_mini_block",
-    "jaavaa:granite_mini_block"
+    "jaavaa:granite_blocktant",
+    "jaavaa:granite_blocktant",
+    "jaavaa:granite_blocktant",
+    "jaavaa:granite_blocktant",
+    "jaavaa:granite_blocktant",
+    "jaavaa:granite_blocktant",
+    "jaavaa:granite_blocktant",
+    "jaavaa:granite_blocktant"
   ],
   "result": {
     "count": 1,

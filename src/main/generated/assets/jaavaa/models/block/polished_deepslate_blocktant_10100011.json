@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_10100011",
+  "position": "10100011",
+  "textures": {
+    "down": "minecraft:block/polished_deepslate",
+    "side": "minecraft:block/polished_deepslate",
+    "up": "minecraft:block/polished_deepslate"
+  }
+}

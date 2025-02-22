@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:glowstone",
   "ingredients": [
-    "jaavaa:glowstone_mini_block",
-    "jaavaa:glowstone_mini_block",
-    "jaavaa:glowstone_mini_block",
-    "jaavaa:glowstone_mini_block",
-    "jaavaa:glowstone_mini_block",
-    "jaavaa:glowstone_mini_block",
-    "jaavaa:glowstone_mini_block",
-    "jaavaa:glowstone_mini_block"
+    "jaavaa:glowstone_blocktant",
+    "jaavaa:glowstone_blocktant",
+    "jaavaa:glowstone_blocktant",
+    "jaavaa:glowstone_blocktant",
+    "jaavaa:glowstone_blocktant",
+    "jaavaa:glowstone_blocktant",
+    "jaavaa:glowstone_blocktant",
+    "jaavaa:glowstone_blocktant"
   ],
   "result": {
     "count": 1,

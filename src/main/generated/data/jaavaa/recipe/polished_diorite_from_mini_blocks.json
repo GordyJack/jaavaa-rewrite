@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:polished_diorite",
   "ingredients": [
-    "jaavaa:polished_diorite_mini_block",
-    "jaavaa:polished_diorite_mini_block",
-    "jaavaa:polished_diorite_mini_block",
-    "jaavaa:polished_diorite_mini_block",
-    "jaavaa:polished_diorite_mini_block",
-    "jaavaa:polished_diorite_mini_block",
-    "jaavaa:polished_diorite_mini_block",
-    "jaavaa:polished_diorite_mini_block"
+    "jaavaa:polished_diorite_blocktant",
+    "jaavaa:polished_diorite_blocktant",
+    "jaavaa:polished_diorite_blocktant",
+    "jaavaa:polished_diorite_blocktant",
+    "jaavaa:polished_diorite_blocktant",
+    "jaavaa:polished_diorite_blocktant",
+    "jaavaa:polished_diorite_blocktant",
+    "jaavaa:polished_diorite_blocktant"
   ],
   "result": {
     "count": 1,

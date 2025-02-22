@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:bamboo_mosaic",
+  "ingredients": [
+    "jaavaa:bamboo_mosaic_blocktant",
+    "jaavaa:bamboo_mosaic_blocktant",
+    "jaavaa:bamboo_mosaic_blocktant",
+    "jaavaa:bamboo_mosaic_blocktant",
+    "jaavaa:bamboo_mosaic_blocktant",
+    "jaavaa:bamboo_mosaic_blocktant",
+    "jaavaa:bamboo_mosaic_blocktant",
+    "jaavaa:bamboo_mosaic_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:bamboo_mosaic"
+  }
+}

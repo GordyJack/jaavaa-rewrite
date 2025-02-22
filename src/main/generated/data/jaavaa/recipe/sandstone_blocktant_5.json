@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:sandstone_blocktant",
+  "ingredients": [
+    "minecraft:sandstone",
+    "minecraft:sandstone",
+    "minecraft:sandstone",
+    "minecraft:sandstone",
+    "minecraft:sandstone",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 40,
+    "id": "jaavaa:sandstone_blocktant"
+  }
+}

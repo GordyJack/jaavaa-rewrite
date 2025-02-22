@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_01010101",
+  "position": "01010101",
+  "textures": {
+    "down": "minecraft:block/raw_iron_block",
+    "side": "minecraft:block/raw_iron_block",
+    "up": "minecraft:block/raw_iron_block"
+  }
+}

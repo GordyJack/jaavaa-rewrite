@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:mangrove_planks_blocktant",
+  "ingredients": [
+    "minecraft:mangrove_planks",
+    "minecraft:mangrove_planks",
+    "minecraft:mangrove_planks",
+    "minecraft:mangrove_planks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 32,
+    "id": "jaavaa:mangrove_planks_blocktant"
+  }
+}

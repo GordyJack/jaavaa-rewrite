@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:obsidian",
   "ingredients": [
-    "jaavaa:obsidian_mini_block",
-    "jaavaa:obsidian_mini_block",
-    "jaavaa:obsidian_mini_block",
-    "jaavaa:obsidian_mini_block",
-    "jaavaa:obsidian_mini_block",
-    "jaavaa:obsidian_mini_block",
-    "jaavaa:obsidian_mini_block",
-    "jaavaa:obsidian_mini_block"
+    "jaavaa:obsidian_blocktant",
+    "jaavaa:obsidian_blocktant",
+    "jaavaa:obsidian_blocktant",
+    "jaavaa:obsidian_blocktant",
+    "jaavaa:obsidian_blocktant",
+    "jaavaa:obsidian_blocktant",
+    "jaavaa:obsidian_blocktant",
+    "jaavaa:obsidian_blocktant"
   ],
   "result": {
     "count": 1,

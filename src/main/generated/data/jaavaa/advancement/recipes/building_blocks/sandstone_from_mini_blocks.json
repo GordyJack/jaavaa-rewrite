@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sandstone_mini_block": {
+    "has_sandstone_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:sandstone_mini_block"
+            "items": "jaavaa:sandstone_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_sandstone_mini_block"
+      "has_sandstone_blocktant"
     ]
   ],
   "rewards": {

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_emerald_mini_block": {
+    "has_emerald_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:emerald_mini_block"
+            "items": "jaavaa:emerald_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_emerald_mini_block"
+      "has_emerald_blocktant"
     ]
   ],
   "rewards": {

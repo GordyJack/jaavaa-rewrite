@@ -1,9 +1,0 @@
-{
-  "parent": "jaavaa:block/mini_block_01011011",
-  "position": "01011011",
-  "textures": {
-    "down": "jaavaa:block/smooth_polished_deepslate",
-    "side": "jaavaa:block/smooth_polished_deepslate",
-    "up": "jaavaa:block/smooth_polished_deepslate"
-  }
-}

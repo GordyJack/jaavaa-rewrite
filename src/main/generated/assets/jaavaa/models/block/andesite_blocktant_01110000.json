@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_01110000",
+  "position": "01110000",
+  "textures": {
+    "down": "minecraft:block/andesite",
+    "side": "minecraft:block/andesite",
+    "up": "minecraft:block/andesite"
+  }
+}

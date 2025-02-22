@@ -1,9 +1,0 @@
-{
-  "parent": "jaavaa:block/mini_block_11100011",
-  "position": "11100011",
-  "textures": {
-    "down": "minecraft:block/netherite_block",
-    "side": "minecraft:block/netherite_block",
-    "up": "minecraft:block/netherite_block"
-  }
-}

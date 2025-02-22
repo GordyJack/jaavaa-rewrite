@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:quartz_block",
-  "result": {
-    "count": 8,
-    "id": "jaavaa:quartz_mini_block"
-  }
-}

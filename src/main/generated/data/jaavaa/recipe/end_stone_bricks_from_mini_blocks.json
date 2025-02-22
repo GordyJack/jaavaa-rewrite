@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:end_stone_bricks",
   "ingredients": [
-    "jaavaa:end_stone_bricks_mini_block",
-    "jaavaa:end_stone_bricks_mini_block",
-    "jaavaa:end_stone_bricks_mini_block",
-    "jaavaa:end_stone_bricks_mini_block",
-    "jaavaa:end_stone_bricks_mini_block",
-    "jaavaa:end_stone_bricks_mini_block",
-    "jaavaa:end_stone_bricks_mini_block",
-    "jaavaa:end_stone_bricks_mini_block"
+    "jaavaa:end_stone_bricks_blocktant",
+    "jaavaa:end_stone_bricks_blocktant",
+    "jaavaa:end_stone_bricks_blocktant",
+    "jaavaa:end_stone_bricks_blocktant",
+    "jaavaa:end_stone_bricks_blocktant",
+    "jaavaa:end_stone_bricks_blocktant",
+    "jaavaa:end_stone_bricks_blocktant",
+    "jaavaa:end_stone_bricks_blocktant"
   ],
   "result": {
     "count": 1,

@@ -22,7 +22,7 @@ public class CurseOfTheCapriciousHandler {
             if (world instanceof ServerWorld serverWorld
                     && !player.isCreative()
                     && tool.getEnchantments().getEnchantments().toString().contains("jaavaa:curse_of_the_capricious")
-                    && !(state.getBlock() instanceof MiniBlock)
+                    && !(state.getBlock() instanceof Blocktant)
                     && JAAVAAUtils.isToolCorrectForBlock(tool, state)
                     && serverWorld.breakBlock(pos, false, player)) {
                 state.getBlock().onBreak(world, pos, state, player);

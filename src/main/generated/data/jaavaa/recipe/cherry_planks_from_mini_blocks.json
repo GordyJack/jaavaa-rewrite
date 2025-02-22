@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:cherry_planks",
+  "ingredients": [
+    "jaavaa:cherry_planks_blocktant",
+    "jaavaa:cherry_planks_blocktant",
+    "jaavaa:cherry_planks_blocktant",
+    "jaavaa:cherry_planks_blocktant",
+    "jaavaa:cherry_planks_blocktant",
+    "jaavaa:cherry_planks_blocktant",
+    "jaavaa:cherry_planks_blocktant",
+    "jaavaa:cherry_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:cherry_planks"
+  }
+}

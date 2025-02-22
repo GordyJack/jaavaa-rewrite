@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_copper_blocktant": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:raw_copper_blocktant"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:raw_copper_block_from_mini_blocks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_copper_blocktant"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:raw_copper_block_from_mini_blocks"
+    ]
+  }
+}

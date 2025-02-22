@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_01100000",
+  "position": "01100000",
+  "textures": {
+    "down": "minecraft:block/netherite_block",
+    "side": "minecraft:block/netherite_block",
+    "up": "minecraft:block/netherite_block"
+  }
+}

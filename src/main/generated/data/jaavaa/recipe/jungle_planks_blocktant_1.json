@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:jungle_planks_blocktant",
+  "ingredients": [
+    "minecraft:jungle_planks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 8,
+    "id": "jaavaa:jungle_planks_blocktant"
+  }
+}

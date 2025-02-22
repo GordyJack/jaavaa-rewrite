@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:raw_copper_block",
+  "ingredients": [
+    "jaavaa:raw_copper_blocktant",
+    "jaavaa:raw_copper_blocktant",
+    "jaavaa:raw_copper_blocktant",
+    "jaavaa:raw_copper_blocktant",
+    "jaavaa:raw_copper_blocktant",
+    "jaavaa:raw_copper_blocktant",
+    "jaavaa:raw_copper_blocktant",
+    "jaavaa:raw_copper_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:raw_copper_block"
+  }
+}

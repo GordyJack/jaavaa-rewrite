@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_01111111",
+  "position": "01111111",
+  "textures": {
+    "down": "minecraft:block/emerald_block",
+    "side": "minecraft:block/emerald_block",
+    "up": "minecraft:block/emerald_block"
+  }
+}

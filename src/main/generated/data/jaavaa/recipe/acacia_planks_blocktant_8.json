@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:acacia_planks_blocktant",
+  "ingredients": [
+    "minecraft:acacia_planks",
+    "minecraft:acacia_planks",
+    "minecraft:acacia_planks",
+    "minecraft:acacia_planks",
+    "minecraft:acacia_planks",
+    "minecraft:acacia_planks",
+    "minecraft:acacia_planks",
+    "minecraft:acacia_planks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 64,
+    "id": "jaavaa:acacia_planks_blocktant"
+  }
+}

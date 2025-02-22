@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:mangrove_planks",
+  "ingredients": [
+    "jaavaa:mangrove_planks_blocktant",
+    "jaavaa:mangrove_planks_blocktant",
+    "jaavaa:mangrove_planks_blocktant",
+    "jaavaa:mangrove_planks_blocktant",
+    "jaavaa:mangrove_planks_blocktant",
+    "jaavaa:mangrove_planks_blocktant",
+    "jaavaa:mangrove_planks_blocktant",
+    "jaavaa:mangrove_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:mangrove_planks"
+  }
+}

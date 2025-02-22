@@ -12,6 +12,7 @@ import net.minecraft.util.*;
 
 public class JAAVAATags {
     public static class Blocks {
+        public static final TagKey<Block> BLOCKTANTS = createTag("blocktants");
         public static final TagKey<Block> CAPRICIOUS_BLOCKS = createTag("capricious_blocks");
         public static final TagKey<Block> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
         public static final TagKey<Block> INCORRECT_FOR_STARSTEEL_TOOL = createTag("incorrect_for_starsteel_tool");

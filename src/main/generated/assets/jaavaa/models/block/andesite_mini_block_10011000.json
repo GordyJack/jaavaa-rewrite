@@ -1,9 +1,0 @@
-{
-  "parent": "jaavaa:block/mini_block_10011000",
-  "position": "10011000",
-  "textures": {
-    "down": "minecraft:block/andesite",
-    "side": "minecraft:block/andesite",
-    "up": "minecraft:block/andesite"
-  }
-}

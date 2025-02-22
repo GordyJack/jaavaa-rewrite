@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_11011110",
+  "position": "11011110",
+  "textures": {
+    "down": "minecraft:block/bamboo_mosaic",
+    "side": "minecraft:block/bamboo_mosaic",
+    "up": "minecraft:block/bamboo_mosaic"
+  }
+}

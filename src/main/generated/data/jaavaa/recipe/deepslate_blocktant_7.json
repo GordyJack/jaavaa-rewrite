@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:deepslate_blocktant",
+  "ingredients": [
+    "minecraft:deepslate",
+    "minecraft:deepslate",
+    "minecraft:deepslate",
+    "minecraft:deepslate",
+    "minecraft:deepslate",
+    "minecraft:deepslate",
+    "minecraft:deepslate",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 56,
+    "id": "jaavaa:deepslate_blocktant"
+  }
+}

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_mini_block": {
+    "has_netherite_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:netherite_mini_block"
+            "items": "jaavaa:netherite_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_netherite_mini_block"
+      "has_netherite_blocktant"
     ]
   ],
   "rewards": {

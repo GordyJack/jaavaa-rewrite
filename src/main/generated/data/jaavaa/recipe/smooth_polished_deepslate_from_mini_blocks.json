@@ -3,14 +3,14 @@
   "category": "building",
   "group": "jaavaa:smooth_polished_deepslate",
   "ingredients": [
-    "jaavaa:smooth_polished_deepslate_mini_block",
-    "jaavaa:smooth_polished_deepslate_mini_block",
-    "jaavaa:smooth_polished_deepslate_mini_block",
-    "jaavaa:smooth_polished_deepslate_mini_block",
-    "jaavaa:smooth_polished_deepslate_mini_block",
-    "jaavaa:smooth_polished_deepslate_mini_block",
-    "jaavaa:smooth_polished_deepslate_mini_block",
-    "jaavaa:smooth_polished_deepslate_mini_block"
+    "jaavaa:smooth_polished_deepslate_blocktant",
+    "jaavaa:smooth_polished_deepslate_blocktant",
+    "jaavaa:smooth_polished_deepslate_blocktant",
+    "jaavaa:smooth_polished_deepslate_blocktant",
+    "jaavaa:smooth_polished_deepslate_blocktant",
+    "jaavaa:smooth_polished_deepslate_blocktant",
+    "jaavaa:smooth_polished_deepslate_blocktant",
+    "jaavaa:smooth_polished_deepslate_blocktant"
   ],
   "result": {
     "count": 1,

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "jaavaa:starsteel_block",
-  "result": {
-    "count": 8,
-    "id": "jaavaa:starsteel_block_mini_block"
-  }
-}

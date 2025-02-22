@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_diorite_mini_block": {
+    "has_diorite_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:diorite_mini_block"
+            "items": "jaavaa:diorite_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_diorite_mini_block"
+      "has_diorite_blocktant"
     ]
   ],
   "rewards": {

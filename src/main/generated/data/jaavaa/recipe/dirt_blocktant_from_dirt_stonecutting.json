@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:dirt",
+  "result": {
+    "count": 8,
+    "id": "jaavaa:dirt_blocktant"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:bamboo_mosaic_blocktant",
+  "ingredients": [
+    "minecraft:bamboo_mosaic",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 8,
+    "id": "jaavaa:bamboo_mosaic_blocktant"
+  }
+}

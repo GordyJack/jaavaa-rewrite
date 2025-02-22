@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_11001010",
+  "position": "11001010",
+  "textures": {
+    "down": "minecraft:block/smooth_stone",
+    "side": "minecraft:block/smooth_stone",
+    "up": "minecraft:block/smooth_stone"
+  }
+}

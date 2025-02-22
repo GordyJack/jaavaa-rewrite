@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:purpur_block",
   "ingredients": [
-    "jaavaa:purpur_mini_block",
-    "jaavaa:purpur_mini_block",
-    "jaavaa:purpur_mini_block",
-    "jaavaa:purpur_mini_block",
-    "jaavaa:purpur_mini_block",
-    "jaavaa:purpur_mini_block",
-    "jaavaa:purpur_mini_block",
-    "jaavaa:purpur_mini_block"
+    "jaavaa:purpur_blocktant",
+    "jaavaa:purpur_blocktant",
+    "jaavaa:purpur_blocktant",
+    "jaavaa:purpur_blocktant",
+    "jaavaa:purpur_blocktant",
+    "jaavaa:purpur_blocktant",
+    "jaavaa:purpur_blocktant",
+    "jaavaa:purpur_blocktant"
   ],
   "result": {
     "count": 1,

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_gold_mini_block": {
+    "has_gold_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:gold_mini_block"
+            "items": "jaavaa:gold_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_gold_mini_block"
+      "has_gold_blocktant"
     ]
   ],
   "rewards": {

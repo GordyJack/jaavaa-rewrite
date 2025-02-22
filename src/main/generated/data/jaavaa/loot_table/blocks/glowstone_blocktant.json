@@ -1,0 +1,3604 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "0"
+                  }
+                }
+              ],
+              "count": 0.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "1"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "2"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "3"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "4"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "5"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "6"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "7"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "8"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "9"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "10"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "11"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "12"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "13"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "14"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "15"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "16"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "17"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "18"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "19"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "20"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "21"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "22"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "23"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "24"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "25"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "26"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "27"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "28"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "29"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "30"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "31"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "32"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "33"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "34"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "35"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "36"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "37"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "38"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "39"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "40"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "41"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "42"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "43"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "44"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "45"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "46"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "47"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "48"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "49"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "50"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "51"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "52"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "53"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "54"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "55"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "56"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "57"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "58"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "59"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "60"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "61"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "62"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "63"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "64"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "65"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "66"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "67"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "68"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "69"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "70"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "71"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "72"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "73"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "74"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "75"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "76"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "77"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "78"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "79"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "80"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "81"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "82"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "83"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "84"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "85"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "86"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "87"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "88"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "89"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "90"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "91"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "92"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "93"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "94"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "95"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "96"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "97"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "98"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "99"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "100"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "101"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "102"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "103"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "104"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "105"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "106"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "107"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "108"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "109"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "110"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "111"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "112"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "113"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "114"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "115"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "116"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "117"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "118"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "119"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "120"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "121"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "122"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "123"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "124"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "125"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "126"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "127"
+                  }
+                }
+              ],
+              "count": 7.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "128"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "129"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "130"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "131"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "132"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "133"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "134"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "135"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "136"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "137"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "138"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "139"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "140"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "141"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "142"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "143"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "144"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "145"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "146"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "147"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "148"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "149"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "150"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "151"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "152"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "153"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "154"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "155"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "156"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "157"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "158"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "159"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "160"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "161"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "162"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "163"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "164"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "165"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "166"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "167"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "168"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "169"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "170"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "171"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "172"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "173"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "174"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "175"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "176"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "177"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "178"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "179"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "180"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "181"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "182"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "183"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "184"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "185"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "186"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "187"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "188"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "189"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "190"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "191"
+                  }
+                }
+              ],
+              "count": 7.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "192"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "193"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "194"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "195"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "196"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "197"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "198"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "199"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "200"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "201"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "202"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "203"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "204"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "205"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "206"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "207"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "208"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "209"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "210"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "211"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "212"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "213"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "214"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "215"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "216"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "217"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "218"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "219"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "220"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "221"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "222"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "223"
+                  }
+                }
+              ],
+              "count": 7.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "224"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "225"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "226"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "227"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "228"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "229"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "230"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "231"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "232"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "233"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "234"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "235"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "236"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "237"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "238"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "239"
+                  }
+                }
+              ],
+              "count": 7.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "240"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "241"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "242"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "243"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "244"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "245"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "246"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "247"
+                  }
+                }
+              ],
+              "count": 7.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "248"
+                  }
+                }
+              ],
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "249"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "250"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "251"
+                  }
+                }
+              ],
+              "count": 7.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "252"
+                  }
+                }
+              ],
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "253"
+                  }
+                }
+              ],
+              "count": 7.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "254"
+                  }
+                }
+              ],
+              "count": 7.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "jaavaa:glowstone_blocktant",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "position": "255"
+                  }
+                }
+              ],
+              "count": 8.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "jaavaa:glowstone_blocktant"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

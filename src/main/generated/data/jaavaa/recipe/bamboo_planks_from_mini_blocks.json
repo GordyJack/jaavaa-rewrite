@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:bamboo_planks",
+  "ingredients": [
+    "jaavaa:bamboo_planks_blocktant",
+    "jaavaa:bamboo_planks_blocktant",
+    "jaavaa:bamboo_planks_blocktant",
+    "jaavaa:bamboo_planks_blocktant",
+    "jaavaa:bamboo_planks_blocktant",
+    "jaavaa:bamboo_planks_blocktant",
+    "jaavaa:bamboo_planks_blocktant",
+    "jaavaa:bamboo_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:bamboo_planks"
+  }
+}

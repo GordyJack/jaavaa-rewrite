@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_obsidian_mini_block": {
+    "has_obsidian_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:obsidian_mini_block"
+            "items": "jaavaa:obsidian_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_obsidian_mini_block"
+      "has_obsidian_blocktant"
     ]
   ],
   "rewards": {

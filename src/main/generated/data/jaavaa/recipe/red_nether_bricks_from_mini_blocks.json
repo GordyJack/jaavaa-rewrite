@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:red_nether_bricks",
   "ingredients": [
-    "jaavaa:red_nether_brick_mini_block",
-    "jaavaa:red_nether_brick_mini_block",
-    "jaavaa:red_nether_brick_mini_block",
-    "jaavaa:red_nether_brick_mini_block",
-    "jaavaa:red_nether_brick_mini_block",
-    "jaavaa:red_nether_brick_mini_block",
-    "jaavaa:red_nether_brick_mini_block",
-    "jaavaa:red_nether_brick_mini_block"
+    "jaavaa:red_nether_brick_blocktant",
+    "jaavaa:red_nether_brick_blocktant",
+    "jaavaa:red_nether_brick_blocktant",
+    "jaavaa:red_nether_brick_blocktant",
+    "jaavaa:red_nether_brick_blocktant",
+    "jaavaa:red_nether_brick_blocktant",
+    "jaavaa:red_nether_brick_blocktant",
+    "jaavaa:red_nether_brick_blocktant"
   ],
   "result": {
     "count": 1,

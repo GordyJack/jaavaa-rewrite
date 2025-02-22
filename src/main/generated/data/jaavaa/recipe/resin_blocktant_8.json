@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:resin_blocktant",
+  "ingredients": [
+    "minecraft:resin_block",
+    "minecraft:resin_block",
+    "minecraft:resin_block",
+    "minecraft:resin_block",
+    "minecraft:resin_block",
+    "minecraft:resin_block",
+    "minecraft:resin_block",
+    "minecraft:resin_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 64,
+    "id": "jaavaa:resin_blocktant"
+  }
+}

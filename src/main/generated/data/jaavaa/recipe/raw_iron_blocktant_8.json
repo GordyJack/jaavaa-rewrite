@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:raw_iron_blocktant",
+  "ingredients": [
+    "minecraft:raw_iron_block",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_iron_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 64,
+    "id": "jaavaa:raw_iron_blocktant"
+  }
+}

@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:lapis_block",
   "ingredients": [
-    "jaavaa:lapis_lazuli_mini_block",
-    "jaavaa:lapis_lazuli_mini_block",
-    "jaavaa:lapis_lazuli_mini_block",
-    "jaavaa:lapis_lazuli_mini_block",
-    "jaavaa:lapis_lazuli_mini_block",
-    "jaavaa:lapis_lazuli_mini_block",
-    "jaavaa:lapis_lazuli_mini_block",
-    "jaavaa:lapis_lazuli_mini_block"
+    "jaavaa:lapis_lazuli_blocktant",
+    "jaavaa:lapis_lazuli_blocktant",
+    "jaavaa:lapis_lazuli_blocktant",
+    "jaavaa:lapis_lazuli_blocktant",
+    "jaavaa:lapis_lazuli_blocktant",
+    "jaavaa:lapis_lazuli_blocktant",
+    "jaavaa:lapis_lazuli_blocktant",
+    "jaavaa:lapis_lazuli_blocktant"
   ],
   "result": {
     "count": 1,

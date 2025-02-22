@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:diorite_blocktant",
+  "ingredients": [
+    "minecraft:diorite",
+    "minecraft:diorite",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 16,
+    "id": "jaavaa:diorite_blocktant"
+  }
+}

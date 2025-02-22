@@ -1,9 +1,0 @@
-{
-  "parent": "jaavaa:block/mini_block_11110000",
-  "position": "11110000",
-  "textures": {
-    "down": "minecraft:block/gold_block",
-    "side": "minecraft:block/gold_block",
-    "up": "minecraft:block/gold_block"
-  }
-}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:gold_blocktant",
+  "ingredients": [
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "minecraft:gold_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 48,
+    "id": "jaavaa:gold_blocktant"
+  }
+}

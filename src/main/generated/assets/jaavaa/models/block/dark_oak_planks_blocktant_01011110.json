@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_01011110",
+  "position": "01011110",
+  "textures": {
+    "down": "minecraft:block/dark_oak_planks",
+    "side": "minecraft:block/dark_oak_planks",
+    "up": "minecraft:block/dark_oak_planks"
+  }
+}

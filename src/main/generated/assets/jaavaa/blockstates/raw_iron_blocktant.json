@@ -1,0 +1,769 @@
+{
+  "variants": {
+    "position=1": {
+      "model": "jaavaa:block/raw_iron_blocktant_00000001"
+    },
+    "position=10": {
+      "model": "jaavaa:block/raw_iron_blocktant_00001010"
+    },
+    "position=100": {
+      "model": "jaavaa:block/raw_iron_blocktant_01100100"
+    },
+    "position=101": {
+      "model": "jaavaa:block/raw_iron_blocktant_01100101"
+    },
+    "position=102": {
+      "model": "jaavaa:block/raw_iron_blocktant_01100110"
+    },
+    "position=103": {
+      "model": "jaavaa:block/raw_iron_blocktant_01100111"
+    },
+    "position=104": {
+      "model": "jaavaa:block/raw_iron_blocktant_01101000"
+    },
+    "position=105": {
+      "model": "jaavaa:block/raw_iron_blocktant_01101001"
+    },
+    "position=106": {
+      "model": "jaavaa:block/raw_iron_blocktant_01101010"
+    },
+    "position=107": {
+      "model": "jaavaa:block/raw_iron_blocktant_01101011"
+    },
+    "position=108": {
+      "model": "jaavaa:block/raw_iron_blocktant_01101100"
+    },
+    "position=109": {
+      "model": "jaavaa:block/raw_iron_blocktant_01101101"
+    },
+    "position=11": {
+      "model": "jaavaa:block/raw_iron_blocktant_00001011"
+    },
+    "position=110": {
+      "model": "jaavaa:block/raw_iron_blocktant_01101110"
+    },
+    "position=111": {
+      "model": "jaavaa:block/raw_iron_blocktant_01101111"
+    },
+    "position=112": {
+      "model": "jaavaa:block/raw_iron_blocktant_01110000"
+    },
+    "position=113": {
+      "model": "jaavaa:block/raw_iron_blocktant_01110001"
+    },
+    "position=114": {
+      "model": "jaavaa:block/raw_iron_blocktant_01110010"
+    },
+    "position=115": {
+      "model": "jaavaa:block/raw_iron_blocktant_01110011"
+    },
+    "position=116": {
+      "model": "jaavaa:block/raw_iron_blocktant_01110100"
+    },
+    "position=117": {
+      "model": "jaavaa:block/raw_iron_blocktant_01110101"
+    },
+    "position=118": {
+      "model": "jaavaa:block/raw_iron_blocktant_01110110"
+    },
+    "position=119": {
+      "model": "jaavaa:block/raw_iron_blocktant_01110111"
+    },
+    "position=12": {
+      "model": "jaavaa:block/raw_iron_blocktant_00001100"
+    },
+    "position=120": {
+      "model": "jaavaa:block/raw_iron_blocktant_01111000"
+    },
+    "position=121": {
+      "model": "jaavaa:block/raw_iron_blocktant_01111001"
+    },
+    "position=122": {
+      "model": "jaavaa:block/raw_iron_blocktant_01111010"
+    },
+    "position=123": {
+      "model": "jaavaa:block/raw_iron_blocktant_01111011"
+    },
+    "position=124": {
+      "model": "jaavaa:block/raw_iron_blocktant_01111100"
+    },
+    "position=125": {
+      "model": "jaavaa:block/raw_iron_blocktant_01111101"
+    },
+    "position=126": {
+      "model": "jaavaa:block/raw_iron_blocktant_01111110"
+    },
+    "position=127": {
+      "model": "jaavaa:block/raw_iron_blocktant_01111111"
+    },
+    "position=128": {
+      "model": "jaavaa:block/raw_iron_blocktant_10000000"
+    },
+    "position=129": {
+      "model": "jaavaa:block/raw_iron_blocktant_10000001"
+    },
+    "position=13": {
+      "model": "jaavaa:block/raw_iron_blocktant_00001101"
+    },
+    "position=130": {
+      "model": "jaavaa:block/raw_iron_blocktant_10000010"
+    },
+    "position=131": {
+      "model": "jaavaa:block/raw_iron_blocktant_10000011"
+    },
+    "position=132": {
+      "model": "jaavaa:block/raw_iron_blocktant_10000100"
+    },
+    "position=133": {
+      "model": "jaavaa:block/raw_iron_blocktant_10000101"
+    },
+    "position=134": {
+      "model": "jaavaa:block/raw_iron_blocktant_10000110"
+    },
+    "position=135": {
+      "model": "jaavaa:block/raw_iron_blocktant_10000111"
+    },
+    "position=136": {
+      "model": "jaavaa:block/raw_iron_blocktant_10001000"
+    },
+    "position=137": {
+      "model": "jaavaa:block/raw_iron_blocktant_10001001"
+    },
+    "position=138": {
+      "model": "jaavaa:block/raw_iron_blocktant_10001010"
+    },
+    "position=139": {
+      "model": "jaavaa:block/raw_iron_blocktant_10001011"
+    },
+    "position=14": {
+      "model": "jaavaa:block/raw_iron_blocktant_00001110"
+    },
+    "position=140": {
+      "model": "jaavaa:block/raw_iron_blocktant_10001100"
+    },
+    "position=141": {
+      "model": "jaavaa:block/raw_iron_blocktant_10001101"
+    },
+    "position=142": {
+      "model": "jaavaa:block/raw_iron_blocktant_10001110"
+    },
+    "position=143": {
+      "model": "jaavaa:block/raw_iron_blocktant_10001111"
+    },
+    "position=144": {
+      "model": "jaavaa:block/raw_iron_blocktant_10010000"
+    },
+    "position=145": {
+      "model": "jaavaa:block/raw_iron_blocktant_10010001"
+    },
+    "position=146": {
+      "model": "jaavaa:block/raw_iron_blocktant_10010010"
+    },
+    "position=147": {
+      "model": "jaavaa:block/raw_iron_blocktant_10010011"
+    },
+    "position=148": {
+      "model": "jaavaa:block/raw_iron_blocktant_10010100"
+    },
+    "position=149": {
+      "model": "jaavaa:block/raw_iron_blocktant_10010101"
+    },
+    "position=15": {
+      "model": "jaavaa:block/raw_iron_blocktant_00001111"
+    },
+    "position=150": {
+      "model": "jaavaa:block/raw_iron_blocktant_10010110"
+    },
+    "position=151": {
+      "model": "jaavaa:block/raw_iron_blocktant_10010111"
+    },
+    "position=152": {
+      "model": "jaavaa:block/raw_iron_blocktant_10011000"
+    },
+    "position=153": {
+      "model": "jaavaa:block/raw_iron_blocktant_10011001"
+    },
+    "position=154": {
+      "model": "jaavaa:block/raw_iron_blocktant_10011010"
+    },
+    "position=155": {
+      "model": "jaavaa:block/raw_iron_blocktant_10011011"
+    },
+    "position=156": {
+      "model": "jaavaa:block/raw_iron_blocktant_10011100"
+    },
+    "position=157": {
+      "model": "jaavaa:block/raw_iron_blocktant_10011101"
+    },
+    "position=158": {
+      "model": "jaavaa:block/raw_iron_blocktant_10011110"
+    },
+    "position=159": {
+      "model": "jaavaa:block/raw_iron_blocktant_10011111"
+    },
+    "position=16": {
+      "model": "jaavaa:block/raw_iron_blocktant_00010000"
+    },
+    "position=160": {
+      "model": "jaavaa:block/raw_iron_blocktant_10100000"
+    },
+    "position=161": {
+      "model": "jaavaa:block/raw_iron_blocktant_10100001"
+    },
+    "position=162": {
+      "model": "jaavaa:block/raw_iron_blocktant_10100010"
+    },
+    "position=163": {
+      "model": "jaavaa:block/raw_iron_blocktant_10100011"
+    },
+    "position=164": {
+      "model": "jaavaa:block/raw_iron_blocktant_10100100"
+    },
+    "position=165": {
+      "model": "jaavaa:block/raw_iron_blocktant_10100101"
+    },
+    "position=166": {
+      "model": "jaavaa:block/raw_iron_blocktant_10100110"
+    },
+    "position=167": {
+      "model": "jaavaa:block/raw_iron_blocktant_10100111"
+    },
+    "position=168": {
+      "model": "jaavaa:block/raw_iron_blocktant_10101000"
+    },
+    "position=169": {
+      "model": "jaavaa:block/raw_iron_blocktant_10101001"
+    },
+    "position=17": {
+      "model": "jaavaa:block/raw_iron_blocktant_00010001"
+    },
+    "position=170": {
+      "model": "jaavaa:block/raw_iron_blocktant_10101010"
+    },
+    "position=171": {
+      "model": "jaavaa:block/raw_iron_blocktant_10101011"
+    },
+    "position=172": {
+      "model": "jaavaa:block/raw_iron_blocktant_10101100"
+    },
+    "position=173": {
+      "model": "jaavaa:block/raw_iron_blocktant_10101101"
+    },
+    "position=174": {
+      "model": "jaavaa:block/raw_iron_blocktant_10101110"
+    },
+    "position=175": {
+      "model": "jaavaa:block/raw_iron_blocktant_10101111"
+    },
+    "position=176": {
+      "model": "jaavaa:block/raw_iron_blocktant_10110000"
+    },
+    "position=177": {
+      "model": "jaavaa:block/raw_iron_blocktant_10110001"
+    },
+    "position=178": {
+      "model": "jaavaa:block/raw_iron_blocktant_10110010"
+    },
+    "position=179": {
+      "model": "jaavaa:block/raw_iron_blocktant_10110011"
+    },
+    "position=18": {
+      "model": "jaavaa:block/raw_iron_blocktant_00010010"
+    },
+    "position=180": {
+      "model": "jaavaa:block/raw_iron_blocktant_10110100"
+    },
+    "position=181": {
+      "model": "jaavaa:block/raw_iron_blocktant_10110101"
+    },
+    "position=182": {
+      "model": "jaavaa:block/raw_iron_blocktant_10110110"
+    },
+    "position=183": {
+      "model": "jaavaa:block/raw_iron_blocktant_10110111"
+    },
+    "position=184": {
+      "model": "jaavaa:block/raw_iron_blocktant_10111000"
+    },
+    "position=185": {
+      "model": "jaavaa:block/raw_iron_blocktant_10111001"
+    },
+    "position=186": {
+      "model": "jaavaa:block/raw_iron_blocktant_10111010"
+    },
+    "position=187": {
+      "model": "jaavaa:block/raw_iron_blocktant_10111011"
+    },
+    "position=188": {
+      "model": "jaavaa:block/raw_iron_blocktant_10111100"
+    },
+    "position=189": {
+      "model": "jaavaa:block/raw_iron_blocktant_10111101"
+    },
+    "position=19": {
+      "model": "jaavaa:block/raw_iron_blocktant_00010011"
+    },
+    "position=190": {
+      "model": "jaavaa:block/raw_iron_blocktant_10111110"
+    },
+    "position=191": {
+      "model": "jaavaa:block/raw_iron_blocktant_10111111"
+    },
+    "position=192": {
+      "model": "jaavaa:block/raw_iron_blocktant_11000000"
+    },
+    "position=193": {
+      "model": "jaavaa:block/raw_iron_blocktant_11000001"
+    },
+    "position=194": {
+      "model": "jaavaa:block/raw_iron_blocktant_11000010"
+    },
+    "position=195": {
+      "model": "jaavaa:block/raw_iron_blocktant_11000011"
+    },
+    "position=196": {
+      "model": "jaavaa:block/raw_iron_blocktant_11000100"
+    },
+    "position=197": {
+      "model": "jaavaa:block/raw_iron_blocktant_11000101"
+    },
+    "position=198": {
+      "model": "jaavaa:block/raw_iron_blocktant_11000110"
+    },
+    "position=199": {
+      "model": "jaavaa:block/raw_iron_blocktant_11000111"
+    },
+    "position=2": {
+      "model": "jaavaa:block/raw_iron_blocktant_00000010"
+    },
+    "position=20": {
+      "model": "jaavaa:block/raw_iron_blocktant_00010100"
+    },
+    "position=200": {
+      "model": "jaavaa:block/raw_iron_blocktant_11001000"
+    },
+    "position=201": {
+      "model": "jaavaa:block/raw_iron_blocktant_11001001"
+    },
+    "position=202": {
+      "model": "jaavaa:block/raw_iron_blocktant_11001010"
+    },
+    "position=203": {
+      "model": "jaavaa:block/raw_iron_blocktant_11001011"
+    },
+    "position=204": {
+      "model": "jaavaa:block/raw_iron_blocktant_11001100"
+    },
+    "position=205": {
+      "model": "jaavaa:block/raw_iron_blocktant_11001101"
+    },
+    "position=206": {
+      "model": "jaavaa:block/raw_iron_blocktant_11001110"
+    },
+    "position=207": {
+      "model": "jaavaa:block/raw_iron_blocktant_11001111"
+    },
+    "position=208": {
+      "model": "jaavaa:block/raw_iron_blocktant_11010000"
+    },
+    "position=209": {
+      "model": "jaavaa:block/raw_iron_blocktant_11010001"
+    },
+    "position=21": {
+      "model": "jaavaa:block/raw_iron_blocktant_00010101"
+    },
+    "position=210": {
+      "model": "jaavaa:block/raw_iron_blocktant_11010010"
+    },
+    "position=211": {
+      "model": "jaavaa:block/raw_iron_blocktant_11010011"
+    },
+    "position=212": {
+      "model": "jaavaa:block/raw_iron_blocktant_11010100"
+    },
+    "position=213": {
+      "model": "jaavaa:block/raw_iron_blocktant_11010101"
+    },
+    "position=214": {
+      "model": "jaavaa:block/raw_iron_blocktant_11010110"
+    },
+    "position=215": {
+      "model": "jaavaa:block/raw_iron_blocktant_11010111"
+    },
+    "position=216": {
+      "model": "jaavaa:block/raw_iron_blocktant_11011000"
+    },
+    "position=217": {
+      "model": "jaavaa:block/raw_iron_blocktant_11011001"
+    },
+    "position=218": {
+      "model": "jaavaa:block/raw_iron_blocktant_11011010"
+    },
+    "position=219": {
+      "model": "jaavaa:block/raw_iron_blocktant_11011011"
+    },
+    "position=22": {
+      "model": "jaavaa:block/raw_iron_blocktant_00010110"
+    },
+    "position=220": {
+      "model": "jaavaa:block/raw_iron_blocktant_11011100"
+    },
+    "position=221": {
+      "model": "jaavaa:block/raw_iron_blocktant_11011101"
+    },
+    "position=222": {
+      "model": "jaavaa:block/raw_iron_blocktant_11011110"
+    },
+    "position=223": {
+      "model": "jaavaa:block/raw_iron_blocktant_11011111"
+    },
+    "position=224": {
+      "model": "jaavaa:block/raw_iron_blocktant_11100000"
+    },
+    "position=225": {
+      "model": "jaavaa:block/raw_iron_blocktant_11100001"
+    },
+    "position=226": {
+      "model": "jaavaa:block/raw_iron_blocktant_11100010"
+    },
+    "position=227": {
+      "model": "jaavaa:block/raw_iron_blocktant_11100011"
+    },
+    "position=228": {
+      "model": "jaavaa:block/raw_iron_blocktant_11100100"
+    },
+    "position=229": {
+      "model": "jaavaa:block/raw_iron_blocktant_11100101"
+    },
+    "position=23": {
+      "model": "jaavaa:block/raw_iron_blocktant_00010111"
+    },
+    "position=230": {
+      "model": "jaavaa:block/raw_iron_blocktant_11100110"
+    },
+    "position=231": {
+      "model": "jaavaa:block/raw_iron_blocktant_11100111"
+    },
+    "position=232": {
+      "model": "jaavaa:block/raw_iron_blocktant_11101000"
+    },
+    "position=233": {
+      "model": "jaavaa:block/raw_iron_blocktant_11101001"
+    },
+    "position=234": {
+      "model": "jaavaa:block/raw_iron_blocktant_11101010"
+    },
+    "position=235": {
+      "model": "jaavaa:block/raw_iron_blocktant_11101011"
+    },
+    "position=236": {
+      "model": "jaavaa:block/raw_iron_blocktant_11101100"
+    },
+    "position=237": {
+      "model": "jaavaa:block/raw_iron_blocktant_11101101"
+    },
+    "position=238": {
+      "model": "jaavaa:block/raw_iron_blocktant_11101110"
+    },
+    "position=239": {
+      "model": "jaavaa:block/raw_iron_blocktant_11101111"
+    },
+    "position=24": {
+      "model": "jaavaa:block/raw_iron_blocktant_00011000"
+    },
+    "position=240": {
+      "model": "jaavaa:block/raw_iron_blocktant_11110000"
+    },
+    "position=241": {
+      "model": "jaavaa:block/raw_iron_blocktant_11110001"
+    },
+    "position=242": {
+      "model": "jaavaa:block/raw_iron_blocktant_11110010"
+    },
+    "position=243": {
+      "model": "jaavaa:block/raw_iron_blocktant_11110011"
+    },
+    "position=244": {
+      "model": "jaavaa:block/raw_iron_blocktant_11110100"
+    },
+    "position=245": {
+      "model": "jaavaa:block/raw_iron_blocktant_11110101"
+    },
+    "position=246": {
+      "model": "jaavaa:block/raw_iron_blocktant_11110110"
+    },
+    "position=247": {
+      "model": "jaavaa:block/raw_iron_blocktant_11110111"
+    },
+    "position=248": {
+      "model": "jaavaa:block/raw_iron_blocktant_11111000"
+    },
+    "position=249": {
+      "model": "jaavaa:block/raw_iron_blocktant_11111001"
+    },
+    "position=25": {
+      "model": "jaavaa:block/raw_iron_blocktant_00011001"
+    },
+    "position=250": {
+      "model": "jaavaa:block/raw_iron_blocktant_11111010"
+    },
+    "position=251": {
+      "model": "jaavaa:block/raw_iron_blocktant_11111011"
+    },
+    "position=252": {
+      "model": "jaavaa:block/raw_iron_blocktant_11111100"
+    },
+    "position=253": {
+      "model": "jaavaa:block/raw_iron_blocktant_11111101"
+    },
+    "position=254": {
+      "model": "jaavaa:block/raw_iron_blocktant_11111110"
+    },
+    "position=255": {
+      "model": "jaavaa:block/raw_iron_blocktant_11111111"
+    },
+    "position=26": {
+      "model": "jaavaa:block/raw_iron_blocktant_00011010"
+    },
+    "position=27": {
+      "model": "jaavaa:block/raw_iron_blocktant_00011011"
+    },
+    "position=28": {
+      "model": "jaavaa:block/raw_iron_blocktant_00011100"
+    },
+    "position=29": {
+      "model": "jaavaa:block/raw_iron_blocktant_00011101"
+    },
+    "position=3": {
+      "model": "jaavaa:block/raw_iron_blocktant_00000011"
+    },
+    "position=30": {
+      "model": "jaavaa:block/raw_iron_blocktant_00011110"
+    },
+    "position=31": {
+      "model": "jaavaa:block/raw_iron_blocktant_00011111"
+    },
+    "position=32": {
+      "model": "jaavaa:block/raw_iron_blocktant_00100000"
+    },
+    "position=33": {
+      "model": "jaavaa:block/raw_iron_blocktant_00100001"
+    },
+    "position=34": {
+      "model": "jaavaa:block/raw_iron_blocktant_00100010"
+    },
+    "position=35": {
+      "model": "jaavaa:block/raw_iron_blocktant_00100011"
+    },
+    "position=36": {
+      "model": "jaavaa:block/raw_iron_blocktant_00100100"
+    },
+    "position=37": {
+      "model": "jaavaa:block/raw_iron_blocktant_00100101"
+    },
+    "position=38": {
+      "model": "jaavaa:block/raw_iron_blocktant_00100110"
+    },
+    "position=39": {
+      "model": "jaavaa:block/raw_iron_blocktant_00100111"
+    },
+    "position=4": {
+      "model": "jaavaa:block/raw_iron_blocktant_00000100"
+    },
+    "position=40": {
+      "model": "jaavaa:block/raw_iron_blocktant_00101000"
+    },
+    "position=41": {
+      "model": "jaavaa:block/raw_iron_blocktant_00101001"
+    },
+    "position=42": {
+      "model": "jaavaa:block/raw_iron_blocktant_00101010"
+    },
+    "position=43": {
+      "model": "jaavaa:block/raw_iron_blocktant_00101011"
+    },
+    "position=44": {
+      "model": "jaavaa:block/raw_iron_blocktant_00101100"
+    },
+    "position=45": {
+      "model": "jaavaa:block/raw_iron_blocktant_00101101"
+    },
+    "position=46": {
+      "model": "jaavaa:block/raw_iron_blocktant_00101110"
+    },
+    "position=47": {
+      "model": "jaavaa:block/raw_iron_blocktant_00101111"
+    },
+    "position=48": {
+      "model": "jaavaa:block/raw_iron_blocktant_00110000"
+    },
+    "position=49": {
+      "model": "jaavaa:block/raw_iron_blocktant_00110001"
+    },
+    "position=5": {
+      "model": "jaavaa:block/raw_iron_blocktant_00000101"
+    },
+    "position=50": {
+      "model": "jaavaa:block/raw_iron_blocktant_00110010"
+    },
+    "position=51": {
+      "model": "jaavaa:block/raw_iron_blocktant_00110011"
+    },
+    "position=52": {
+      "model": "jaavaa:block/raw_iron_blocktant_00110100"
+    },
+    "position=53": {
+      "model": "jaavaa:block/raw_iron_blocktant_00110101"
+    },
+    "position=54": {
+      "model": "jaavaa:block/raw_iron_blocktant_00110110"
+    },
+    "position=55": {
+      "model": "jaavaa:block/raw_iron_blocktant_00110111"
+    },
+    "position=56": {
+      "model": "jaavaa:block/raw_iron_blocktant_00111000"
+    },
+    "position=57": {
+      "model": "jaavaa:block/raw_iron_blocktant_00111001"
+    },
+    "position=58": {
+      "model": "jaavaa:block/raw_iron_blocktant_00111010"
+    },
+    "position=59": {
+      "model": "jaavaa:block/raw_iron_blocktant_00111011"
+    },
+    "position=6": {
+      "model": "jaavaa:block/raw_iron_blocktant_00000110"
+    },
+    "position=60": {
+      "model": "jaavaa:block/raw_iron_blocktant_00111100"
+    },
+    "position=61": {
+      "model": "jaavaa:block/raw_iron_blocktant_00111101"
+    },
+    "position=62": {
+      "model": "jaavaa:block/raw_iron_blocktant_00111110"
+    },
+    "position=63": {
+      "model": "jaavaa:block/raw_iron_blocktant_00111111"
+    },
+    "position=64": {
+      "model": "jaavaa:block/raw_iron_blocktant_01000000"
+    },
+    "position=65": {
+      "model": "jaavaa:block/raw_iron_blocktant_01000001"
+    },
+    "position=66": {
+      "model": "jaavaa:block/raw_iron_blocktant_01000010"
+    },
+    "position=67": {
+      "model": "jaavaa:block/raw_iron_blocktant_01000011"
+    },
+    "position=68": {
+      "model": "jaavaa:block/raw_iron_blocktant_01000100"
+    },
+    "position=69": {
+      "model": "jaavaa:block/raw_iron_blocktant_01000101"
+    },
+    "position=7": {
+      "model": "jaavaa:block/raw_iron_blocktant_00000111"
+    },
+    "position=70": {
+      "model": "jaavaa:block/raw_iron_blocktant_01000110"
+    },
+    "position=71": {
+      "model": "jaavaa:block/raw_iron_blocktant_01000111"
+    },
+    "position=72": {
+      "model": "jaavaa:block/raw_iron_blocktant_01001000"
+    },
+    "position=73": {
+      "model": "jaavaa:block/raw_iron_blocktant_01001001"
+    },
+    "position=74": {
+      "model": "jaavaa:block/raw_iron_blocktant_01001010"
+    },
+    "position=75": {
+      "model": "jaavaa:block/raw_iron_blocktant_01001011"
+    },
+    "position=76": {
+      "model": "jaavaa:block/raw_iron_blocktant_01001100"
+    },
+    "position=77": {
+      "model": "jaavaa:block/raw_iron_blocktant_01001101"
+    },
+    "position=78": {
+      "model": "jaavaa:block/raw_iron_blocktant_01001110"
+    },
+    "position=79": {
+      "model": "jaavaa:block/raw_iron_blocktant_01001111"
+    },
+    "position=8": {
+      "model": "jaavaa:block/raw_iron_blocktant_00001000"
+    },
+    "position=80": {
+      "model": "jaavaa:block/raw_iron_blocktant_01010000"
+    },
+    "position=81": {
+      "model": "jaavaa:block/raw_iron_blocktant_01010001"
+    },
+    "position=82": {
+      "model": "jaavaa:block/raw_iron_blocktant_01010010"
+    },
+    "position=83": {
+      "model": "jaavaa:block/raw_iron_blocktant_01010011"
+    },
+    "position=84": {
+      "model": "jaavaa:block/raw_iron_blocktant_01010100"
+    },
+    "position=85": {
+      "model": "jaavaa:block/raw_iron_blocktant_01010101"
+    },
+    "position=86": {
+      "model": "jaavaa:block/raw_iron_blocktant_01010110"
+    },
+    "position=87": {
+      "model": "jaavaa:block/raw_iron_blocktant_01010111"
+    },
+    "position=88": {
+      "model": "jaavaa:block/raw_iron_blocktant_01011000"
+    },
+    "position=89": {
+      "model": "jaavaa:block/raw_iron_blocktant_01011001"
+    },
+    "position=9": {
+      "model": "jaavaa:block/raw_iron_blocktant_00001001"
+    },
+    "position=90": {
+      "model": "jaavaa:block/raw_iron_blocktant_01011010"
+    },
+    "position=91": {
+      "model": "jaavaa:block/raw_iron_blocktant_01011011"
+    },
+    "position=92": {
+      "model": "jaavaa:block/raw_iron_blocktant_01011100"
+    },
+    "position=93": {
+      "model": "jaavaa:block/raw_iron_blocktant_01011101"
+    },
+    "position=94": {
+      "model": "jaavaa:block/raw_iron_blocktant_01011110"
+    },
+    "position=95": {
+      "model": "jaavaa:block/raw_iron_blocktant_01011111"
+    },
+    "position=96": {
+      "model": "jaavaa:block/raw_iron_blocktant_01100000"
+    },
+    "position=97": {
+      "model": "jaavaa:block/raw_iron_blocktant_01100001"
+    },
+    "position=98": {
+      "model": "jaavaa:block/raw_iron_blocktant_01100010"
+    },
+    "position=99": {
+      "model": "jaavaa:block/raw_iron_blocktant_01100011"
+    }
+  }
+}

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dark_prismarine_mini_block": {
+    "has_dark_prismarine_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:dark_prismarine_mini_block"
+            "items": "jaavaa:dark_prismarine_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_dark_prismarine_mini_block"
+      "has_dark_prismarine_blocktant"
     ]
   ],
   "rewards": {

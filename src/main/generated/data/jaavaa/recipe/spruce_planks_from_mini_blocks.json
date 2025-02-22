@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:spruce_planks",
+  "ingredients": [
+    "jaavaa:spruce_planks_blocktant",
+    "jaavaa:spruce_planks_blocktant",
+    "jaavaa:spruce_planks_blocktant",
+    "jaavaa:spruce_planks_blocktant",
+    "jaavaa:spruce_planks_blocktant",
+    "jaavaa:spruce_planks_blocktant",
+    "jaavaa:spruce_planks_blocktant",
+    "jaavaa:spruce_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:spruce_planks"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:amethyst_block",
+  "ingredients": [
+    "jaavaa:amethyst_blocktant",
+    "jaavaa:amethyst_blocktant",
+    "jaavaa:amethyst_blocktant",
+    "jaavaa:amethyst_blocktant",
+    "jaavaa:amethyst_blocktant",
+    "jaavaa:amethyst_blocktant",
+    "jaavaa:amethyst_blocktant",
+    "jaavaa:amethyst_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:amethyst_block"
+  }
+}

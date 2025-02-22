@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_redstone_mini_block": {
+    "has_redstone_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:redstone_mini_block"
+            "items": "jaavaa:redstone_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_redstone_mini_block"
+      "has_redstone_blocktant"
     ]
   ],
   "rewards": {

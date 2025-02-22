@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:resin_block",
+  "ingredients": [
+    "jaavaa:resin_blocktant",
+    "jaavaa:resin_blocktant",
+    "jaavaa:resin_blocktant",
+    "jaavaa:resin_blocktant",
+    "jaavaa:resin_blocktant",
+    "jaavaa:resin_blocktant",
+    "jaavaa:resin_blocktant",
+    "jaavaa:resin_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:resin_block"
+  }
+}

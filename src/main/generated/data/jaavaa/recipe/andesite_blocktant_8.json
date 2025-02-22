@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:andesite_blocktant",
+  "ingredients": [
+    "minecraft:andesite",
+    "minecraft:andesite",
+    "minecraft:andesite",
+    "minecraft:andesite",
+    "minecraft:andesite",
+    "minecraft:andesite",
+    "minecraft:andesite",
+    "minecraft:andesite",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 64,
+    "id": "jaavaa:andesite_blocktant"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_01100001",
+  "position": "01100001",
+  "textures": {
+    "down": "minecraft:block/birch_planks",
+    "side": "minecraft:block/birch_planks",
+    "up": "minecraft:block/birch_planks"
+  }
+}

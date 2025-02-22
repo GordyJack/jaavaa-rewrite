@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:emerald_block",
   "ingredients": [
-    "jaavaa:emerald_mini_block",
-    "jaavaa:emerald_mini_block",
-    "jaavaa:emerald_mini_block",
-    "jaavaa:emerald_mini_block",
-    "jaavaa:emerald_mini_block",
-    "jaavaa:emerald_mini_block",
-    "jaavaa:emerald_mini_block",
-    "jaavaa:emerald_mini_block"
+    "jaavaa:emerald_blocktant",
+    "jaavaa:emerald_blocktant",
+    "jaavaa:emerald_blocktant",
+    "jaavaa:emerald_blocktant",
+    "jaavaa:emerald_blocktant",
+    "jaavaa:emerald_blocktant",
+    "jaavaa:emerald_blocktant",
+    "jaavaa:emerald_blocktant"
   ],
   "result": {
     "count": 1,

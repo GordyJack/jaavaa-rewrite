@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:raw_copper_blocktant",
+  "ingredients": [
+    "minecraft:raw_copper_block",
+    "minecraft:raw_copper_block",
+    "minecraft:raw_copper_block",
+    "minecraft:raw_copper_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 32,
+    "id": "jaavaa:raw_copper_blocktant"
+  }
+}

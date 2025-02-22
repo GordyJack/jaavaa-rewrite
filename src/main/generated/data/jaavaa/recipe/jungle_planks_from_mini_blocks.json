@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:jungle_planks",
+  "ingredients": [
+    "jaavaa:jungle_planks_blocktant",
+    "jaavaa:jungle_planks_blocktant",
+    "jaavaa:jungle_planks_blocktant",
+    "jaavaa:jungle_planks_blocktant",
+    "jaavaa:jungle_planks_blocktant",
+    "jaavaa:jungle_planks_blocktant",
+    "jaavaa:jungle_planks_blocktant",
+    "jaavaa:jungle_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:jungle_planks"
+  }
+}

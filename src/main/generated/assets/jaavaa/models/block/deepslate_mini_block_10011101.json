@@ -1,9 +1,0 @@
-{
-  "parent": "jaavaa:block/mini_block_10011101",
-  "position": "10011101",
-  "textures": {
-    "down": "minecraft:block/deepslate",
-    "side": "minecraft:block/deepslate",
-    "up": "minecraft:block/deepslate"
-  }
-}

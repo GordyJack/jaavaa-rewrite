@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:coarse_dirt",
+  "ingredients": [
+    "jaavaa:coarse_dirt_blocktant",
+    "jaavaa:coarse_dirt_blocktant",
+    "jaavaa:coarse_dirt_blocktant",
+    "jaavaa:coarse_dirt_blocktant",
+    "jaavaa:coarse_dirt_blocktant",
+    "jaavaa:coarse_dirt_blocktant",
+    "jaavaa:coarse_dirt_blocktant",
+    "jaavaa:coarse_dirt_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:coarse_dirt"
+  }
+}

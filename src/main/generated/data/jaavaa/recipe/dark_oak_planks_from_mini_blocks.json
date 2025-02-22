@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:dark_oak_planks",
+  "ingredients": [
+    "jaavaa:dark_oak_planks_blocktant",
+    "jaavaa:dark_oak_planks_blocktant",
+    "jaavaa:dark_oak_planks_blocktant",
+    "jaavaa:dark_oak_planks_blocktant",
+    "jaavaa:dark_oak_planks_blocktant",
+    "jaavaa:dark_oak_planks_blocktant",
+    "jaavaa:dark_oak_planks_blocktant",
+    "jaavaa:dark_oak_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:dark_oak_planks"
+  }
+}

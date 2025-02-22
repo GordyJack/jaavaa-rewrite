@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_00001100",
+  "position": "00001100",
+  "textures": {
+    "down": "minecraft:block/resin_block",
+    "side": "minecraft:block/resin_block",
+    "up": "minecraft:block/resin_block"
+  }
+}

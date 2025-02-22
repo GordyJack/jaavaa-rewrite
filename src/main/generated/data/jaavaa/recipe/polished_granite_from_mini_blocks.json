@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:polished_granite",
   "ingredients": [
-    "jaavaa:polished_granite_mini_block",
-    "jaavaa:polished_granite_mini_block",
-    "jaavaa:polished_granite_mini_block",
-    "jaavaa:polished_granite_mini_block",
-    "jaavaa:polished_granite_mini_block",
-    "jaavaa:polished_granite_mini_block",
-    "jaavaa:polished_granite_mini_block",
-    "jaavaa:polished_granite_mini_block"
+    "jaavaa:polished_granite_blocktant",
+    "jaavaa:polished_granite_blocktant",
+    "jaavaa:polished_granite_blocktant",
+    "jaavaa:polished_granite_blocktant",
+    "jaavaa:polished_granite_blocktant",
+    "jaavaa:polished_granite_blocktant",
+    "jaavaa:polished_granite_blocktant",
+    "jaavaa:polished_granite_blocktant"
   ],
   "result": {
     "count": 1,

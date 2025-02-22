@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:diamond_block",
   "ingredients": [
-    "jaavaa:diamond_mini_block",
-    "jaavaa:diamond_mini_block",
-    "jaavaa:diamond_mini_block",
-    "jaavaa:diamond_mini_block",
-    "jaavaa:diamond_mini_block",
-    "jaavaa:diamond_mini_block",
-    "jaavaa:diamond_mini_block",
-    "jaavaa:diamond_mini_block"
+    "jaavaa:diamond_blocktant",
+    "jaavaa:diamond_blocktant",
+    "jaavaa:diamond_blocktant",
+    "jaavaa:diamond_blocktant",
+    "jaavaa:diamond_blocktant",
+    "jaavaa:diamond_blocktant",
+    "jaavaa:diamond_blocktant",
+    "jaavaa:diamond_blocktant"
   ],
   "result": {
     "count": 1,

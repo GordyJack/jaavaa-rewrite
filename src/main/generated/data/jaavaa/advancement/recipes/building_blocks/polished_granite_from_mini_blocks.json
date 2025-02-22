@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_polished_granite_mini_block": {
+    "has_polished_granite_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:polished_granite_mini_block"
+            "items": "jaavaa:polished_granite_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_polished_granite_mini_block"
+      "has_polished_granite_blocktant"
     ]
   ],
   "rewards": {

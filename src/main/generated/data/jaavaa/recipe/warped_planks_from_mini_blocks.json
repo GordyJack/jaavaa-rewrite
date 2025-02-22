@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:warped_planks",
+  "ingredients": [
+    "jaavaa:warped_planks_blocktant",
+    "jaavaa:warped_planks_blocktant",
+    "jaavaa:warped_planks_blocktant",
+    "jaavaa:warped_planks_blocktant",
+    "jaavaa:warped_planks_blocktant",
+    "jaavaa:warped_planks_blocktant",
+    "jaavaa:warped_planks_blocktant",
+    "jaavaa:warped_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:warped_planks"
+  }
+}

@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:diorite",
   "ingredients": [
-    "jaavaa:diorite_mini_block",
-    "jaavaa:diorite_mini_block",
-    "jaavaa:diorite_mini_block",
-    "jaavaa:diorite_mini_block",
-    "jaavaa:diorite_mini_block",
-    "jaavaa:diorite_mini_block",
-    "jaavaa:diorite_mini_block",
-    "jaavaa:diorite_mini_block"
+    "jaavaa:diorite_blocktant",
+    "jaavaa:diorite_blocktant",
+    "jaavaa:diorite_blocktant",
+    "jaavaa:diorite_blocktant",
+    "jaavaa:diorite_blocktant",
+    "jaavaa:diorite_blocktant",
+    "jaavaa:diorite_blocktant",
+    "jaavaa:diorite_blocktant"
   ],
   "result": {
     "count": 1,

@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:iron_block",
   "ingredients": [
-    "jaavaa:iron_mini_block",
-    "jaavaa:iron_mini_block",
-    "jaavaa:iron_mini_block",
-    "jaavaa:iron_mini_block",
-    "jaavaa:iron_mini_block",
-    "jaavaa:iron_mini_block",
-    "jaavaa:iron_mini_block",
-    "jaavaa:iron_mini_block"
+    "jaavaa:iron_blocktant",
+    "jaavaa:iron_blocktant",
+    "jaavaa:iron_blocktant",
+    "jaavaa:iron_blocktant",
+    "jaavaa:iron_blocktant",
+    "jaavaa:iron_blocktant",
+    "jaavaa:iron_blocktant",
+    "jaavaa:iron_blocktant"
   ],
   "result": {
     "count": 1,

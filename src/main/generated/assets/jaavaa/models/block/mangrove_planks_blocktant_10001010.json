@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_10001010",
+  "position": "10001010",
+  "textures": {
+    "down": "minecraft:block/mangrove_planks",
+    "side": "minecraft:block/mangrove_planks",
+    "up": "minecraft:block/mangrove_planks"
+  }
+}

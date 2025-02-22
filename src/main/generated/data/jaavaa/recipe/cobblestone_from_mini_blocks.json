@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:cobblestone",
   "ingredients": [
-    "jaavaa:cobblestone_mini_block",
-    "jaavaa:cobblestone_mini_block",
-    "jaavaa:cobblestone_mini_block",
-    "jaavaa:cobblestone_mini_block",
-    "jaavaa:cobblestone_mini_block",
-    "jaavaa:cobblestone_mini_block",
-    "jaavaa:cobblestone_mini_block",
-    "jaavaa:cobblestone_mini_block"
+    "jaavaa:cobblestone_blocktant",
+    "jaavaa:cobblestone_blocktant",
+    "jaavaa:cobblestone_blocktant",
+    "jaavaa:cobblestone_blocktant",
+    "jaavaa:cobblestone_blocktant",
+    "jaavaa:cobblestone_blocktant",
+    "jaavaa:cobblestone_blocktant",
+    "jaavaa:cobblestone_blocktant"
   ],
   "result": {
     "count": 1,

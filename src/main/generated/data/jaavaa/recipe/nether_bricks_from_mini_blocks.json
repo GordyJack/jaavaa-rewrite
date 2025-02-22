@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:nether_bricks",
   "ingredients": [
-    "jaavaa:nether_brick_mini_block",
-    "jaavaa:nether_brick_mini_block",
-    "jaavaa:nether_brick_mini_block",
-    "jaavaa:nether_brick_mini_block",
-    "jaavaa:nether_brick_mini_block",
-    "jaavaa:nether_brick_mini_block",
-    "jaavaa:nether_brick_mini_block",
-    "jaavaa:nether_brick_mini_block"
+    "jaavaa:nether_brick_blocktant",
+    "jaavaa:nether_brick_blocktant",
+    "jaavaa:nether_brick_blocktant",
+    "jaavaa:nether_brick_blocktant",
+    "jaavaa:nether_brick_blocktant",
+    "jaavaa:nether_brick_blocktant",
+    "jaavaa:nether_brick_blocktant",
+    "jaavaa:nether_brick_blocktant"
   ],
   "result": {
     "count": 1,

@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:prismarine_bricks",
   "ingredients": [
-    "jaavaa:prismarine_bricks_mini_block",
-    "jaavaa:prismarine_bricks_mini_block",
-    "jaavaa:prismarine_bricks_mini_block",
-    "jaavaa:prismarine_bricks_mini_block",
-    "jaavaa:prismarine_bricks_mini_block",
-    "jaavaa:prismarine_bricks_mini_block",
-    "jaavaa:prismarine_bricks_mini_block",
-    "jaavaa:prismarine_bricks_mini_block"
+    "jaavaa:prismarine_bricks_blocktant",
+    "jaavaa:prismarine_bricks_blocktant",
+    "jaavaa:prismarine_bricks_blocktant",
+    "jaavaa:prismarine_bricks_blocktant",
+    "jaavaa:prismarine_bricks_blocktant",
+    "jaavaa:prismarine_bricks_blocktant",
+    "jaavaa:prismarine_bricks_blocktant",
+    "jaavaa:prismarine_bricks_blocktant"
   ],
   "result": {
     "count": 1,

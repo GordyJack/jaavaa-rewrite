@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jaavaa:smooth_polished_deepslate",
+  "result": {
+    "count": 8,
+    "id": "jaavaa:smooth_polished_deepslate_blocktant"
+  }
+}

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_starsteel_block_mini_block": {
+    "has_starsteel_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:starsteel_block_mini_block"
+            "items": "jaavaa:starsteel_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_starsteel_block_mini_block"
+      "has_starsteel_blocktant"
     ]
   ],
   "rewards": {

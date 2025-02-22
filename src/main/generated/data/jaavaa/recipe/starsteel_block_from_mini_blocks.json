@@ -3,14 +3,14 @@
   "category": "building",
   "group": "jaavaa:starsteel_block",
   "ingredients": [
-    "jaavaa:starsteel_block_mini_block",
-    "jaavaa:starsteel_block_mini_block",
-    "jaavaa:starsteel_block_mini_block",
-    "jaavaa:starsteel_block_mini_block",
-    "jaavaa:starsteel_block_mini_block",
-    "jaavaa:starsteel_block_mini_block",
-    "jaavaa:starsteel_block_mini_block",
-    "jaavaa:starsteel_block_mini_block"
+    "jaavaa:starsteel_blocktant",
+    "jaavaa:starsteel_blocktant",
+    "jaavaa:starsteel_blocktant",
+    "jaavaa:starsteel_blocktant",
+    "jaavaa:starsteel_blocktant",
+    "jaavaa:starsteel_blocktant",
+    "jaavaa:starsteel_blocktant",
+    "jaavaa:starsteel_blocktant"
   ],
   "result": {
     "count": 1,

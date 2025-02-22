@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:birch_planks_blocktant",
+  "ingredients": [
+    "minecraft:birch_planks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 8,
+    "id": "jaavaa:birch_planks_blocktant"
+  }
+}

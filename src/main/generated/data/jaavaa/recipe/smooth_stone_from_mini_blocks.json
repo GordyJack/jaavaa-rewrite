@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:smooth_stone",
   "ingredients": [
-    "jaavaa:smooth_stone_mini_block",
-    "jaavaa:smooth_stone_mini_block",
-    "jaavaa:smooth_stone_mini_block",
-    "jaavaa:smooth_stone_mini_block",
-    "jaavaa:smooth_stone_mini_block",
-    "jaavaa:smooth_stone_mini_block",
-    "jaavaa:smooth_stone_mini_block",
-    "jaavaa:smooth_stone_mini_block"
+    "jaavaa:smooth_stone_blocktant",
+    "jaavaa:smooth_stone_blocktant",
+    "jaavaa:smooth_stone_blocktant",
+    "jaavaa:smooth_stone_blocktant",
+    "jaavaa:smooth_stone_blocktant",
+    "jaavaa:smooth_stone_blocktant",
+    "jaavaa:smooth_stone_blocktant",
+    "jaavaa:smooth_stone_blocktant"
   ],
   "result": {
     "count": 1,

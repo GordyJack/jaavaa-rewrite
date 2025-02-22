@@ -28,23 +28,23 @@ public class JAAVAABlockLootTableProvider
             String blockKey = block.getTranslationKey();
             if (blockKey.contains("glass")) {
                 this.addDrop(block,  this.dropsWithSilkTouch(block));
-            } else if (block instanceof MiniBlock) {
-                this.addDrop(block, this.miniBlockDrops(block));
+            } else if (block instanceof Blocktant) {
+                this.addDrop(block, this.blocktantDrops(block));
             } else {
                 this.addDrop(block);
             }
         }
     }
-    public LootTable.Builder miniBlockDrops(Block miniBlock) {
+    public LootTable.Builder blocktantDrops(Block blocktant) {
         List<Integer> positionsList = new ArrayList<>();
         for (int i = 0; i < 256; i++) {
             positionsList.add(i);
         }
         return LootTable.builder().pool(LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1.0F))
-                        .with(this.applyExplosionDecay(miniBlock, ItemEntry.builder(miniBlock).apply(positionsList, miniBlocks ->
-                                SetCountLootFunction.builder(ConstantLootNumberProvider.create((float) Integer.bitCount(miniBlocks)))
-                                        .conditionally(BlockStatePropertyLootCondition.builder(miniBlock)
-                                                .properties(StatePredicate.Builder.create().exactMatch(MiniBlock.POSITION, miniBlocks)))))));
+                        .with(this.applyExplosionDecay(blocktant, ItemEntry.builder(blocktant).apply(positionsList, blocktantPosition ->
+                                SetCountLootFunction.builder(ConstantLootNumberProvider.create((float) Integer.bitCount(blocktantPosition)))
+                                        .conditionally(BlockStatePropertyLootCondition.builder(blocktant)
+                                                .properties(StatePredicate.Builder.create().exactMatch(Blocktant.POSITION, blocktantPosition)))))));
     }
 }

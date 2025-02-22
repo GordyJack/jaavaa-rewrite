@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:coarse_dirt_blocktant",
+  "ingredients": [
+    "minecraft:coarse_dirt",
+    "minecraft:coarse_dirt",
+    "minecraft:coarse_dirt",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 24,
+    "id": "jaavaa:coarse_dirt_blocktant"
+  }
+}

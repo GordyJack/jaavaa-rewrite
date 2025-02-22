@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:polished_deepslate",
   "ingredients": [
-    "jaavaa:polished_deepslate_mini_block",
-    "jaavaa:polished_deepslate_mini_block",
-    "jaavaa:polished_deepslate_mini_block",
-    "jaavaa:polished_deepslate_mini_block",
-    "jaavaa:polished_deepslate_mini_block",
-    "jaavaa:polished_deepslate_mini_block",
-    "jaavaa:polished_deepslate_mini_block",
-    "jaavaa:polished_deepslate_mini_block"
+    "jaavaa:polished_deepslate_blocktant",
+    "jaavaa:polished_deepslate_blocktant",
+    "jaavaa:polished_deepslate_blocktant",
+    "jaavaa:polished_deepslate_blocktant",
+    "jaavaa:polished_deepslate_blocktant",
+    "jaavaa:polished_deepslate_blocktant",
+    "jaavaa:polished_deepslate_blocktant",
+    "jaavaa:polished_deepslate_blocktant"
   ],
   "result": {
     "count": 1,

@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:sandstone",
   "ingredients": [
-    "jaavaa:sandstone_mini_block",
-    "jaavaa:sandstone_mini_block",
-    "jaavaa:sandstone_mini_block",
-    "jaavaa:sandstone_mini_block",
-    "jaavaa:sandstone_mini_block",
-    "jaavaa:sandstone_mini_block",
-    "jaavaa:sandstone_mini_block",
-    "jaavaa:sandstone_mini_block"
+    "jaavaa:sandstone_blocktant",
+    "jaavaa:sandstone_blocktant",
+    "jaavaa:sandstone_blocktant",
+    "jaavaa:sandstone_blocktant",
+    "jaavaa:sandstone_blocktant",
+    "jaavaa:sandstone_blocktant",
+    "jaavaa:sandstone_blocktant",
+    "jaavaa:sandstone_blocktant"
   ],
   "result": {
     "count": 1,

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_coal_mini_block": {
+    "has_coal_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:coal_mini_block"
+            "items": "jaavaa:coal_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_coal_mini_block"
+      "has_coal_blocktant"
     ]
   ],
   "rewards": {

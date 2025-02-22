@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:warped_planks_blocktant",
+  "ingredients": [
+    "minecraft:warped_planks",
+    "minecraft:warped_planks",
+    "minecraft:warped_planks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 24,
+    "id": "jaavaa:warped_planks_blocktant"
+  }
+}

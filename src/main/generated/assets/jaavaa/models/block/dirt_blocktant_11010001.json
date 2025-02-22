@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_11010001",
+  "position": "11010001",
+  "textures": {
+    "down": "minecraft:block/dirt",
+    "side": "minecraft:block/dirt",
+    "up": "minecraft:block/dirt"
+  }
+}

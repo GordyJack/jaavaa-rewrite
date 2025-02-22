@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:end_stone_blocktant",
+  "ingredients": [
+    "minecraft:end_stone",
+    "minecraft:end_stone",
+    "minecraft:end_stone",
+    "minecraft:end_stone",
+    "minecraft:end_stone",
+    "minecraft:end_stone",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 48,
+    "id": "jaavaa:end_stone_blocktant"
+  }
+}

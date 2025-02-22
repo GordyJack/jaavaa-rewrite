@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:cherry_planks_blocktant",
+  "ingredients": [
+    "minecraft:cherry_planks",
+    "minecraft:cherry_planks",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 16,
+    "id": "jaavaa:cherry_planks_blocktant"
+  }
+}

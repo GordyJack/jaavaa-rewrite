@@ -1,9 +1,0 @@
-{
-  "parent": "jaavaa:block/mini_block_01000000",
-  "position": "01000000",
-  "textures": {
-    "down": "minecraft:block/glowstone",
-    "side": "minecraft:block/glowstone",
-    "up": "minecraft:block/glowstone"
-  }
-}

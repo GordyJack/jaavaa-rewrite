@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:coal_block",
   "ingredients": [
-    "jaavaa:coal_mini_block",
-    "jaavaa:coal_mini_block",
-    "jaavaa:coal_mini_block",
-    "jaavaa:coal_mini_block",
-    "jaavaa:coal_mini_block",
-    "jaavaa:coal_mini_block",
-    "jaavaa:coal_mini_block",
-    "jaavaa:coal_mini_block"
+    "jaavaa:coal_blocktant",
+    "jaavaa:coal_blocktant",
+    "jaavaa:coal_blocktant",
+    "jaavaa:coal_blocktant",
+    "jaavaa:coal_blocktant",
+    "jaavaa:coal_blocktant",
+    "jaavaa:coal_blocktant",
+    "jaavaa:coal_blocktant"
   ],
   "result": {
     "count": 1,

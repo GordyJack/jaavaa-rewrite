@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:lapis_lazuli_blocktant",
+  "ingredients": [
+    "minecraft:lapis_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 8,
+    "id": "jaavaa:lapis_lazuli_blocktant"
+  }
+}

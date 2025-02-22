@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:stone_bricks",
   "ingredients": [
-    "jaavaa:stone_bricks_mini_block",
-    "jaavaa:stone_bricks_mini_block",
-    "jaavaa:stone_bricks_mini_block",
-    "jaavaa:stone_bricks_mini_block",
-    "jaavaa:stone_bricks_mini_block",
-    "jaavaa:stone_bricks_mini_block",
-    "jaavaa:stone_bricks_mini_block",
-    "jaavaa:stone_bricks_mini_block"
+    "jaavaa:stone_bricks_blocktant",
+    "jaavaa:stone_bricks_blocktant",
+    "jaavaa:stone_bricks_blocktant",
+    "jaavaa:stone_bricks_blocktant",
+    "jaavaa:stone_bricks_blocktant",
+    "jaavaa:stone_bricks_blocktant",
+    "jaavaa:stone_bricks_blocktant",
+    "jaavaa:stone_bricks_blocktant"
   ],
   "result": {
     "count": 1,

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "minecraft:oak_planks",
+  "ingredients": [
+    "jaavaa:oak_planks_blocktant",
+    "jaavaa:oak_planks_blocktant",
+    "jaavaa:oak_planks_blocktant",
+    "jaavaa:oak_planks_blocktant",
+    "jaavaa:oak_planks_blocktant",
+    "jaavaa:oak_planks_blocktant",
+    "jaavaa:oak_planks_blocktant",
+    "jaavaa:oak_planks_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_planks"
+  }
+}

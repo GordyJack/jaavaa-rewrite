@@ -3,14 +3,14 @@
   "category": "building",
   "group": "minecraft:gold_block",
   "ingredients": [
-    "jaavaa:gold_mini_block",
-    "jaavaa:gold_mini_block",
-    "jaavaa:gold_mini_block",
-    "jaavaa:gold_mini_block",
-    "jaavaa:gold_mini_block",
-    "jaavaa:gold_mini_block",
-    "jaavaa:gold_mini_block",
-    "jaavaa:gold_mini_block"
+    "jaavaa:gold_blocktant",
+    "jaavaa:gold_blocktant",
+    "jaavaa:gold_blocktant",
+    "jaavaa:gold_blocktant",
+    "jaavaa:gold_blocktant",
+    "jaavaa:gold_blocktant",
+    "jaavaa:gold_blocktant",
+    "jaavaa:gold_blocktant"
   ],
   "result": {
     "count": 1,

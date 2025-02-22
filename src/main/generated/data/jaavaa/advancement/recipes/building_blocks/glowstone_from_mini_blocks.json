@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_glowstone_mini_block": {
+    "has_glowstone_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:glowstone_mini_block"
+            "items": "jaavaa:glowstone_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_glowstone_mini_block"
+      "has_glowstone_blocktant"
     ]
   ],
   "rewards": {

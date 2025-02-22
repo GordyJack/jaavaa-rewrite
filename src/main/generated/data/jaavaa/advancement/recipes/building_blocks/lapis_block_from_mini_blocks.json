@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lapis_lazuli_mini_block": {
+    "has_lapis_lazuli_blocktant": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:lapis_lazuli_mini_block"
+            "items": "jaavaa:lapis_lazuli_blocktant"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_lapis_lazuli_mini_block"
+      "has_lapis_lazuli_blocktant"
     ]
   ],
   "rewards": {
