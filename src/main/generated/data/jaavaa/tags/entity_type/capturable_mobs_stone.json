@@ -1,0 +1,26 @@
+{
+  "values": [
+    {
+      "id": "#jaavaa:caputrable_mobs_wood",
+      "required": false
+    },
+    "minecraft:camel",
+    "minecraft:cow",
+    "minecraft:dolphin",
+    "minecraft:donkey",
+    "minecraft:glow_squid",
+    "minecraft:goat",
+    "minecraft:horse",
+    "minecraft:llama",
+    "minecraft:mooshroom",
+    "minecraft:mule",
+    "minecraft:panda",
+    "minecraft:pig",
+    "minecraft:polar_bear",
+    "minecraft:sheep",
+    "minecraft:sniffer",
+    "minecraft:snow_golem",
+    "minecraft:squid",
+    "minecraft:trader_llama"
+  ]
+}

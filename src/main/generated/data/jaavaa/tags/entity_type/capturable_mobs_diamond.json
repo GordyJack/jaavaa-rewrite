@@ -1,0 +1,32 @@
+{
+  "values": [
+    {
+      "id": "#jaavaa:capturable_mobs_iron",
+      "required": false
+    },
+    "minecraft:blaze",
+    "minecraft:bogged",
+    "minecraft:breeze",
+    "minecraft:drowned",
+    "minecraft:evoker",
+    "minecraft:ghast",
+    "minecraft:hoglin",
+    "minecraft:husk",
+    "minecraft:illusioner",
+    "minecraft:iron_golem",
+    "minecraft:magma_cube",
+    "minecraft:piglin",
+    "minecraft:piglin_brute",
+    "minecraft:ravager",
+    "minecraft:shulker",
+    "minecraft:stray",
+    "minecraft:strider",
+    "minecraft:vex",
+    "minecraft:villager",
+    "minecraft:vindicator",
+    "minecraft:wandering_trader",
+    "minecraft:wither_skeleton",
+    "minecraft:zoglin",
+    "minecraft:zombified_piglin"
+  ]
+}

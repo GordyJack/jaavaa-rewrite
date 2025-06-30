@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "#jaavaa:capturable_mobs_stone",
+      "required": false
+    },
+    "minecraft:cave_spider",
+    "minecraft:creeper",
+    "minecraft:enderman",
+    "minecraft:endermite",
+    "minecraft:guardian",
+    "minecraft:phantom",
+    "minecraft:pillager",
+    "minecraft:silverfish",
+    "minecraft:skeleton",
+    "minecraft:skeleton_horse",
+    "minecraft:slime",
+    "minecraft:spider",
+    "minecraft:witch",
+    "minecraft:zombie",
+    "minecraft:zombie_horse",
+    "minecraft:zombie_villager"
+  ]
+}

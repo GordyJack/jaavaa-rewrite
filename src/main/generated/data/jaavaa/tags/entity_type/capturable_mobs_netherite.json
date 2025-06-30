@@ -1,0 +1,14 @@
+{
+  "values": [
+    {
+      "id": "#jaavaa:capturable_mobs_diamond",
+      "required": false
+    },
+    "minecraft:creaking",
+    "minecraft:elder_guardian",
+    "minecraft:ender_dragon",
+    "minecraft:giant",
+    "minecraft:warden",
+    "minecraft:wither"
+  ]
+}
