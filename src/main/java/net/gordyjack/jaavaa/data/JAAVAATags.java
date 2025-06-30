@@ -23,6 +23,18 @@ public class JAAVAATags {
             return TagKey.of(RegistryKeys.BLOCK, JAAVAA.id(name));
         }
     }
+    public static class Entity {
+        public static final TagKey<EntityType<?>> CAPTURABLE_MOBS_WOOD = createTag("caputrable_mobs_wood");
+        public static final TagKey<EntityType<?>> CAPTURABLE_MOBS_STONE = createTag("capturable_mobs_stone");
+        public static final TagKey<EntityType<?>> CAPTURABLE_MOBS_IRON = createTag("capturable_mobs_iron");
+        public static final TagKey<EntityType<?>> CAPTURABLE_MOBS_DIAMOND = createTag("capturable_mobs_diamond");
+        public static final TagKey<EntityType<?>> CAPTURABLE_MOBS_NETHERITE = createTag("capturable_mobs_netherite");
+        public static final TagKey<EntityType<?>> QUICKSAND_WALKABLE_MOBS = createTag("quicksand_walkable_mobs");
+
+        private static TagKey<EntityType<?>> createTag(String name) {
+            return TagKey.of(RegistryKeys.ENTITY_TYPE, JAAVAA.id(name));
+        }
+    }
     public static class Items {
         //Mod Tags
         public static final TagKey<Item> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
@@ -50,8 +62,6 @@ public class JAAVAATags {
     public static class Other {
         public static final TagKey<DamageType> IS_EXPLOSION_OR_FIRE =
                 TagKey.of(RegistryKeys.DAMAGE_TYPE, JAAVAA.id("is_explosion_or_fire"));
-        public static final TagKey<EntityType<?>> QUICKSAND_WALKABLE_MOBS =
-                TagKey.of(RegistryKeys.ENTITY_TYPE, JAAVAA.id("quicksand_walkable_mobs"));
         public static final TagKey<Enchantment> UNBRIDLED_DESTRUCTION_EXCLUSIVE_SET =
                 TagKey.of(RegistryKeys.ENCHANTMENT, JAAVAA.id("exclusive_set/unbridled_destruction"));
     }

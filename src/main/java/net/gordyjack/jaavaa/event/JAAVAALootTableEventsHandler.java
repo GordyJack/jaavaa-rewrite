@@ -36,17 +36,6 @@ public class JAAVAALootTableEventsHandler {
             }
         });
     }
-    private static void modifyBastionTreasureLootTable(LootTable.Builder lootManager) {
-        var lootPool = LootPool.builder()
-                .rolls(ConstantLootNumberProvider.create(1))
-                .with(ItemEntry.builder(JAAVAAItems.TOOL_OF_THE_ANCIENTS)
-                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
-                        .conditionally(RandomChanceLootCondition.builder(0.5f)))
-                .with(ItemEntry.builder(JAAVAAItems.MALUM_STELLAE_INCANTATAE)
-                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
-                        .conditionally(RandomChanceLootCondition.builder(0.1f)));
-        lootManager.pool(lootPool);
-    }
     private static void modifyBastionLootTables(LootTable.Builder lootManager) {
         var lootPool = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))
@@ -56,6 +45,17 @@ public class JAAVAALootTableEventsHandler {
                 .with(ItemEntry.builder(JAAVAAItems.MALUM_STELLAE_INCANTATAE)
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
                         .conditionally(RandomChanceLootCondition.builder(0.01f)));
+        lootManager.pool(lootPool);
+    }
+    private static void modifyBastionTreasureLootTable(LootTable.Builder lootManager) {
+        var lootPool = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(1))
+                .with(ItemEntry.builder(JAAVAAItems.TOOL_OF_THE_ANCIENTS)
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
+                        .conditionally(RandomChanceLootCondition.builder(0.5f)))
+                .with(ItemEntry.builder(JAAVAAItems.MALUM_STELLAE_INCANTATAE)
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
+                        .conditionally(RandomChanceLootCondition.builder(0.1f)));
         lootManager.pool(lootPool);
     }
     private static void modifyEntityAllayLootTable(LootTable.Builder lootManager, RegistryWrapper.WrapperLookup supplier) {

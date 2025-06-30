@@ -7,15 +7,10 @@ import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.enchantment.*;
 import net.minecraft.enchantment.effect.*;
-import net.minecraft.enchantment.effect.entity.*;
 import net.minecraft.enchantment.effect.value.*;
 import net.minecraft.loot.context.*;
-import net.minecraft.particle.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
-import net.minecraft.sound.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
 
 import java.util.*;
 import java.util.function.*;
@@ -58,20 +53,6 @@ public class JAAVAAEnchantments {
                         Enchantment.leveledCost(100, 5),
                         8,
                         AttributeModifierSlot.HAND))
-                .addEffect(EnchantmentEffectComponentTypes.HIT_BLOCK,
-                        new ExplodeEnchantmentEffect(
-                                true,
-                                Optional.empty(),
-                                Optional.of(EnchantmentLevelBasedValue.constant(0)),
-                                blocks.getOptional(BlockTags.AIR).map(Function.identity()),
-                                Vec3d.ZERO,
-                                EnchantmentLevelBasedValue.linear(2, 1),
-                                false,
-                                World.ExplosionSourceType.TRIGGER,
-                                ParticleTypes.EXPLOSION,
-                                ParticleTypes.EXPLOSION_EMITTER,
-                                SoundEvents.ENTITY_GENERIC_EXPLODE
-                        ))
         );
         register(registerable, CURSE_OF_UNBRIDLED_DESTRUCTION, Enchantment.builder(Enchantment.definition(
                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),

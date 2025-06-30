@@ -1,2 +1,7 @@
 // 1.21.4	-999999999-01-01T00:00:00	JAAVAA/Tags for minecraft:entity_type
+c1972915ae9f6d778fcea29d1611a42ceba0dab7 data/jaavaa/tags/entity_type/capturable_mobs_diamond.json
+c93ebf41f65170b44c95e7173de0492bc45aab7f data/jaavaa/tags/entity_type/capturable_mobs_iron.json
+7def1c9bc262060b2da334081bce4efc8d0ad011 data/jaavaa/tags/entity_type/capturable_mobs_netherite.json
+355d60caeb33bb1636407286d4a822b593a2ac40 data/jaavaa/tags/entity_type/capturable_mobs_stone.json
+6373706492b8787009558971a4e9ba3704be2b7c data/jaavaa/tags/entity_type/caputrable_mobs_wood.json
 d40d9db181bb79f35187a2cca2066bcef2300084 data/jaavaa/tags/entity_type/quicksand_walkable_mobs.json

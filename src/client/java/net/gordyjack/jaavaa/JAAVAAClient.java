@@ -19,9 +19,38 @@ public class JAAVAAClient implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.STARSTEEL_GLASS, RenderLayer.getTranslucent());
 		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.STARSTEEL_GLASS_PANE, RenderLayer.getTranslucent());
 
+		TooltipHelpers.addTooltips();
+
 //		if (FabricLoader.getInstance().isModLoaded("roughlyenoughitems")) {
 //			JAAVAA.log("REI detected, adding plugin");
 //			new JAAVAAREIPlugin();
 //		}
+	}
+	private static class TooltipHelpers {
+		private static void addMobNetItemTooltip() {
+//			ItemTooltipCallback.EVENT.register((ItemStack stack, Item.TooltipContext context, TooltipType type, List<Text> lines) -> {
+//				if (stack.getItem() instanceof MobNetItem item) {
+//					if (MobNetItem.hasCapturedEntity(stack)) {
+//						// first line: entity identifier when shift held
+//						if (Screen.hasShiftDown()) {
+//							lines.add(Text.literal(MobNetItem.getCapturedEntity(stack, ).toString()));
+//						} else {
+//							// default tooltip
+//							lines.add(Text.literal("Captured Mob: §b" +
+//									(item.getCapturedEntity().hasCustomName()
+//											? item.getCapturedEntity().getCustomName().getString()
+//											: Text.translatable(item.getCapturedEntityType().getTranslationKey()).getString())
+//							));
+//							lines.add(Text.literal("§8Hold ⇧ for details."));
+//						}
+//					} else {
+//						//lines.add(Text.literal("§8Right click on a mob to capture it."));
+//					}
+//				}
+//			});
+		}
+		protected static void addTooltips() {
+			addMobNetItemTooltip();
+		}
 	}
 }

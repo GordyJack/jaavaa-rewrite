@@ -1,5 +1,6 @@
 package net.gordyjack.jaavaa.block.custom;
 
+import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.*;
 import net.gordyjack.jaavaa.data.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
@@ -14,7 +15,6 @@ import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.*;
 import net.minecraft.world.*;
-import org.jetbrains.annotations.*;
 
 import java.util.*;
 
@@ -101,7 +101,7 @@ public class QuicksandBlock
     }
 
     public static boolean canWalkOnQuicksand(Entity entity) {
-        if (entity.getType().isIn(JAAVAATags.Other.QUICKSAND_WALKABLE_MOBS)) {
+        if (entity.getType().isIn(JAAVAATags.Entity.QUICKSAND_WALKABLE_MOBS)) {
             return true;
         } else {
             return entity instanceof LivingEntity living

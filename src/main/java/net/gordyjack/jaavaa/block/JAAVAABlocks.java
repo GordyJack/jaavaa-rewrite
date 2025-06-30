@@ -236,7 +236,7 @@ public class JAAVAABlocks {
         BLOCKS.add(BLOCK);
         return BLOCK;
     }
-    private static Block registerBlocktant(String path, Block parentBlock) {
+    private static Blocktant registerBlocktant(String path, Block parentBlock) {
         final Blocktant BLOCKTANT = (Blocktant) registerBlock(path, Blocktant::new,
                 AbstractBlock.Settings.copy(parentBlock).requires());
         BLOCKTANTS.put(BLOCKTANT, parentBlock);
