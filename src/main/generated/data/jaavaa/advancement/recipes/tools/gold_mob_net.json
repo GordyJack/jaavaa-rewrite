@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stone_mob_net": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:stone_mob_net"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:gold_mob_net"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stone_mob_net"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:gold_mob_net"
+    ]
+  }
+}

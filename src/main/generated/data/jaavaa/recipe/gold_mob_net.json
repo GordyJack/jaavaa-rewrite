@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:gold_mob_net",
+  "key": {
+    "G": "#minecraft:gold_tool_materials",
+    "N": "jaavaa:stone_mob_net",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "GSG",
+    "SNS",
+    "GSG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:gold_mob_net"
+  }
+}

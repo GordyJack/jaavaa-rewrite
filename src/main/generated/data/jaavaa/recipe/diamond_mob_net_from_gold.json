@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:diamond_mob_net",
+  "key": {
+    "D": "#minecraft:diamond_tool_materials",
+    "N": "jaavaa:gold_mob_net",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "DSD",
+    "SNS",
+    "DSD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:diamond_mob_net"
+  }
+}

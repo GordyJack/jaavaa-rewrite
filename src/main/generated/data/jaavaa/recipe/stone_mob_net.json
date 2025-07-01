@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:stone_mob_net",
+  "key": {
+    "C": "#minecraft:stone_crafting_materials",
+    "N": "jaavaa:bamboo_mob_net",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "CSC",
+    "SNS",
+    "CSC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:stone_mob_net"
+  }
+}

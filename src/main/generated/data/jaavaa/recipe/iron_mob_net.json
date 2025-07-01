@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:iron_mob_net",
+  "key": {
+    "I": "#minecraft:iron_tool_materials",
+    "N": "jaavaa:stone_mob_net",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "ISI",
+    "SNS",
+    "ISI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:iron_mob_net"
+  }
+}

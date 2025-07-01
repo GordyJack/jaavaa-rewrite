@@ -85,7 +85,7 @@ public class MobNetItem extends Item {
     private boolean releaseEntity(ItemStack stack, ServerWorld serverWorld, BlockPos pos) {
         LivingEntity capturedEntity = getCapturedEntity(stack, serverWorld);
         if (capturedEntity != null) {
-            capturedEntity.setPos(pos.getX(), pos.getY(), pos.getZ());
+            capturedEntity.setPos(pos.getX() + 0.5f, pos.getY(), pos.getZ() + 0.5f);
             var spawnedEntity = capturedEntity.getType().spawn(serverWorld, pos, SpawnReason.SPAWN_ITEM_USE);
             spawnedEntity.copyFrom(capturedEntity);
             removeCapturedEntity(stack);

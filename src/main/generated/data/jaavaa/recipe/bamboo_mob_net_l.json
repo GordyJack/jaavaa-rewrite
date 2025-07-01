@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:bamboo_mob_net",
+  "key": {
+    "B": "minecraft:bamboo",
+    "S": "minecraft:string"
+  },
+  "pattern": [
+    "BS ",
+    "SB ",
+    "  B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:bamboo_mob_net"
+  }
+}

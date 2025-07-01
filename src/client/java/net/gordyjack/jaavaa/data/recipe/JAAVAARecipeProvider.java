@@ -14,6 +14,7 @@ import net.minecraft.item.*;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.*;
 import net.minecraft.registry.*;
+import net.minecraft.registry.tag.*;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -33,7 +34,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.createMaterialsRecipes();
                 this.createMiscRecipes();
                 this.createRecyclingRecipes();
-                this.createStarsteelSmithingRecipes();
+                this.createSmithingRecipes();
                 this.offerEncasedPillarRecipes(Items.QUARTZ_PILLAR, Items.REDSTONE_BLOCK, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR);
                 this.offerEncasedPillarRecipes(Items.ANCIENT_DEBRIS, Items.REDSTONE_BLOCK, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
                 for (Blocktant block : JAAVAABlocks.BLOCKTANTS.keySet()) {
@@ -131,6 +132,74 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(JAAVAAItems.ALLAY_ESSENCE), conditionsFromItem(JAAVAAItems.ALLAY_ESSENCE))
                         .criterion(hasItem(JAAVAAItems.SHULKER_PEARL), conditionsFromItem(JAAVAAItems.SHULKER_PEARL))
                         .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_WOOD, 1)
+                        .input('B', Items.BAMBOO)
+                        .input('S', Items.STRING)
+                        .pattern(" SB")
+                        .pattern(" BS")
+                        .pattern("B  ")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_WOOD).toString())
+                        .criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id("bamboo_mob_net_r")));
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_WOOD, 1)
+                        .input('B', Items.BAMBOO)
+                        .input('S', Items.STRING)
+                        .pattern("BS ")
+                        .pattern("SB ")
+                        .pattern("  B")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_WOOD).toString())
+                        .criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id("bamboo_mob_net_l")));
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_STONE, 1)
+                        .input('N', JAAVAAItems.MOB_NET_WOOD)
+                        .input('S', Items.STICK)
+                        .input('C', ItemTags.STONE_CRAFTING_MATERIALS)
+                        .pattern("CSC")
+                        .pattern("SNS")
+                        .pattern("CSC")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_STONE).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_WOOD), conditionsFromItem(JAAVAAItems.MOB_NET_WOOD))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_GOLD, 1)
+                        .input('N', JAAVAAItems.MOB_NET_STONE)
+                        .input('S', Items.STICK)
+                        .input('G', ItemTags.GOLD_TOOL_MATERIALS)
+                        .pattern("GSG")
+                        .pattern("SNS")
+                        .pattern("GSG")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_GOLD).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_STONE), conditionsFromItem(JAAVAAItems.MOB_NET_STONE))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_IRON, 1)
+                        .input('N', JAAVAAItems.MOB_NET_STONE)
+                        .input('S', Items.STICK)
+                        .input('I', ItemTags.IRON_TOOL_MATERIALS)
+                        .pattern("ISI")
+                        .pattern("SNS")
+                        .pattern("ISI")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_IRON).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_STONE), conditionsFromItem(JAAVAAItems.MOB_NET_STONE))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_DIAMOND, 1)
+                        .input('N', JAAVAAItems.MOB_NET_IRON)
+                        .input('S', Items.STICK)
+                        .input('D', ItemTags.DIAMOND_TOOL_MATERIALS)
+                        .pattern("DSD")
+                        .pattern("SNS")
+                        .pattern("DSD")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_DIAMOND).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_IRON), conditionsFromItem(JAAVAAItems.MOB_NET_IRON))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id("diamond_mob_net_from_iron")));
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_DIAMOND, 1)
+                        .input('N', JAAVAAItems.MOB_NET_GOLD)
+                        .input('S', Items.STICK)
+                        .input('D', ItemTags.DIAMOND_TOOL_MATERIALS)
+                        .pattern("DSD")
+                        .pattern("SNS")
+                        .pattern("DSD")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_DIAMOND).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_GOLD), conditionsFromItem(JAAVAAItems.MOB_NET_GOLD))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id("diamond_mob_net_from_gold")));
                 this.createShaped(RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STARSTEEL_GLASS, 4)
                         .input('G', Items.GLASS)
                         .input('S', JAAVAAItems.STARSTEEL_INGOT)
@@ -401,7 +470,9 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 //Uncrafting
                 this.offerRecyclingRecipe(0.1f, Items.NETHERITE_INGOT, Items.NETHERITE_SCRAP, 4);
             }
-            private void createStarsteelSmithingRecipes() {
+            private void createSmithingRecipes() {
+                this.offerNetheriteUpgradeRecipe(JAAVAAItems.MOB_NET_DIAMOND, RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_NETHERITE);
+
                 this.offerSmithingTemplateCopyingRecipe(JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE, Items.NETHERITE_INGOT);
                 this.offerStarsteelUpgradeRecipe(Items.NETHERITE_SWORD, RecipeCategory.TOOLS, JAAVAAItems.STARSTEEL_SWORD);
                 this.offerStarsteelUpgradeRecipe(JAAVAAItems.TOOL_OF_THE_ANCIENTS, RecipeCategory.TOOLS, JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS);
