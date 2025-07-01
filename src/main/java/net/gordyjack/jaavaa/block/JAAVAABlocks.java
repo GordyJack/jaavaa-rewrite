@@ -205,6 +205,8 @@ public class JAAVAABlocks {
     public static final Block BAMBOO_MOSAIC_BLOCKTANT =
             registerBlocktant("bamboo_mosaic_blocktant", Blocks.BAMBOO_MOSAIC);
 
+    public static final Block RAW_VOIDIUM_BLOCKTANT =
+            registerBlocktant("raw_voidium_blocktant", JAAVAABlocks.RAW_VOIDIUM);
     public static final Block SMOOTH_POLISHED_DEEPSLATE_BLOCKTANT =
             registerBlocktant("smooth_polished_deepslate_blocktant", JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
     public static final Block STARSTEEL_BLOCKTANT =
@@ -334,8 +336,24 @@ public class JAAVAABlocks {
             entries.add(STARSTEEL_BLOCK);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
-            entries.addAfter(Items.RED_STAINED_GLASS, STARSTEEL_GLASS);
-            entries.addAfter(Items.RED_STAINED_GLASS_PANE, STARSTEEL_GLASS_PANE);
+            entries.addAfter(Items.PINK_STAINED_GLASS, STARSTEEL_GLASS);
+            entries.addAfter(Items.PINK_STAINED_GLASS_PANE, STARSTEEL_GLASS_PANE);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+            entries.add(ALLOY_FURNACE);
+            entries.add(RECYCLING_TABLE);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
+            entries.add(QUICKSAND);
+            entries.add(RAW_VOIDIUM);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
+            entries.add(ADDER);
+            entries.add(ADVANCED_REPEATER);
+            entries.add(DECODER);
+            entries.add(ADJUSTABLE_REDSTONE_LAMP);
+            entries.add(ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
+            entries.add(QUARTZ_ENCASED_REDSTONE_PILLAR);
         });
     }
 }

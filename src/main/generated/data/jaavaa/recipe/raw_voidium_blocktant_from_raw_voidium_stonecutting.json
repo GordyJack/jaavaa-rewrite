@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jaavaa:raw_voidium",
+  "result": {
+    "count": 8,
+    "id": "jaavaa:raw_voidium_blocktant"
+  }
+}

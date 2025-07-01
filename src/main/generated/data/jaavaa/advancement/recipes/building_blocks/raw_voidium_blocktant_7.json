@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_voidium": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:raw_voidium"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:raw_voidium_blocktant_7"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_voidium"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:raw_voidium_blocktant_7"
+    ]
+  }
+}

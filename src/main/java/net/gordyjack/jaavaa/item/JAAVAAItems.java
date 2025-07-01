@@ -143,6 +143,30 @@ public class JAAVAAItems {
             entries.add(MOB_NET_DIAMOND);
             entries.add(MOB_NET_NETHERITE);
         });
+        //Adding Items to Vanilla ItemGroups
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            entries.addAfter(Items.NETHERITE_SWORD, STARSTEEL_SWORD);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
+            entries.addAfter(Items.ENCHANTED_GOLDEN_APPLE, MALUM_STELLAE_INCANTATAE);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.addAfter(Items.SHULKER_SHELL, SHULKER_PEARL);
+            entries.addAfter(SHULKER_PEARL, ALLAY_ESSENCE);
+            entries.addAfter(Items.NETHERITE_INGOT, STARSTEEL_INGOT);
+            entries.addAfter(Items.GOLD_NUGGET, STARSTEEL_NUGGET);
+            entries.addAfter(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+            entries.addAfter(Items.NETHERITE_HOE, TOOL_OF_THE_ANCIENTS);
+            entries.addAfter(TOOL_OF_THE_ANCIENTS, STARSTEEL_TOOL_OF_THE_ANCIENTS);
+            entries.add(MOB_NET_WOOD);
+            entries.add(MOB_NET_STONE);
+            entries.add(MOB_NET_GOLD);
+            entries.add(MOB_NET_IRON);
+            entries.add(MOB_NET_DIAMOND);
+            entries.add(MOB_NET_NETHERITE);
+        });
     }
 
     public static class ToolMaterials {

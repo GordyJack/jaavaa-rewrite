@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:raw_voidium_blocktant",
+  "ingredients": [
+    "jaavaa:raw_voidium",
+    "jaavaa:raw_voidium",
+    "jaavaa:raw_voidium",
+    "jaavaa:raw_voidium",
+    "jaavaa:raw_voidium",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 40,
+    "id": "jaavaa:raw_voidium_blocktant"
+  }
+}

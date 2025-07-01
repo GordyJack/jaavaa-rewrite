@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_11110000",
+  "position": "11110000",
+  "textures": {
+    "down": "jaavaa:block/raw_voidium",
+    "side": "jaavaa:block/raw_voidium",
+    "up": "jaavaa:block/raw_voidium"
+  }
+}
