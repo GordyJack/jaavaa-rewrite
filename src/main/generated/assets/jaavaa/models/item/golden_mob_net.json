@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "jaavaa:item/gold_mob_net"
+    "layer0": "jaavaa:item/golden_mob_net"
   }
 }

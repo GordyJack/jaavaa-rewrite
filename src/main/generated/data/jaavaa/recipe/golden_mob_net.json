@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "group": "jaavaa:gold_mob_net",
+  "group": "jaavaa:golden_mob_net",
   "key": {
     "G": "#minecraft:gold_tool_materials",
     "N": "jaavaa:stone_mob_net",
@@ -14,6 +14,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "jaavaa:gold_mob_net"
+    "id": "jaavaa:golden_mob_net"
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jaavaa:gold_mob_net"
+        "recipe": "jaavaa:golden_mob_net"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "jaavaa:gold_mob_net"
+      "jaavaa:golden_mob_net"
     ]
   }
 }

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_gold_mob_net": {
+    "has_golden_mob_net": {
       "conditions": {
         "items": [
           {
-            "items": "jaavaa:gold_mob_net"
+            "items": "jaavaa:golden_mob_net"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_gold_mob_net"
+      "has_golden_mob_net"
     ]
   ],
   "rewards": {

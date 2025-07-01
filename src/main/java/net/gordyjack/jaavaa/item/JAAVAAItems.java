@@ -41,7 +41,7 @@ public class JAAVAAItems {
     public static final Item MOB_NET_STONE = register("stone_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.STONE),
             new Item.Settings().maxDamage(131).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
-    public static final Item MOB_NET_GOLD = register("gold_mob_net",
+    public static final Item MOB_NET_GOLD = register("golden_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.GOLD),
             new Item.Settings().maxDamage(32).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
     public static final Item MOB_NET_IRON = register("iron_mob_net",
