@@ -29,9 +29,9 @@ public class MobNetItem extends Item {
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if (hasCapturedEntity(stack)) {
             tooltip.add(Text.literal("Captured Mob: §b" + entityName));
-            tooltip.add(Text.literal("§8Right click on a block to release mob"));
+            tooltip.add(Text.literal("§7Right click on a block to release mob"));
         } else {
-            tooltip.add(Text.literal("§8Right Click on a Mob to capture it."));
+            tooltip.add(Text.literal("§7Right Click on a Mob to capture it."));
         }
         super.appendTooltip(stack, context, tooltip, type);
     }
