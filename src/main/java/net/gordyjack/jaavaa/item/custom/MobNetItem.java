@@ -2,15 +2,16 @@ package net.gordyjack.jaavaa.item.custom;
 
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.data.*;
-import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.*;
+import net.minecraft.nbt.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
 import net.minecraft.server.world.*;
+import net.minecraft.storage.*;
 import net.minecraft.text.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
@@ -103,15 +104,19 @@ public class MobNetItem extends Item {
         if (id == null) {
             return null;
         }
-        NbtComponent mobData = comp.entityNbt();
+        NbtCompound mobData = comp.entityNbt();
         EntityType<?> type = Registries.ENTITY_TYPE.get(id);
         if (type == null) {
             return null;
         }
         // Create and restore the entity without handling spawn events
-        Entity mob = type.create(world, SpawnReason.SPAWN_ITEM_USE);
-        mob.setComponent(DataComponentTypes.ENTITY_DATA, mobData);
-        return (LivingEntity) mob;
+        Entity entity = type.create(world, SpawnReason.SPAWN_ITEM_USE);
+        if (entity instanceof LivingEntity mob) {
+            ReadView view = NbtReadView.create(JAAVAA.ERROR_REPORTER, world.getRegistryManager(), mobData);
+            mob.readData(view);
+            return mob;
+        }
+        return null;
     }
     private static EntityType<?> getCapturedEntityType(ItemStack stack) {
         if (!stack.contains(JAAVAAComponents.Types.MOB_NET_ENTITY)) {
@@ -130,11 +135,13 @@ public class MobNetItem extends Item {
     private static void removeCapturedEntity(ItemStack stack) {
         stack.set(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(
                 null,
-                null
+                new NbtCompound()
         ));
     }
     private static void setCapturedEntity(ItemStack stack, LivingEntity entity) {
-        NbtComponent data = entity.get(DataComponentTypes.ENTITY_DATA);
+        NbtWriteView view = NbtWriteView.create(JAAVAA.ERROR_REPORTER);
+        entity.writeData(view);
+        NbtCompound data = view.getNbt();
         stack.set(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(
                 Registries.ENTITY_TYPE.getId(entity.getType()),
                 data

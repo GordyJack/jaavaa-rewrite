@@ -138,7 +138,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     private BlockModelDefinitionCreator generateRecyclingTableState() {
         return VariantsBlockModelDefinitionCreator.of(
                 JAAVAABlocks.RECYCLING_TABLE,
-                BlockStateModelGenerator.createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.RECYCLING_TABLE, null))
+                BlockStateModelGenerator.createWeightedVariant(TextureMap.getId(JAAVAABlocks.RECYCLING_TABLE))
         ).coordinate(
                 BlockStateVariantMap.operations(Properties.BLOCK_FACE, Properties.HORIZONTAL_FACING)
                         .register(BlockFace.FLOOR, Direction.NORTH, NO_OP)

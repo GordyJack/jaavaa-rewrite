@@ -8,6 +8,7 @@ import net.gordyjack.jaavaa.mixin.*;
 import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.item.*;
+import net.minecraft.nbt.*;
 import net.minecraft.registry.*;
 import net.minecraft.text.*;
 import net.minecraft.util.*;
@@ -67,22 +68,22 @@ public class JAAVAAItems {
             new Item.Settings().maxCount(1).component(JAAVAAComponents.Types.MAGNET_ENABLED, false));
     public static final Item MOB_NET_WOOD = register("bamboo_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.WOOD),
-            new Item.Settings().maxDamage(59).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
+            new Item.Settings().maxDamage(59).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
     public static final Item MOB_NET_STONE = register("stone_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.STONE),
-            new Item.Settings().maxDamage(131).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
+            new Item.Settings().maxDamage(131).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
     public static final Item MOB_NET_GOLD = register("golden_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.GOLD),
-            new Item.Settings().maxDamage(32).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
+            new Item.Settings().maxDamage(32).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
     public static final Item MOB_NET_IRON = register("iron_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.IRON),
-            new Item.Settings().maxDamage(250).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
+            new Item.Settings().maxDamage(250).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
     public static final Item MOB_NET_DIAMOND = register("diamond_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.DIAMOND),
-            new Item.Settings().maxDamage(1561).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
+            new Item.Settings().maxDamage(1561).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
     public static final Item MOB_NET_NETHERITE = register("netherite_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.NETHERITE),
-            new Item.Settings().maxDamage(2031).maxCount(1).fireproof().component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
+            new Item.Settings().maxDamage(2031).maxCount(1).fireproof().component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
     public static final Item SHULKER_PEARL = register("shulker_pearl",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
     public static final Item STARSTEEL_INGOT = register("starsteel_ingot",

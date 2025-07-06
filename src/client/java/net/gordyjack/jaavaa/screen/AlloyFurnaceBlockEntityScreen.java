@@ -48,13 +48,6 @@ public class AlloyFurnaceBlockEntityScreen extends HandledScreen<AlloyFurnaceBlo
         }
     }
     @Override
-    protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
-        // Draw the title of the screen
-        context.drawText(textRenderer, title, titleX, titleY, 0x404040, false);
-        // Draw the "Inventory" label for the player inventory
-        context.drawText(textRenderer, playerInventoryTitle, 8, GUI_HEIGHT - 101, 0x404040, false);
-    }
-    @Override
     public void render(DrawContext drawContext, int mouseX, int mouseY, float delta) {
         renderBackground(drawContext, mouseX, mouseY, delta);
         super.render(drawContext, mouseX, mouseY, delta);

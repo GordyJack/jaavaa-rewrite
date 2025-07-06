@@ -17,6 +17,16 @@ import org.slf4j.*;
 public class JAAVAA implements ModInitializer {
 	public static final String MOD_ID = "jaavaa";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final ErrorReporter ERROR_REPORTER = new ErrorReporter() {
+		@Override
+		public ErrorReporter makeChild(Context context) {
+			return this;
+		}
+		@Override
+		public void report(Error error) {
+			log(error.getMessage(), 'e');
+		}
+	};
 
 	@Override
 	public void onInitialize() {
