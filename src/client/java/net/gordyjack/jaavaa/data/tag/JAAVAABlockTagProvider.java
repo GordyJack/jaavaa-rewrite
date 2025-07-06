@@ -18,10 +18,10 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         //Mod Tags
-        getOrCreateTagBuilder(JAAVAATags.Blocks.BLOCKTANTS).add(
+        valueLookupBuilder(JAAVAATags.Blocks.BLOCKTANTS).add(
                 JAAVAABlocks.BLOCKTANTS.keySet().toArray(new Block[0])
         );
-        getOrCreateTagBuilder(JAAVAATags.Blocks.CAPRICIOUS_BLOCKS)
+        valueLookupBuilder(JAAVAATags.Blocks.CAPRICIOUS_BLOCKS)
                 .addOptionalTag(BlockTags.BASE_STONE_OVERWORLD)
                 .addOptionalTag(BlockTags.DIRT).add(
                         Blocks.SAND,
@@ -69,30 +69,30 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         JAAVAABlocks.QUICKSAND,
                         JAAVAABlocks.RAW_VOIDIUM
                 );
-        getOrCreateTagBuilder(JAAVAATags.Blocks.DEEPSLATE_CRAFTABLES).add(
+        valueLookupBuilder(JAAVAATags.Blocks.DEEPSLATE_CRAFTABLES).add(
                 Blocks.DEEPSLATE,
                 Blocks.POLISHED_DEEPSLATE,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE
         );
-        getOrCreateTagBuilder(JAAVAATags.Blocks.INCORRECT_FOR_STARSTEEL_TOOL);
-        getOrCreateTagBuilder(JAAVAATags.Blocks.INCORRECT_FOR_VOIDIUM_TOOL);
-        getOrCreateTagBuilder(JAAVAATags.Blocks.PAXEL_MINEABLE)
+        valueLookupBuilder(JAAVAATags.Blocks.INCORRECT_FOR_STARSTEEL_TOOL);
+        valueLookupBuilder(JAAVAATags.Blocks.INCORRECT_FOR_VOIDIUM_TOOL);
+        valueLookupBuilder(JAAVAATags.Blocks.PAXEL_MINEABLE)
                 .addOptionalTag(BlockTags.AXE_MINEABLE)
                 .addOptionalTag(BlockTags.HOE_MINEABLE)
                 .addOptionalTag(BlockTags.PICKAXE_MINEABLE)
                 .addOptionalTag(BlockTags.SHOVEL_MINEABLE);
         //Vanilla Tags
-        getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
+        valueLookupBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
                 JAAVAABlocks.STARSTEEL_BLOCK
         );
-        getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE).add(
+        valueLookupBuilder(BlockTags.DRAGON_IMMUNE).add(
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STARSTEEL_GLASS,
                 JAAVAABlocks.STARSTEEL_GLASS_PANE,
 
                 JAAVAABlocks.STARSTEEL_BLOCKTANT
         );
-        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(
+        valueLookupBuilder(BlockTags.AXE_MINEABLE).add(
                 JAAVAABlocks.ACACIA_PLANKS_BLOCKTANT,
                 JAAVAABlocks.BAMBOO_MOSAIC_BLOCKTANT,
                 JAAVAABlocks.BAMBOO_PLANKS_BLOCKTANT,
@@ -104,7 +104,7 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 JAAVAABlocks.SPRUCE_PLANKS_BLOCKTANT,
                 JAAVAABlocks.WARPED_PLANKS_BLOCKTANT
         );
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(
+        valueLookupBuilder(BlockTags.PICKAXE_MINEABLE).add(
                 Blocks.GLASS,
                 Blocks.GLOWSTONE,
                 Blocks.RESIN_BLOCK,
@@ -157,22 +157,22 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 JAAVAABlocks.STONE_BRICKS_BLOCKTANT,
                 JAAVAABlocks.STARSTEEL_BLOCKTANT
         );
-        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(
+        valueLookupBuilder(BlockTags.SHOVEL_MINEABLE).add(
                 JAAVAABlocks.QUICKSAND,
 
                 JAAVAABlocks.COARSE_DIRT_BLOCKTANT,
                 JAAVAABlocks.DIRT_BLOCKTANT
         );
-        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(
+        valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(
                 JAAVAABlocks.RAW_VOIDIUM,
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STARSTEEL_GLASS,
                 JAAVAABlocks.STARSTEEL_GLASS_PANE
         );
-        getOrCreateTagBuilder(BlockTags.SAND).add(
+        valueLookupBuilder(BlockTags.SAND).add(
                 JAAVAABlocks.QUICKSAND
         );
-        getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE).add(
+        valueLookupBuilder(BlockTags.WITHER_IMMUNE).add(
                 JAAVAABlocks.RAW_VOIDIUM,
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STARSTEEL_GLASS,

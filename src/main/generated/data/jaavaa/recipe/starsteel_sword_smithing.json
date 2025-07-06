@@ -3,7 +3,6 @@
   "addition": "#jaavaa:starsteel_tool_materials",
   "base": "minecraft:netherite_sword",
   "result": {
-    "count": 1,
     "id": "jaavaa:starsteel_sword"
   },
   "template": "jaavaa:starsteel_upgrade_smithing_template"

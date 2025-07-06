@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:crimson_planks_blocktant_from_crimson_planks_stonecutting"
+        "recipe": "jaavaa:crimson_planks_blocktant_from_crimson_planks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:crimson_planks_blocktant_from_crimson_planks_stonecutting"
+      "jaavaa:crimson_planks_blocktant_from_crimson_planks_stonecutting"
     ]
   }
 }

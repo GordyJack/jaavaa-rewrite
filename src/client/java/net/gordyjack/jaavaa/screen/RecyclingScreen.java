@@ -1,11 +1,9 @@
 package net.gordyjack.jaavaa.screen;
 
-import com.mojang.blaze3d.systems.*;
 import net.gordyjack.jaavaa.*;
 import net.minecraft.client.gl.*;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.gui.screen.ingame.*;
-import net.minecraft.client.render.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.text.*;
 import net.minecraft.util.*;
@@ -30,11 +28,7 @@ public class RecyclingScreen extends HandledScreen<RecyclingScreenHandler> {
     //Inherited Methods
     @Override
     protected void drawBackground(DrawContext drawContext, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(ShaderProgramKeys.POSITION_TEX);
-        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
-        RenderSystem.setShaderTexture(0, TEXTURE);
-
-        drawContext.drawTexture(RenderLayer::getGuiTextured, TEXTURE,
+        drawContext.drawTexture(RenderPipelines.GUI_TEXTURED, TEXTURE,
                 this.xD2(), this.yD2(),
                 0, 0,
                 backgroundWidth, backgroundHeight,

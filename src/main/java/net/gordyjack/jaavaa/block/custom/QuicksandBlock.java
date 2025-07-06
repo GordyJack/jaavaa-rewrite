@@ -1,6 +1,5 @@
 package net.gordyjack.jaavaa.block.custom;
 
-import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.*;
 import net.gordyjack.jaavaa.data.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
@@ -15,6 +14,7 @@ import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.*;
 import net.minecraft.world.*;
+import org.jetbrains.annotations.*;
 
 import java.util.*;
 
@@ -63,14 +63,14 @@ public class QuicksandBlock
         return stateFrom.isOf(this) || super.isSideInvisible(state, stateFrom, direction);
     }
     @Override
-    protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+    protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler) {
         if (!(entity instanceof LivingEntity) || entity.getBlockStateAtPos().isOf(this)) {
             entity.slowMovement(state, new Vec3d(0.9F, 1.5, 0.9F));
             if (world.isClient) {
                 Random random = world.getRandom();
                 boolean bl = entity.lastRenderX != entity.getX() || entity.lastRenderZ != entity.getZ();
                 if (bl && random.nextBoolean()) {
-                    world.addParticle(
+                    world.addParticleClient(
                             DustParticleEffect.DEFAULT,
                             entity.getX(),
                             pos.getY() + 1,
@@ -92,14 +92,13 @@ public class QuicksandBlock
         }
     }
     @Override
-    public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+    public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, double fallDistance) {
         if (!((double)fallDistance < 4.0) && entity instanceof LivingEntity livingEntity) {
             LivingEntity.FallSounds fallSounds = livingEntity.getFallSounds();
             SoundEvent soundEvent = (double)fallDistance < 7.0 ? fallSounds.small() : fallSounds.big();
             entity.playSound(soundEvent, 1.0F, 1.0F);
         }
     }
-
     public static boolean canWalkOnQuicksand(Entity entity) {
         if (entity.getType().isIn(JAAVAATags.Entity.QUICKSAND_WALKABLE_MOBS)) {
             return true;
@@ -114,7 +113,7 @@ public class QuicksandBlock
         return Optional.of(SoundEvents.ITEM_BUCKET_FILL_POWDER_SNOW);
     }
     @Override
-    public ItemStack tryDrainFluid(@Nullable PlayerEntity player, WorldAccess world, BlockPos pos, BlockState state) {
+    public ItemStack tryDrainFluid(@Nullable LivingEntity drainer, WorldAccess world, BlockPos pos, BlockState state) {
         world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL_AND_REDRAW);
         if (!world.isClient()) {
             world.syncWorldEvent(WorldEvents.BLOCK_BROKEN, pos, Block.getRawIdFromState(state));

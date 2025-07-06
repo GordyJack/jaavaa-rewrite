@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.event;
 
 import net.fabricmc.fabric.api.event.player.*;
+import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.enchantment.*;
@@ -35,7 +36,8 @@ public class CurseOfTheCapriciousEvent implements PlayerBlockBreakEvents.Before 
      */
     @Override
     public boolean beforeBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity) {
-        ItemStack tool = player.getInventory().getMainHandStack();
+        ItemStack tool = player.getInventory().getMainStacks().getFirst();
+        JAAVAA.log(tool.toString(), 'e');
         if (world instanceof ServerWorld serverWorld
                 && !player.isCreative()
                 && tool.getEnchantments().getEnchantments().toString().contains("jaavaa:curse_of_the_capricious")

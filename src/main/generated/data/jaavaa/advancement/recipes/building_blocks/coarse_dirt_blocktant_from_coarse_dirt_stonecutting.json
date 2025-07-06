@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:coarse_dirt_blocktant_from_coarse_dirt_stonecutting"
+        "recipe": "jaavaa:coarse_dirt_blocktant_from_coarse_dirt_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:coarse_dirt_blocktant_from_coarse_dirt_stonecutting"
+      "jaavaa:coarse_dirt_blocktant_from_coarse_dirt_stonecutting"
     ]
   }
 }

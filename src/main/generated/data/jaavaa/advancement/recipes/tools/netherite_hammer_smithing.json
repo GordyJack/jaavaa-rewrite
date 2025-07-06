@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:netherite_hammer_smithing"
+        "recipe": "jaavaa:netherite_hammer_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:netherite_hammer_smithing"
+      "jaavaa:netherite_hammer_smithing"
     ]
   }
 }

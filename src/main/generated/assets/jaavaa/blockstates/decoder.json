@@ -129,68 +129,52 @@
       "y": 180
     },
     "facing=south,mode=decode,powered=false,target=front": {
-      "model": "jaavaa:block/decoder",
-      "y": 0
+      "model": "jaavaa:block/decoder"
     },
     "facing=south,mode=decode,powered=false,target=left": {
-      "model": "jaavaa:block/decoder",
-      "y": 0
+      "model": "jaavaa:block/decoder"
     },
     "facing=south,mode=decode,powered=false,target=none": {
-      "model": "jaavaa:block/decoder",
-      "y": 0
+      "model": "jaavaa:block/decoder"
     },
     "facing=south,mode=decode,powered=false,target=right": {
-      "model": "jaavaa:block/decoder",
-      "y": 0
+      "model": "jaavaa:block/decoder"
     },
     "facing=south,mode=decode,powered=true,target=front": {
-      "model": "jaavaa:block/decoder_on_f",
-      "y": 0
+      "model": "jaavaa:block/decoder_on_f"
     },
     "facing=south,mode=decode,powered=true,target=left": {
-      "model": "jaavaa:block/decoder_on_l",
-      "y": 0
+      "model": "jaavaa:block/decoder_on_l"
     },
     "facing=south,mode=decode,powered=true,target=none": {
-      "model": "jaavaa:block/decoder_on",
-      "y": 0
+      "model": "jaavaa:block/decoder_on"
     },
     "facing=south,mode=decode,powered=true,target=right": {
-      "model": "jaavaa:block/decoder_on_r",
-      "y": 0
+      "model": "jaavaa:block/decoder_on_r"
     },
     "facing=south,mode=demux,powered=false,target=front": {
-      "model": "jaavaa:block/decoder_demux",
-      "y": 0
+      "model": "jaavaa:block/decoder_demux"
     },
     "facing=south,mode=demux,powered=false,target=left": {
-      "model": "jaavaa:block/decoder_demux",
-      "y": 0
+      "model": "jaavaa:block/decoder_demux"
     },
     "facing=south,mode=demux,powered=false,target=none": {
-      "model": "jaavaa:block/decoder_demux",
-      "y": 0
+      "model": "jaavaa:block/decoder_demux"
     },
     "facing=south,mode=demux,powered=false,target=right": {
-      "model": "jaavaa:block/decoder_demux",
-      "y": 0
+      "model": "jaavaa:block/decoder_demux"
     },
     "facing=south,mode=demux,powered=true,target=front": {
-      "model": "jaavaa:block/decoder_on_f_demux",
-      "y": 0
+      "model": "jaavaa:block/decoder_on_f_demux"
     },
     "facing=south,mode=demux,powered=true,target=left": {
-      "model": "jaavaa:block/decoder_on_l_demux",
-      "y": 0
+      "model": "jaavaa:block/decoder_on_l_demux"
     },
     "facing=south,mode=demux,powered=true,target=none": {
-      "model": "jaavaa:block/decoder_on_demux",
-      "y": 0
+      "model": "jaavaa:block/decoder_on_demux"
     },
     "facing=south,mode=demux,powered=true,target=right": {
-      "model": "jaavaa:block/decoder_on_r_demux",
-      "y": 0
+      "model": "jaavaa:block/decoder_on_r_demux"
     },
     "facing=west,mode=decode,powered=false,target=front": {
       "model": "jaavaa:block/decoder",

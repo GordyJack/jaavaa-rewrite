@@ -3,7 +3,6 @@
   "addition": "#jaavaa:starsteel_tool_materials",
   "base": "jaavaa:tool_of_the_ancients",
   "result": {
-    "count": 1,
     "id": "jaavaa:starsteel_tool_of_the_ancients"
   },
   "template": "jaavaa:starsteel_upgrade_smithing_template"

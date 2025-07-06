@@ -10,14 +10,13 @@ import net.minecraft.block.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
 import net.minecraft.item.*;
-import net.minecraft.nbt.*;
 import net.minecraft.network.listener.*;
 import net.minecraft.network.packet.*;
 import net.minecraft.network.packet.s2c.play.*;
 import net.minecraft.recipe.*;
-import net.minecraft.registry.*;
 import net.minecraft.screen.*;
 import net.minecraft.server.network.*;
+import net.minecraft.storage.*;
 import net.minecraft.text.*;
 import net.minecraft.util.collection.*;
 import net.minecraft.util.math.*;
@@ -95,20 +94,20 @@ public class AlloyFurnaceBlockEntity
         return new AlloyFurnaceBlockEntityScreenHandler(syncId, playerInventory, this, PROPERTY_DELEGATE);
     }
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        super.writeNbt(nbt, registryLookup);
-        Inventories.writeNbt(nbt, this.INV, registryLookup);
-        nbt.putInt("alloy_furnace.progress", this.progress);
-        nbt.putInt("alloy_furnace.max_progress", this.maxProgress);
-        nbt.putBoolean("alloy_furnace.is_lit", this.isLit);
+    protected void writeData(WriteView view) {
+        super.writeData(view);
+        Inventories.writeData(view, this.INV);
+        view.putInt("alloy_furnace.progress", this.progress);
+        view.putInt("alloy_furnace.max_progress", this.maxProgress);
+        view.putBoolean("alloy_furnace.is_lit", this.isLit);
     }
     @Override
-    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        Inventories.readNbt(nbt, this.INV, registryLookup);
-        this.progress = nbt.getInt("alloy_furnace.progress");
-        this.maxProgress = nbt.getInt("alloy_furnace.max_progress");
-        this.isLit = nbt.getBoolean("alloy_furnace.is_lit");
-        super.readNbt(nbt, registryLookup);
+    protected void readData(ReadView view) {
+        Inventories.readData(view, this.INV);
+        this.progress = view.getInt("alloy_furnace.progress", 0);
+        this.maxProgress = view.getInt("alloy_furnace.max_progress", DEFAULT_MAX_PROGRESS);
+        this.isLit = view.getBoolean("alloy_furnace.is_lit", false);
+        super.readData(view);
     }
     public void tick(World world, BlockPos pos, BlockState state) {
         if(world.isClient()) {

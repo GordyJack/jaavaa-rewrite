@@ -257,132 +257,100 @@
       "y": 180
     },
     "delay=0,facing=south,locked=false,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater"
     },
     "delay=0,facing=south,locked=false,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_p1"
     },
     "delay=0,facing=south,locked=false,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_p2"
     },
     "delay=0,facing=south,locked=false,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_p3"
     },
     "delay=0,facing=south,locked=false,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_p4"
     },
     "delay=0,facing=south,locked=false,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_p5"
     },
     "delay=0,facing=south,locked=false,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_p6"
     },
     "delay=0,facing=south,locked=false,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_p7"
     },
     "delay=0,facing=south,locked=false,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_on",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on"
     },
     "delay=0,facing=south,locked=false,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_on_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_p1"
     },
     "delay=0,facing=south,locked=false,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_on_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_p2"
     },
     "delay=0,facing=south,locked=false,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_on_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_p3"
     },
     "delay=0,facing=south,locked=false,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_on_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_p4"
     },
     "delay=0,facing=south,locked=false,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_on_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_p5"
     },
     "delay=0,facing=south,locked=false,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_on_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_p6"
     },
     "delay=0,facing=south,locked=false,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_on_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_p7"
     },
     "delay=0,facing=south,locked=true,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked"
     },
     "delay=0,facing=south,locked=true,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_p1"
     },
     "delay=0,facing=south,locked=true,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_p2"
     },
     "delay=0,facing=south,locked=true,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_p3"
     },
     "delay=0,facing=south,locked=true,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_p4"
     },
     "delay=0,facing=south,locked=true,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_p5"
     },
     "delay=0,facing=south,locked=true,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_p6"
     },
     "delay=0,facing=south,locked=true,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_p7"
     },
     "delay=0,facing=south,locked=true,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_on",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on"
     },
     "delay=0,facing=south,locked=true,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_p1"
     },
     "delay=0,facing=south,locked=true,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_p2"
     },
     "delay=0,facing=south,locked=true,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_p3"
     },
     "delay=0,facing=south,locked=true,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_p4"
     },
     "delay=0,facing=south,locked=true,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_p5"
     },
     "delay=0,facing=south,locked=true,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_p6"
     },
     "delay=0,facing=south,locked=true,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_p7"
     },
     "delay=0,facing=west,locked=false,powered=false,pulse=0": {
       "model": "jaavaa:block/advanced_repeater",
@@ -769,132 +737,100 @@
       "y": 180
     },
     "delay=1,facing=south,locked=false,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_d1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d1"
     },
     "delay=1,facing=south,locked=false,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_d1_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d1_p1"
     },
     "delay=1,facing=south,locked=false,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_d1_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d1_p2"
     },
     "delay=1,facing=south,locked=false,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_d1_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d1_p3"
     },
     "delay=1,facing=south,locked=false,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_d1_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d1_p4"
     },
     "delay=1,facing=south,locked=false,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_d1_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d1_p5"
     },
     "delay=1,facing=south,locked=false,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_d1_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d1_p6"
     },
     "delay=1,facing=south,locked=false,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_d1_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d1_p7"
     },
     "delay=1,facing=south,locked=false,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_on_d1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d1"
     },
     "delay=1,facing=south,locked=false,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_on_d1_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d1_p1"
     },
     "delay=1,facing=south,locked=false,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_on_d1_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d1_p2"
     },
     "delay=1,facing=south,locked=false,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_on_d1_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d1_p3"
     },
     "delay=1,facing=south,locked=false,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_on_d1_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d1_p4"
     },
     "delay=1,facing=south,locked=false,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_on_d1_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d1_p5"
     },
     "delay=1,facing=south,locked=false,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_on_d1_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d1_p6"
     },
     "delay=1,facing=south,locked=false,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_on_d1_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d1_p7"
     },
     "delay=1,facing=south,locked=true,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_d1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d1"
     },
     "delay=1,facing=south,locked=true,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_d1_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d1_p1"
     },
     "delay=1,facing=south,locked=true,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_d1_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d1_p2"
     },
     "delay=1,facing=south,locked=true,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_d1_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d1_p3"
     },
     "delay=1,facing=south,locked=true,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_d1_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d1_p4"
     },
     "delay=1,facing=south,locked=true,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_d1_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d1_p5"
     },
     "delay=1,facing=south,locked=true,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_d1_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d1_p6"
     },
     "delay=1,facing=south,locked=true,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_d1_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d1_p7"
     },
     "delay=1,facing=south,locked=true,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d1"
     },
     "delay=1,facing=south,locked=true,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p1"
     },
     "delay=1,facing=south,locked=true,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p2"
     },
     "delay=1,facing=south,locked=true,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p3"
     },
     "delay=1,facing=south,locked=true,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p4"
     },
     "delay=1,facing=south,locked=true,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p5"
     },
     "delay=1,facing=south,locked=true,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p6"
     },
     "delay=1,facing=south,locked=true,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d1_p7"
     },
     "delay=1,facing=west,locked=false,powered=false,pulse=0": {
       "model": "jaavaa:block/advanced_repeater_d1",
@@ -1281,132 +1217,100 @@
       "y": 180
     },
     "delay=2,facing=south,locked=false,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_d2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d2"
     },
     "delay=2,facing=south,locked=false,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_d2_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d2_p1"
     },
     "delay=2,facing=south,locked=false,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_d2_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d2_p2"
     },
     "delay=2,facing=south,locked=false,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_d2_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d2_p3"
     },
     "delay=2,facing=south,locked=false,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_d2_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d2_p4"
     },
     "delay=2,facing=south,locked=false,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_d2_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d2_p5"
     },
     "delay=2,facing=south,locked=false,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_d2_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d2_p6"
     },
     "delay=2,facing=south,locked=false,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_d2_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d2_p7"
     },
     "delay=2,facing=south,locked=false,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_on_d2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d2"
     },
     "delay=2,facing=south,locked=false,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_on_d2_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d2_p1"
     },
     "delay=2,facing=south,locked=false,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_on_d2_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d2_p2"
     },
     "delay=2,facing=south,locked=false,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_on_d2_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d2_p3"
     },
     "delay=2,facing=south,locked=false,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_on_d2_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d2_p4"
     },
     "delay=2,facing=south,locked=false,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_on_d2_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d2_p5"
     },
     "delay=2,facing=south,locked=false,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_on_d2_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d2_p6"
     },
     "delay=2,facing=south,locked=false,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_on_d2_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d2_p7"
     },
     "delay=2,facing=south,locked=true,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_d2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d2"
     },
     "delay=2,facing=south,locked=true,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_d2_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d2_p1"
     },
     "delay=2,facing=south,locked=true,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_d2_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d2_p2"
     },
     "delay=2,facing=south,locked=true,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_d2_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d2_p3"
     },
     "delay=2,facing=south,locked=true,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_d2_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d2_p4"
     },
     "delay=2,facing=south,locked=true,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_d2_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d2_p5"
     },
     "delay=2,facing=south,locked=true,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_d2_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d2_p6"
     },
     "delay=2,facing=south,locked=true,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_d2_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d2_p7"
     },
     "delay=2,facing=south,locked=true,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d2"
     },
     "delay=2,facing=south,locked=true,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p1"
     },
     "delay=2,facing=south,locked=true,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p2"
     },
     "delay=2,facing=south,locked=true,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p3"
     },
     "delay=2,facing=south,locked=true,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p4"
     },
     "delay=2,facing=south,locked=true,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p5"
     },
     "delay=2,facing=south,locked=true,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p6"
     },
     "delay=2,facing=south,locked=true,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d2_p7"
     },
     "delay=2,facing=west,locked=false,powered=false,pulse=0": {
       "model": "jaavaa:block/advanced_repeater_d2",
@@ -1793,132 +1697,100 @@
       "y": 180
     },
     "delay=3,facing=south,locked=false,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_d3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d3"
     },
     "delay=3,facing=south,locked=false,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_d3_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d3_p1"
     },
     "delay=3,facing=south,locked=false,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_d3_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d3_p2"
     },
     "delay=3,facing=south,locked=false,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_d3_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d3_p3"
     },
     "delay=3,facing=south,locked=false,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_d3_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d3_p4"
     },
     "delay=3,facing=south,locked=false,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_d3_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d3_p5"
     },
     "delay=3,facing=south,locked=false,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_d3_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d3_p6"
     },
     "delay=3,facing=south,locked=false,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_d3_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d3_p7"
     },
     "delay=3,facing=south,locked=false,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_on_d3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d3"
     },
     "delay=3,facing=south,locked=false,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_on_d3_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d3_p1"
     },
     "delay=3,facing=south,locked=false,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_on_d3_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d3_p2"
     },
     "delay=3,facing=south,locked=false,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_on_d3_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d3_p3"
     },
     "delay=3,facing=south,locked=false,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_on_d3_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d3_p4"
     },
     "delay=3,facing=south,locked=false,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_on_d3_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d3_p5"
     },
     "delay=3,facing=south,locked=false,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_on_d3_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d3_p6"
     },
     "delay=3,facing=south,locked=false,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_on_d3_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d3_p7"
     },
     "delay=3,facing=south,locked=true,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_d3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d3"
     },
     "delay=3,facing=south,locked=true,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_d3_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d3_p1"
     },
     "delay=3,facing=south,locked=true,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_d3_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d3_p2"
     },
     "delay=3,facing=south,locked=true,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_d3_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d3_p3"
     },
     "delay=3,facing=south,locked=true,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_d3_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d3_p4"
     },
     "delay=3,facing=south,locked=true,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_d3_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d3_p5"
     },
     "delay=3,facing=south,locked=true,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_d3_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d3_p6"
     },
     "delay=3,facing=south,locked=true,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_d3_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d3_p7"
     },
     "delay=3,facing=south,locked=true,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d3"
     },
     "delay=3,facing=south,locked=true,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p1"
     },
     "delay=3,facing=south,locked=true,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p2"
     },
     "delay=3,facing=south,locked=true,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p3"
     },
     "delay=3,facing=south,locked=true,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p4"
     },
     "delay=3,facing=south,locked=true,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p5"
     },
     "delay=3,facing=south,locked=true,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p6"
     },
     "delay=3,facing=south,locked=true,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d3_p7"
     },
     "delay=3,facing=west,locked=false,powered=false,pulse=0": {
       "model": "jaavaa:block/advanced_repeater_d3",
@@ -2305,132 +2177,100 @@
       "y": 180
     },
     "delay=4,facing=south,locked=false,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_d4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d4"
     },
     "delay=4,facing=south,locked=false,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_d4_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d4_p1"
     },
     "delay=4,facing=south,locked=false,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_d4_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d4_p2"
     },
     "delay=4,facing=south,locked=false,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_d4_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d4_p3"
     },
     "delay=4,facing=south,locked=false,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_d4_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d4_p4"
     },
     "delay=4,facing=south,locked=false,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_d4_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d4_p5"
     },
     "delay=4,facing=south,locked=false,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_d4_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d4_p6"
     },
     "delay=4,facing=south,locked=false,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_d4_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d4_p7"
     },
     "delay=4,facing=south,locked=false,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_on_d4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d4"
     },
     "delay=4,facing=south,locked=false,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_on_d4_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d4_p1"
     },
     "delay=4,facing=south,locked=false,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_on_d4_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d4_p2"
     },
     "delay=4,facing=south,locked=false,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_on_d4_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d4_p3"
     },
     "delay=4,facing=south,locked=false,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_on_d4_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d4_p4"
     },
     "delay=4,facing=south,locked=false,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_on_d4_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d4_p5"
     },
     "delay=4,facing=south,locked=false,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_on_d4_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d4_p6"
     },
     "delay=4,facing=south,locked=false,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_on_d4_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d4_p7"
     },
     "delay=4,facing=south,locked=true,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_d4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d4"
     },
     "delay=4,facing=south,locked=true,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_d4_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d4_p1"
     },
     "delay=4,facing=south,locked=true,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_d4_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d4_p2"
     },
     "delay=4,facing=south,locked=true,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_d4_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d4_p3"
     },
     "delay=4,facing=south,locked=true,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_d4_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d4_p4"
     },
     "delay=4,facing=south,locked=true,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_d4_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d4_p5"
     },
     "delay=4,facing=south,locked=true,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_d4_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d4_p6"
     },
     "delay=4,facing=south,locked=true,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_d4_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d4_p7"
     },
     "delay=4,facing=south,locked=true,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d4"
     },
     "delay=4,facing=south,locked=true,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p1"
     },
     "delay=4,facing=south,locked=true,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p2"
     },
     "delay=4,facing=south,locked=true,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p3"
     },
     "delay=4,facing=south,locked=true,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p4"
     },
     "delay=4,facing=south,locked=true,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p5"
     },
     "delay=4,facing=south,locked=true,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p6"
     },
     "delay=4,facing=south,locked=true,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d4_p7"
     },
     "delay=4,facing=west,locked=false,powered=false,pulse=0": {
       "model": "jaavaa:block/advanced_repeater_d4",
@@ -2817,132 +2657,100 @@
       "y": 180
     },
     "delay=5,facing=south,locked=false,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_d5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d5"
     },
     "delay=5,facing=south,locked=false,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_d5_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d5_p1"
     },
     "delay=5,facing=south,locked=false,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_d5_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d5_p2"
     },
     "delay=5,facing=south,locked=false,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_d5_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d5_p3"
     },
     "delay=5,facing=south,locked=false,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_d5_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d5_p4"
     },
     "delay=5,facing=south,locked=false,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_d5_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d5_p5"
     },
     "delay=5,facing=south,locked=false,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_d5_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d5_p6"
     },
     "delay=5,facing=south,locked=false,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_d5_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d5_p7"
     },
     "delay=5,facing=south,locked=false,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_on_d5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d5"
     },
     "delay=5,facing=south,locked=false,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_on_d5_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d5_p1"
     },
     "delay=5,facing=south,locked=false,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_on_d5_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d5_p2"
     },
     "delay=5,facing=south,locked=false,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_on_d5_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d5_p3"
     },
     "delay=5,facing=south,locked=false,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_on_d5_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d5_p4"
     },
     "delay=5,facing=south,locked=false,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_on_d5_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d5_p5"
     },
     "delay=5,facing=south,locked=false,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_on_d5_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d5_p6"
     },
     "delay=5,facing=south,locked=false,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_on_d5_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d5_p7"
     },
     "delay=5,facing=south,locked=true,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_d5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d5"
     },
     "delay=5,facing=south,locked=true,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_d5_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d5_p1"
     },
     "delay=5,facing=south,locked=true,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_d5_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d5_p2"
     },
     "delay=5,facing=south,locked=true,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_d5_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d5_p3"
     },
     "delay=5,facing=south,locked=true,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_d5_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d5_p4"
     },
     "delay=5,facing=south,locked=true,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_d5_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d5_p5"
     },
     "delay=5,facing=south,locked=true,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_d5_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d5_p6"
     },
     "delay=5,facing=south,locked=true,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_d5_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d5_p7"
     },
     "delay=5,facing=south,locked=true,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d5"
     },
     "delay=5,facing=south,locked=true,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p1"
     },
     "delay=5,facing=south,locked=true,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p2"
     },
     "delay=5,facing=south,locked=true,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p3"
     },
     "delay=5,facing=south,locked=true,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p4"
     },
     "delay=5,facing=south,locked=true,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p5"
     },
     "delay=5,facing=south,locked=true,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p6"
     },
     "delay=5,facing=south,locked=true,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d5_p7"
     },
     "delay=5,facing=west,locked=false,powered=false,pulse=0": {
       "model": "jaavaa:block/advanced_repeater_d5",
@@ -3329,132 +3137,100 @@
       "y": 180
     },
     "delay=6,facing=south,locked=false,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_d6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d6"
     },
     "delay=6,facing=south,locked=false,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_d6_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d6_p1"
     },
     "delay=6,facing=south,locked=false,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_d6_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d6_p2"
     },
     "delay=6,facing=south,locked=false,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_d6_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d6_p3"
     },
     "delay=6,facing=south,locked=false,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_d6_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d6_p4"
     },
     "delay=6,facing=south,locked=false,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_d6_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d6_p5"
     },
     "delay=6,facing=south,locked=false,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_d6_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d6_p6"
     },
     "delay=6,facing=south,locked=false,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_d6_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d6_p7"
     },
     "delay=6,facing=south,locked=false,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_on_d6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d6"
     },
     "delay=6,facing=south,locked=false,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_on_d6_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d6_p1"
     },
     "delay=6,facing=south,locked=false,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_on_d6_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d6_p2"
     },
     "delay=6,facing=south,locked=false,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_on_d6_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d6_p3"
     },
     "delay=6,facing=south,locked=false,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_on_d6_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d6_p4"
     },
     "delay=6,facing=south,locked=false,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_on_d6_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d6_p5"
     },
     "delay=6,facing=south,locked=false,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_on_d6_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d6_p6"
     },
     "delay=6,facing=south,locked=false,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_on_d6_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d6_p7"
     },
     "delay=6,facing=south,locked=true,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_d6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d6"
     },
     "delay=6,facing=south,locked=true,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_d6_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d6_p1"
     },
     "delay=6,facing=south,locked=true,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_d6_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d6_p2"
     },
     "delay=6,facing=south,locked=true,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_d6_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d6_p3"
     },
     "delay=6,facing=south,locked=true,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_d6_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d6_p4"
     },
     "delay=6,facing=south,locked=true,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_d6_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d6_p5"
     },
     "delay=6,facing=south,locked=true,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_d6_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d6_p6"
     },
     "delay=6,facing=south,locked=true,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_d6_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d6_p7"
     },
     "delay=6,facing=south,locked=true,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d6"
     },
     "delay=6,facing=south,locked=true,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p1"
     },
     "delay=6,facing=south,locked=true,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p2"
     },
     "delay=6,facing=south,locked=true,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p3"
     },
     "delay=6,facing=south,locked=true,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p4"
     },
     "delay=6,facing=south,locked=true,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p5"
     },
     "delay=6,facing=south,locked=true,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p6"
     },
     "delay=6,facing=south,locked=true,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d6_p7"
     },
     "delay=6,facing=west,locked=false,powered=false,pulse=0": {
       "model": "jaavaa:block/advanced_repeater_d6",
@@ -3841,132 +3617,100 @@
       "y": 180
     },
     "delay=7,facing=south,locked=false,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_d7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d7"
     },
     "delay=7,facing=south,locked=false,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_d7_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d7_p1"
     },
     "delay=7,facing=south,locked=false,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_d7_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d7_p2"
     },
     "delay=7,facing=south,locked=false,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_d7_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d7_p3"
     },
     "delay=7,facing=south,locked=false,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_d7_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d7_p4"
     },
     "delay=7,facing=south,locked=false,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_d7_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d7_p5"
     },
     "delay=7,facing=south,locked=false,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_d7_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d7_p6"
     },
     "delay=7,facing=south,locked=false,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_d7_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_d7_p7"
     },
     "delay=7,facing=south,locked=false,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_on_d7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d7"
     },
     "delay=7,facing=south,locked=false,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_on_d7_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d7_p1"
     },
     "delay=7,facing=south,locked=false,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_on_d7_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d7_p2"
     },
     "delay=7,facing=south,locked=false,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_on_d7_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d7_p3"
     },
     "delay=7,facing=south,locked=false,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_on_d7_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d7_p4"
     },
     "delay=7,facing=south,locked=false,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_on_d7_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d7_p5"
     },
     "delay=7,facing=south,locked=false,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_on_d7_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d7_p6"
     },
     "delay=7,facing=south,locked=false,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_on_d7_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_on_d7_p7"
     },
     "delay=7,facing=south,locked=true,powered=false,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_d7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d7"
     },
     "delay=7,facing=south,locked=true,powered=false,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_d7_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d7_p1"
     },
     "delay=7,facing=south,locked=true,powered=false,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_d7_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d7_p2"
     },
     "delay=7,facing=south,locked=true,powered=false,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_d7_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d7_p3"
     },
     "delay=7,facing=south,locked=true,powered=false,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_d7_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d7_p4"
     },
     "delay=7,facing=south,locked=true,powered=false,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_d7_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d7_p5"
     },
     "delay=7,facing=south,locked=true,powered=false,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_d7_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d7_p6"
     },
     "delay=7,facing=south,locked=true,powered=false,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_d7_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_d7_p7"
     },
     "delay=7,facing=south,locked=true,powered=true,pulse=0": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d7"
     },
     "delay=7,facing=south,locked=true,powered=true,pulse=1": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p1",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p1"
     },
     "delay=7,facing=south,locked=true,powered=true,pulse=2": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p2",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p2"
     },
     "delay=7,facing=south,locked=true,powered=true,pulse=3": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p3",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p3"
     },
     "delay=7,facing=south,locked=true,powered=true,pulse=4": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p4",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p4"
     },
     "delay=7,facing=south,locked=true,powered=true,pulse=5": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p5",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p5"
     },
     "delay=7,facing=south,locked=true,powered=true,pulse=6": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p6",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p6"
     },
     "delay=7,facing=south,locked=true,powered=true,pulse=7": {
-      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p7",
-      "y": 0
+      "model": "jaavaa:block/advanced_repeater_locked_on_d7_p7"
     },
     "delay=7,facing=west,locked=false,powered=false,pulse=0": {
       "model": "jaavaa:block/advanced_repeater_d7",

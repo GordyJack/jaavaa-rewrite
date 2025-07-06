@@ -1,7 +1,7 @@
 package net.gordyjack.jaavaa;
 
 import net.fabricmc.api.*;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.*;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.screen.*;
 import net.minecraft.client.gui.screen.ingame.*;
@@ -16,8 +16,8 @@ public class JAAVAAClient implements ClientModInitializer {
 		HandledScreens.register(JAAVAAScreenHandlers.RECYCLING_SCREEN_HANDLER, RecyclingScreen::new);
 
 		// RenderTranslucentLayers
-		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.STARSTEEL_GLASS, RenderLayer.getTranslucent());
-		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.STARSTEEL_GLASS_PANE, RenderLayer.getTranslucent());
+		BlockRenderLayerMap.putBlock(JAAVAABlocks.STARSTEEL_GLASS, BlockRenderLayer.TRANSLUCENT);
+		BlockRenderLayerMap.putBlock(JAAVAABlocks.STARSTEEL_GLASS_PANE, BlockRenderLayer.TRANSLUCENT);
 
 		TooltipHelpers.addTooltips();
 

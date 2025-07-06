@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.item.custom;
 
 import net.gordyjack.jaavaa.data.*;
+import net.minecraft.component.type.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
@@ -13,8 +14,10 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.shape.*;
 import net.minecraft.world.*;
+import org.jetbrains.annotations.*;
 
 import java.util.*;
+import java.util.function.*;
 import java.util.stream.*;
 
 public class SimpleMagnetItem extends Item {
@@ -27,17 +30,17 @@ public class SimpleMagnetItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.literal("§7Magnet: §b" + (getEnabled(stack) ? "Active" : "Inactive")));
-        tooltip.add(Text.literal("§7Sneak & Use to " + (getEnabled(stack) ? "deactivate" : "activate")));
-        super.appendTooltip(stack, context, tooltip, type);
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        textConsumer.accept(Text.literal("§7Magnet: §b" + (getEnabled(stack) ? "Active" : "Inactive")));
+        textConsumer.accept(Text.literal("§7Sneak & Use to " + (getEnabled(stack) ? "deactivate" : "activate")));
+        super.appendTooltip(stack, context, displayComponent, textConsumer, type);
     }
     @Override
     public boolean hasGlint(ItemStack stack) {
         return getEnabled(stack);
     }
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+    public void inventoryTick(ItemStack stack, ServerWorld world, Entity entity, @Nullable EquipmentSlot slot) {
         if (entity instanceof PlayerEntity player && getEnabled(stack) && !player.isSneaking()) {
             for (ItemEntity itemEntity : this.getInputItemEntities(world, player.getBlockPos())) {
                 if (itemEntity.isAlive() && !itemEntity.cannotPickup()) {
@@ -50,8 +53,9 @@ public class SimpleMagnetItem extends Item {
                 }
             }
         }
-        super.inventoryTick(stack, world, entity, slot, selected);
+        super.inventoryTick(stack, world, entity, slot);
     }
+
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         if (world instanceof ServerWorld && user.isSneaking() && hand == Hand.MAIN_HAND) {

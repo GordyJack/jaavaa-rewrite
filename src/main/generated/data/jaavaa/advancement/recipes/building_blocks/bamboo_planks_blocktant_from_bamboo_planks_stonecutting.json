@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:bamboo_planks_blocktant_from_bamboo_planks_stonecutting"
+        "recipe": "jaavaa:bamboo_planks_blocktant_from_bamboo_planks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:bamboo_planks_blocktant_from_bamboo_planks_stonecutting"
+      "jaavaa:bamboo_planks_blocktant_from_bamboo_planks_stonecutting"
     ]
   }
 }

@@ -33,7 +33,7 @@ public class RecyclingResultSlot extends Slot {
     @Override
     protected void onCrafted(ItemStack stack) {
         if (this.amount > 0) {
-            stack.onCraftByPlayer(this.PLAYER.getWorld(), this.PLAYER, this.amount);
+            stack.onCraftByPlayer(this.PLAYER, this.amount);
         }
         this.amount = 0;
     }
@@ -43,7 +43,7 @@ public class RecyclingResultSlot extends Slot {
     }
     @Override
     public void onTakeItem(PlayerEntity player, ItemStack stack) {
-        stack.onCraftByPlayer(player.getWorld(), player, stack.getCount());
+        stack.onCraftByPlayer(player, stack.getCount());
         this.onCrafted(stack);
         this.INPUT.getStack(0).decrement(1);
         this.INPUT.markDirty();

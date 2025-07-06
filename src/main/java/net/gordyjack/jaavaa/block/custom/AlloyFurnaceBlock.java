@@ -43,7 +43,7 @@ public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
             double soundY = pos.getY();
             double soundZ = pos.getZ() + 0.5;
             if (random.nextDouble() < 0.1) {
-                world.playSound(soundX, soundY, soundZ, SoundEvents.BLOCK_BLASTFURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+                world.playSoundAtBlockCenterClient(pos, SoundEvents.BLOCK_BLASTFURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0f, 1.0f, false);
             }
             
             Direction direction = state.get(FACING);
@@ -53,7 +53,7 @@ public class AlloyFurnaceBlock extends AbstractFurnaceBlock {
             double particleXOffset = axis == Direction.Axis.X ? direction.getOffsetX() * facingDirectionOffset : nonFacingDirectionOffset;
             double particleYOffset = random.nextDouble() * 9.0 / 16.0;
             double particleZOffset = axis == Direction.Axis.Z ? direction.getOffsetZ() * facingDirectionOffset : nonFacingDirectionOffset;
-            world.addParticle(ParticleTypes.SMOKE, soundX + particleXOffset, soundY + particleYOffset, soundZ + particleZOffset, 0.0, 0.0, 0.0);
+            world.addParticleClient(ParticleTypes.SMOKE, soundX + particleXOffset, soundY + particleYOffset, soundZ + particleZOffset, 0.0, 0.0, 0.0);
         }
     }
     @Override

@@ -16,31 +16,31 @@ public class JAAVAAEnchantmentTagProvider extends FabricTagProvider<Enchantment>
     }
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getOrCreateTagBuilder(JAAVAATags.Other.UNBRIDLED_DESTRUCTION_EXCLUSIVE_SET)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION)
-                .addOptional(Enchantments.EFFICIENCY)
-                .addOptionalTag(EnchantmentTags.MINING_EXCLUSIVE_SET);
+        getTagBuilder(JAAVAATags.Other.UNBRIDLED_DESTRUCTION_EXCLUSIVE_SET)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION.getValue())
+                .addOptional(Enchantments.EFFICIENCY.getValue())
+                .addOptionalTag(EnchantmentTags.MINING_EXCLUSIVE_SET.id());
 
-        getOrCreateTagBuilder(EnchantmentTags.CURSE)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);
-        getOrCreateTagBuilder(EnchantmentTags.ON_RANDOM_LOOT)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);
-        getOrCreateTagBuilder(EnchantmentTags.MINING_EXCLUSIVE_SET)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);
-        getOrCreateTagBuilder(EnchantmentTags.NON_TREASURE)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS);
-        getOrCreateTagBuilder(EnchantmentTags.TRADEABLE)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);
-        getOrCreateTagBuilder(EnchantmentTags.TREASURE)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE)
-                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION);
+        getTagBuilder(EnchantmentTags.CURSE)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS.getValue())
+                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE.getValue())
+                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION.getValue());
+        getTagBuilder(EnchantmentTags.ON_RANDOM_LOOT)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS.getValue())
+                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE.getValue())
+                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION.getValue());
+        getTagBuilder(EnchantmentTags.MINING_EXCLUSIVE_SET)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS.getValue())
+                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION.getValue());
+        getTagBuilder(EnchantmentTags.NON_TREASURE)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS.getValue());
+        getTagBuilder(EnchantmentTags.TRADEABLE)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS.getValue())
+                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE.getValue())
+                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION.getValue());
+        getTagBuilder(EnchantmentTags.TREASURE)
+                .addOptional(JAAVAAEnchantments.CURSE_OF_THE_CAPRICIOUS.getValue())
+                .addOptional(JAAVAAEnchantments.CURSE_OF_PERSISTENCE.getValue())
+                .addOptional(JAAVAAEnchantments.CURSE_OF_UNBRIDLED_DESTRUCTION.getValue());
     }
 }

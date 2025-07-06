@@ -1,11 +1,9 @@
 package net.gordyjack.jaavaa.screen;
 
-import com.mojang.blaze3d.systems.*;
 import net.gordyjack.jaavaa.*;
 import net.minecraft.client.gl.*;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.gui.screen.ingame.*;
-import net.minecraft.client.render.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.text.*;
 import net.minecraft.util.*;
@@ -26,11 +24,7 @@ public class AlloyFurnaceBlockEntityScreen extends HandledScreen<AlloyFurnaceBlo
     }
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(ShaderProgramKeys.POSITION_TEX);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, GUI_TEXTURE);
-        
-        context.drawTexture(RenderLayer::getGuiTextured,
+        context.drawTexture(RenderPipelines.GUI_TEXTURED,
                 GUI_TEXTURE,
                 xD2(), yD2(),
                 0f, 0f,
@@ -38,14 +32,14 @@ public class AlloyFurnaceBlockEntityScreen extends HandledScreen<AlloyFurnaceBlo
                 GUI_WIDTH, GUI_HEIGHT,
                 GUI_TEXTURE_SIZE, GUI_TEXTURE_SIZE);
         if (handler.isLit()) {
-            context.drawGuiTexture(RenderLayer::getGuiTextured,
+            context.drawGuiTexture(RenderPipelines.GUI_TEXTURED,
                     FLAME_TEXTURE,
                     xD2() + 81, yD2() + 28,
                     FLAME_SIZE, FLAME_SIZE);
         }
         if (handler.isCrafting()) {
             int scaledProgress = handler.getScaledArrowProgress();
-            context.drawTexture(RenderLayer::getGuiTextured,
+            context.drawTexture(RenderPipelines.GUI_TEXTURED,
                     PROGRESS_ARROW_TEXTURE,
                     xD2() + 59, yD2() + 35,
                     0, 0,

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:glowstone_blocktant_from_glowstone_stonecutting"
+        "recipe": "jaavaa:glowstone_blocktant_from_glowstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:glowstone_blocktant_from_glowstone_stonecutting"
+      "jaavaa:glowstone_blocktant_from_glowstone_stonecutting"
     ]
   }
 }

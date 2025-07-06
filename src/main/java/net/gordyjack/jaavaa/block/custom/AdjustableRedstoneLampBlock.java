@@ -81,7 +81,7 @@ public class AdjustableRedstoneLampBlock
             state.cycle(LUMINANCE);
             int power = state.get(LUMINANCE);
             float alpha = power / 15.0F;
-            world.addParticle(new DustParticleEffect(DustParticleEffect.RED, alpha), hit.getPos().x, hit.getPos().y, hit.getPos().z, 0, 0, 0);
+            world.addParticleClient(new DustParticleEffect(DustParticleEffect.RED, alpha), hit.getPos().x, hit.getPos().y, hit.getPos().z, 0, 0, 0);
             return ActionResult.SUCCESS;
         }
         this.cycleLuminance(state, world, pos);
@@ -91,6 +91,6 @@ public class AdjustableRedstoneLampBlock
     private void cycleLuminance(BlockState state, World world, BlockPos pos) {
         state = state.cycle(LUMINANCE);
         world.setBlockState(pos, state, Block.NOTIFY_ALL);
-        world.updateNeighborsAlways(pos, this);
+        world.updateNeighborsAlways(pos, this, null);
     }
 }

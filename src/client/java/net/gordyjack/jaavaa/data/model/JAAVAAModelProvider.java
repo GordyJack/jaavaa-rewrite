@@ -11,6 +11,7 @@ import net.gordyjack.jaavaa.item.*;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.*;
 import net.minecraft.client.data.*;
+import net.minecraft.client.render.model.json.*;
 import net.minecraft.item.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
@@ -18,7 +19,17 @@ import net.minecraft.util.math.*;
 
 import java.util.*;
 
+import static net.minecraft.client.data.BlockStateModelGenerator.*;
+
 public class JAAVAAModelProvider extends FabricModelProvider {
+    private static final BlockStateVariantMap<ModelVariantOperator> SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS = BlockStateVariantMap.operations(
+                    Properties.HORIZONTAL_FACING
+            )
+            .register(Direction.SOUTH, NO_OP)
+            .register(Direction.WEST, ROTATE_Y_90)
+            .register(Direction.NORTH, ROTATE_Y_180)
+            .register(Direction.EAST, ROTATE_Y_270);
+
     public JAAVAAModelProvider(FabricDataOutput output) {
         super(output);
     }
@@ -60,171 +71,95 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             imGen.register(item, Models.GENERATED);
         }
     }
-    private VariantsBlockStateSupplier generateAdderState() {
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADDER);
-        BlockStateVariantMap.QuintupleProperty<Direction, Boolean, Boolean, Boolean, Boolean> variantMap =
-                BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, JAAVAABlockProperties.LEFT_POWERED, JAAVAABlockProperties.BACK_POWERED, JAAVAABlockProperties.RIGHT_POWERED);
-        for (Direction facing : Properties.HORIZONTAL_FACING.getValues()) {
-            for (boolean powered : Properties.POWERED.getValues()) {
-                for (var left : JAAVAABlockProperties.LEFT_POWERED.getValues()) {
-                    for (var back : JAAVAABlockProperties.BACK_POWERED.getValues()) {
-                        for (var right : JAAVAABlockProperties.RIGHT_POWERED.getValues()) {
-                            String idPath = "block/adder";
-                            if (powered && (left || back || right)) {
-                                idPath += "_on";
-                                if (left) idPath += "_l";
-                                if (back) idPath += "_b";
-                                if (right) idPath += "_r";
-                            }
-                            Identifier modelId = JAAVAA.id(idPath);
-                            VariantSettings.Rotation yRotation = switch (facing) {
-                                case NORTH -> VariantSettings.Rotation.R180;
-                                case SOUTH -> VariantSettings.Rotation.R0;
-                                case WEST -> VariantSettings.Rotation.R90;
-                                case EAST -> VariantSettings.Rotation.R270;
-                                default -> throw new IllegalStateException("Unexpected value: " + facing);
-                            };
-                            BlockStateVariant variant = BlockStateVariant.create()
-                                    .put(VariantSettings.MODEL, modelId)
-                                    .put(VariantSettings.Y, yRotation);
-                            variantMap.register(facing, powered, left, back, right, variant);
-                        }
+    private BlockModelDefinitionCreator generateAdderState() {
+        return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.ADDER)
+                .with(BlockStateVariantMap.models(Properties.POWERED, JAAVAABlockProperties.LEFT_POWERED, JAAVAABlockProperties.BACK_POWERED, JAAVAABlockProperties.RIGHT_POWERED).generate((on, left, back, right) -> {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    if (on && (left || back || right)) {
+                        stringBuilder.append("_on");
+                        if (left) stringBuilder.append("_l");
+                        if (back) stringBuilder.append("_b");
+                        if (right) stringBuilder.append("_r");
                     }
-                }
-            }
-        }
-        return variantSupplier.coordinate(variantMap);
+                    return createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.ADDER, stringBuilder.toString()));
+                }))
+                .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
     }
-    private VariantsBlockStateSupplier generateAdjustableState() {
-        String idPath = "block/adjustable_redstone_lamp";
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP);
-        BlockStateVariantMap.SingleProperty<Integer> variantMap = BlockStateVariantMap.create(JAAVAABlockProperties.LUMINANCE);
-        
-        for (int luminance = 0; luminance <= 15; luminance++) {
-            Identifier modelId = luminance == 0 ? JAAVAA.id(idPath) : JAAVAA.id(idPath + "_" + luminance);
-            BlockStateVariant variant = BlockStateVariant.create().put(VariantSettings.MODEL, modelId);
-            variantMap.register(luminance, variant);
-        }
-        return variantSupplier.coordinate(variantMap);
-    }
-    private VariantsBlockStateSupplier generateAdvancedRepeaterState() {
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.ADVANCED_REPEATER);
-        BlockStateVariantMap.QuintupleProperty<Direction, Boolean, Boolean, Integer, Integer> variantMap =
-                BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, Properties.LOCKED, JAAVAABlockProperties.DELAY, JAAVAABlockProperties.PULSE);
-
-        List<Integer> delays = JAAVAABlockProperties.DELAY.getValues();
-        List<Integer> pulses = JAAVAABlockProperties.PULSE.getValues();
-
-        for (Direction facing : Direction.Type.HORIZONTAL) {
-            for (boolean powered : new boolean[] {false, true}) {
-                for (boolean locked : new boolean[] {false, true}) {
-                    for (int delay = delays.getFirst(); delay <= delays.getLast(); delay++) {
-                        for (int pulse = pulses.getFirst(); pulse <= pulses.getLast(); pulse++) {
-                            String idPath = "block/advanced_repeater";
-                            if (locked) {
-                                idPath += "_locked";
-                            }
-                            if (powered) {
-                                idPath += "_on";
-                            }
-                            if (delay > 0) {
-                                idPath += "_d" + delay;
-                            }
-                            if (pulse > 0) {
-                                idPath += "_p" + pulse;
-                            }
-                            Identifier modelId = JAAVAA.id(idPath);
-                            VariantSettings.Rotation yRotation = switch (facing) {
-                                case NORTH -> VariantSettings.Rotation.R180;
-                                case SOUTH -> VariantSettings.Rotation.R0;
-                                case WEST -> VariantSettings.Rotation.R90;
-                                case EAST -> VariantSettings.Rotation.R270;
-                                default -> throw new IllegalStateException("Unexpected value: " + facing);
-                            };
-                            BlockStateVariant variant = BlockStateVariant.create()
-                                    .put(VariantSettings.MODEL, modelId)
-                                    .put(VariantSettings.Y, yRotation);
-                            variantMap.register(facing, powered, locked, delay, pulse, variant);
-                        }
+    private BlockModelDefinitionCreator generateAdjustableState() {
+        return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP)
+                .with(BlockStateVariantMap.models(JAAVAABlockProperties.LUMINANCE).generate((luminance) -> {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    if (luminance > 0) {
+                        stringBuilder.append("_" + luminance);
                     }
-                }
-            }
-        }
-        return variantSupplier.coordinate(variantMap);
+                    return createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, stringBuilder.toString()));
+                }));
     }
-    private VariantsBlockStateSupplier generateDecoderState() {
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(JAAVAABlocks.DECODER);
-        BlockStateVariantMap.QuadrupleProperty<Direction, Boolean, DecoderMode, DecoderTarget> variantMap =
-                BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.POWERED, JAAVAABlockProperties.DECODER_MODE, JAAVAABlockProperties.DECODER_TARGET);
-
-        for (Direction facing : Properties.HORIZONTAL_FACING.getValues()) {
-            for (boolean powered : Properties.POWERED.getValues()) {
-                for (DecoderMode mode : JAAVAABlockProperties.DECODER_MODE.getValues()) {
-                    for (DecoderTarget target : JAAVAABlockProperties.DECODER_TARGET.getValues()) {
-                        String idPath = "block/decoder";
-                        if (powered) {
-                            idPath += "_on" + switch (target) {
-                                case LEFT -> "_l";
-                                case FRONT -> "_f";
-                                case RIGHT -> "_r";
-                                default -> "";
-                            };
-                        }
-                        if (mode == DecoderMode.DEMUX) idPath += "_demux";
-                        Identifier modelId = JAAVAA.id(idPath);
-                        VariantSettings.Rotation yRotation = switch (facing) {
-                            case NORTH -> VariantSettings.Rotation.R180;
-                            case SOUTH -> VariantSettings.Rotation.R0;
-                            case WEST -> VariantSettings.Rotation.R90;
-                            case EAST -> VariantSettings.Rotation.R270;
-                            default -> throw new IllegalStateException("Unexpected value: " + facing);
-                        };
-                        BlockStateVariant variant = BlockStateVariant.create()
-                                .put(VariantSettings.MODEL, modelId)
-                                .put(VariantSettings.Y, yRotation);
-                        variantMap.register(facing, powered, mode, target, variant);
+    private BlockModelDefinitionCreator generateAdvancedRepeaterState() {
+        return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.ADVANCED_REPEATER)
+                .with(BlockStateVariantMap.models(Properties.POWERED, Properties.LOCKED, JAAVAABlockProperties.DELAY, JAAVAABlockProperties.PULSE).generate((on, locked, delay, pulse) -> {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    if (locked) {
+                        stringBuilder.append("_locked");
                     }
-                }
-            }
-        }
-        return variantSupplier.coordinate(variantMap);
+                    if (on) {
+                        stringBuilder.append("_on");
+                    }
+                    if (delay > 0) {
+                        stringBuilder.append("_d" + delay);
+                    }
+                    if (pulse > 0) {
+                        stringBuilder.append("_p" + pulse);
+                    }
+                    return createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.ADVANCED_REPEATER, stringBuilder.toString()));
+                }))
+                .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
     }
-    private VariantsBlockStateSupplier generateRecyclingTableState() {
-        return VariantsBlockStateSupplier.create(
-                JAAVAABlocks.RECYCLING_TABLE, BlockStateVariant.create().put(
-                        VariantSettings.MODEL, ModelIds.getBlockModelId(JAAVAABlocks.RECYCLING_TABLE)
-                )
+    private BlockModelDefinitionCreator generateDecoderState() {
+        return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.DECODER)
+                .with(BlockStateVariantMap.models(Properties.POWERED, JAAVAABlockProperties.DECODER_MODE, JAAVAABlockProperties.DECODER_TARGET).generate((on, mode, target) -> {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    if (on) {
+                        stringBuilder.append("_on");
+                        stringBuilder.append(switch (target) {
+                            case LEFT -> "_l";
+                            case RIGHT -> "_r";
+                            case FRONT -> "_f";
+                            default -> "";
+                        });
+                    }
+                    if (mode == DecoderMode.DEMUX) {
+                        stringBuilder.append("_demux");
+                    }
+                    return createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.DECODER, stringBuilder.toString()));
+                }))
+                .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
+    }
+    private BlockModelDefinitionCreator generateRecyclingTableState() {
+        return VariantsBlockModelDefinitionCreator.of(
+                JAAVAABlocks.RECYCLING_TABLE,
+                BlockStateModelGenerator.createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.RECYCLING_TABLE, null))
         ).coordinate(
-                BlockStateVariantMap.create(Properties.BLOCK_FACE, Properties.HORIZONTAL_FACING)
-                        .register(BlockFace.FLOOR, Direction.NORTH, BlockStateVariant.create())
-                        .register(BlockFace.FLOOR, Direction.EAST, BlockStateVariant.create()
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                        .register(BlockFace.FLOOR, Direction.SOUTH, BlockStateVariant.create()
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                        .register(BlockFace.FLOOR, Direction.WEST, BlockStateVariant.create()
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                        .register(BlockFace.WALL, Direction.NORTH, BlockStateVariant.create()
-                                .put(VariantSettings.X, VariantSettings.Rotation.R90))
-                        .register(BlockFace.WALL, Direction.EAST, BlockStateVariant.create()
-                                .put(VariantSettings.X, VariantSettings.Rotation.R90)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                        .register(BlockFace.WALL, Direction.SOUTH, BlockStateVariant.create()
-                                .put(VariantSettings.X, VariantSettings.Rotation.R90)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                        .register(BlockFace.WALL, Direction.WEST, BlockStateVariant.create()
-                                .put(VariantSettings.X, VariantSettings.Rotation.R90)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                        .register(BlockFace.CEILING, Direction.SOUTH, BlockStateVariant.create()
-                                .put(VariantSettings.X, VariantSettings.Rotation.R180))
-                        .register(BlockFace.CEILING, Direction.WEST, BlockStateVariant.create()
-                                .put(VariantSettings.X, VariantSettings.Rotation.R180)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                        .register(BlockFace.CEILING, Direction.NORTH, BlockStateVariant.create()
-                                .put(VariantSettings.X, VariantSettings.Rotation.R180)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                        .register(BlockFace.CEILING, Direction.EAST, BlockStateVariant.create()
-                                .put(VariantSettings.X, VariantSettings.Rotation.R180)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R270)));
+                BlockStateVariantMap.operations(Properties.BLOCK_FACE, Properties.HORIZONTAL_FACING)
+                        .register(BlockFace.FLOOR, Direction.NORTH, NO_OP)
+                        .register(BlockFace.FLOOR, Direction.EAST, ROTATE_Y_90)
+                        .register(BlockFace.FLOOR, Direction.SOUTH, ROTATE_Y_180)
+                        .register(BlockFace.FLOOR, Direction.WEST, BlockStateModelGenerator.ROTATE_Y_270)
+                        .register(BlockFace.WALL, Direction.NORTH, BlockStateModelGenerator.ROTATE_X_90)
+                        .register(BlockFace.WALL, Direction.EAST, BlockStateModelGenerator.ROTATE_X_90
+                                .then(ROTATE_Y_90))
+                        .register(BlockFace.WALL, Direction.SOUTH, BlockStateModelGenerator.ROTATE_X_90
+                                .then(ROTATE_Y_180))
+                        .register(BlockFace.WALL, Direction.WEST, BlockStateModelGenerator.ROTATE_X_90
+                                .then(BlockStateModelGenerator.ROTATE_Y_270))
+                        .register(BlockFace.CEILING, Direction.SOUTH, BlockStateModelGenerator.ROTATE_X_180)
+                        .register(BlockFace.CEILING, Direction.WEST, BlockStateModelGenerator.ROTATE_X_180
+                                .then(ROTATE_Y_90))
+                        .register(BlockFace.CEILING, Direction.NORTH, BlockStateModelGenerator.ROTATE_X_180
+                                .then(ROTATE_Y_180))
+                        .register(BlockFace.CEILING, Direction.EAST, BlockStateModelGenerator.ROTATE_X_180
+                                .then(BlockStateModelGenerator.ROTATE_Y_270))
+        );
     }
     private void registerEncasedPillarModel(BlockStateModelGenerator bsmGen, Block block, Identifier casing, Identifier edge, Identifier end) {
         bsmGen.registerAxisRotated(block, TexturedModel.makeFactory((block1) -> {
@@ -237,53 +172,16 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     private void registerBlocktantModel(BlockStateModelGenerator bsmGen, Blocktant blocktant) {
         String idPath = "block/" + JAAVAA.idFromItem(blocktant.asItem()).getPath();
-        //bsmGen.registerItemModel(miniBlock.asItem(), bsmGen.uploadBlockItemModel(miniBlock.asItem(), miniBlock));
-        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(blocktant);
-        BlockStateVariantMap.SingleProperty<Integer> variantMap =
-                BlockStateVariantMap.create(JAAVAABlockProperties.BLOCKTANT_POSITION);
+        BlockStateVariantMap.SingleProperty<WeightedVariant, Integer> variantMap =
+                BlockStateVariantMap.models(JAAVAABlockProperties.BLOCKTANT_POSITION);
 
         for (int position = 0b00000001; position <= 0b11111111; position++) {
             String posString = String.format("%8s", Integer.toBinaryString(position)).replace(' ', '0');
             String subIdPath = idPath + "_" + posString;
             Identifier modelId = JAAVAA.id(subIdPath);
-            BlockStateVariant variant = BlockStateVariant.create().put(VariantSettings.MODEL, modelId);
+            WeightedVariant variant = BlockStateModelGenerator.createWeightedVariant(modelId);
             variantMap.register(position, variant);
         }
-        bsmGen.blockStateCollector.accept(variantSupplier.coordinate(variantMap));
-    }
-    public final void registerPane(BlockStateModelGenerator bsmGen, Block glassBlock, Block glassPane) {
-        TextureMap textureMap = TextureMap.paneAndTopForEdge(glassBlock, glassPane);
-        Identifier identifier = Models.TEMPLATE_GLASS_PANE_POST.upload(glassPane, textureMap, bsmGen.modelCollector);
-        Identifier identifier2 = Models.TEMPLATE_GLASS_PANE_SIDE.upload(glassPane, textureMap, bsmGen.modelCollector);
-        Identifier identifier3 = Models.TEMPLATE_GLASS_PANE_SIDE_ALT.upload(glassPane, textureMap, bsmGen.modelCollector);
-        Identifier identifier4 = Models.TEMPLATE_GLASS_PANE_NOSIDE.upload(glassPane, textureMap, bsmGen.modelCollector);
-        Identifier identifier5 = Models.TEMPLATE_GLASS_PANE_NOSIDE_ALT.upload(glassPane, textureMap, bsmGen.modelCollector);
-        Item item = glassPane.asItem();
-        bsmGen.registerItemModel(item, bsmGen.uploadBlockItemModel(item, glassBlock));
-        bsmGen.blockStateCollector
-                .accept(
-                        MultipartBlockStateSupplier.create(glassPane)
-                                .with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
-                                .with(When.create().set(Properties.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier2))
-                                .with(
-                                        When.create().set(Properties.EAST, true),
-                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier2).put(VariantSettings.Y, VariantSettings.Rotation.R90)
-                                )
-                                .with(When.create().set(Properties.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier3))
-                                .with(
-                                        When.create().set(Properties.WEST, true),
-                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier3).put(VariantSettings.Y, VariantSettings.Rotation.R90)
-                                )
-                                .with(When.create().set(Properties.NORTH, false), BlockStateVariant.create().put(VariantSettings.MODEL, identifier4))
-                                .with(When.create().set(Properties.EAST, false), BlockStateVariant.create().put(VariantSettings.MODEL, identifier5))
-                                .with(
-                                        When.create().set(Properties.SOUTH, false),
-                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier5).put(VariantSettings.Y, VariantSettings.Rotation.R90)
-                                )
-                                .with(
-                                        When.create().set(Properties.WEST, false),
-                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier4).put(VariantSettings.Y, VariantSettings.Rotation.R270)
-                                )
-                );
+        bsmGen.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(blocktant).with(variantMap));
     }
 }

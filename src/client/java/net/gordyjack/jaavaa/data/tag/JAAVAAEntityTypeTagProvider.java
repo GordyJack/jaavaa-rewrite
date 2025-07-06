@@ -8,14 +8,13 @@ import net.minecraft.registry.*;
 
 import java.util.concurrent.*;
 
-public class JAAVAAEntityTypeTagProvider extends FabricTagProvider<EntityType<?>> {
+public class JAAVAAEntityTypeTagProvider extends FabricTagProvider.FabricValueLookupTagProvider<EntityType<?>> {
     public JAAVAAEntityTypeTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, RegistryKeys.ENTITY_TYPE, registriesFuture);
+        super(output, RegistryKeys.ENTITY_TYPE, registriesFuture, entityType -> entityType.getRegistryEntry().registryKey());
     }
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getOrCreateTagBuilder(JAAVAATags.Entity.QUICKSAND_WALKABLE_MOBS)
-                .add(
+        valueLookupBuilder(JAAVAATags.Entity.QUICKSAND_WALKABLE_MOBS).add(
                         EntityType.ALLAY,
                         EntityType.ARMADILLO,
                         EntityType.CAMEL,
@@ -23,7 +22,7 @@ public class JAAVAAEntityTypeTagProvider extends FabricTagProvider<EntityType<?>
                         EntityType.SPIDER,
                         EntityType.HUSK
                 );
-        getOrCreateTagBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_WOOD) //Small Peaceful Mobs
+        valueLookupBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_WOOD) //Small Peaceful Mobs
                 .add(
                         EntityType.ALLAY,
                         EntityType.AXOLOTL,
@@ -44,7 +43,7 @@ public class JAAVAAEntityTypeTagProvider extends FabricTagProvider<EntityType<?>
                         EntityType.TURTLE,
                         EntityType.WOLF
                 );
-        getOrCreateTagBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_STONE) //Basic Peaceful Mobs
+        valueLookupBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_STONE) //Basic Peaceful Mobs
                 .addOptionalTag(JAAVAATags.Entity.CAPTURABLE_MOBS_WOOD)
                 .add(
                         EntityType.CAMEL,
@@ -66,7 +65,7 @@ public class JAAVAAEntityTypeTagProvider extends FabricTagProvider<EntityType<?>
                         EntityType.SQUID,
                         EntityType.TRADER_LLAMA
                 );
-        getOrCreateTagBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_IRON) //Basic Hostile Mobs + All (large) Peaceful Mobs
+        valueLookupBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_IRON) //Basic Hostile Mobs + All (large) Peaceful Mobs
                 .addOptionalTag(JAAVAATags.Entity.CAPTURABLE_MOBS_STONE)
                 .add(
                         EntityType.CAVE_SPIDER,
@@ -86,7 +85,7 @@ public class JAAVAAEntityTypeTagProvider extends FabricTagProvider<EntityType<?>
                         EntityType.ZOMBIE_HORSE,
                         EntityType.ZOMBIE_VILLAGER
                 );
-        getOrCreateTagBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_DIAMOND) //All Hostile Mobs + Villagers
+        valueLookupBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_DIAMOND) //All Hostile Mobs + Villagers
                 .addOptionalTag(JAAVAATags.Entity.CAPTURABLE_MOBS_IRON)
                 .add(
                         EntityType.BLAZE,
@@ -114,7 +113,7 @@ public class JAAVAAEntityTypeTagProvider extends FabricTagProvider<EntityType<?>
                         EntityType.ZOGLIN,
                         EntityType.ZOMBIFIED_PIGLIN
                 );
-        getOrCreateTagBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_NETHERITE) //All Mobs including Bosses
+        valueLookupBuilder(JAAVAATags.Entity.CAPTURABLE_MOBS_NETHERITE) //All Mobs including Bosses
                 .addOptionalTag(JAAVAATags.Entity.CAPTURABLE_MOBS_DIAMOND)
                 .add(
                         EntityType.CREAKING,

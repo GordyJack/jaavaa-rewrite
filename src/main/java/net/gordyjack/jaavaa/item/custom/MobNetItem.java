@@ -2,11 +2,12 @@ package net.gordyjack.jaavaa.item.custom;
 
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.data.*;
+import net.minecraft.component.*;
+import net.minecraft.component.type.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.*;
-import net.minecraft.nbt.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
 import net.minecraft.server.world.*;
@@ -14,7 +15,7 @@ import net.minecraft.text.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 
-import java.util.*;
+import java.util.function.*;
 
 public class MobNetItem extends Item {
     private final ToolMaterial MATERIAL;
@@ -24,16 +25,15 @@ public class MobNetItem extends Item {
         super(settings);
         this.MATERIAL = material;
     }
-
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
         if (hasCapturedEntity(stack)) {
-            tooltip.add(Text.literal("Captured Mob: §b" + entityName));
-            tooltip.add(Text.literal("§7Right click on a block to release mob"));
+            textConsumer.accept(Text.literal("Captured Mob: §b" + entityName));
+            textConsumer.accept(Text.literal("§7Right click on a block to release mob"));
         } else {
-            tooltip.add(Text.literal("§7Right Click on a Mob to capture it."));
+            textConsumer.accept(Text.literal("§7Right Click on a Mob to capture it."));
         }
-        super.appendTooltip(stack, context, tooltip, type);
+        super.appendTooltip(stack, context, displayComponent, textConsumer, type);
     }
     @Override
     public boolean hasGlint(ItemStack stack) {
@@ -103,14 +103,14 @@ public class MobNetItem extends Item {
         if (id == null) {
             return null;
         }
-        NbtCompound mobData = comp.entityNbt();
+        NbtComponent mobData = comp.entityNbt();
         EntityType<?> type = Registries.ENTITY_TYPE.get(id);
         if (type == null) {
             return null;
         }
         // Create and restore the entity without handling spawn events
         Entity mob = type.create(world, SpawnReason.SPAWN_ITEM_USE);
-        mob.readNbt(mobData);
+        mob.setComponent(DataComponentTypes.ENTITY_DATA, mobData);
         return (LivingEntity) mob;
     }
     private static EntityType<?> getCapturedEntityType(ItemStack stack) {
@@ -130,12 +130,11 @@ public class MobNetItem extends Item {
     private static void removeCapturedEntity(ItemStack stack) {
         stack.set(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(
                 null,
-                new NbtCompound()
+                null
         ));
     }
     private static void setCapturedEntity(ItemStack stack, LivingEntity entity) {
-        NbtCompound data = new NbtCompound();
-        entity.writeNbt(data);
+        NbtComponent data = entity.get(DataComponentTypes.ENTITY_DATA);
         stack.set(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(
                 Registries.ENTITY_TYPE.getId(entity.getType()),
                 data

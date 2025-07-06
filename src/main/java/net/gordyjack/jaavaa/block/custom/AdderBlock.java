@@ -89,7 +89,7 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
             g /= 16.0F;
             double h = g * direction.getOffsetX();
             double i = g * direction.getOffsetZ();
-            world.addParticle(DustParticleEffect.DEFAULT, d + h, e, f + i, 0.0, 0.0, 0.0);
+            world.addParticleClient(DustParticleEffect.DEFAULT, d + h, e, f + i, 0.0, 0.0, 0.0);
         }
     }
     @Override

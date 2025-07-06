@@ -18,25 +18,25 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getOrCreateTagBuilder(JAAVAATags.Items.DEEPSLATE_CRAFTABLES).add(
+        valueLookupBuilder(JAAVAATags.Items.DEEPSLATE_CRAFTABLES).add(
                 Items.DEEPSLATE,
                 Items.POLISHED_DEEPSLATE,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE.asItem()
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.HAMMERS).add(
+        valueLookupBuilder(JAAVAATags.Items.HAMMERS).add(
                 JAAVAAItems.HAMMER_IRON,
                 JAAVAAItems.HAMMER_GOLD,
                 JAAVAAItems.HAMMER_DIAMOND,
                 JAAVAAItems.HAMMER_NETHERITE,
                 JAAVAAItems.HAMMER_STARSTEEL
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.MAGNETS).add(
+        valueLookupBuilder(JAAVAATags.Items.MAGNETS).add(
                 JAAVAAItems.MAGNET_IRON,
                 JAAVAAItems.MAGNET_GOLD,
                 JAAVAAItems.MAGNET_DIAMOND,
                 JAAVAAItems.MAGNET_DIAMOND
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.MOB_NETS).add(
+        valueLookupBuilder(JAAVAATags.Items.MOB_NETS).add(
                 JAAVAAItems.MOB_NET_WOOD,
                 JAAVAAItems.MOB_NET_STONE,
                 JAAVAAItems.MOB_NET_IRON,
@@ -44,22 +44,22 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.MOB_NET_DIAMOND,
                 JAAVAAItems.MOB_NET_NETHERITE
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.PAXELS).add(
+        valueLookupBuilder(JAAVAATags.Items.PAXELS).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS).add(
+        valueLookupBuilder(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS).add(
                 JAAVAAItems.STARSTEEL_INGOT
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_STARSTEEL).add(
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_STARSTEEL).add(
                 JAAVAAItems.STARSTEEL_SWORD,
                 JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.HAMMER_STARSTEEL
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.VOIDIUM_TOOL_MATERIALS);
-        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_VOIDIUM);
+        valueLookupBuilder(JAAVAATags.Items.VOIDIUM_TOOL_MATERIALS);
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_VOIDIUM);
         //Common Tags
-        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_WOODEN).add(
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_WOODEN).add(
                 Items.WOODEN_AXE,
                 Items.WOODEN_HOE,
                 Items.WOODEN_PICKAXE,
@@ -67,7 +67,7 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 Items.WOODEN_SWORD,
                 JAAVAAItems.MOB_NET_WOOD
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_STONE).add(
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_STONE).add(
                 Items.STONE_AXE,
                 Items.STONE_HOE,
                 Items.STONE_PICKAXE,
@@ -75,7 +75,7 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 Items.STONE_SWORD,
                 JAAVAAItems.MOB_NET_STONE
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_GOLD).add(
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_GOLD).add(
                 Items.GOLDEN_AXE,
                 Items.GOLDEN_HOE,
                 Items.GOLDEN_PICKAXE,
@@ -85,7 +85,7 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.MAGNET_GOLD,
                 JAAVAAItems.MOB_NET_GOLD
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_IRON).add(
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_IRON).add(
                 Items.IRON_AXE,
                 Items.IRON_HOE,
                 Items.IRON_PICKAXE,
@@ -95,7 +95,7 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.MAGNET_IRON,
                 JAAVAAItems.MOB_NET_IRON
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_DIAMOND).add(
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_DIAMOND).add(
                 Items.DIAMOND_AXE,
                 Items.DIAMOND_HOE,
                 Items.DIAMOND_PICKAXE,
@@ -105,7 +105,7 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.MAGNET_DIAMOND,
                 JAAVAAItems.MOB_NET_DIAMOND
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.TOOLS_NETHERITE).add(
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_NETHERITE).add(
                 Items.NETHERITE_AXE,
                 Items.NETHERITE_HOE,
                 Items.NETHERITE_PICKAXE,
@@ -117,38 +117,38 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.MOB_NET_NETHERITE
         );
         //Vanilla Tags
-        getOrCreateTagBuilder(ItemTags.AXES).add(
+        valueLookupBuilder(ItemTags.AXES).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
         );
-        getOrCreateTagBuilder(ItemTags.HOES).add(
+        valueLookupBuilder(ItemTags.HOES).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
         );
-        getOrCreateTagBuilder(ItemTags.PICKAXES).add(
+        valueLookupBuilder(ItemTags.PICKAXES).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
         );
-        getOrCreateTagBuilder(ItemTags.SHOVELS).add(
+        valueLookupBuilder(ItemTags.SHOVELS).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
         );
-        getOrCreateTagBuilder(ItemTags.SWORDS).add(
+        valueLookupBuilder(ItemTags.SWORDS).add(
                 JAAVAAItems.STARSTEEL_SWORD,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
         );
-        getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE)
+        valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addOptionalTag(JAAVAATags.Items.HAMMERS)
                 .addOptionalTag(JAAVAATags.Items.MAGNETS)
                 .addOptionalTag(JAAVAATags.Items.MOB_NETS)
                 .addOptionalTag(JAAVAATags.Items.PAXELS);
-        getOrCreateTagBuilder(ItemTags.WEAPON_ENCHANTABLE)
+        valueLookupBuilder(ItemTags.WEAPON_ENCHANTABLE)
                 .addOptionalTag(JAAVAATags.Items.PAXELS);
-        getOrCreateTagBuilder(ItemTags.MINING_ENCHANTABLE)
+        valueLookupBuilder(ItemTags.MINING_ENCHANTABLE)
                 .addOptionalTag(JAAVAATags.Items.HAMMERS)
                 .addOptionalTag(JAAVAATags.Items.PAXELS);
-        getOrCreateTagBuilder(ItemTags.MINING_LOOT_ENCHANTABLE)
+        valueLookupBuilder(ItemTags.MINING_LOOT_ENCHANTABLE)
                 .addOptionalTag(JAAVAATags.Items.HAMMERS)
                 .addOptionalTag(JAAVAATags.Items.PAXELS);
     }

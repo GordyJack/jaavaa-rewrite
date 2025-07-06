@@ -8,7 +8,6 @@ import net.gordyjack.jaavaa.mixin.*;
 import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.item.*;
-import net.minecraft.nbt.*;
 import net.minecraft.registry.*;
 import net.minecraft.text.*;
 import net.minecraft.util.*;
@@ -68,22 +67,22 @@ public class JAAVAAItems {
             new Item.Settings().maxCount(1).component(JAAVAAComponents.Types.MAGNET_ENABLED, false));
     public static final Item MOB_NET_WOOD = register("bamboo_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.WOOD),
-            new Item.Settings().maxDamage(59).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
+            new Item.Settings().maxDamage(59).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
     public static final Item MOB_NET_STONE = register("stone_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.STONE),
-            new Item.Settings().maxDamage(131).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
+            new Item.Settings().maxDamage(131).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
     public static final Item MOB_NET_GOLD = register("golden_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.GOLD),
-            new Item.Settings().maxDamage(32).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
+            new Item.Settings().maxDamage(32).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
     public static final Item MOB_NET_IRON = register("iron_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.IRON),
-            new Item.Settings().maxDamage(250).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
+            new Item.Settings().maxDamage(250).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
     public static final Item MOB_NET_DIAMOND = register("diamond_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.DIAMOND),
-            new Item.Settings().maxDamage(1561).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
+            new Item.Settings().maxDamage(1561).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
     public static final Item MOB_NET_NETHERITE = register("netherite_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.NETHERITE),
-            new Item.Settings().maxDamage(2031).maxCount(1).fireproof().component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
+            new Item.Settings().maxDamage(2031).maxCount(1).fireproof().component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, NbtComponent.DEFAULT)));
     public static final Item SHULKER_PEARL = register("shulker_pearl",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
     public static final Item STARSTEEL_INGOT = register("starsteel_ingot",
@@ -92,7 +91,7 @@ public class JAAVAAItems {
             EternalItem::new, STARSTEEL_DEFAULT_SETTINGS);
     //TODO: Add Texture \/ Copy from Netherite sword, change blade color, add sparkle effect. Create broken texture as well that has no animation.
     public static final Item STARSTEEL_SWORD = register("starsteel_sword",
-            settings -> new SwordItem(ToolMaterials.STARSTEEL, 3, -2.4f, settings),
+            settings -> new Item(settings.sword(ToolMaterials.STARSTEEL, 3, -2.4f)),
             new Item.Settings().rarity(Rarity.RARE).maxCount(1)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT));
     public static final Item STARSTEEL_UPGRADE_SMITHING_TEMPLATE = register("starsteel_upgrade_smithing_template",

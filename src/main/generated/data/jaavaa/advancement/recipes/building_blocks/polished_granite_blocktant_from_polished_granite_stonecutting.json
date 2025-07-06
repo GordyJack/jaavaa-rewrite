@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:polished_granite_blocktant_from_polished_granite_stonecutting"
+        "recipe": "jaavaa:polished_granite_blocktant_from_polished_granite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:polished_granite_blocktant_from_polished_granite_stonecutting"
+      "jaavaa:polished_granite_blocktant_from_polished_granite_stonecutting"
     ]
   }
 }

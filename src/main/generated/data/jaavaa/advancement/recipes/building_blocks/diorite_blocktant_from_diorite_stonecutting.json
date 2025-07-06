@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diorite_blocktant_from_diorite_stonecutting"
+        "recipe": "jaavaa:diorite_blocktant_from_diorite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diorite_blocktant_from_diorite_stonecutting"
+      "jaavaa:diorite_blocktant_from_diorite_stonecutting"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:end_stone_blocktant_from_end_stone_stonecutting"
+        "recipe": "jaavaa:end_stone_blocktant_from_end_stone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:end_stone_blocktant_from_end_stone_stonecutting"
+      "jaavaa:end_stone_blocktant_from_end_stone_stonecutting"
     ]
   }
 }

@@ -112,7 +112,7 @@ public class RecyclingScreenHandler extends ScreenHandler {
             boolean isHotbarSlot = slotIndex >= HOTBAR_START && slotIndex <= HOTBAR_END;
 
             if (slotIndex == OUTPUT_SLOT) {
-                this.CONTEXT.run((world, pos) -> itemStack2.getItem().onCraftByPlayer(itemStack2, world, player));
+                this.CONTEXT.run((world, pos) -> itemStack2.getItem().onCraftByPlayer(itemStack2, player));
                 if (!this.insertItem(itemStack2, PLAYER_INVENTORY_START, HOTBAR_END, true)) {
                     return ItemStack.EMPTY;
                 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:starsteel_block_from_ingot"
+        "recipe": "jaavaa:starsteel_block_from_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:starsteel_block_from_ingot"
+      "jaavaa:starsteel_block_from_ingot"
     ]
   }
 }

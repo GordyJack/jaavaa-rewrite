@@ -148,7 +148,7 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
             float pOffset = -5.0F / 16.0F;
             double oX = pOffset * outputDirection.getOffsetX();
             double oZ = pOffset * outputDirection.getOffsetZ();
-            world.addParticle(DustParticleEffect.DEFAULT, pX + oX, pY, pZ + oZ, 0.0, 0.0, 0.0);
+            world.addParticleClient(DustParticleEffect.DEFAULT, pX + oX, pY, pZ + oZ, 0.0, 0.0, 0.0);
         }
     }
     @Override

@@ -8,7 +8,7 @@ public class PactedHandler {
     public static void init() {
         PlayerBlockBreakEvents.AFTER.register((world, player, pos,
                                                state, blockEntity) -> {
-            ItemStack tool = player.getInventory().getMainHandStack();
+            ItemStack tool = player.getInventory().getMainStacks().getFirst();
             if (world instanceof ServerWorld
                     && tool.getEnchantments().getEnchantments().toString().contains("jaavaa:pacted")
                     && tool.isDamageable()) {

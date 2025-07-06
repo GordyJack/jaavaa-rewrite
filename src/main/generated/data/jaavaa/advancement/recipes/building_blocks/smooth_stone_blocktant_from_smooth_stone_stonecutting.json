@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smooth_stone_blocktant_from_smooth_stone_stonecutting"
+        "recipe": "jaavaa:smooth_stone_blocktant_from_smooth_stone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smooth_stone_blocktant_from_smooth_stone_stonecutting"
+      "jaavaa:smooth_stone_blocktant_from_smooth_stone_stonecutting"
     ]
   }
 }

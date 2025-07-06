@@ -15,8 +15,8 @@ public class JAAVAADamageTypeTagProvider extends FabricTagProvider<DamageType> {
     }
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getOrCreateTagBuilder(JAAVAATags.Other.IS_EXPLOSION_OR_FIRE)
-                .addOptionalTag(DamageTypeTags.IS_EXPLOSION)
-                .addOptionalTag(DamageTypeTags.IS_FIRE);
+        this.getTagBuilder(JAAVAATags.Other.IS_EXPLOSION_OR_FIRE)
+                .addOptionalTag(DamageTypeTags.IS_EXPLOSION.id())
+                .addOptionalTag(DamageTypeTags.IS_FIRE.id());
     }
 }

@@ -4,12 +4,16 @@ import net.gordyjack.jaavaa.data.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
+import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
 import net.minecraft.server.network.*;
 import net.minecraft.server.world.*;
 import net.minecraft.sound.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
+import org.jetbrains.annotations.*;
 
+import java.util.*;
 import java.util.stream.*;
 
 public class JAAVAAUtils {
@@ -17,7 +21,7 @@ public class JAAVAAUtils {
         if (itemStack.isDamageable()) {
             itemStack.damage(damage, world, player, item ->
                     player.playSoundToPlayer(
-                            item.getBreakSound(),
+                            SoundEvents.ENTITY_ITEM_BREAK.value(),
                             SoundCategory.PLAYERS,
                             1.0F,
                             player.getSoundPitch()));
@@ -44,13 +48,11 @@ public class JAAVAAUtils {
         return isToolCorrectForBlock(tool, blockState, true);
     }
     public static boolean isToolCorrectForBlock(ItemStack tool, BlockState blockState, boolean testMaterial) {
-        TagKey<Block> toolBlocks = switch (tool.getItem()) {
-            case AxeItem ignored -> BlockTags.AXE_MINEABLE;
-            case HoeItem ignored -> BlockTags.HOE_MINEABLE;
-            case PickaxeItem ignored -> BlockTags.PICKAXE_MINEABLE;
-            case ShovelItem ignored -> BlockTags.SHOVEL_MINEABLE;
-            default -> JAAVAATags.Blocks.PAXEL_MINEABLE;
-        };
+        TagKey<Block> toolBlocks = TagKey.of(RegistryKeys.BLOCK, Identifier.of(""));
+        HashMap<TagKey<Item>, TagKey<Block>> mineableBlocksMap = getMineableBlocksMap();
+        for (TagKey<Item> itemTag : mineableBlocksMap.keySet()) {
+            if (tool.isIn(itemTag)) toolBlocks = mineableBlocksMap.get(itemTag);
+        }
         boolean isToolCorrectForBlock = blockState.isIn(toolBlocks);
 
         boolean isMaterialCorrectForBlock = false;
@@ -74,5 +76,16 @@ public class JAAVAAUtils {
             isMaterialCorrectForBlock = !blockState.isIn(JAAVAATags.Blocks.INCORRECT_FOR_VOIDIUM_TOOL);
         }
         return isMaterialCorrectForBlock && isToolCorrectForBlock;
+    }
+
+    private static @NotNull HashMap<TagKey<Item>, TagKey<Block>> getMineableBlocksMap() {
+        HashMap<TagKey<Item>, TagKey<Block>> mineableBlocksMap = new HashMap<>();
+        mineableBlocksMap.put(ItemTags.AXES, BlockTags.AXE_MINEABLE);
+        mineableBlocksMap.put(JAAVAATags.Items.HAMMERS, BlockTags.PICKAXE_MINEABLE);
+        mineableBlocksMap.put(ItemTags.HOES, BlockTags.HOE_MINEABLE);
+        mineableBlocksMap.put(ItemTags.PICKAXES, BlockTags.PICKAXE_MINEABLE);
+        mineableBlocksMap.put(ItemTags.SHOVELS, BlockTags.SHOVEL_MINEABLE);
+        mineableBlocksMap.put(JAAVAATags.Items.PAXELS, JAAVAATags.Blocks.PAXEL_MINEABLE);
+        return mineableBlocksMap;
     }
 }

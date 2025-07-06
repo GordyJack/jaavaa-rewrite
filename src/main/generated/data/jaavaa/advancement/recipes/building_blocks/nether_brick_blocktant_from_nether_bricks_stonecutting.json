@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:nether_brick_blocktant_from_nether_bricks_stonecutting"
+        "recipe": "jaavaa:nether_brick_blocktant_from_nether_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:nether_brick_blocktant_from_nether_bricks_stonecutting"
+      "jaavaa:nether_brick_blocktant_from_nether_bricks_stonecutting"
     ]
   }
 }

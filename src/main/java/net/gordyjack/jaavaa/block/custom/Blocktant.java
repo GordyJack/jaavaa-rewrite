@@ -3,8 +3,8 @@ package net.gordyjack.jaavaa.block.custom;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.util.*;
 import net.minecraft.block.*;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.pathing.*;
-import net.minecraft.entity.player.*;
 import net.minecraft.fluid.*;
 import net.minecraft.item.*;
 import net.minecraft.state.*;
@@ -168,9 +168,9 @@ implements Waterloggable, VoxelShapeUtils {
         return false;
     }
     @Override
-    public boolean canFillWithFluid(@Nullable PlayerEntity player, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
+    public boolean canFillWithFluid(@Nullable LivingEntity filler, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
         if (state.get(POSITION) != 0b11111111) {
-            return Waterloggable.super.canFillWithFluid(player, world, pos, state, fluid);
+            return Waterloggable.super.canFillWithFluid(filler, world, pos, state, fluid);
         }
         return false;
     }
