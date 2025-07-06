@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.5,
+  "inputStack": {
+    "count": 1,
+    "id": "jaavaa:netherite_magnet"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:netherite_ingot"
+  }
+}

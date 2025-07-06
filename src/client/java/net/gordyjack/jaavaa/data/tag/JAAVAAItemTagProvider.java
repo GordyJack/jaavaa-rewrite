@@ -27,20 +27,6 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
         );
-        getOrCreateTagBuilder(JAAVAATags.Items.RECYCLABLE)
-                .addOptionalTag(ItemTags.AXES)
-                .addOptionalTag(ItemTags.HOES)
-                .addOptionalTag(ItemTags.PICKAXES)
-                .addOptionalTag(ItemTags.SHOVELS)
-                .addOptionalTag(ItemTags.SWORDS)
-                .addOptionalTag(ItemTags.CHEST_ARMOR)
-                .addOptionalTag(ItemTags.LEG_ARMOR)
-                .addOptionalTag(ItemTags.FOOT_ARMOR)
-                .addOptionalTag(ItemTags.HEAD_ARMOR).add(
-                        Items.ELYTRA,
-                        Items.MACE,
-                        Items.TRIDENT
-                );
         getOrCreateTagBuilder(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS).add(
                 JAAVAAItems.STARSTEEL_INGOT
         );

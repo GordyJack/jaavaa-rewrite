@@ -93,7 +93,6 @@ public class MobNetItem extends Item {
         }
         return false;
     }
-
     private static LivingEntity getCapturedEntity(ItemStack stack, ServerWorld world) {
         // Ensure the component is present
         if (!stack.contains(JAAVAAComponents.Types.MOB_NET_ENTITY)) {

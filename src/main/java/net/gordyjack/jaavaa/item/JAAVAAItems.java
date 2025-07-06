@@ -35,6 +35,18 @@ public class JAAVAAItems {
                                     Text.literal("Lorem ipsom dolor sit amet"),
                                     Text.literal("consectetur adipiscing elit"),
                                     Text.literal("sed do eiusmod tempor incididunt")))));
+    public static final Item MAGNET_IRON = register("iron_magnet",
+            settings -> new SimpleMagnetItem(settings, 3, 1),
+            new Item.Settings().maxCount(1).component(JAAVAAComponents.Types.MAGNET_ENABLED, false));
+    public static final Item MAGNET_GOLD = register("golden_magnet",
+            settings -> new SimpleMagnetItem(settings, 6, 2),
+            new Item.Settings().maxCount(1).component(JAAVAAComponents.Types.MAGNET_ENABLED, false));
+    public static final Item MAGNET_DIAMOND = register("diamond_magnet",
+            settings -> new SimpleMagnetItem(settings, 9, 3),
+            new Item.Settings().maxCount(1).component(JAAVAAComponents.Types.MAGNET_ENABLED, false));
+    public static final Item MAGNET_NETHERITE = register("netherite_magnet",
+            settings -> new SimpleMagnetItem(settings, 15, 5),
+            new Item.Settings().maxCount(1).component(JAAVAAComponents.Types.MAGNET_ENABLED, false));
     public static final Item MOB_NET_WOOD = register("bamboo_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.WOOD),
             new Item.Settings().maxDamage(59).maxCount(1).component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound())));
@@ -136,6 +148,10 @@ public class JAAVAAItems {
             entries.add(STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
             entries.add(TOOL_OF_THE_ANCIENTS);
             entries.add(STARSTEEL_TOOL_OF_THE_ANCIENTS);
+            entries.add(MAGNET_IRON);
+            entries.add(MAGNET_GOLD);
+            entries.add(MAGNET_DIAMOND);
+            entries.add(MAGNET_NETHERITE);
             entries.add(MOB_NET_WOOD);
             entries.add(MOB_NET_STONE);
             entries.add(MOB_NET_GOLD);
@@ -160,6 +176,10 @@ public class JAAVAAItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.addAfter(Items.NETHERITE_HOE, TOOL_OF_THE_ANCIENTS);
             entries.addAfter(TOOL_OF_THE_ANCIENTS, STARSTEEL_TOOL_OF_THE_ANCIENTS);
+            entries.add(MAGNET_IRON);
+            entries.add(MAGNET_GOLD);
+            entries.add(MAGNET_DIAMOND);
+            entries.add(MAGNET_NETHERITE);
             entries.add(MOB_NET_WOOD);
             entries.add(MOB_NET_STONE);
             entries.add(MOB_NET_GOLD);

@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.2,
+  "inputStack": {
+    "count": 1,
+    "id": "jaavaa:iron_magnet"
+  },
+  "result": {
+    "count": 5,
+    "id": "minecraft:iron_ingot"
+  }
+}

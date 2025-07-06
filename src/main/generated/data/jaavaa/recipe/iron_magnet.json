@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:iron_magnet",
+  "key": {
+    "A": "jaavaa:allay_essence",
+    "I": "minecraft:iron_ingot",
+    "R": "minecraft:redstone"
+  },
+  "pattern": [
+    "R R",
+    "IAI",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:iron_magnet"
+  }
+}

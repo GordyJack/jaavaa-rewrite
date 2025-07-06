@@ -39,7 +39,6 @@ public class JAAVAATags {
         //Mod Tags
         public static final TagKey<Item> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
         public static final TagKey<Item> PAXELS = createTag("paxels");
-        public static final TagKey<Item> RECYCLABLE = createTag("recyclable");
         public static final TagKey<Item> STARSTEEL_TOOL_MATERIALS = createTag("starsteel_tool_materials");
         public static final TagKey<Item> VOIDIUM_TOOL_MATERIALS = createTag("voidium_tool_materials");
         public static final TagKey<Item> TOOLS_STARSTEEL = createTag("tools/starsteel");

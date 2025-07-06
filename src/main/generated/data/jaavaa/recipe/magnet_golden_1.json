@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:golden_magnet",
+  "key": {
+    "A": "jaavaa:allay_essence",
+    "G": "minecraft:gold_ingot",
+    "M": "jaavaa:iron_magnet",
+    "R": "minecraft:redstone"
+  },
+  "pattern": [
+    "RGA",
+    "GMG",
+    "AGR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:golden_magnet"
+  }
+}

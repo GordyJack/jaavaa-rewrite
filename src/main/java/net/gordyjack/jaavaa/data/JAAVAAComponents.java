@@ -1,5 +1,6 @@
 package net.gordyjack.jaavaa.data;
 
+import com.mojang.serialization.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.potion.*;
 import net.minecraft.component.*;
@@ -35,6 +36,8 @@ public class JAAVAAComponents {
     public static class Types {
         public static final ComponentType<CapturedMobComponent> MOB_NET_ENTITY =
                 register("mob_net_entity", builder -> builder.codec(CapturedMobComponent.CODEC));
+        public static final ComponentType<Boolean> MAGNET_ENABLED =
+                register("enabled", builder -> builder.codec(Codec.BOOL));
         private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
             return Registry.register(Registries.DATA_COMPONENT_TYPE, JAAVAA.id(name),
                     builderOperator.apply(ComponentType.builder()).build());
