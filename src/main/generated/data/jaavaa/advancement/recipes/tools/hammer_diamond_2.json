@@ -1,11 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bamboo": {
+    "has_fused_rod": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:bamboo"
+            "items": "jaavaa:fused_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_heavy_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:heavy_core"
           }
         ]
       },
@@ -13,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jaavaa:bamboo_mob_net_l"
+        "recipe": "jaavaa:hammer_diamond_2"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +31,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_bamboo"
+      "has_heavy_core",
+      "has_fused_rod"
     ]
   ],
   "rewards": {
     "recipes": [
-      "jaavaa:bamboo_mob_net_l"
+      "jaavaa:hammer_diamond_2"
     ]
   }
 }

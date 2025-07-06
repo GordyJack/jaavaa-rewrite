@@ -1,0 +1,17 @@
+{
+  "type": "jaavaa:alloying",
+  "burnTime": 200,
+  "experience": 0.5,
+  "inputStack1": {
+    "count": 1,
+    "id": "minecraft:blaze_rod"
+  },
+  "inputStack2": {
+    "count": 1,
+    "id": "minecraft:breeze_rod"
+  },
+  "result": {
+    "count": 1,
+    "id": "jaavaa:fused_rod"
+  }
+}

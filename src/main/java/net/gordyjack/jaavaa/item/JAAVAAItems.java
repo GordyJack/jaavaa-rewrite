@@ -26,6 +26,25 @@ public class JAAVAAItems {
     //Items
     public static final Item ALLAY_ESSENCE = register("allay_essence",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    //TODO: Add texture for fused rod. Something like a damascus blaze/breeze rod hybrid. Maybe even animate some swirling patterns.
+    public static final Item FUSED_ROD = register("fused_rod",
+            Item::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    public static final Item HAMMER_IRON = register("iron_hammer",
+            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.IRON), 9.0F, -3.6F, settings),
+            new Item.Settings().maxCount(1).maxDamage(2500).component(JAAVAAComponents.Types.HAMMER_RANGE, 1));
+    public static final Item HAMMER_GOLD = register("golden_hammer",
+            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.GOLD), 9.0F, -3.6F, settings),
+            new Item.Settings().maxCount(1).maxDamage(320).component(JAAVAAComponents.Types.HAMMER_RANGE, 1));
+    public static final Item HAMMER_DIAMOND = register("diamond_hammer",
+            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.DIAMOND), 9.0F, -3.6F, settings),
+            new Item.Settings().maxCount(1).maxDamage(15610).component(JAAVAAComponents.Types.HAMMER_RANGE, 2));
+    public static final Item HAMMER_NETHERITE = register("netherite_hammer",
+            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.NETHERITE), 9.0F, -3.6F, settings),
+            new Item.Settings().maxCount(1).maxDamage(20310).component(JAAVAAComponents.Types.HAMMER_RANGE, 3).fireproof());
+    public static final Item HAMMER_STARSTEEL = register("starsteel_hammer",
+            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterials.STARSTEEL), 9.0F, -3.6F, settings),
+            new Item.Settings().maxCount(1).maxDamage(30720).rarity(Rarity.RARE).component(JAAVAAComponents.Types.HAMMER_RANGE, 4)
+                    .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT));
     public static final Item MALUM_STELLAE_INCANTATAE = register("malum_stellae_incantatae",
             EternalItem::new, new Item.Settings().rarity(Rarity.EPIC)
                     .food(JAAVAAComponents.MALUM_STELLAE_INCANTATAE_FOOD, JAAVAAComponents.MALUM_STELLAE_INCANTATAE_CONSUMABLE)
@@ -141,6 +160,7 @@ public class JAAVAAItems {
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_ITEMS).register(entries -> {
             entries.add(MALUM_STELLAE_INCANTATAE);
             entries.add(ALLAY_ESSENCE);
+            entries.add(FUSED_ROD);
             entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);
             entries.add(STARSTEEL_NUGGET);
@@ -148,6 +168,11 @@ public class JAAVAAItems {
             entries.add(STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
             entries.add(TOOL_OF_THE_ANCIENTS);
             entries.add(STARSTEEL_TOOL_OF_THE_ANCIENTS);
+            entries.add(HAMMER_IRON);
+            entries.add(HAMMER_GOLD);
+            entries.add(HAMMER_DIAMOND);
+            entries.add(HAMMER_NETHERITE);
+            entries.add(HAMMER_STARSTEEL);
             entries.add(MAGNET_IRON);
             entries.add(MAGNET_GOLD);
             entries.add(MAGNET_DIAMOND);
@@ -172,10 +197,16 @@ public class JAAVAAItems {
             entries.addAfter(Items.NETHERITE_INGOT, STARSTEEL_INGOT);
             entries.addAfter(Items.GOLD_NUGGET, STARSTEEL_NUGGET);
             entries.addAfter(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
+            entries.add(FUSED_ROD);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.addAfter(Items.NETHERITE_HOE, TOOL_OF_THE_ANCIENTS);
             entries.addAfter(TOOL_OF_THE_ANCIENTS, STARSTEEL_TOOL_OF_THE_ANCIENTS);
+            entries.add(HAMMER_IRON);
+            entries.add(HAMMER_GOLD);
+            entries.add(HAMMER_DIAMOND);
+            entries.add(HAMMER_NETHERITE);
+            entries.add(HAMMER_STARSTEEL);
             entries.add(MAGNET_IRON);
             entries.add(MAGNET_GOLD);
             entries.add(MAGNET_DIAMOND);
@@ -200,6 +231,29 @@ public class JAAVAAItems {
                 8192, 24, 10.0f, 30,
                 JAAVAATags.Items.VOIDIUM_TOOL_MATERIALS
         );
+        public static ToolMaterial getModifiedDurability(ToolMaterial baseMaterial, int newDurability) {
+            return new ToolMaterial(
+                    baseMaterial.incorrectBlocksForDrops(),
+                    newDurability,
+                    baseMaterial.speed(),
+                    baseMaterial.attackDamageBonus(),
+                    baseMaterial.enchantmentValue(),
+                    baseMaterial.repairItems()
+            );
+        }
+        public static ToolMaterial getModifiedSpeed(ToolMaterial baseMaterial, float newSpeed) {
+            return new ToolMaterial(
+                    baseMaterial.incorrectBlocksForDrops(),
+                    baseMaterial.durability(),
+                    newSpeed,
+                    baseMaterial.attackDamageBonus(),
+                    baseMaterial.enchantmentValue(),
+                    baseMaterial.repairItems()
+            );
+        }
+        public static ToolMaterial getHammerMaterial(ToolMaterial baseMaterial) {
+            return getModifiedDurability(getModifiedSpeed(baseMaterial, baseMaterial.speed() * 0.75f), (int) (baseMaterial.durability() * 7.5));
+        }
         public static void init() {
             JAAVAA.log("Initializing tool materials");
         }

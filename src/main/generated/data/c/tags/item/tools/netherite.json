@@ -5,6 +5,9 @@
     "minecraft:netherite_pickaxe",
     "minecraft:netherite_shovel",
     "minecraft:netherite_sword",
-    "jaavaa:tool_of_the_ancients"
+    "jaavaa:tool_of_the_ancients",
+    "jaavaa:netherite_hammer",
+    "jaavaa:netherite_magnet",
+    "jaavaa:netherite_mob_net"
   ]
 }

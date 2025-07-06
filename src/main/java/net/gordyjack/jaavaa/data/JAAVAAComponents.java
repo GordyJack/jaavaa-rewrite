@@ -34,10 +34,12 @@ public class JAAVAAComponents {
         JAAVAA.log("Initializing JAAVAA components");
     }
     public static class Types {
-        public static final ComponentType<CapturedMobComponent> MOB_NET_ENTITY =
-                register("mob_net_entity", builder -> builder.codec(CapturedMobComponent.CODEC));
+        public static final ComponentType<Integer> HAMMER_RANGE =
+                register("hammer_range", builder -> builder.codec(Codec.INT));
         public static final ComponentType<Boolean> MAGNET_ENABLED =
                 register("enabled", builder -> builder.codec(Codec.BOOL));
+        public static final ComponentType<CapturedMobComponent> MOB_NET_ENTITY =
+                register("mob_net_entity", builder -> builder.codec(CapturedMobComponent.CODEC));
         private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
             return Registry.register(Registries.DATA_COMPONENT_TYPE, JAAVAA.id(name),
                     builderOperator.apply(ComponentType.builder()).build());

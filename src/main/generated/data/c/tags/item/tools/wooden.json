@@ -4,6 +4,7 @@
     "minecraft:wooden_hoe",
     "minecraft:wooden_pickaxe",
     "minecraft:wooden_shovel",
-    "minecraft:wooden_sword"
+    "minecraft:wooden_sword",
+    "jaavaa:bamboo_mob_net"
   ]
 }

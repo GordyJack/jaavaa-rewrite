@@ -4,6 +4,9 @@
     "minecraft:iron_hoe",
     "minecraft:iron_pickaxe",
     "minecraft:iron_shovel",
-    "minecraft:iron_sword"
+    "minecraft:iron_sword",
+    "jaavaa:iron_hammer",
+    "jaavaa:iron_magnet",
+    "jaavaa:iron_mob_net"
   ]
 }

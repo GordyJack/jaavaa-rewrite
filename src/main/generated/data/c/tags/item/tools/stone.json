@@ -4,6 +4,7 @@
     "minecraft:stone_hoe",
     "minecraft:stone_pickaxe",
     "minecraft:stone_shovel",
-    "minecraft:stone_sword"
+    "minecraft:stone_sword",
+    "jaavaa:stone_mob_net"
   ]
 }

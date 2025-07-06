@@ -107,6 +107,8 @@ public class JAAVAAEnchantments {
         }
         protected static void init() {
             JAAVAA.log("Initializing JAAVAA enchantment effects");
+            CurseOfPersistenceHandler.init();
+            PactedHandler.init();
         }
     }
 }

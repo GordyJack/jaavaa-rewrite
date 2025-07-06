@@ -12,6 +12,7 @@ import net.minecraft.server.network.*;
 import net.minecraft.server.world.*;
 import net.minecraft.util.math.*;
 
+//TODO: Hammers don't work correctly with this enchantment. Need to fix.
 public record CurseOfUnbridledDestructionEffect(EnchantmentLevelBasedValue level)
         implements EnchantmentEntityEffect {
     public static final MapCodec<CurseOfUnbridledDestructionEffect> CODEC = RecordCodecBuilder.mapCodec(

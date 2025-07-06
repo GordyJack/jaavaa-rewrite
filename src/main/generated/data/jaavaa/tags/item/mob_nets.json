@@ -1,0 +1,10 @@
+{
+  "values": [
+    "jaavaa:bamboo_mob_net",
+    "jaavaa:stone_mob_net",
+    "jaavaa:iron_mob_net",
+    "jaavaa:golden_mob_net",
+    "jaavaa:diamond_mob_net",
+    "jaavaa:netherite_mob_net"
+  ]
+}

@@ -4,6 +4,9 @@
     "minecraft:diamond_hoe",
     "minecraft:diamond_pickaxe",
     "minecraft:diamond_shovel",
-    "minecraft:diamond_sword"
+    "minecraft:diamond_sword",
+    "jaavaa:diamond_hammer",
+    "jaavaa:diamond_magnet",
+    "jaavaa:diamond_mob_net"
   ]
 }

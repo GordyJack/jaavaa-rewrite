@@ -1,6 +1,5 @@
 package net.gordyjack.jaavaa.utils;
 
-import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.data.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
@@ -69,9 +68,11 @@ public class JAAVAAUtils {
             isMaterialCorrectForBlock = !blockState.isIn(BlockTags.INCORRECT_FOR_DIAMOND_TOOL);
         } else if (tool.isIn(JAAVAATags.Items.TOOLS_NETHERITE)) {
             isMaterialCorrectForBlock = !blockState.isIn(BlockTags.INCORRECT_FOR_NETHERITE_TOOL);
+        } else if (tool.isIn(JAAVAATags.Items.TOOLS_STARSTEEL)) {
+            isMaterialCorrectForBlock = !blockState.isIn(JAAVAATags.Blocks.INCORRECT_FOR_STARSTEEL_TOOL);
+        } else if (tool.isIn(JAAVAATags.Items.TOOLS_VOIDIUM)) {
+            isMaterialCorrectForBlock = !blockState.isIn(JAAVAATags.Blocks.INCORRECT_FOR_VOIDIUM_TOOL);
         }
-        JAAVAA.log("Tool: " + tool + " Block: " + blockState + " isToolCorrectForBlock: " + isToolCorrectForBlock + " isMaterialCorrectForBlock: " + isMaterialCorrectForBlock, 'e');
-
         return isMaterialCorrectForBlock && isToolCorrectForBlock;
     }
 }

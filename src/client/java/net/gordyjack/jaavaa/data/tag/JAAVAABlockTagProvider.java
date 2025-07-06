@@ -66,7 +66,6 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         Blocks.PEARLESCENT_FROGLIGHT,
                         Blocks.VERDANT_FROGLIGHT,
                         Blocks.AMETHYST_BLOCK,
-                        Blocks.RESIN_BLOCK,
                         JAAVAABlocks.QUICKSAND,
                         JAAVAABlocks.RAW_VOIDIUM
                 );

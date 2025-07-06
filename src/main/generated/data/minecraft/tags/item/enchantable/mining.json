@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "#jaavaa:hammers",
+      "required": false
+    },
+    {
       "id": "#jaavaa:paxels",
       "required": false
     }

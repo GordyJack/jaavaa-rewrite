@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:golden_hammer",
+  "key": {
+    "G": "minecraft:gold_block",
+    "H": "minecraft:heavy_core",
+    "R": "jaavaa:fused_rod"
+  },
+  "pattern": [
+    "HG ",
+    "GR ",
+    "  R"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:golden_hammer"
+  }
+}

@@ -24,7 +24,7 @@ public class JAAVAA implements ModInitializer {
 		
 		JAAVAABlocks.init();
 		JAAVAAItems.init();
-		EternalItemDespawnHandler.init();
+		JAAVAAEventHandler.init();
 
 		JAAVAAPotions.init();
 		JAAVAAStatusEffects.init();
@@ -32,9 +32,6 @@ public class JAAVAA implements ModInitializer {
 		JAAVAABlockEntityTypes.init();
 		JAAVAAComponents.init();
 		JAAVAAEnchantments.init();
-		CurseOfTheCapriciousHandler.init();
-		CurseOfPersistenceHandler.init();
-		PactedHandler.init();
 		JAAVAARecipes.init();
 		JAAVAAPotionRecipeBuilder.build();
 		JAAVAAScreenHandlers.init();

@@ -4,6 +4,9 @@
     "minecraft:golden_hoe",
     "minecraft:golden_pickaxe",
     "minecraft:golden_shovel",
-    "minecraft:golden_sword"
+    "minecraft:golden_sword",
+    "jaavaa:golden_hammer",
+    "jaavaa:golden_magnet",
+    "jaavaa:golden_mob_net"
   ]
 }

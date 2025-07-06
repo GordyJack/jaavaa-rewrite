@@ -1,6 +1,6 @@
 // 1.21.4	-999999999-01-01T00:00:00	JAAVAA/Tags for minecraft:block
-527ad99d953c0289c0414ebee954d8559536134d data/jaavaa/tags/block/blocktants.json
-fabf37fc992d716c500de0909c01bd3aa4abbe72 data/jaavaa/tags/block/capricious_blocks.json
+90e09bc18d806787a373ea91d2a93fdbab5487c6 data/jaavaa/tags/block/blocktants.json
+483c4fe9c7f76496059d9f7ff356050907e93190 data/jaavaa/tags/block/capricious_blocks.json
 3088693cf0974bd912dee2edbca907b15c8835dd data/jaavaa/tags/block/deepslate_craftables.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/jaavaa/tags/block/incorrect_for_starsteel_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/jaavaa/tags/block/incorrect_for_voidium_tool.json

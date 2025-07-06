@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:diamond_hammer",
+  "key": {
+    "D": "minecraft:diamond_block",
+    "H": "minecraft:heavy_core",
+    "R": "jaavaa:fused_rod"
+  },
+  "pattern": [
+    "HD ",
+    "DR ",
+    "  R"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:diamond_hammer"
+  }
+}
