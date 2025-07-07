@@ -3,10 +3,10 @@
   "experience": 0.1,
   "inputStack": {
     "count": 1,
-    "id": "minecraft:wooden_hoe"
+    "id": "jaavaa:stone_mob_net"
   },
   "result": {
     "count": 4,
-    "id": "minecraft:stick"
+    "id": "minecraft:cobblestone"
   }
 }

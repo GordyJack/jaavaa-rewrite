@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 1.0,
+  "inputStack": {
+    "count": 1,
+    "id": "jaavaa:golden_hammer"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:heavy_core"
+  }
+}
