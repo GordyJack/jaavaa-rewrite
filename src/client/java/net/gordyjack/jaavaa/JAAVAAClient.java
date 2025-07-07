@@ -6,6 +6,7 @@ import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.custom.*;
 import net.gordyjack.jaavaa.screen.*;
+import net.gordyjack.jaavaa.utils.*;
 import net.minecraft.client.*;
 import net.minecraft.client.gui.screen.ingame.*;
 import net.minecraft.client.network.*;
@@ -43,15 +44,19 @@ public class JAAVAAClient implements ClientModInitializer {
 			if (player == null) return true;
 
 			ItemStack stack = player.getMainHandStack();
+			BlockPos hitPos = outlineCtx.blockPos();
 			if (!(stack.getItem() instanceof HammerItem hammer)) return true;
+			if (!JAAVAAUtils.isToolCorrectForBlock(stack, ctx.world().getBlockState(hitPos))) return true;
 
-			BlockPos hitPos   = outlineCtx.blockPos();
 			int range = hammer.getComponents().contains(JAAVAAComponents.Types.HAMMER_RANGE)
 					? hammer.getComponents().get(JAAVAAComponents.Types.HAMMER_RANGE) : 0;
 			List<BlockPos> toHighlight = HammerItem.getBlocksToBeDestroyed(range, hitPos, player);
 			VoxelShape combined = VoxelShapes.empty();
 			for (BlockPos pos : toHighlight) {
 				// use getOutlineShape so it respects partial-block shapes (e.g. slabs, fences)
+				if (!JAAVAAUtils.isToolCorrectForBlock(stack, ctx.world().getBlockState(pos))) {
+					continue;
+				}
 				VoxelShape blockShape =
 						mc.world.getBlockState(pos)
 								.getOutlineShape(mc.world, pos)

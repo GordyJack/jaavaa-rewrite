@@ -3,6 +3,7 @@ package net.gordyjack.jaavaa.event;
 import net.fabricmc.fabric.api.event.player.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.custom.*;
+import net.gordyjack.jaavaa.utils.*;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.entity.player.*;
@@ -24,7 +25,7 @@ public class HammerMiningEvent implements PlayerBlockBreakEvents.Before {
         ItemStack mainHandItem = player.getMainHandStack();
 
         if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayerEntity serverPlayer) {
-            if(HARVESTED_BLOCKS.contains(pos)) {
+            if(HARVESTED_BLOCKS.contains(pos) || !JAAVAAUtils.isToolCorrectForBlock(mainHandItem, state)) {
                 return true;
             }
             var comps = hammer.getComponents();
