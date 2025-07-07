@@ -1,7 +1,7 @@
 package net.gordyjack.jaavaa.item.custom;
 
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
-import net.minecraft.server.network.*;
 import net.minecraft.util.hit.*;
 import net.minecraft.util.math.*;
 
@@ -12,7 +12,7 @@ public class HammerItem extends Item {
         super(settings.pickaxe(material, 9.0F, -3.75F));
     }
 
-    public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos hitPos, ServerPlayerEntity player) {
+    public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos hitPos, PlayerEntity player) {
         List<BlockPos> positions = new ArrayList<>();
         HitResult hit = player.raycast(20, 0, false);
         if (hit.getType() == HitResult.Type.BLOCK) {
