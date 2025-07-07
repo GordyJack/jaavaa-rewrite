@@ -8,8 +8,8 @@ import net.minecraft.util.math.*;
 import java.util.*;
 
 public class HammerItem extends Item {
-    public HammerItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
-        super(settings.pickaxe(material, attackDamage, attackSpeed));
+    public HammerItem(ToolMaterial material, Item.Settings settings) {
+        super(settings.pickaxe(material, 9.0F, -3.75F));
     }
 
     public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos hitPos, ServerPlayerEntity player) {

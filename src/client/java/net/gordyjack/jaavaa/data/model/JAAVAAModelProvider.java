@@ -22,13 +22,12 @@ import java.util.*;
 import static net.minecraft.client.data.BlockStateModelGenerator.*;
 
 public class JAAVAAModelProvider extends FabricModelProvider {
-    private static final BlockStateVariantMap<ModelVariantOperator> SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS = BlockStateVariantMap.operations(
-                    Properties.HORIZONTAL_FACING
-            )
-            .register(Direction.SOUTH, NO_OP)
-            .register(Direction.WEST, ROTATE_Y_90)
-            .register(Direction.NORTH, ROTATE_Y_180)
-            .register(Direction.EAST, ROTATE_Y_270);
+    private static final BlockStateVariantMap<ModelVariantOperator> SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS =
+            BlockStateVariantMap.operations(Properties.HORIZONTAL_FACING)
+                    .register(Direction.SOUTH, NO_OP)
+                    .register(Direction.WEST, ROTATE_Y_90)
+                    .register(Direction.NORTH, ROTATE_Y_180)
+                    .register(Direction.EAST, ROTATE_Y_270);
 
     public JAAVAAModelProvider(FabricDataOutput output) {
         super(output);
@@ -73,7 +72,11 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     private BlockModelDefinitionCreator generateAdderState() {
         return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.ADDER)
-                .with(BlockStateVariantMap.models(Properties.POWERED, JAAVAABlockProperties.LEFT_POWERED, JAAVAABlockProperties.BACK_POWERED, JAAVAABlockProperties.RIGHT_POWERED).generate((on, left, back, right) -> {
+                .with(BlockStateVariantMap.models(Properties.POWERED,
+                                JAAVAABlockProperties.LEFT_POWERED,
+                                JAAVAABlockProperties.BACK_POWERED,
+                                JAAVAABlockProperties.RIGHT_POWERED)
+                        .generate((on, left, back, right) -> {
                     StringBuilder stringBuilder = new StringBuilder();
                     if (on && (left || back || right)) {
                         stringBuilder.append("_on");
@@ -97,7 +100,11 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     private BlockModelDefinitionCreator generateAdvancedRepeaterState() {
         return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.ADVANCED_REPEATER)
-                .with(BlockStateVariantMap.models(Properties.POWERED, Properties.LOCKED, JAAVAABlockProperties.DELAY, JAAVAABlockProperties.PULSE).generate((on, locked, delay, pulse) -> {
+                .with(BlockStateVariantMap.models(Properties.POWERED,
+                        Properties.LOCKED,
+                        JAAVAABlockProperties.DELAY,
+                        JAAVAABlockProperties.PULSE)
+                        .generate((on, locked, delay, pulse) -> {
                     StringBuilder stringBuilder = new StringBuilder();
                     if (locked) {
                         stringBuilder.append("_locked");
@@ -117,7 +124,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     private BlockModelDefinitionCreator generateDecoderState() {
         return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.DECODER)
-                .with(BlockStateVariantMap.models(Properties.POWERED, JAAVAABlockProperties.DECODER_MODE, JAAVAABlockProperties.DECODER_TARGET).generate((on, mode, target) -> {
+                .with(BlockStateVariantMap.models(Properties.POWERED,
+                        JAAVAABlockProperties.DECODER_MODE,
+                        JAAVAABlockProperties.DECODER_TARGET)
+                        .generate((on, mode, target) -> {
                     StringBuilder stringBuilder = new StringBuilder();
                     if (on) {
                         stringBuilder.append("_on");
@@ -144,24 +154,19 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                         .register(BlockFace.FLOOR, Direction.NORTH, NO_OP)
                         .register(BlockFace.FLOOR, Direction.EAST, ROTATE_Y_90)
                         .register(BlockFace.FLOOR, Direction.SOUTH, ROTATE_Y_180)
-                        .register(BlockFace.FLOOR, Direction.WEST, BlockStateModelGenerator.ROTATE_Y_270)
-                        .register(BlockFace.WALL, Direction.NORTH, BlockStateModelGenerator.ROTATE_X_90)
-                        .register(BlockFace.WALL, Direction.EAST, BlockStateModelGenerator.ROTATE_X_90
-                                .then(ROTATE_Y_90))
-                        .register(BlockFace.WALL, Direction.SOUTH, BlockStateModelGenerator.ROTATE_X_90
-                                .then(ROTATE_Y_180))
-                        .register(BlockFace.WALL, Direction.WEST, BlockStateModelGenerator.ROTATE_X_90
-                                .then(BlockStateModelGenerator.ROTATE_Y_270))
-                        .register(BlockFace.CEILING, Direction.SOUTH, BlockStateModelGenerator.ROTATE_X_180)
-                        .register(BlockFace.CEILING, Direction.WEST, BlockStateModelGenerator.ROTATE_X_180
-                                .then(ROTATE_Y_90))
-                        .register(BlockFace.CEILING, Direction.NORTH, BlockStateModelGenerator.ROTATE_X_180
-                                .then(ROTATE_Y_180))
-                        .register(BlockFace.CEILING, Direction.EAST, BlockStateModelGenerator.ROTATE_X_180
-                                .then(BlockStateModelGenerator.ROTATE_Y_270))
+                        .register(BlockFace.FLOOR, Direction.WEST, ROTATE_Y_270)
+                        .register(BlockFace.WALL, Direction.NORTH, ROTATE_X_90)
+                        .register(BlockFace.WALL, Direction.EAST, ROTATE_X_90.then(ROTATE_Y_90))
+                        .register(BlockFace.WALL, Direction.SOUTH, ROTATE_X_90.then(ROTATE_Y_180))
+                        .register(BlockFace.WALL, Direction.WEST, ROTATE_X_90.then(ROTATE_Y_270))
+                        .register(BlockFace.CEILING, Direction.SOUTH, ROTATE_X_180)
+                        .register(BlockFace.CEILING, Direction.WEST, ROTATE_X_180.then(ROTATE_Y_90))
+                        .register(BlockFace.CEILING, Direction.NORTH, ROTATE_X_180.then(ROTATE_Y_180))
+                        .register(BlockFace.CEILING, Direction.EAST, ROTATE_X_180.then(ROTATE_Y_270))
         );
     }
-    private void registerEncasedPillarModel(BlockStateModelGenerator bsmGen, Block block, Identifier casing, Identifier edge, Identifier end) {
+    private void registerEncasedPillarModel(BlockStateModelGenerator bsmGen, Block block,
+                                            Identifier casing, Identifier edge, Identifier end) {
         bsmGen.registerAxisRotated(block, TexturedModel.makeFactory((block1) -> {
             TextureMap textureMap = TextureMap.all(casing);
             textureMap.put(TextureKey.EDGE, edge);
