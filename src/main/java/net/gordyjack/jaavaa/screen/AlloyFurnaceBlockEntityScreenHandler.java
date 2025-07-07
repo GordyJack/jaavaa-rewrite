@@ -12,6 +12,11 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
     private static final int INPUT_SLOT_1 = 0;
     private static final int INPUT_SLOT_2 = 1;
     private static final int OUTPUT_SLOT = 2;
+    private static final int PLAYER_INVENTORY_START = OUTPUT_SLOT + 1; //2
+    private static final int HOTBAR_START = PLAYER_INVENTORY_START + 27; //29
+    private static final int PLAYER_INVENTORY_END = HOTBAR_START - 1; //28
+    private static final int HOTBAR_END = HOTBAR_START + 8; //38
+    private final ScreenHandlerContext CONTEXT;
     private final Inventory INV;
     private final PropertyDelegate PROPERTY_DELEGATE;
 
@@ -23,6 +28,7 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
                                      BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(JAAVAAScreenHandlers.ALLOY_FURNACE_SCREEN_HANDLER, syncId);
         checkSize((Inventory) blockEntity, 3);
+        this.CONTEXT = ScreenHandlerContext.create(blockEntity.getWorld(), blockEntity.getPos());
         this.INV = (Inventory) blockEntity;
         this.PROPERTY_DELEGATE = propertyDelegate;
         
@@ -41,19 +47,33 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
         addProperties(propertyDelegate);
     }
 
-    //TODO: Fix quickMove. Cannot shift-click items from output slot.
     @Override
-    public ItemStack quickMove(PlayerEntity player, int invSlot) {
+    public ItemStack quickMove(PlayerEntity player, int slotIndex) {
         ItemStack newStack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(invSlot);
-        if (slot != null && slot.hasStack() && invSlot!=OUTPUT_SLOT) {
+        Slot slot = this.slots.get(slotIndex);
+
+        boolean isInventorySlot = slotIndex >= PLAYER_INVENTORY_START && slotIndex <= PLAYER_INVENTORY_END;
+        boolean isHotbarSlot = slotIndex >= HOTBAR_START && slotIndex <= HOTBAR_END;
+
+        if (slot.hasStack()) {
             ItemStack originalStack = slot.getStack();
             newStack = originalStack.copy();
-            if (invSlot < this.INV.size()) {
-                if (!this.insertItem(originalStack, this.INV.size(), this.slots.size(), true)) {
+
+            if (slotIndex == OUTPUT_SLOT) {
+                this.CONTEXT.run((world, pos) -> originalStack.getItem().onCraftByPlayer(originalStack, player));
+                if (!this.insertItem(originalStack, PLAYER_INVENTORY_START, HOTBAR_END, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 0, this.INV.size(), false)) {
+                slot.onQuickTransfer(originalStack, newStack);
+            } else if ((slotIndex == INPUT_SLOT_1 || slotIndex == INPUT_SLOT_2) && !this.insertItem(originalStack, PLAYER_INVENTORY_START, HOTBAR_END, false)) {
+                return ItemStack.EMPTY;
+            } else if (this.INV.getStack(INPUT_SLOT_1).isEmpty() && !this.insertItem(originalStack, INPUT_SLOT_1, INPUT_SLOT_1 + 1, false)) {
+                return ItemStack.EMPTY;
+            } else if (this.INV.getStack(INPUT_SLOT_2).isEmpty() && !this.insertItem(originalStack, INPUT_SLOT_2, INPUT_SLOT_2 + 1, false)) {
+                return ItemStack.EMPTY;
+            } else if (isInventorySlot && !this.insertItem(originalStack, HOTBAR_START, HOTBAR_END, false)) {
+                return ItemStack.EMPTY;
+            } else if (isHotbarSlot && !this.insertItem(originalStack, PLAYER_INVENTORY_START, PLAYER_INVENTORY_END, false)) {
                 return ItemStack.EMPTY;
             }
 
