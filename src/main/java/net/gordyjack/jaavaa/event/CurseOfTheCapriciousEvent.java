@@ -15,6 +15,7 @@ import net.minecraft.registry.*;
 import net.minecraft.registry.entry.*;
 import net.minecraft.server.network.*;
 import net.minecraft.server.world.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.*;
@@ -36,8 +37,7 @@ public class CurseOfTheCapriciousEvent implements PlayerBlockBreakEvents.Before 
      */
     @Override
     public boolean beforeBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity) {
-        ItemStack tool = player.getInventory().getMainStacks().getFirst();
-        JAAVAA.log(tool.toString(), 'e');
+        ItemStack tool = player.getStackInHand(Hand.MAIN_HAND);
         if (world instanceof ServerWorld serverWorld
                 && !player.isCreative()
                 && tool.getEnchantments().getEnchantments().toString().contains("jaavaa:curse_of_the_capricious")
