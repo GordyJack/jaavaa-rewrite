@@ -81,15 +81,21 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .offerTo(this.exporter);
             }
             private void createAlloyingRecipes() {
-                this.offerAlloyingRecipe(150, 0.5f, Items.SAND, 1, Items.AMETHYST_SHARD, 2, Items.TINTED_GLASS, 2);
+                //Vanilla alts
                 this.offerAlloyingRecipe(200, 0.7f, Items.NETHERITE_SCRAP, 2, Items.GOLD_INGOT, 1, Items.NETHERITE_INGOT, 1);
+                this.offerAlloyingRecipe(150, 0.5f, Items.SAND, 1, Items.AMETHYST_SHARD, 2, Items.TINTED_GLASS, 2);
 
+                //Alloys
                 this.offerAlloyingRecipe(200, 0.9f, Items.GOLD_INGOT, 1, Items.IRON_INGOT, 1, JAAVAAItems.AURON_INGOT, 2);
                 this.offerAlloyingRecipe(1800, 8.1f, Blocks.GOLD_BLOCK, 1, Blocks.IRON_BLOCK, 1, JAAVAABlocks.AURON_BLOCK, 2);
                 this.offerAlloyingRecipe(200, 1.0f, Items.BLAZE_ROD, 1, Items.BREEZE_ROD, 1, JAAVAAItems.FUSED_ROD, 1);
                 this.offerAlloyingRecipe(200, 0.9f, Items.COPPER_INGOT, 1, Items.GOLD_INGOT, 1, JAAVAAItems.ROSE_GOLD_INGOT, 2);
                 this.offerAlloyingRecipe(1800, 8.1f, Blocks.COPPER_BLOCK, 1, Blocks.GOLD_BLOCK, 1, JAAVAABlocks.ROSE_GOLD_BLOCK, 2);
                 this.offerAlloyingRecipe(1800, 9.0f, Items.NETHER_STAR, 1, Items.NETHERITE_BLOCK, 1, JAAVAABlocks.STARSTEEL_BLOCK, 1);
+                //Dirty Ore Recipes
+                this.offerAlloyingRecipe(300, 0.5f, Items.RAW_COPPER, 1, Blocks.SAND, 1, Items.COPPER_INGOT, 2);
+                this.offerAlloyingRecipe(300, 0.5f, Items.RAW_IRON, 1, Blocks.SAND, 1, Items.IRON_INGOT, 2);
+                this.offerAlloyingRecipe(300, 0.5f, Items.RAW_GOLD, 1, Blocks.SAND, 1, Items.GOLD_INGOT, 2);
             }
             private void createMaterialsRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 2)
