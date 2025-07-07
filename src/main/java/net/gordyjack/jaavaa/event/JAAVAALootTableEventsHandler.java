@@ -82,7 +82,7 @@ public class JAAVAALootTableEventsHandler {
                 .conditionally(LocationCheckLootCondition.builder(LocationPredicate.Builder.createDimension(World.NETHER)))
                 .with(ItemEntry.builder(JAAVAAItems.STARSTEEL_INGOT)
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 4)))
-                        .weight(9))
+                        .weight(5))
                 .with(ItemEntry.builder(JAAVAAItems.MALUM_STELLAE_INCANTATAE)
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
                         .weight(1));
