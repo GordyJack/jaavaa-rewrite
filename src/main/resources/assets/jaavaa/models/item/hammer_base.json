@@ -2,8 +2,7 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "jaavaa:item/fused_tool_rod",
-		"rod": "jaavaa:item/fused_tool_rod",
+		"rod": "jaavaa:item/model/fused_tool_rod",
 		"core": "minecraft:block/heavy_core"
 	},
 	"elements": [
