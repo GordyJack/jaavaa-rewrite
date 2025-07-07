@@ -1,7 +1,7 @@
 {
   "type": "jaavaa:alloying",
   "burnTime": 1800,
-  "experience": 1.0,
+  "experience": 9.0,
   "inputStack1": {
     "count": 1,
     "id": "minecraft:nether_star"

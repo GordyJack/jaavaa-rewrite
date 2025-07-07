@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "building",
   "group": "jaavaa:starsteel_block",
   "key": {
     "#": "jaavaa:starsteel_ingot"

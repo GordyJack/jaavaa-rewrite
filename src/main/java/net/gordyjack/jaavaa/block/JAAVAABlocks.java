@@ -26,6 +26,9 @@ public class JAAVAABlocks {
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT);
 
     // Blocks
+    public static final Block AURON_BLOCK = registerBlock("auron_block",
+            Block::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
+                    .mapColor(MapColor.PALE_YELLOW));
     public static final Block QUICKSAND = registerBlock("quicksand",
             QuicksandBlock::new, AbstractBlock.Settings.copy(Blocks.SAND)
                     .sounds(BlockSoundGroup.SAND)
@@ -33,6 +36,9 @@ public class JAAVAABlocks {
     public static final Block RAW_VOIDIUM = registerBlock("raw_voidium",
             Block::new, AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS)
                     .mapColor(MapColor.BLACK));
+    public static final Block ROSE_GOLD_BLOCK = registerBlock("rose_gold_block",
+            Block::new, AbstractBlock.Settings.copy(Blocks.GOLD_BLOCK)
+                    .mapColor(MapColor.RAW_IRON_PINK));
     public static final Block SMOOTH_POLISHED_DEEPSLATE = registerBlock("smooth_polished_deepslate", Block::new,
             AbstractBlock.Settings.copy(Blocks.POLISHED_DEEPSLATE));
     public static final Block STARSTEEL_BLOCK = registerBlock("starsteel_block",
@@ -205,8 +211,12 @@ public class JAAVAABlocks {
     public static final Block BAMBOO_MOSAIC_BLOCKTANT =
             registerBlocktant("bamboo_mosaic_blocktant", Blocks.BAMBOO_MOSAIC);
 
+    public static final Block AURON_BLOCKTANT =
+            registerBlocktant("auron_blocktant", JAAVAABlocks.AURON_BLOCK);
     public static final Block RAW_VOIDIUM_BLOCKTANT =
             registerBlocktant("raw_voidium_blocktant", JAAVAABlocks.RAW_VOIDIUM);
+    public static final Block ROSE_GOLD_BLOCKTANT =
+            registerBlocktant("rose_gold_blocktant", JAAVAABlocks.ROSE_GOLD_BLOCK);
     public static final Block SMOOTH_POLISHED_DEEPSLATE_BLOCKTANT =
             registerBlocktant("smooth_polished_deepslate_blocktant", JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
     public static final Block STARSTEEL_BLOCKTANT =
@@ -253,9 +263,11 @@ public class JAAVAABlocks {
         //Adding Blocks to main Block ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKS).register(entries -> {
             entries.add(ALLOY_FURNACE);
+            entries.add(AURON_BLOCK);
             entries.add(QUICKSAND);
             entries.add(RAW_VOIDIUM);
             entries.add(RECYCLING_TABLE);
+            entries.add(ROSE_GOLD_BLOCK);
             entries.add(SMOOTH_POLISHED_DEEPSLATE);
             entries.add(STARSTEEL_BLOCK);
             entries.add(STARSTEEL_GLASS);
@@ -275,6 +287,7 @@ public class JAAVAABlocks {
             entries.add(ACACIA_PLANKS_BLOCKTANT);
             entries.add(AMETHYST_BLOCKTANT);
             entries.add(ANDESITE_BLOCKTANT);
+            entries.add(AURON_BLOCKTANT);
             entries.add(BAMBOO_MOSAIC_BLOCKTANT);
             entries.add(BAMBOO_PLANKS_BLOCKTANT);
             entries.add(BIRCH_PLANKS_BLOCKTANT);
@@ -317,10 +330,12 @@ public class JAAVAABlocks {
             entries.add(RAW_COPPER_BLOCKTANT);
             entries.add(RAW_GOLD_BLOCKTANT);
             entries.add(RAW_IRON_BLOCKTANT);
+            entries.add(RAW_VOIDIUM_BLOCKTANT);
             entries.add(REDSTONE_BLOCKTANT);
             entries.add(RED_NETHER_BRICK_BLOCKTANT);
             entries.add(RESIN_BLOCKTANT);
             entries.add(RESIN_BRICKS_BLOCKTANT);
+            entries.add(ROSE_GOLD_BLOCKTANT);
             entries.add(SANDSTONE_BLOCKTANT);
             entries.add(SMOOTH_POLISHED_DEEPSLATE_BLOCKTANT);
             entries.add(SMOOTH_STONE_BLOCKTANT);
@@ -332,6 +347,8 @@ public class JAAVAABlocks {
         });
         //Adding Blocks to vanilla ItemGroups
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(AURON_BLOCK);
+            entries.add(ROSE_GOLD_BLOCK);
             entries.add(SMOOTH_POLISHED_DEEPSLATE);
             entries.add(STARSTEEL_BLOCK);
         });

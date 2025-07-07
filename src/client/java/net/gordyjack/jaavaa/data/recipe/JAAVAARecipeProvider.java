@@ -83,8 +83,13 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             private void createAlloyingRecipes() {
                 this.offerAlloyingRecipe(150, 0.5f, Items.SAND, 1, Items.AMETHYST_SHARD, 2, Items.TINTED_GLASS, 2);
                 this.offerAlloyingRecipe(200, 0.7f, Items.NETHERITE_SCRAP, 2, Items.GOLD_INGOT, 1, Items.NETHERITE_INGOT, 1);
-                this.offerAlloyingRecipe(1800, 1.0f, Items.NETHER_STAR, 1, Items.NETHERITE_BLOCK, 1, JAAVAABlocks.STARSTEEL_BLOCK, 1);
-                this.offerAlloyingRecipe(200, 0.5f, Items.BLAZE_ROD, 1, Items.BREEZE_ROD, 1, JAAVAAItems.FUSED_ROD, 1);
+
+                this.offerAlloyingRecipe(200, 0.9f, Items.GOLD_INGOT, 1, Items.IRON_INGOT, 1, JAAVAAItems.AURON_INGOT, 2);
+                this.offerAlloyingRecipe(1800, 8.1f, Blocks.GOLD_BLOCK, 1, Blocks.IRON_BLOCK, 1, JAAVAABlocks.AURON_BLOCK, 2);
+                this.offerAlloyingRecipe(200, 1.0f, Items.BLAZE_ROD, 1, Items.BREEZE_ROD, 1, JAAVAAItems.FUSED_ROD, 1);
+                this.offerAlloyingRecipe(200, 0.9f, Items.COPPER_INGOT, 1, Items.GOLD_INGOT, 1, JAAVAAItems.ROSE_GOLD_INGOT, 2);
+                this.offerAlloyingRecipe(1800, 8.1f, Blocks.COPPER_BLOCK, 1, Blocks.GOLD_BLOCK, 1, JAAVAABlocks.ROSE_GOLD_BLOCK, 2);
+                this.offerAlloyingRecipe(1800, 9.0f, Items.NETHER_STAR, 1, Items.NETHERITE_BLOCK, 1, JAAVAABlocks.STARSTEEL_BLOCK, 1);
             }
             private void createMaterialsRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 2)
@@ -99,13 +104,30 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(JAAVAAItems.STARSTEEL_INGOT), conditionsFromItem(JAAVAAItems.STARSTEEL_INGOT))
                         .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT)));
                 this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.AURON_NUGGET, RecipeCategory.MISC, JAAVAAItems.AURON_INGOT,
+                        "auron_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.AURON_INGOT).toString(),
+                        "auron_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.AURON_NUGGET).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.AURON_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.AURON_BLOCK,
+                        "auron_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.AURON_BLOCK).toString(),
+                        "auron_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.AURON_INGOT).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.ROSE_GOLD_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.ROSE_GOLD_BLOCK,
+                        "rose_gold_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.ROSE_GOLD_BLOCK).toString(),
+                        "rose_gold_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.ROSE_GOLD_INGOT).toString()
+                );
+                this.offerReversibleCompactingRecipes(
                         RecipeCategory.MISC, JAAVAAItems.STARSTEEL_NUGGET, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT,
                         "starsteel_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString(),
-                        "starsteel_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_NUGGET).toString());
+                        "starsteel_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_NUGGET).toString()
+                );
                 this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, RecipeCategory.MISC, JAAVAABlocks.STARSTEEL_BLOCK,
+                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STARSTEEL_BLOCK,
                         "starsteel_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.STARSTEEL_BLOCK).toString(),
-                        "starsteel_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString());
+                        "starsteel_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString()
+                );
             }
             private void createMiscRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ALLOY_FURNACE)
@@ -259,7 +281,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 //Starsteel
                 //Tools
                 this.offerRecyclingRecipe(0.5f, JAAVAAItems.STARSTEEL_SWORD, JAAVAAItems.STARSTEEL_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS, JAAVAAItems.STARSTEEL_INGOT, 1);
+                this.offerRecyclingRecipe(0.5f, JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL, JAAVAAItems.STARSTEEL_INGOT, 1);
                 this.offerRecyclingRecipe(0.5f, JAAVAAItems.HAMMER_STARSTEEL, Items.HEAVY_CORE, 1);
                 this.offerRecyclingRecipe(0.5f, JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE, JAAVAAItems.STARSTEEL_NUGGET, 1);
 
@@ -635,7 +657,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerSmithingTemplateCopyingRecipe(JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE, Items.NETHERITE_INGOT);
                 this.offerStarsteelUpgradeRecipe(JAAVAAItems.HAMMER_NETHERITE, RecipeCategory.TOOLS, JAAVAAItems.HAMMER_STARSTEEL);
                 this.offerStarsteelUpgradeRecipe(Items.NETHERITE_SWORD, RecipeCategory.TOOLS, JAAVAAItems.STARSTEEL_SWORD);
-                this.offerStarsteelUpgradeRecipe(JAAVAAItems.TOOL_OF_THE_ANCIENTS, RecipeCategory.TOOLS, JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS);
+                this.offerStarsteelUpgradeRecipe(JAAVAAItems.TOOL_OF_THE_ANCIENTS, RecipeCategory.TOOLS, JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL);
             }
             private void offerAlloyingRecipe(int burnTime, float experience,
                                              ItemConvertible input1, int input1Count,

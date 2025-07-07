@@ -3,6 +3,7 @@
   "textures": {
     "band": "minecraft:block/diamond_block",
     "head": "minecraft:block/diamond_block",
-    "ring": "minecraft:block/gold_block"
+    "ring": "minecraft:block/gold_block",
+    "rod": "jaavaa:item/fused_rod"
   }
 }

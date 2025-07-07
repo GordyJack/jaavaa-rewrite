@@ -35,12 +35,14 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
+        bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.AURON_BLOCK);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.QUICKSAND);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.RAW_VOIDIUM);
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.ROSE_GOLD_BLOCK);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.registerGlassAndPane(JAAVAABlocks.STARSTEEL_GLASS, JAAVAABlocks.STARSTEEL_GLASS_PANE);
-        bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
 
         bsmGen.blockStateCollector.accept(generateAdderState());
         bsmGen.blockStateCollector.accept(generateAdjustableState());
@@ -68,6 +70,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                 Identifier bandId = TextureMap.getId(Blocks.DIRT);
                 Identifier headId = TextureMap.getId(Blocks.DIRT);
                 Identifier ringId = TextureMap.getId(Blocks.DIRT);
+                Identifier rodId = TextureMap.getId(JAAVAAItems.FUSED_ROD);
                 if (hammer == JAAVAAItems.HAMMER_IRON) {
                     bandId = TextureMap.getId(Blocks.IRON_BLOCK);
                     headId = bandId;
@@ -89,7 +92,11 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                     headId = bandId;
                     ringId = TextureMap.getId(Blocks.NETHERITE_BLOCK);
                 }
-                registerHammerItemModel(imGen, hammer, bandId, headId, ringId);
+                registerHammerItemModel(imGen, hammer, bandId, headId, ringId, rodId);
+                continue;
+            }
+            if (item == JAAVAAItems.FUSED_ROD) {
+                registerRodItemModel(imGen, item, TextureMap.getId(JAAVAAItems.FUSED_ROD));
                 continue;
             }
             if (item.getDefaultStack().isIn(JAAVAATags.Items.TOOLS_STARSTEEL)) {
@@ -205,17 +212,27 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                 TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
     }
     private void registerHammerItemModel(ItemModelGenerator imGen, HammerItem hammer,
-                                         Identifier band, Identifier head, Identifier ring) {
+                                         Identifier band, Identifier head, Identifier ring, Identifier rod) {
         TextureKey bandKey = TextureKey.of("band");
         TextureKey headKey = TextureKey.of("head");
         TextureKey ringKey = TextureKey.of("ring");
+        TextureKey rodKey = TextureKey.of("rod");
         TextureMap map = TextureMap.texture(head);
         map.put(bandKey, band);
         map.put(headKey, head);
         map.put(ringKey, ring);
-        Model model = new Model(Optional.of(JAAVAA.id("item/hammer_base")), Optional.empty(), bandKey, headKey, ringKey);
+        map.put(rodKey, rod);
+        Model model = new Model(Optional.of(JAAVAA.id("item/hammer_base")), Optional.empty(), bandKey, headKey, ringKey, rodKey);
         model.upload(hammer, map, imGen.modelCollector);
         imGen.register(hammer);
+    }
+    private void registerRodItemModel(ItemModelGenerator imGen, Item rodItem, Identifier rod) {
+        TextureKey rodKey = TextureKey.of("rod");
+        TextureMap map = TextureMap.texture(rod);
+        map.put(rodKey, rod);
+        Model model = new Model(Optional.of(JAAVAA.id("item/rod_base")), Optional.empty(), rodKey);
+        model.upload(rodItem, map, imGen.modelCollector);
+        imGen.register(rodItem);
     }
     private void registerBlocktantModel(BlockStateModelGenerator bsmGen, Blocktant blocktant) {
         String idPath = "block/" + JAAVAA.idFromItem(blocktant.asItem()).getPath();

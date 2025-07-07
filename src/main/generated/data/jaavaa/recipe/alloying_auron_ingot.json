@@ -1,0 +1,17 @@
+{
+  "type": "jaavaa:alloying",
+  "burnTime": 200,
+  "experience": 0.9,
+  "inputStack1": {
+    "count": 1,
+    "id": "minecraft:gold_ingot"
+  },
+  "inputStack2": {
+    "count": 1,
+    "id": "minecraft:iron_ingot"
+  },
+  "result": {
+    "count": 2,
+    "id": "jaavaa:auron_ingot"
+  }
+}

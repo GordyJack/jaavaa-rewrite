@@ -1,0 +1,88 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"rod": "item/fused_tool_rod"
+	},
+	"elements": [
+		{
+			"name": "Rod",
+			"from": [7.5, 0, 7.5],
+			"to": [8.5, 18, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 16], "texture": "#rod"},
+				"east": {"uv": [2, 0, 4, 16], "texture": "#rod"},
+				"south": {"uv": [4, 0, 6, 16], "texture": "#rod"},
+				"west": {"uv": [6, 0, 8, 16], "texture": "#rod"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#rod"},
+				"down": {"uv": [6, 14, 8, 16], "texture": "#rod"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 3.75, 1.5],
+			"scale": [1.2, 1.2, 1.2]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 3.75, 1.5],
+			"scale": [1.2, 1.2, 1.2]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 3.75, 1.5],
+			"scale": [1.2, 1.2, 1.2]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 3.75, 1.5],
+			"scale": [1.2, 1.2, 1.2]
+		},
+		"ground": {
+			"rotation": [30, 0, 0],
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [-90, -50, -90],
+			"translation": [-1, -1, 0],
+			"scale": [0.9, 0.9, 0.9]
+		},
+		"head": {
+			"translation": [0, 19, 0],
+			"scale": [4, 4, 4]
+		},
+		"fixed": {
+			"rotation": [0, 90, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "Head",
+			"origin": [7, 16.5, 7],
+			"color": 0,
+			"children": [
+				0,
+				1,
+				2,
+				{
+					"name": "Front Band",
+					"origin": [7, 13.5, 5],
+					"color": 0,
+					"children": [3, 4]
+				},
+				{
+					"name": "Rear Band",
+					"origin": [7, 13.5, 5],
+					"color": 0,
+					"children": [5, 6]
+				}
+			]
+		},
+		{
+			"name": "Rod",
+			"origin": [7, 5, 7],
+			"color": 0,
+			"children": [7, 8, 9, 10]
+		}
+	]
+}

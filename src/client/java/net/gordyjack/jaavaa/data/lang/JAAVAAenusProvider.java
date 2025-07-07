@@ -31,6 +31,14 @@ extends FabricLanguageProvider{
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         for (Block block : JAAVAABlocks.BLOCKS) {
+            if (block == JAAVAABlocks.AURON_BLOCK) {
+                translationBuilder.add(block, "Block of Auron");
+                continue;
+            }
+            if (block == JAAVAABlocks.ROSE_GOLD_BLOCK) {
+                translationBuilder.add(block, "Block of Rose Gold");
+                continue;
+            }
             if (block == JAAVAABlocks.STARSTEEL_BLOCK) {
                 translationBuilder.add(block, "Block of Starsteel");
                 continue;

@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_01010011",
+  "position": "01010011",
+  "textures": {
+    "down": "jaavaa:block/rose_gold_block",
+    "side": "jaavaa:block/rose_gold_block",
+    "up": "jaavaa:block/rose_gold_block"
+  }
+}

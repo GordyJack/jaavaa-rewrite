@@ -1,0 +1,17 @@
+{
+  "type": "jaavaa:alloying",
+  "burnTime": 1800,
+  "experience": 8.1,
+  "inputStack1": {
+    "count": 1,
+    "id": "minecraft:copper_block"
+  },
+  "inputStack2": {
+    "count": 1,
+    "id": "minecraft:gold_block"
+  },
+  "result": {
+    "count": 2,
+    "id": "jaavaa:rose_gold_block"
+  }
+}

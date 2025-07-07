@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "jaavaa:item/rod_base",
   "textures": {
-    "layer0": "jaavaa:item/fused_rod"
+    "rod": "jaavaa:item/fused_rod"
   }
 }

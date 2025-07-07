@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:rose_gold_block",
+  "ingredients": [
+    "jaavaa:rose_gold_blocktant",
+    "jaavaa:rose_gold_blocktant",
+    "jaavaa:rose_gold_blocktant",
+    "jaavaa:rose_gold_blocktant",
+    "jaavaa:rose_gold_blocktant",
+    "jaavaa:rose_gold_blocktant",
+    "jaavaa:rose_gold_blocktant",
+    "jaavaa:rose_gold_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:rose_gold_block"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:auron_block",
+  "ingredients": [
+    "jaavaa:auron_blocktant",
+    "jaavaa:auron_blocktant",
+    "jaavaa:auron_blocktant",
+    "jaavaa:auron_blocktant",
+    "jaavaa:auron_blocktant",
+    "jaavaa:auron_blocktant",
+    "jaavaa:auron_blocktant",
+    "jaavaa:auron_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:auron_block"
+  }
+}

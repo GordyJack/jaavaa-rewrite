@@ -3,6 +3,7 @@
   "textures": {
     "band": "jaavaa:block/starsteel_block",
     "head": "jaavaa:block/starsteel_block",
-    "ring": "minecraft:block/netherite_block"
+    "ring": "minecraft:block/netherite_block",
+    "rod": "jaavaa:item/fused_rod"
   }
 }

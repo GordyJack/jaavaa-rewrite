@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:auron_blocktant",
+  "ingredients": [
+    "jaavaa:auron_block",
+    "jaavaa:auron_block",
+    "jaavaa:auron_block",
+    "jaavaa:auron_block",
+    "jaavaa:auron_block",
+    "jaavaa:auron_block",
+    "jaavaa:auron_block",
+    "jaavaa:auron_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 64,
+    "id": "jaavaa:auron_blocktant"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_auron_blocktant": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:auron_blocktant"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:auron_block_from_mini_blocks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_auron_blocktant"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:auron_block_from_mini_blocks"
+    ]
+  }
+}

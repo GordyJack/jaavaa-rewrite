@@ -46,14 +46,14 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
         );
         valueLookupBuilder(JAAVAATags.Items.PAXELS).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
-                JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS).add(
                 JAAVAAItems.STARSTEEL_INGOT
         );
         valueLookupBuilder(JAAVAATags.Items.TOOLS_STARSTEEL).add(
                 JAAVAAItems.STARSTEEL_SWORD,
-                JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS,
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL,
                 JAAVAAItems.HAMMER_STARSTEEL
         );
         valueLookupBuilder(JAAVAATags.Items.VOIDIUM_TOOL_MATERIALS);
@@ -119,24 +119,24 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
         //Vanilla Tags
         valueLookupBuilder(ItemTags.AXES).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
-                JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.HOES).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
-                JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.PICKAXES).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
-                JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.SHOVELS).add(
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
-                JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.SWORDS).add(
                 JAAVAAItems.STARSTEEL_SWORD,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
-                JAAVAAItems.STARSTEEL_TOOL_OF_THE_ANCIENTS
+                JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addOptionalTag(JAAVAATags.Items.HAMMERS)

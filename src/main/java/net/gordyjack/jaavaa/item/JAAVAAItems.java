@@ -34,9 +34,12 @@ public class JAAVAAItems {
     public static final Item ALLAY_ESSENCE = register("allay_essence",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON)
     );
+    public static final Item AURON_INGOT = register("auron_ingot");
+    public static final Item AURON_NUGGET = register("auron_nugget");
     public static final Item FUSED_ROD = register("fused_rod",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON)
     );
+    public static final Item ROSE_GOLD_INGOT = register("rose_gold_ingot");
     public static final Item SHULKER_PEARL = register("shulker_pearl",
             Item::new, new Item.Settings().rarity(Rarity.UNCOMMON)
     );
@@ -136,7 +139,7 @@ public class JAAVAAItems {
             new Item.Settings().rarity(Rarity.EPIC).fireproof().maxCount(1).maxDamage(3072)
     );
     //TODO: Add Texture \/
-    public static final Item STARSTEEL_TOOL_OF_THE_ANCIENTS = register("starsteel_tool_of_the_ancients",
+    public static final Item TOOL_OF_THE_ANCIENTS_STARSTEEL = register("starsteel_tool_of_the_ancients",
             settings -> new PaxelItem(ToolMaterials.STARSTEEL, 5.0f, -1.5f, settings),
             new Item.Settings().rarity(Rarity.EPIC).fireproof().maxCount(1).maxDamage(4096)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
@@ -159,7 +162,7 @@ public class JAAVAAItems {
      * @return The registered item
      */
     private static Item register(String path) {
-        return register(path, Item::new, new Item.Settings());
+        return register(path, Item::new);
     }
     /**
      * Registers an item with the given path, factory, and default settings.
@@ -193,14 +196,9 @@ public class JAAVAAItems {
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_ITEMS).register(entries -> {
             entries.add(MALUM_STELLAE_INCANTATAE);
             entries.add(ALLAY_ESSENCE);
+            entries.add(AURON_INGOT);
+            entries.add(AURON_NUGGET);
             entries.add(FUSED_ROD);
-            entries.add(SHULKER_PEARL);
-            entries.add(STARSTEEL_INGOT);
-            entries.add(STARSTEEL_NUGGET);
-            entries.add(STARSTEEL_SWORD);
-            entries.add(STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
-            entries.add(TOOL_OF_THE_ANCIENTS);
-            entries.add(STARSTEEL_TOOL_OF_THE_ANCIENTS);
             entries.add(HAMMER_IRON);
             entries.add(HAMMER_GOLD);
             entries.add(HAMMER_DIAMOND);
@@ -216,6 +214,14 @@ public class JAAVAAItems {
             entries.add(MOB_NET_IRON);
             entries.add(MOB_NET_DIAMOND);
             entries.add(MOB_NET_NETHERITE);
+            entries.add(ROSE_GOLD_INGOT);
+            entries.add(SHULKER_PEARL);
+            entries.add(STARSTEEL_INGOT);
+            entries.add(STARSTEEL_NUGGET);
+            entries.add(STARSTEEL_SWORD);
+            entries.add(STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
+            entries.add(TOOL_OF_THE_ANCIENTS);
+            entries.add(TOOL_OF_THE_ANCIENTS_STARSTEEL);
         });
         //Adding Items to Vanilla ItemGroups
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
@@ -230,11 +236,14 @@ public class JAAVAAItems {
             entries.addAfter(Items.NETHERITE_INGOT, STARSTEEL_INGOT);
             entries.addAfter(Items.GOLD_NUGGET, STARSTEEL_NUGGET);
             entries.addAfter(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
+            entries.add(AURON_INGOT);
+            entries.add(AURON_NUGGET);
             entries.add(FUSED_ROD);
+            entries.add(ROSE_GOLD_INGOT);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.addAfter(Items.NETHERITE_HOE, TOOL_OF_THE_ANCIENTS);
-            entries.addAfter(TOOL_OF_THE_ANCIENTS, STARSTEEL_TOOL_OF_THE_ANCIENTS);
+            entries.addAfter(TOOL_OF_THE_ANCIENTS, TOOL_OF_THE_ANCIENTS_STARSTEEL);
             entries.add(HAMMER_IRON);
             entries.add(HAMMER_GOLD);
             entries.add(HAMMER_DIAMOND);
