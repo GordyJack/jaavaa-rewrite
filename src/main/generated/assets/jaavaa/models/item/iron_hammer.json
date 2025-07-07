@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "jaavaa:item/hammer_base",
   "textures": {
-    "layer0": "jaavaa:item/iron_hammer"
+    "band": "minecraft:block/iron_block",
+    "head": "minecraft:block/iron_block",
+    "ring": "minecraft:block/stone"
   }
 }

@@ -8,6 +8,7 @@ import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.block.enums.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.*;
 import net.minecraft.client.data.*;
@@ -63,6 +64,34 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator imGen) {
         for(Item item : JAAVAAItems.ITEMS) {
             if (item instanceof BlockItem) continue;
+            if (item instanceof HammerItem hammer) {
+                Identifier bandId = TextureMap.getId(Blocks.DIRT);
+                Identifier headId = TextureMap.getId(Blocks.DIRT);
+                Identifier ringId = TextureMap.getId(Blocks.DIRT);
+                if (hammer == JAAVAAItems.HAMMER_IRON) {
+                    bandId = TextureMap.getId(Blocks.IRON_BLOCK);
+                    headId = bandId;
+                    ringId = TextureMap.getId(Blocks.STONE);
+                } else if (hammer == JAAVAAItems.HAMMER_GOLD) {
+                    bandId = TextureMap.getId(Blocks.GOLD_BLOCK);
+                    headId = bandId;
+                    ringId = TextureMap.getId(Blocks.IRON_BLOCK);
+                } else if (hammer == JAAVAAItems.HAMMER_DIAMOND) {
+                    bandId = TextureMap.getId(Blocks.DIAMOND_BLOCK);
+                    headId = bandId;
+                    ringId = TextureMap.getId(Blocks.GOLD_BLOCK);
+                } else if (hammer == JAAVAAItems.HAMMER_NETHERITE) {
+                    bandId = TextureMap.getId(Blocks.NETHERITE_BLOCK);
+                    headId = bandId;
+                    ringId = TextureMap.getId(Blocks.DIAMOND_BLOCK);
+                } else if (hammer == JAAVAAItems.HAMMER_STARSTEEL) {
+                    bandId = TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK);
+                    headId = bandId;
+                    ringId = TextureMap.getId(Blocks.NETHERITE_BLOCK);
+                }
+                registerHammerItemModel(imGen, hammer, bandId, headId, ringId);
+                continue;
+            }
             if (item.getDefaultStack().isIn(JAAVAATags.Items.TOOLS_STARSTEEL)) {
                 imGen.registerWithBrokenCondition(item);
                 continue;
@@ -174,6 +203,19 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             return textureMap;
         }, new Model(Optional.of(JAAVAA.id("block/encased_pillar")), Optional.empty(),
                 TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
+    }
+    private void registerHammerItemModel(ItemModelGenerator imGen, HammerItem hammer,
+                                         Identifier band, Identifier head, Identifier ring) {
+        TextureKey bandKey = TextureKey.of("band");
+        TextureKey headKey = TextureKey.of("head");
+        TextureKey ringKey = TextureKey.of("ring");
+        TextureMap map = TextureMap.texture(head);
+        map.put(bandKey, band);
+        map.put(headKey, head);
+        map.put(ringKey, ring);
+        Model model = new Model(Optional.of(JAAVAA.id("item/hammer_base")), Optional.empty(), bandKey, headKey, ringKey);
+        model.upload(hammer, map, imGen.modelCollector);
+        imGen.register(hammer);
     }
     private void registerBlocktantModel(BlockStateModelGenerator bsmGen, Blocktant blocktant) {
         String idPath = "block/" + JAAVAA.idFromItem(blocktant.asItem()).getPath();

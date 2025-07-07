@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "jaavaa:item/hammer_base",
   "textures": {
-    "layer0": "jaavaa:item/starsteel_hammer"
+    "band": "jaavaa:block/starsteel_block",
+    "head": "jaavaa:block/starsteel_block",
+    "ring": "minecraft:block/netherite_block"
   }
 }
