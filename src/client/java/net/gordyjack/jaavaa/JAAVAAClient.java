@@ -66,13 +66,14 @@ public class JAAVAAClient implements ClientModInitializer {
 			// Prepare render context and camera offset
 			Vec3d cam = ctx.camera().getPos();
 			MatrixStack matrices = ctx.matrixStack();
+			if (Objects.equals(combined.offset(hitPos.multiply(-1)).toString(), VoxelShapes.fullCube().toString())) return true;
 			VertexRendering.drawOutline(
 					matrices, ctx.consumers().getBuffer(RenderLayer.getSecondaryBlockOutline()),
 					combined,
 					-cam.x, -cam.y, -cam.z,
 					0xFF00FFFF
 			);
-			return true;  // keep the vanilla single-block outline too
+			return false;
 		});
 	}
 }
