@@ -11,6 +11,7 @@ import net.minecraft.util.math.random.*;
 import net.minecraft.world.*;
 import net.minecraft.world.tick.*;
 
+//TODO: add mode to where you can have it constantly change signal strengths while powered.
 public class RandomizerBlock extends AbstractRedstoneGateBlock {
     public static final MapCodec<RandomizerBlock> CODEC = createCodec(RandomizerBlock::new);
     public static final BooleanProperty POWERED = Properties.POWERED;
