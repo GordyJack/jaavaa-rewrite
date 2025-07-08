@@ -79,11 +79,19 @@ public class JAAVAABlocks {
             new Item.Settings().fireproof());
     // Redstone Gates
     public static final Block ADDER = registerBlock("adder",
-            AdderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER));
+            AdderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
     public static final Block ADVANCED_REPEATER = registerBlock("advanced_repeater",
-            AdvancedRepeaterBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER));
+            AdvancedRepeaterBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
     public static final Block DECODER = registerBlock("decoder",
-            DecoderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER));
+            DecoderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
+    //TODO: Add top texture for Randomizer
+    public static final Block RANDOMIZER = registerBlock("randomizer",
+            RandomizerBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+                    .luminance(state -> state.get(RandomizerBlock.POWER))
+    );
     // Redstone Blocks
     public static final Block ADJUSTABLE_REDSTONE_LAMP = registerBlock("adjustable_redstone_lamp", AdjustableRedstoneLampBlock::new,
             AbstractBlock.Settings.create()
@@ -278,6 +286,7 @@ public class JAAVAABlocks {
             entries.add(ADDER);
             entries.add(ADVANCED_REPEATER);
             entries.add(DECODER);
+            entries.add(RANDOMIZER);
             entries.add(ADJUSTABLE_REDSTONE_LAMP);
             entries.add(ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
             entries.add(QUARTZ_ENCASED_REDSTONE_PILLAR);

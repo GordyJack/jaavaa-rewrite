@@ -4,6 +4,7 @@ import com.google.gson.*;
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.block.enums.*;
 import net.minecraft.data.*;
 import net.minecraft.util.*;
@@ -25,8 +26,9 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
     public CompletableFuture<?> run(DataWriter writer) {
         List<CompletableFuture<?>> returns = new ArrayList<>();
         for (JsonObject model : createAdderModels()) returns.add(writeModel(writer, model));
+        for (JsonObject model : createAdvancedRepeaterModels()) returns.add(writeModel(writer, model));
         for (JsonObject model : createDecoderModels()) returns.add(writeModel(writer, model));
-        for (JsonObject model : createRepeaterModels()) returns.add(writeModel(writer, model));
+        for (JsonObject model : createRandomizerModels()) returns.add(writeModel(writer, model));
         return CompletableFuture.allOf(returns.toArray(CompletableFuture[]::new));
     }
     @Override
@@ -90,67 +92,11 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
         }
         return models;
     }
-    private static List<JsonObject> createDecoderModels() {
-        List<JsonObject> models = new ArrayList<>();
-
-        String name = "decoder";
-        List<String> modelNames = generateUniqueDecoderModelNames();
-        for (String modelName : modelNames) {
-            //Initial setup for the model.
-            JsonObject model = new JsonObject();
-            model.addProperty("name", modelName); //The name of the model. Unused by the game, just for organization.
-            model.addProperty("parent", "block/thin_block"); //The parent model to inherit from. Enables using a 3d model as the item model.
-            model.addProperty("ambientocclusion", false);
-            //Provide textures for the models.
-            JsonObject textures = new JsonObject();
-            boolean powered = modelName.contains("_on");
-            String pString = powered ? "_on" : "";
-            textures.addProperty("particle", JAAVAA.id("block/" + name + pString).toString());
-            textures.addProperty("top", JAAVAA.id("block/" + name + pString).toString());
-            textures.addProperty("side", JAAVAA.id("block/smooth_polished_deepslate").toString());
-            textures.addProperty("unlit", Identifier.ofVanilla("block/redstone_torch_off").toString());
-            if (powered) textures.addProperty("lit", Identifier.ofVanilla("block/redstone_torch").toString());
-            model.add("textures", textures);
-            //Creates the elements for the model.
-            JsonArray elements = new JsonArray();
-            elements.add(base);
-            //Torches
-            boolean tall = !modelName.contains("_demux");
-            boolean left = modelName.contains("_l");
-            boolean front = modelName.contains("_f");
-            boolean right = modelName.contains("_r");
-            String key = powered ? "#lit" : "#unlit";
-            JsonObject leftRearTorch = createTorchModel(3.0f, 12.0f, key);
-            JsonObject rightRearTorch = createTorchModel(11.0f, 12.0f, key);
-            JsonObject leftTorch = createTorchModel(2.0f, 7.0f, powered && left ? "#lit" : "#unlit", tall);
-            JsonObject frontTorch = createTorchModel(7.0f, 2.0f, powered && front ? "#lit" : "#unlit", tall);
-            JsonObject rightTorch = createTorchModel(12.0f, 7.0f, powered && right ? "#lit" : "#unlit", tall);
-            elements.add(leftRearTorch);
-            elements.add(rightRearTorch);
-            elements.add(leftTorch);
-            elements.add(frontTorch);
-            elements.add(rightTorch);
-            //Halos
-            if (powered) {
-                //Rear Torch Halos
-                for (JsonObject halo : createTorchHaloModels(3.0f, 12.0f, "#lit")) elements.add(halo); //Left Rear Torch Halos
-                for (JsonObject halo : createTorchHaloModels(11.0f, 12.0f, "#lit")) elements.add(halo); //Right Rear Torch Halos
-                //Target Torch Halos
-                List<JsonObject> targetTorchHalos = left ? createTorchHaloModels(2.0f, 7.0f, "#lit", tall) :
-                        front ? createTorchHaloModels(7.0f, 2.0f, "#lit", tall) :
-                                right ? createTorchHaloModels(12.0f, 7.0f, "#lit", tall) : List.of();
-                for (JsonObject halo : targetTorchHalos) elements.add(halo);
-            }
-            model.add("elements", elements);
-            models.add(model);
-        }
-        return models;
-    }
-    private static List<JsonObject> createRepeaterModels() {
+    private static List<JsonObject> createAdvancedRepeaterModels() {
         List<JsonObject> models = new ArrayList<>();
 
         String name = "advanced_repeater";
-        List<String> modelNames = generateUniqueRepeaterModelNames();
+        List<String> modelNames = generateUniqueAdvancedRepeaterModelNames();
         for (String modelName : modelNames) {
             //Initial setup for the model.
             JsonObject model = new JsonObject();
@@ -213,6 +159,103 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
         }
         return models;
     }
+    private static List<JsonObject> createDecoderModels() {
+        List<JsonObject> models = new ArrayList<>();
+
+        String name = "decoder";
+        List<String> modelNames = generateUniqueDecoderModelNames();
+        for (String modelName : modelNames) {
+            //Initial setup for the model.
+            JsonObject model = new JsonObject();
+            model.addProperty("name", modelName); //The name of the model. Unused by the game, just for organization.
+            model.addProperty("parent", "block/thin_block"); //The parent model to inherit from. Enables using a 3d model as the item model.
+            model.addProperty("ambientocclusion", false);
+            //Provide textures for the models.
+            JsonObject textures = new JsonObject();
+            boolean powered = modelName.contains("_on");
+            String pString = powered ? "_on" : "";
+            textures.addProperty("particle", JAAVAA.id("block/" + name + pString).toString());
+            textures.addProperty("top", JAAVAA.id("block/" + name + pString).toString());
+            textures.addProperty("side", JAAVAA.id("block/smooth_polished_deepslate").toString());
+            textures.addProperty("unlit", Identifier.ofVanilla("block/redstone_torch_off").toString());
+            if (powered) textures.addProperty("lit", Identifier.ofVanilla("block/redstone_torch").toString());
+            model.add("textures", textures);
+            //Creates the elements for the model.
+            JsonArray elements = new JsonArray();
+            elements.add(base);
+            //Torches
+            boolean tall = !modelName.contains("_demux");
+            boolean left = modelName.contains("_l");
+            boolean front = modelName.contains("_f");
+            boolean right = modelName.contains("_r");
+            String key = powered ? "#lit" : "#unlit";
+            JsonObject leftRearTorch = createTorchModel(3.0f, 12.0f, key);
+            JsonObject rightRearTorch = createTorchModel(11.0f, 12.0f, key);
+            JsonObject leftTorch = createTorchModel(2.0f, 7.0f, powered && left ? "#lit" : "#unlit", tall);
+            JsonObject frontTorch = createTorchModel(7.0f, 2.0f, powered && front ? "#lit" : "#unlit", tall);
+            JsonObject rightTorch = createTorchModel(12.0f, 7.0f, powered && right ? "#lit" : "#unlit", tall);
+            elements.add(leftRearTorch);
+            elements.add(rightRearTorch);
+            elements.add(leftTorch);
+            elements.add(frontTorch);
+            elements.add(rightTorch);
+            //Halos
+            if (powered) {
+                //Rear Torch Halos
+                for (JsonObject halo : createTorchHaloModels(3.0f, 12.0f, "#lit")) elements.add(halo); //Left Rear Torch Halos
+                for (JsonObject halo : createTorchHaloModels(11.0f, 12.0f, "#lit")) elements.add(halo); //Right Rear Torch Halos
+                //Target Torch Halos
+                List<JsonObject> targetTorchHalos = left ? createTorchHaloModels(2.0f, 7.0f, "#lit", tall) :
+                        front ? createTorchHaloModels(7.0f, 2.0f, "#lit", tall) :
+                                right ? createTorchHaloModels(12.0f, 7.0f, "#lit", tall) : List.of();
+                for (JsonObject halo : targetTorchHalos) elements.add(halo);
+            }
+            model.add("elements", elements);
+            models.add(model);
+        }
+        return models;
+    }
+    private static List<JsonObject> createRandomizerModels() {
+        List<JsonObject> models = new ArrayList<>();
+
+        String name = "randomizer";
+        List<String> modelNames = generateUniqueRandomizerModelNames();
+        for (String modelName : modelNames) {
+            //Initial setup for the model.
+            JsonObject model = new JsonObject();
+            model.addProperty("name", modelName); //The name of the model. Unused by the game, just for organization.
+            model.addProperty("parent", "block/thin_block"); //The parent model to inherit from. Enables using a 3d model as the item model.
+            model.addProperty("ambientocclusion", false);
+            //Provide textures for the models.
+            JsonObject textures = new JsonObject();
+            boolean powered = modelName.contains("_on");
+            String pString = powered ? "_on" : "";
+            textures.addProperty("particle", JAAVAA.id("block/" + name + pString).toString());
+            textures.addProperty("top", JAAVAA.id("block/" + name + pString).toString());
+            textures.addProperty("side", JAAVAA.id("block/smooth_polished_deepslate").toString());
+            textures.addProperty("lamp", JAAVAA.id("block/adjustable_redstone_lamp").toString());
+            if (powered) {
+                textures.addProperty("lit", Identifier.ofVanilla("block/redstone_torch").toString());
+            } else {
+                textures.addProperty("unlit", Identifier.ofVanilla("block/redstone_torch_off").toString());
+            }
+            model.add("textures", textures);
+            //Creates the elements for the model.
+            JsonArray elements = new JsonArray();
+            elements.add(base);
+            //Torches
+            String key = powered ? "#lit" : "#unlit";
+            elements.add(createTorchModel(7.0f, 2.0f, key)); //Front Torch
+            if (powered) {
+                for (JsonObject halo : createTorchHaloModels(7.0f, 2.0f, "#lit")) elements.add(halo);
+            }
+            int power = powered ? Integer.parseInt(modelName.substring(modelName.lastIndexOf('_') + 1)) : 0;
+            elements.add(createLampModel(6.0f, 10.0f, power)); //Lamp
+            model.add("elements", elements);
+            models.add(model);
+        }
+        return models;
+    }
     private static JsonObject createGateBaseModel() {
         JsonObject model = new JsonObject();
         model.add("from", arrayOf(0, 0, 0));
@@ -238,6 +281,20 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
             face.addProperty("rotation", r);
         }
         return face;
+    }
+    private static JsonObject createLampModel(float startX, float startZ, int power) {
+        float startY = 0.0f;
+        JsonObject model = new JsonObject();
+        model.add("from", arrayOf(startX, startY, startZ));
+        model.add("to", arrayOf(startX + 4.0f, startY + 4.0f, startZ + 4.0f));
+        JsonObject faces = new JsonObject();
+        faces.add("north", createFace("#lamp", null, 0, power, 16, power + 1, 0));
+        faces.add("south", createFace("#lamp", null, 0, power, 16, power + 1, 0));
+        faces.add("west", createFace("#lamp", null, 0, power, 16, power + 1, 0));
+        faces.add("east", createFace("#lamp", null, 0, power, 16, power + 1, 0));
+        faces.add("up", createFace("#lamp", null, 0, power, 16, power + 1, 0));
+        model.add("faces", faces);
+        return model;
     }
     private static JsonObject createRepeaterLockModel() {
         JsonObject model = new JsonObject();
@@ -375,33 +432,7 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
         }
         return modelNames.stream().distinct().toList();
     }
-    private static List<String> generateUniqueDecoderModelNames() {
-        List<DecoderMode> modes = JAAVAABlockProperties.DECODER_MODE.getValues();
-        List<DecoderTarget> targets = JAAVAABlockProperties.DECODER_TARGET.getValues();
-
-        List<String> modelNames = new ArrayList<>();
-        for (boolean powered : new boolean[] {false, true}) {
-            for (DecoderMode mode : modes) {
-                for (DecoderTarget target : targets) {
-                    String idPath = "decoder";
-                    if (powered) {
-                        idPath += "_on";
-                        if (target != DecoderTarget.NONE) {
-                            idPath += "_" + target.name().substring(0, 1).toLowerCase();
-                        } else {
-                            continue;
-                        }
-                    }
-                    if (mode == DecoderMode.DEMUX) {
-                        idPath += "_demux";
-                    }
-                    modelNames.add(idPath);
-                }
-            }
-        }
-        return modelNames.stream().distinct().toList();
-    }
-    private static List<String> generateUniqueRepeaterModelNames() {
+    private static List<String> generateUniqueAdvancedRepeaterModelNames() {
         List<Integer> delays = JAAVAABlockProperties.DELAY.getValues();
         List<Integer> pulses = JAAVAABlockProperties.PULSE.getValues();
 
@@ -429,6 +460,45 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
             }
         }
         return modelNames.stream().distinct().toList();
+    }
+    private static List<String> generateUniqueDecoderModelNames() {
+        List<DecoderMode> modes = JAAVAABlockProperties.DECODER_MODE.getValues();
+        List<DecoderTarget> targets = JAAVAABlockProperties.DECODER_TARGET.getValues();
+
+        List<String> modelNames = new ArrayList<>();
+        for (boolean powered : new boolean[] {false, true}) {
+            for (DecoderMode mode : modes) {
+                for (DecoderTarget target : targets) {
+                    String idPath = "decoder";
+                    if (powered) {
+                        idPath += "_on";
+                        if (target != DecoderTarget.NONE) {
+                            idPath += "_" + target.name().substring(0, 1).toLowerCase();
+                        } else {
+                            continue;
+                        }
+                    }
+                    if (mode == DecoderMode.DEMUX) {
+                        idPath += "_demux";
+                    }
+                    modelNames.add(idPath);
+                }
+            }
+        }
+        return modelNames.stream().distinct().toList();
+    }
+    private static List<String> generateUniqueRandomizerModelNames() {
+        List<String> names = new ArrayList<>();
+        for (boolean on : new Boolean[]{false, true}) {
+            for (int power : RandomizerBlock.POWER.getValues()) {
+                String idPath = "randomizer";
+                if (on && power > 0) {
+                    idPath += "_on_" + power;
+                }
+                if(!names.contains(idPath)) names.add(idPath);
+            }
+        }
+        return names;
     }
     private CompletableFuture<?> writeModel(DataWriter writer, JsonObject model) {
         String modelName = model.get("name").getAsString();
