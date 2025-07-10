@@ -52,6 +52,7 @@ The purpose of this mod is 3-fold:
 * **Extended Enchanting**
   * ❌ - **Remove Anvil level cap**
   * **New Enchantments**:
+    * ✅ - **Bloodletter**: Heals the attacker for a percentage of the health missing from the target.
     * ⚠️ - **Pacted**: Ensures the item remains intact, even when its durability depletes to zero and ensures it remains with you upon respawning if it was in your hand or equipped at the time of death.
     * ❌ - **Truesight**: Allows the player to see all hostile mobs in range as if they have the glowing effect. Higher levels have higher ranges.
     * ❌ - **Farsight**: Can be applied to the Spyglass. Makes the Spyglass zoom in even further. Higher levels have further zoom.

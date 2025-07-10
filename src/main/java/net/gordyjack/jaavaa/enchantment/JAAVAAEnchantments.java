@@ -20,6 +20,7 @@ public class JAAVAAEnchantments {
     public static final RegistryKey<Enchantment> CURSE_OF_THE_CAPRICIOUS = of("curse_of_the_capricious");
     public static final RegistryKey<Enchantment> CURSE_OF_PERSISTENCE = of("curse_of_persistence");
     public static final RegistryKey<Enchantment> CURSE_OF_UNBRIDLED_DESTRUCTION = of("curse_of_unbridled_destruction");
+    public static final RegistryKey<Enchantment> BLOODLETTER = of("bloodletter");
     public static final RegistryKey<Enchantment> PACTED = of("pacted");
 
     private static RegistryKey<Enchantment> of(String id) {
@@ -35,6 +36,7 @@ public class JAAVAAEnchantments {
         var enchantments = registerable.getRegistryLookup(RegistryKeys.ENCHANTMENT);
         var items = registerable.getRegistryLookup(RegistryKeys.ITEM);
 
+        //Curses
         register(registerable, CURSE_OF_THE_CAPRICIOUS, Enchantment.builder(Enchantment.definition(
                 items.getOrThrow(ItemTags.MINING_LOOT_ENCHANTABLE),
                 1, 5,
@@ -64,6 +66,19 @@ public class JAAVAAEnchantments {
                 .exclusiveSet(enchantments.getOrThrow(JAAVAATags.Other.UNBRIDLED_DESTRUCTION_EXCLUSIVE_SET))
                 .addEffect(EnchantmentEffectComponentTypes.HIT_BLOCK,
                         new CurseOfUnbridledDestructionEffect(EnchantmentLevelBasedValue.constant(0.0f)))
+        );
+        //Enchantments
+        register(registerable, BLOODLETTER, Enchantment.builder(Enchantment.definition(
+                items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                2, 5,
+                Enchantment.leveledCost(5, 10),
+                Enchantment.leveledCost(20, 10),
+                6,
+                AttributeModifierSlot.HAND))
+                .addEffect(EnchantmentEffectComponentTypes.POST_ATTACK,
+                        EnchantmentEffectTarget.ATTACKER,
+                        EnchantmentEffectTarget.VICTIM,
+                        new BloodletterEffect(EnchantmentLevelBasedValue.linear(10.0f, 10.0f)))
         );
         register(registerable, PACTED, Enchantment.builder(Enchantment.definition(
                 items.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
@@ -95,6 +110,8 @@ public class JAAVAAEnchantments {
     public static class Effects {
         public static final MapCodec<? extends EnchantmentEntityEffect> CURSE_OF_UNBRIDLED_DESTRUCTION_EFFECT =
                 registerEntityEffect("curse_of_unbridled_destruction", CurseOfUnbridledDestructionEffect.CODEC);
+        public static final MapCodec<? extends EnchantmentEntityEffect> BLOODLETTER_EFFECT =
+                registerEntityEffect("bloodletter", BloodletterEffect.CODEC);
         public static final MapCodec<? extends EnchantmentEntityEffect> PACTED_EFFECT =
                 registerEntityEffect("pacted", PactedEffect.CODEC);
 
