@@ -64,18 +64,18 @@ public class JAAVAAUtils {
         if (!shouldTestMaterial) return true;
 
         // Get the appropriate tool material tag to test the blockstate against.
-        TagKey<Block> materialBlocks = TagKey.of(RegistryKeys.BLOCK, Identifier.of("namespace:material_tag"));
-        for (TagKey<Item> tag : getMaterialsMineableBlocksMap().keySet()) {
+        TagKey<Block> incorrectBlocksForMaterial = TagKey.of(RegistryKeys.BLOCK, Identifier.of("namespace:material_tag"));
+        for (TagKey<Item> tag : getIncorrectBlocksForMaterialMap().keySet()) {
             if (tool.isIn(tag)) {
-                materialBlocks = getMaterialsMineableBlocksMap().get(tag);
+                incorrectBlocksForMaterial = getIncorrectBlocksForMaterialMap().get(tag);
                 break;
             }
         }
         // Test the blockstate against the materials mineable blocks and return the result.
-        return blockState.isIn(materialBlocks);
+        return !blockState.isIn(incorrectBlocksForMaterial);
     }
 
-    private static @NotNull HashMap<TagKey<Item>, TagKey<Block>> getMaterialsMineableBlocksMap() {
+    private static @NotNull HashMap<TagKey<Item>, TagKey<Block>> getIncorrectBlocksForMaterialMap() {
         HashMap<TagKey<Item>, TagKey<Block>> mineableBlocksMap = new HashMap<>();
         mineableBlocksMap.put(JAAVAATags.Items.TOOLS_WOODEN, BlockTags.INCORRECT_FOR_WOODEN_TOOL);
         mineableBlocksMap.put(JAAVAATags.Items.TOOLS_STONE, BlockTags.INCORRECT_FOR_STONE_TOOL);
