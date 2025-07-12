@@ -98,7 +98,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerAlloyingRecipe(300, 0.5f, Items.RAW_GOLD, 1, Blocks.SAND, 1, Items.GOLD_INGOT, 2);
             }
             private void createMaterialsRecipes() {
-                this.createShaped(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 2)
+                this.createShaped(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 4)
                         .input('I', Items.NETHERITE_INGOT)
                         .input('S', Items.NETHER_STAR)
                         .pattern(" I ")
