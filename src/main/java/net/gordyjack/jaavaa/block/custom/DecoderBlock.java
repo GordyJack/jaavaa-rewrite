@@ -1,30 +1,23 @@
 package net.gordyjack.jaavaa.block.custom;
 
-import com.mojang.serialization.MapCodec;
-import net.gordyjack.jaavaa.block.JAAVAABlockProperties;
-import net.gordyjack.jaavaa.block.enums.DecoderMode;
-import net.gordyjack.jaavaa.block.enums.DecoderTarget;
+import com.mojang.serialization.*;
+import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.enums.*;
 import net.minecraft.block.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.particle.DustParticleEffect;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
+import net.minecraft.entity.player.*;
+import net.minecraft.particle.*;
+import net.minecraft.server.world.*;
+import net.minecraft.sound.*;
+import net.minecraft.state.*;
 import net.minecraft.state.property.*;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.block.OrientationHelper;
-import net.minecraft.world.block.WireOrientation;
-import net.minecraft.world.tick.ScheduledTickView;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.util.*;
+import net.minecraft.util.hit.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.math.random.*;
+import net.minecraft.world.*;
+import net.minecraft.world.block.*;
+import net.minecraft.world.tick.*;
 
 public class DecoderBlock extends AbstractRedstoneGateBlock{
     //Codec
@@ -33,6 +26,8 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
     public static final EnumProperty<DecoderMode> MODE = JAAVAABlockProperties.DECODER_MODE;
     public static final EnumProperty<DecoderTarget> TARGET = JAAVAABlockProperties.DECODER_TARGET;
     public static final IntProperty POWER = Properties.POWER;
+    //Constants
+    private static final int UPDATE_DELAY = 2;
 
     //Constructor
     public DecoderBlock(Settings settings) {
@@ -50,15 +45,16 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
 
     //Overrides
     @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING, POWERED, MODE, TARGET, POWER);
+    }
+    @Override
     protected MapCodec<? extends AbstractRedstoneGateBlock> getCodec() {
         return CODEC;
     }
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockState state = super.getPlacementState(ctx);
-        World world = ctx.getWorld();
-        BlockPos pos = ctx.getBlockPos();
-        return this.getUpdatedState(world, pos, state);
+    protected int getOutputLevel(BlockView world, BlockPos pos, BlockState state) {
+        return state.get(POWER);
     }
     @Override
     protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView,
@@ -67,24 +63,12 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            return !world.isClient() ? this.updateState((World) world, pos, state)
-                    : super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+            return state;
         }
     }
     @Override
-    protected int getOutputLevel(BlockView world, BlockPos pos, BlockState state) {
-        return state.get(POWER);
-    }
-    @Override
-    protected int getPower(World world, BlockPos pos, BlockState state) {
-        return state.get(POWER);
-    }
-    @Override
     protected int getUpdateDelayInternal(BlockState state) {
-        return switch (state.get(MODE)) {
-            case DEMUX -> 0;
-            case DECODE -> 2;
-        };
+        return UPDATE_DELAY;
     }
     @Override
     protected int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
@@ -111,24 +95,15 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         return 0;
     }
     @Override
-    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock,
-                                  @Nullable WireOrientation wireOrientation, boolean notify) {
-        super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
-        if (!world.isClient && state.canPlaceAt(world, pos)) {
-            this.updateState(world, pos, state);
-        }
-    }
-    @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!player.getAbilities().allowModifyWorld) {
             return ActionResult.PASS;
-        } else {
-            state = state.cycle(MODE);
-            state = this.updateState(world, pos, state);
-            float f = state.get(MODE) == DecoderMode.DEMUX ? 0.5F : 0.55F;
-            world.playSound(player, pos, SoundEvents.BLOCK_COMPARATOR_CLICK, SoundCategory.BLOCKS, 0.3F, f);
-            return ActionResult.SUCCESS;
         }
+        state = state.cycle(MODE);
+        this.updateState(world, pos, state);
+        float f = state.get(MODE) == DecoderMode.DEMUX ? 0.5F : 0.55F;
+        world.playSound(player, pos, SoundEvents.BLOCK_COMPARATOR_CLICK, SoundCategory.BLOCKS, 0.3F, f);
+        return ActionResult.SUCCESS;
     }
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
@@ -153,94 +128,95 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
     }
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!world.isClient) {
-            BlockState updatedState = this.updateState(world, pos, state);
-            if (updatedState != state) {
-                world.setBlockState(pos, updatedState, Block.NOTIFY_LISTENERS);
+        if (state != this.getUpdatedState(world, pos, state)) {
+            this.updateState(world, pos, state);
+        }
+    }
+    @Override
+    protected void updatePowered(World world, BlockPos pos, BlockState state) {
+        if (world.isClient()) {
+            return;
+        }
+        if (!world.getBlockTickScheduler().isTicking(pos, this)) {
+            TickPriority tickPriority = TickPriority.HIGH;
+            if (this.isTargetNotAligned(world, pos, state)) {
+                tickPriority = TickPriority.EXTREMELY_HIGH;
+            } else if (state.get(POWERED)) {
+                tickPriority = TickPriority.VERY_HIGH;
             }
+            world.scheduleBlockTick(pos, this, this.getUpdateDelayInternal(state), tickPriority);
         }
     }
     @Override
     protected void updateTarget(World world, BlockPos pos, BlockState state) {
+        if (world.isClient()) {
+            JAAVAA.log("Skipping updateTarget on client side", 'e');
+            return;
+        }
+
         Direction facingDirection = state.get(FACING);
         Direction targetDirection = switch (state.get(TARGET)) {
-            case NONE -> Direction.NORTH;
-            case LEFT -> facingDirection.rotateYCounterclockwise();
-            case FRONT -> facingDirection;
-            case RIGHT -> facingDirection.rotateYClockwise();
+            case NONE -> Direction.UP;
+            case LEFT -> facingDirection.rotateYClockwise();
+            case FRONT -> facingDirection.getOpposite();
+            case RIGHT -> facingDirection.rotateYCounterclockwise();
         };
-        BlockPos blockPos = pos.offset(targetDirection.getOpposite());
-        WireOrientation wireOrientation = OrientationHelper.getEmissionOrientation(world, targetDirection.getOpposite(), Direction.UP);
+        JAAVAA.log("facingDirection: " + facingDirection + " | targetDirection: " + targetDirection
+                + " | get(TARGET): " + state.get(TARGET) + " | getTarget(): " + this.getTarget(world, pos, state), 'e');
+        BlockPos blockPos = pos.offset(targetDirection);
+        WireOrientation wireOrientation = OrientationHelper.getEmissionOrientation(world, targetDirection, Direction.UP);
         world.updateNeighbor(blockPos, this, wireOrientation);
-        world.updateNeighborsExcept(blockPos, this, targetDirection, wireOrientation);
-    }
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, POWERED, MODE, TARGET, POWER);
+        JAAVAA.log("Updated neighbor: " + world.getBlockState(blockPos).getBlock().getName().getString() + " at " + blockPos.toShortString());
+        world.updateNeighborsExcept(blockPos, this, targetDirection.getOpposite(), wireOrientation);
+        for (Direction direction : Direction.values()) {
+            if (direction == targetDirection.getOpposite()) continue;
+            BlockPos neighborPos = blockPos.offset(direction);
+            JAAVAA.log("Updated neighbor of: " + world.getBlockState(blockPos).getBlock().getName().getString() + " at " + blockPos.toShortString() + ": "
+                    + world.getBlockState(neighborPos).getBlock().getName().getString() + " at " + neighborPos.toShortString(), 'e');
+        }
+        //Comment out the following to observe the correct behaviour of a "decoder clock"
+        if (this.isOff(state)) {
+            JAAVAA.log("Target is NONE, updating neighbors always");
+            world.updateNeighborsAlways(pos, this, null);
+            for (Direction direction : Direction.values()) {
+                BlockPos neighborPos = pos.offset(direction);
+                JAAVAA.log("Updated neighbor: " + world.getBlockState(neighborPos).getBlock().getName().getString() + " at " + neighborPos.toShortString(), 'e');
+            }
+        }
     }
 
     //Methods
-    /**
-     * Calculates the power level of the block
-     * @param state the state of the block
-     * @param inputPower the power level of the input
-     * @return the power level of the block
-     */
-    private int calculateOutputPower(BlockState state, int inputPower) {
+    private int calculateOutputPower(World world, BlockPos pos, BlockState state) {
+        int inputPower = this.getPower(world, pos, state);
+        if (inputPower <= 0) return 0;
         return switch (state.get(MODE)) {
             case DEMUX -> inputPower;
             case DECODE -> 15;
         };
     }
-    /**
-     * Gets the power level of the input to the block
-     * @param world the world
-     * @param pos the position of the block
-     * @param state the state of the block
-     * @return the power level of the input
-     */
-    private int getInputPower(World world, BlockPos pos, BlockState state) {
-        Direction inputDirection = state.get(FACING);
-        BlockPos offset = pos.offset(inputDirection);
-        return world.getEmittedRedstonePower(offset, inputDirection);
+    private DecoderTarget getTarget(World world, BlockPos pos, BlockState state) {
+        return switch (this.getPower(world, pos, state)) {
+            case 1, 2, 3, 4, 5 -> DecoderTarget.LEFT;
+            case 6, 7, 8, 9, 10 -> DecoderTarget.FRONT;
+            case 11, 12, 13, 14, 15 -> DecoderTarget.RIGHT;
+            default -> DecoderTarget.NONE; // Should not happen
+        };
     }
-    /**
-     * Updates the state of the block
-     * @param world the world
-     * @param pos the position of the block
-     * @param state the state of the block
-     * @return the updated state
-     */
     private BlockState getUpdatedState(World world, BlockPos pos, BlockState state) {
-        int inputPower = this.getInputPower(world, pos, state);
-        DecoderTarget target;
-        if (inputPower > 0 && inputPower <=5) {
-            target = DecoderTarget.LEFT;
-        } else if (inputPower > 5 && inputPower <= 10) {
-            target = DecoderTarget.FRONT;
-        } else if (inputPower > 10 && inputPower <= 15) {
-            target = DecoderTarget.RIGHT;
-        } else {
-            target = DecoderTarget.NONE;
-        }
-        boolean powered = inputPower > 0;
-        int outputPower = this.calculateOutputPower(state, inputPower);
-
+        boolean powered = this.getPower(world, pos, state) > 0;
+        int outputPower = this.calculateOutputPower(world, pos, state);
+        DecoderTarget target = this.getTarget(world, pos, state);
         return state
-                .with(TARGET, target)
                 .with(POWERED, powered)
-                .with(POWER, outputPower);
+                .with(POWER, outputPower)
+                .with(TARGET, target);
     }
-    /**
-     * Updates the target block
-     * @param world the world
-     * @param pos the position of the block
-     * @param state the state of the block
-     */
-    private BlockState updateState(World world, BlockPos pos, BlockState state) {
-        state = this.getUpdatedState(world, pos, state);
-        world.setBlockState(pos, state, Block.NOTIFY_LISTENERS);
-        this.updateTarget(world, pos, state);
-        return state;
+    private boolean isOff(BlockState state) {
+        return !state.get(POWERED) && state.get(POWER) == 0 && state.get(TARGET) == DecoderTarget.NONE;
+    }
+    private void updateState(World world, BlockPos pos, BlockState state) {
+        BlockState updatedState = this.getUpdatedState(world, pos, state);
+        world.setBlockState(pos, updatedState, Block.NOTIFY_LISTENERS);
+        this.updateTarget(world, pos, updatedState);
     }
 }
