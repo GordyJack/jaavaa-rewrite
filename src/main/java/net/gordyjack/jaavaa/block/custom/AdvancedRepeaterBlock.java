@@ -15,7 +15,7 @@ import net.minecraft.util.math.random.*;
 import net.minecraft.world.*;
 import net.minecraft.world.tick.*;
 
-//This seems to be working as expected from testing. But I'm honestly not 100% sure if it is correct or not.
+//TODO: Update the properties textures and models to show when the delay and pulse (independently) are active.
 public class AdvancedRepeaterBlock extends AbstractRedstoneGateBlock {
     public static final MapCodec<AdvancedRepeaterBlock> CODEC = AdvancedRepeaterBlock.createCodec(AdvancedRepeaterBlock::new);
     public static final BooleanProperty LOCKED = Properties.LOCKED;
@@ -64,12 +64,14 @@ public class AdvancedRepeaterBlock extends AbstractRedstoneGateBlock {
     }
     protected int getPulseLengthInternal(BlockState state) {
         int pulse = state.get(PULSE);
-        return pulse == 0 ? 0 : 1 << pulse - 1;
+        return 1 << pulse;
+        // Potential pulse lengths: // 0 (1 tick), 1 (2 ticks), 2 (4 ticks), 3 (8 ticks), 4 (16 ticks), 5 (32 ticks), 6 (64 ticks), 7 (128 ticks)
     }
     @Override
     protected int getUpdateDelayInternal(BlockState state) {
         int delay = state.get(DELAY);
-        return delay == 0 ? 0 : 1 << delay - 1;
+        return 1 << delay;
+        // Potential update delays: // 0 (1 tick), 1 (2 ticks), 2 (4 ticks), 3 (8 ticks), 4 (16 ticks), 5 (32 ticks), 6 (64 ticks), 7 (128 ticks)
     }
     @Override
     public boolean isLocked(WorldView world, BlockPos pos, BlockState state) {
