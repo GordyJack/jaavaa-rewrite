@@ -64,7 +64,7 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            return state;
+            return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
         }
     }
     @Override
@@ -134,7 +134,9 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
     }
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state != this.getUpdatedState(world, pos, state)) {
+        if (state.get(POWERED) != this.hasPower(world, pos, state)
+                || state.get(POWER) != this.calculateOutputPower(world, pos, state)
+                || state.get(TARGET) != this.getTarget(world, pos, state)) {
             this.updateState(world, pos, state);
         }
     }
@@ -144,13 +146,10 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
             return;
         }
         if (!world.getBlockTickScheduler().isTicking(pos, this)) {
-            TickPriority tickPriority = TickPriority.HIGH;
-            if (this.isTargetNotAligned(world, pos, state)) {
-                tickPriority = TickPriority.EXTREMELY_HIGH;
-            } else if (state.get(POWERED)) {
-                tickPriority = TickPriority.VERY_HIGH;
+            if (state.get(POWERED) != this.hasPower(world, pos, state)) {
+                TickPriority tickPriority = this.isTargetNotAligned(world, pos, state) ? TickPriority.HIGH : TickPriority.NORMAL;
+                world.scheduleBlockTick(pos, this, this.getUpdateDelayInternal(state), tickPriority);
             }
-            world.scheduleBlockTick(pos, this, this.getUpdateDelayInternal(state), tickPriority);
         }
     }
     @Override
@@ -164,24 +163,24 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         Direction frontDirection = facingDirection.getOpposite();
         Direction rightDirection = facingDirection.rotateYCounterclockwise();
         //Comment out the following to observe the correct behaviour of a "decoder clock"
-        if (this.isOff(state)) {
-            JAAVAA.log("Target is NONE at pos: " + pos.toShortString() + ", updating each horizontal non-facing direction neighbor.");
-            WireOrientation leftWireOrientation = OrientationHelper.getEmissionOrientation(world, leftDirection, Direction.UP);
-            world.updateNeighbor(pos.offset(leftDirection), this, leftWireOrientation);
-            JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(leftDirection)).getBlock().getName().getString() + " at " + pos.offset(leftDirection).toShortString(), 'e');
-            WireOrientation frontWireOrientation = OrientationHelper.getEmissionOrientation(world, frontDirection, Direction.UP);
-            world.updateNeighbor(pos.offset(frontDirection), this, frontWireOrientation);
-            JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(frontDirection)).getBlock().getName().getString() + " at " + pos.offset(frontDirection).toShortString(), 'e');
-            WireOrientation rightWireOrientation = OrientationHelper.getEmissionOrientation(world, rightDirection, Direction.UP);
-            world.updateNeighbor(pos.offset(rightDirection), this, rightWireOrientation);
-            JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(rightDirection)).getBlock().getName().getString() + " at " + pos.offset(rightDirection).toShortString(), 'e');
-//            world.updateNeighborsAlways(pos, this, null);
-//            for (Direction direction : Direction.values()) {
-//                BlockPos neighborPos = pos.offset(direction);
-//                JAAVAA.log("Updated neighbor: " + world.getBlockState(neighborPos).getBlock().getName().getString() + " at " + neighborPos.toShortString(), 'e');
-//            }
-            return;
-        }
+//        if (this.isOff(state)) {
+//            JAAVAA.log("Target is NONE at pos: " + pos.toShortString() + ", updating each horizontal non-facing direction neighbor.");
+//            WireOrientation leftWireOrientation = OrientationHelper.getEmissionOrientation(world, leftDirection, Direction.UP);
+//            world.updateNeighbor(pos.offset(leftDirection), this, leftWireOrientation);
+//            JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(leftDirection)).getBlock().getName().getString() + " at " + pos.offset(leftDirection).toShortString(), 'e');
+//            WireOrientation frontWireOrientation = OrientationHelper.getEmissionOrientation(world, frontDirection, Direction.UP);
+//            world.updateNeighbor(pos.offset(frontDirection), this, frontWireOrientation);
+//            JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(frontDirection)).getBlock().getName().getString() + " at " + pos.offset(frontDirection).toShortString(), 'e');
+//            WireOrientation rightWireOrientation = OrientationHelper.getEmissionOrientation(world, rightDirection, Direction.UP);
+//            world.updateNeighbor(pos.offset(rightDirection), this, rightWireOrientation);
+//            JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(rightDirection)).getBlock().getName().getString() + " at " + pos.offset(rightDirection).toShortString(), 'e');
+////            world.updateNeighborsAlways(pos, this, null);
+////            for (Direction direction : Direction.values()) {
+////                BlockPos neighborPos = pos.offset(direction);
+////                JAAVAA.log("Updated neighbor: " + world.getBlockState(neighborPos).getBlock().getName().getString() + " at " + neighborPos.toShortString(), 'e');
+////            }
+//            return;
+//        }
         WireOrientation leftWireOrientation = OrientationHelper.getEmissionOrientation(world, leftDirection, Direction.UP);
         world.updateNeighbor(pos.offset(leftDirection), this, leftWireOrientation);
         JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(leftDirection)).getBlock().getName().getString() + " at " + pos.offset(leftDirection).toShortString(), 'e');
@@ -229,20 +228,14 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
             default -> DecoderTarget.NONE; // Should not happen
         };
     }
-    private BlockState getUpdatedState(World world, BlockPos pos, BlockState state) {
-        boolean powered = this.getPower(world, pos, state) > 0;
-        int outputPower = this.calculateOutputPower(world, pos, state);
-        DecoderTarget target = this.getTarget(world, pos, state);
-        return state
-                .with(POWERED, powered)
-                .with(POWER, outputPower)
-                .with(TARGET, target);
-    }
     private boolean isOff(BlockState state) {
         return !state.get(POWERED) && state.get(POWER) == 0 && state.get(TARGET) == DecoderTarget.NONE;
     }
     private void updateState(World world, BlockPos pos, BlockState state) {
-        BlockState updatedState = this.getUpdatedState(world, pos, state);
+        BlockState updatedState = state
+                .with(POWERED, this.hasPower(world, pos, state))
+                .with(POWER, this.calculateOutputPower(world, pos, state))
+                .with(TARGET, this.getTarget(world, pos, state));
         world.setBlockState(pos, updatedState, Block.NOTIFY_LISTENERS);
         this.updateTarget(world, pos, updatedState);
     }
