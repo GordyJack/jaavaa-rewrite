@@ -24,6 +24,7 @@ public class AdjustableRedstoneLampBlock
         extends Block {
     public static final IntProperty LUMINANCE = JAAVAABlockProperties.LUMINANCE;
     public static final BooleanProperty POWERED = Properties.POWERED;
+    private static final int UPDATE_DELAY = 1;
 
     public AdjustableRedstoneLampBlock(Settings settings) {
         super(settings);
@@ -62,7 +63,7 @@ public class AdjustableRedstoneLampBlock
     @Override
     protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
         if (world instanceof ServerWorld serverWorld) {
-            serverWorld.scheduleBlockTick(pos, this, 1);
+            serverWorld.scheduleBlockTick(pos, this, UPDATE_DELAY);
         }
     }
     @Override
