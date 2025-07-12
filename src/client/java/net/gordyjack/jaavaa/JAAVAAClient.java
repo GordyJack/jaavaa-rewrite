@@ -38,6 +38,10 @@ public class JAAVAAClient implements ClientModInitializer {
 //		}
 	}
 	private void modifyRenderEvents() {
+		registerHammerAreaRenderer();
+	}
+
+	private static void registerHammerAreaRenderer() {
 		WorldRenderEvents.BLOCK_OUTLINE.register((ctx, outlineCtx) -> {
 			MinecraftClient mc = MinecraftClient.getInstance();
 			ClientPlayerEntity player = mc.player;
