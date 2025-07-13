@@ -48,6 +48,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.blockStateCollector.accept(generateAdjustableState());
         bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState());
         bsmGen.blockStateCollector.accept(generateDecoderState());
+        bsmGen.blockStateCollector.accept(generateLogicalORGateState());
         bsmGen.blockStateCollector.accept(generateRandomizerState());
         bsmGen.blockStateCollector.accept(generateRecyclingTableState());
         for (Blocktant block : JAAVAABlocks.BLOCKTANTS.keySet()) {
@@ -180,6 +181,18 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                     }
                     return createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.DECODER, stringBuilder.toString()));
                 }))
+                .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
+    }
+    private BlockModelDefinitionCreator generateLogicalORGateState() {
+        return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.LOGICAL_OR_GATE)
+                .with(BlockStateVariantMap.models(Properties.POWERED)
+                        .generate((on) -> {
+                            StringBuilder stringBuilder = new StringBuilder();
+                            if (on) {
+                                stringBuilder.append("_on");
+                            }
+                            return createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.LOGICAL_OR_GATE, stringBuilder.toString()));
+                        }))
                 .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
     }
     private BlockModelDefinitionCreator generateRandomizerState() {

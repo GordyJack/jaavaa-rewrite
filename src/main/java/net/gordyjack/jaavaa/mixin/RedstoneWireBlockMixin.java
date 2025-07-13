@@ -15,5 +15,9 @@ public class RedstoneWireBlockMixin {
             Direction direction = state.get(AbstractRedstoneGateBlock.FACING);
             cir.setReturnValue(direction == dir || direction.getOpposite() == dir);
         }
+        if (state.isOf(JAAVAABlocks.LOGICAL_OR_GATE)) {
+            Direction direction = state.get(AbstractRedstoneGateBlock.FACING);
+            cir.setReturnValue(direction == dir || direction.rotateYCounterclockwise() == dir || direction.rotateYClockwise() == dir);
+        }
     }
 }

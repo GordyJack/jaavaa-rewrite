@@ -29,9 +29,11 @@ implements Waterloggable, VoxelShapeUtils {
     //Constructor
     public Blocktant(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getStateManager().getDefaultState()
-                .with(POSITION, 0b00000001) // Default to Down North West
-                .with(WATERLOGGED, false));
+        this.setDefaultState(
+                this.stateManager
+                        .getDefaultState()
+                        .with(POSITION, 0b00000001) // Default to Down North West
+                        .with(WATERLOGGED, false));
     }
 
     //Overrides

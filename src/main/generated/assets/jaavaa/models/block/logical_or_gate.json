@@ -1,0 +1,154 @@
+{
+  "parent": "block/thin_block",
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#side",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "cullface": "east",
+          "texture": "#side",
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ]
+        },
+        "north": {
+          "cullface": "north",
+          "texture": "#side",
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "cullface": "south",
+          "texture": "#side",
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#top",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#side",
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "east": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "north": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "south": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "up": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        }
+      },
+      "from": [
+        7.0,
+        2,
+        2.0
+      ],
+      "to": [
+        9.0,
+        7,
+        4.0
+      ]
+    }
+  ],
+  "name": "logical_or_gate",
+  "textures": {
+    "particle": "jaavaa:block/logical_or_gate",
+    "side": "minecraft:block/smooth_stone",
+    "top": "jaavaa:block/logical_or_gate",
+    "unlit": "minecraft:block/redstone_torch_off"
+  }
+}

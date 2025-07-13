@@ -28,6 +28,7 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
         for (JsonObject model : createAdderModels()) returns.add(writeModel(writer, model));
         for (JsonObject model : createAdvancedRepeaterModels()) returns.add(writeModel(writer, model));
         for (JsonObject model : createDecoderModels()) returns.add(writeModel(writer, model));
+        for (JsonObject model : createLogicalORGateModels()) returns.add(writeModel(writer, model));
         for (JsonObject model : createRandomizerModels()) returns.add(writeModel(writer, model));
         return CompletableFuture.allOf(returns.toArray(CompletableFuture[]::new));
     }
@@ -209,6 +210,42 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
                         front ? createTorchHaloModels(7.0f, 2.0f, "#lit", tall) :
                                 right ? createTorchHaloModels(12.0f, 7.0f, "#lit", tall) : List.of();
                 for (JsonObject halo : targetTorchHalos) elements.add(halo);
+            }
+            model.add("elements", elements);
+            models.add(model);
+        }
+        return models;
+    }
+    private static List<JsonObject> createLogicalORGateModels() {
+        List<JsonObject> models = new ArrayList<>();
+
+        String name = "logical_or_gate";
+        List<String> modelNames = generateUniqueLogicalORGateModelNames();
+        for (String modelName : modelNames) {
+            //Initial setup for the model.
+            JsonObject model = new JsonObject();
+            model.addProperty("name", modelName); //The name of the model. Unused by the game, just for organization.
+            model.addProperty("parent", "block/thin_block"); //The parent model to inherit from. Enables using a 3d model as the item model.
+            model.addProperty("ambientocclusion", false);
+            //Provide textures for the models.
+            JsonObject textures = new JsonObject();
+            boolean powered = modelName.contains("_on");
+            String pString = powered ? "_on" : "";
+            textures.addProperty("particle", JAAVAA.id("block/" + name + pString).toString());
+            textures.addProperty("top", JAAVAA.id("block/" + name + pString).toString());
+            textures.addProperty("side", Identifier.ofVanilla("block/smooth_stone").toString());
+            textures.addProperty("unlit", Identifier.ofVanilla("block/redstone_torch_off").toString());
+            if (powered) textures.addProperty("lit", Identifier.ofVanilla("block/redstone_torch").toString());
+            model.add("textures", textures);
+            //Creates the elements for the model.
+            JsonArray elements = new JsonArray();
+            elements.add(base);
+            //Torches
+            String key = powered ? "#lit" : "#unlit";
+            elements.add(createTorchModel(7.0f, 2.0f, key)); //Front Torch
+            if (powered) {
+                for (JsonObject halo : createTorchHaloModels(7.0f, 2.0f, "#lit"))
+                    elements.add(halo); //Front Torch Halos
             }
             model.add("elements", elements);
             models.add(model);
@@ -486,6 +523,12 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
             }
         }
         return modelNames.stream().distinct().toList();
+    }
+    private static List<String> generateUniqueLogicalORGateModelNames() {
+        List<String> modelNames = new ArrayList<>();
+        modelNames.add("logical_or_gate");
+        modelNames.add("logical_or_gate_on");
+        return(modelNames);
     }
     private static List<String> generateUniqueRandomizerModelNames() {
         List<String> names = new ArrayList<>();

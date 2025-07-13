@@ -10,10 +10,13 @@ import net.minecraft.world.tick.*;
 
 public abstract class AbstractAdvancedRedstoneGateBlock
         extends AbstractRedstoneGateBlock {
-    private static final IntProperty POWER = Properties.POWER;
-    protected AbstractAdvancedRedstoneGateBlock(Settings settings) {
+    //Constants
+    public static final IntProperty POWER = Properties.POWER;
+    //Constructor
+    public AbstractAdvancedRedstoneGateBlock(Settings settings) {
         super(settings);
     }
+    //Override Default Methods
     @Override
     protected int getOutputLevel(BlockView world, BlockPos pos, BlockState state) {
         return state.get(POWER);
@@ -41,9 +44,11 @@ public abstract class AbstractAdvancedRedstoneGateBlock
             serverWorld.scheduleBlockTick(pos, this, this.getUpdateDelayInternal(state), tickPriority);
         }
     }
-    abstract int calculateOutputPower(World world, BlockPos pos, BlockState state);
-    abstract BlockState getUpdatedState(World world, BlockPos pos, BlockState state);
-    abstract boolean hasStateChanged(World world, BlockPos pos, BlockState state);
+    //Abstract Methods
+    protected abstract int calculateOutputPower(World world, BlockPos pos, BlockState state);
+    protected abstract BlockState getUpdatedState(World world, BlockPos pos, BlockState state);
+    protected abstract boolean hasStateChanged(World world, BlockPos pos, BlockState state);
+    //Default Methods
     protected void updateState(World world, BlockPos pos, BlockState state) {
         state = this.getUpdatedState(world, pos, state);
         world.setBlockState(pos, state, Block.NOTIFY_LISTENERS);

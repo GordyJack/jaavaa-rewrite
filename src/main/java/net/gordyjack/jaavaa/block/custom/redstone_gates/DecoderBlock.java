@@ -63,7 +63,7 @@ public class DecoderBlock extends AbstractAdvancedRedstoneGateBlock{
         return UPDATE_DELAY;
     }
     @Override
-    BlockState getUpdatedState(World world, BlockPos pos, BlockState state) {
+    protected BlockState getUpdatedState(World world, BlockPos pos, BlockState state) {
         return state
                 .with(POWERED, this.hasPower(world, pos, state))
                 .with(POWER, this.calculateOutputPower(world, pos, state))
@@ -94,7 +94,7 @@ public class DecoderBlock extends AbstractAdvancedRedstoneGateBlock{
         return 0;
     }
     @Override
-    boolean hasStateChanged(World world, BlockPos pos, BlockState state) {
+    protected boolean hasStateChanged(World world, BlockPos pos, BlockState state) {
         return state.get(POWERED) != this.hasPower(world, pos, state)
                 || state.get(POWER) != this.calculateOutputPower(world, pos, state)
                 || state.get(TARGET) != this.getTarget(world, pos, state);

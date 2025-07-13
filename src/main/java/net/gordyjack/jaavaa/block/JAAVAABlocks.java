@@ -88,7 +88,9 @@ public class JAAVAABlocks {
     public static final Block DECODER = registerBlock("decoder",
             DecoderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
     );
-    //TODO: Add top texture for Randomizer
+    public static final Block LOGICAL_OR_GATE = registerBlock("logical_or_gate",
+            LogicalORGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
     public static final Block RANDOMIZER = registerBlock("randomizer",
             RandomizerBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
                     .luminance(state -> state.get(RandomizerBlock.POWER))
@@ -287,6 +289,7 @@ public class JAAVAABlocks {
             entries.add(ADDER);
             entries.add(ADVANCED_REPEATER);
             entries.add(DECODER);
+            entries.add(LOGICAL_OR_GATE);
             entries.add(RANDOMIZER);
             entries.add(ADJUSTABLE_REDSTONE_LAMP);
             entries.add(ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);

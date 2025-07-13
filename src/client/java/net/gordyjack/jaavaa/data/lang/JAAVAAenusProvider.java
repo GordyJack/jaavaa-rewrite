@@ -43,6 +43,10 @@ extends FabricLanguageProvider{
                 translationBuilder.add(block, "Block of Starsteel");
                 continue;
             }
+            if (block == JAAVAABlocks.LOGICAL_OR_GATE) {
+                translationBuilder.add(block, "Logical OR Gate");
+                continue;
+            }
             if (block instanceof Blocktant) {
                 List<Block> blockOfs = List.of(
                         JAAVAABlocks.AMETHYST_BLOCKTANT, JAAVAABlocks.COAL_BLOCKTANT, JAAVAABlocks.DIAMOND_BLOCKTANT,
