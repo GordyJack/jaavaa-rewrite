@@ -3,7 +3,6 @@ package net.gordyjack.jaavaa.block.custom;
 import com.mojang.serialization.*;
 import net.gordyjack.jaavaa.block.*;
 import net.minecraft.block.*;
-import net.minecraft.item.*;
 import net.minecraft.particle.*;
 import net.minecraft.server.world.*;
 import net.minecraft.state.*;
@@ -11,9 +10,7 @@ import net.minecraft.state.property.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.*;
 import net.minecraft.world.*;
-import net.minecraft.world.block.*;
 import net.minecraft.world.tick.*;
-import org.jetbrains.annotations.*;
 
 public class AdderBlock extends AbstractRedstoneGateBlock {
     //Codec
@@ -42,24 +39,28 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
     }
     //Overrides
     @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING, POWERED, BACK_POWERED, LEFT_POWERED, RIGHT_POWERED, POWER);
+    }
+    @Override
     protected MapCodec<? extends AbstractRedstoneGateBlock> getCodec() {
         return CODEC;
     }
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockState state = super.getPlacementState(ctx);
-        return this.getUpdatedState(ctx.getWorld(), ctx.getBlockPos(), state);
-    }
+//    @Override
+//    public BlockState getPlacementState(ItemPlacementContext ctx) {
+//        BlockState state = super.getPlacementState(ctx);
+//        return this.getUpdatedState(ctx.getWorld(), ctx.getBlockPos(), state);
+//    }
     @Override
     protected int getPower(World world, BlockPos pos, BlockState state) {
-        return state.get(POWER);
+        return this.calculateOutputPower(world, pos, state);
     }
     @Override
     protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            return !world.isClient() ? this.updateState((World) world, pos, state) : super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+            return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
         }
     }
     @Override
@@ -70,13 +71,13 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
     protected int getOutputLevel(BlockView world, BlockPos pos, BlockState state) {
         return state.get(POWER);
     }
-    @Override
-    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
-        super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
-        if (!world.isClient && state.canPlaceAt(world, pos)) {
-            this.updateState(world, pos, state);
-        }
-    }
+//    @Override
+//    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
+//        super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
+//        if (!world.isClient && state.canPlaceAt(world, pos)) {
+//            this.updateState(world, pos, state);
+//        }
+//    }
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(POWERED)) {
@@ -94,25 +95,24 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
     }
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!world.isClient) {
-            BlockState updatedState = this.updateState(world, pos, state);
-            if (updatedState != state) {
-                world.setBlockState(pos, updatedState, Block.NOTIFY_LISTENERS);
+        if (!world.isClient()) {
+            if (hasStateChanged(state, world, pos)) {
+                updateState(world, pos, state);
             }
         }
     }
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, POWERED, BACK_POWERED, LEFT_POWERED, RIGHT_POWERED, POWER);
+    protected void updatePowered(World world, BlockPos pos, BlockState state) {
+        if (world instanceof ServerWorld serverWorld && hasStateChanged(state, serverWorld, pos) && !world.getBlockTickScheduler().isTicking(pos, this)){
+            TickPriority tickPriority = this.isTargetNotAligned(serverWorld, pos, state) ? TickPriority.HIGH : TickPriority.NORMAL;
+            serverWorld.scheduleBlockTick(pos, this, this.getUpdateDelayInternal(state), tickPriority);
+        }
     }
     //Methods
-    /**
-     * Gets the power level of each input to the block
-     * @param world the world
-     * @param pos the position of the block
-     * @param state the state of the block
-     * @return an array of the power levels of the inputs in the order of back, left, right
-     */
+    private int calculateOutputPower(World world, BlockPos pos, BlockState state) {
+        int[] inputPowers = this.getInputPowers(world, pos, state);
+        return Math.min(inputPowers[0] + inputPowers[1] + inputPowers[2], 15);
+    }
     private int[] getInputPowers(World world, BlockPos pos, BlockState state) {
         Direction inputDirection = state.get(FACING);
         Direction leftInputDirection = inputDirection.rotateYClockwise();
@@ -124,24 +124,6 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
 
         return new int[]{backInputPower, leftInputPower, rightInputPower};
     }
-    /**
-     * Calculates the power level of the block
-     * @param world the world
-     * @param pos the position of the block
-     * @param state the state of the block
-     * @return the power level of the block
-     */
-    private int calculateOutputPower(World world, BlockPos pos, BlockState state) {
-        int[] inputPowers = this.getInputPowers(world, pos, state);
-        return Math.min(inputPowers[0] + inputPowers[1] + inputPowers[2], 15);
-    }
-    /**
-     * Updates the state of the block
-     * @param world the world
-     * @param pos the position of the block
-     * @param state the state of the block
-     * @return the updated state
-     */
     private BlockState getUpdatedState(World world, BlockPos pos, BlockState state) {
         int[] inputPowers = this.getInputPowers(world, pos, state);
 
@@ -159,16 +141,13 @@ public class AdderBlock extends AbstractRedstoneGateBlock {
                 .with(POWERED, powered)
                 .with(POWER, outputPower);
     }
-    /**
-     * Updates the target block
-     * @param world the world
-     * @param pos the position of the block
-     * @param state the state of the block
-     */
-    private BlockState updateState(World world, BlockPos pos, BlockState state) {
+    private boolean hasStateChanged(BlockState state, ServerWorld world, BlockPos pos) {
+        return state.get(POWERED) != this.hasPower(world, pos, state)
+                || state.get(POWER) != this.getPower(world, pos, state);
+    }
+    private void updateState(World world, BlockPos pos, BlockState state) {
         state = this.getUpdatedState(world, pos, state);
         world.setBlockState(pos, state, Block.NOTIFY_LISTENERS);
         this.updateTarget(world, pos, state);
-        return state;
     }
 }
