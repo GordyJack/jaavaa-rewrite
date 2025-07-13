@@ -1,7 +1,6 @@
 package net.gordyjack.jaavaa.block.custom;
 
 import com.mojang.serialization.*;
-import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.enums.*;
 import net.minecraft.block.*;
@@ -18,7 +17,6 @@ import net.minecraft.util.math.random.*;
 import net.minecraft.world.*;
 import net.minecraft.world.block.*;
 import net.minecraft.world.tick.*;
-import org.jetbrains.annotations.*;
 
 public class DecoderBlock extends AbstractRedstoneGateBlock{
     //Codec
@@ -107,11 +105,6 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         return ActionResult.SUCCESS;
     }
     @Override
-    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
-        //if (!world.getBlockTickScheduler().isTicking(pos, this) || sourceBlock instanceof DecoderBlock) return;
-        super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
-    }
-    @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(POWERED)) {
             Direction outputDirection = state.get(FACING);
@@ -154,61 +147,32 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
     }
     @Override
     protected void updateTarget(World world, BlockPos pos, BlockState state) {
-        if (world.isClient()) {
-            JAAVAA.log("Skipping updateTarget on client side", 'e');
+        if (world.isClient()) { // Skip update on client side
             return;
         }
         Direction facingDirection = state.get(FACING);
         Direction leftDirection = facingDirection.rotateYClockwise();
         Direction frontDirection = facingDirection.getOpposite();
         Direction rightDirection = facingDirection.rotateYCounterclockwise();
-        //Comment out the following to observe the correct behaviour of a "decoder clock"
-//        if (this.isOff(state)) {
-//            JAAVAA.log("Target is NONE at pos: " + pos.toShortString() + ", updating each horizontal non-facing direction neighbor.");
-//            WireOrientation leftWireOrientation = OrientationHelper.getEmissionOrientation(world, leftDirection, Direction.UP);
-//            world.updateNeighbor(pos.offset(leftDirection), this, leftWireOrientation);
-//            JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(leftDirection)).getBlock().getName().getString() + " at " + pos.offset(leftDirection).toShortString(), 'e');
-//            WireOrientation frontWireOrientation = OrientationHelper.getEmissionOrientation(world, frontDirection, Direction.UP);
-//            world.updateNeighbor(pos.offset(frontDirection), this, frontWireOrientation);
-//            JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(frontDirection)).getBlock().getName().getString() + " at " + pos.offset(frontDirection).toShortString(), 'e');
-//            WireOrientation rightWireOrientation = OrientationHelper.getEmissionOrientation(world, rightDirection, Direction.UP);
-//            world.updateNeighbor(pos.offset(rightDirection), this, rightWireOrientation);
-//            JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(rightDirection)).getBlock().getName().getString() + " at " + pos.offset(rightDirection).toShortString(), 'e');
-////            world.updateNeighborsAlways(pos, this, null);
-////            for (Direction direction : Direction.values()) {
-////                BlockPos neighborPos = pos.offset(direction);
-////                JAAVAA.log("Updated neighbor: " + world.getBlockState(neighborPos).getBlock().getName().getString() + " at " + neighborPos.toShortString(), 'e');
-////            }
-//            return;
-//        }
+        // Update the wire orientations for the left, front, and right directions
         WireOrientation leftWireOrientation = OrientationHelper.getEmissionOrientation(world, leftDirection, Direction.UP);
-        world.updateNeighbor(pos.offset(leftDirection), this, leftWireOrientation);
-        JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(leftDirection)).getBlock().getName().getString() + " at " + pos.offset(leftDirection).toShortString(), 'e');
         WireOrientation frontWireOrientation = OrientationHelper.getEmissionOrientation(world, frontDirection, Direction.UP);
-        world.updateNeighbor(pos.offset(frontDirection), this, frontWireOrientation);
-        JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(frontDirection)).getBlock().getName().getString() + " at " + pos.offset(frontDirection).toShortString(), 'e');
         WireOrientation rightWireOrientation = OrientationHelper.getEmissionOrientation(world, rightDirection, Direction.UP);
+        // Update the neighbors in the left, front, and right directions
+        world.updateNeighbor(pos.offset(leftDirection), this, leftWireOrientation);
+        world.updateNeighbor(pos.offset(frontDirection), this, frontWireOrientation);
         world.updateNeighbor(pos.offset(rightDirection), this, rightWireOrientation);
-        JAAVAA.log("Updated neighbor: " + world.getBlockState(pos.offset(rightDirection)).getBlock().getName().getString() + " at " + pos.offset(rightDirection).toShortString(), 'e');
+        // Determine the target direction based on the current state
         Direction targetDirection = switch (state.get(TARGET)) {
             case NONE -> Direction.UP;
             case LEFT -> leftDirection;
             case FRONT -> frontDirection;
             case RIGHT -> rightDirection;
         };
-        JAAVAA.log("facingDirection: " + facingDirection + " | targetDirection: " + targetDirection
-                + " | get(TARGET): " + state.get(TARGET) + " | getTarget(): " + this.getTarget(world, pos, state), 'e');
+        // Update the neighbors of the target
         BlockPos blockPos = pos.offset(targetDirection);
         WireOrientation wireOrientation = OrientationHelper.getEmissionOrientation(world, targetDirection, Direction.UP);
-//        world.updateNeighbor(blockPos, this, wireOrientation);
-//        JAAVAA.log("Updated neighbor: " + world.getBlockState(blockPos).getBlock().getName().getString() + " at " + blockPos.toShortString());
         world.updateNeighborsExcept(blockPos, this, targetDirection.getOpposite(), wireOrientation);
-        for (Direction direction : Direction.values()) {    //This logs the neighbors of the target block that were updated,
-            if (direction == targetDirection.getOpposite()) continue;
-            BlockPos neighborPos = blockPos.offset(direction);
-            JAAVAA.log("Updated neighbor of: " + world.getBlockState(blockPos).getBlock().getName().getString() + " at " + blockPos.toShortString() + ": "
-                    + world.getBlockState(neighborPos).getBlock().getName().getString() + " at " + neighborPos.toShortString(), 'e');
-        }
     }
 
     //Methods
@@ -227,9 +191,6 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
             case 11, 12, 13, 14, 15 -> DecoderTarget.RIGHT;
             default -> DecoderTarget.NONE; // Should not happen
         };
-    }
-    private boolean isOff(BlockState state) {
-        return !state.get(POWERED) && state.get(POWER) == 0 && state.get(TARGET) == DecoderTarget.NONE;
     }
     private void updateState(World world, BlockPos pos, BlockState state) {
         BlockState updatedState = state
