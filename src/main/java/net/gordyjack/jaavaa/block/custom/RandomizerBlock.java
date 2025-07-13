@@ -70,7 +70,7 @@ public class RandomizerBlock extends AbstractRedstoneGateBlock {
     }
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state.get(POWERED) != this.hasPower(world, pos, state)) {
+        if (!world.isClient() && state.get(POWERED) != this.hasPower(world, pos, state)) {
             world.setBlockState(pos, state.cycle(POWERED).with(POWER, calculateOutputPower(world, pos, state)), Block.NOTIFY_LISTENERS);
             this.updateTarget(world, pos, state);
         }
