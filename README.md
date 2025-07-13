@@ -47,9 +47,9 @@ The purpose of this mod is 3-fold:
     * ✅ - **Decoder**: An advanced redstone gate that will output to different sides based on the input given. It can either output the same signal given to it, or repeat the signal.
     * ✅ - **Randomizer**: Another advanced redstone gate that utilizes the power of the new **Adjustable Redstone Lamp** to generate a random output strength whenever powered.
     * **Logic Gates**:
-      * ❌ - **AND Gate**: Outputs a signal if all inputs are powered.
+      * ✅ - **AND Gate**: Outputs a signal if all inputs are powered.
       * ✅ - **OR Gate**: Outputs a signal if any input is powered.
-      * ❌ - **XOR Gate**: Outputs a signal if a single inputs is powered.
+      * ✅ - **XOR Gate**: Outputs a signal if a single inputs is powered.
 * **Overhauled Potions**:
   * ❌ - **Potion Flasks**: A new type of container that can hold multiple servings of a single potion.
   * ❌ - **Ancient Flagons**: Another new type of container that can hold multiple potion effects to all apply simultaneously.

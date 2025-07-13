@@ -142,13 +142,149 @@
         5,
         4.0
       ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "east": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "north": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "south": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "up": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        }
+      },
+      "from": [
+        1.0,
+        2,
+        7.0
+      ],
+      "to": [
+        3.0,
+        7,
+        9.0
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "east": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "north": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "south": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "up": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        }
+      },
+      "from": [
+        13.0,
+        2,
+        7.0
+      ],
+      "to": [
+        15.0,
+        7,
+        9.0
+      ]
     }
   ],
-  "name": "logical_or_gate",
+  "name": "logical_and_gate",
   "textures": {
-    "particle": "jaavaa:block/logical_or_gate",
+    "particle": "jaavaa:block/logical_and_gate",
     "side": "minecraft:block/smooth_stone",
-    "top": "jaavaa:block/logical_or_gate",
+    "top": "jaavaa:block/logical_and_gate",
     "unlit": "minecraft:block/redstone_torch_off"
   }
 }

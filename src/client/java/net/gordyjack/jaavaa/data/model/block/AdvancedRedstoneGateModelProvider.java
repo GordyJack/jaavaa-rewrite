@@ -28,7 +28,9 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
         for (JsonObject model : createAdderModels()) returns.add(writeModel(writer, model));
         for (JsonObject model : createAdvancedRepeaterModels()) returns.add(writeModel(writer, model));
         for (JsonObject model : createDecoderModels()) returns.add(writeModel(writer, model));
+        for (JsonObject model : createLogicalANDGateModels()) returns.add(writeModel(writer, model));
         for (JsonObject model : createLogicalORGateModels()) returns.add(writeModel(writer, model));
+        for (JsonObject model : createLogicalXORGateModels()) returns.add(writeModel(writer, model));
         for (JsonObject model : createRandomizerModels()) returns.add(writeModel(writer, model));
         return CompletableFuture.allOf(returns.toArray(CompletableFuture[]::new));
     }
@@ -216,6 +218,55 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
         }
         return models;
     }
+    private static List<JsonObject> createLogicalANDGateModels() {
+        List<JsonObject> models = new ArrayList<>();
+
+        String name = "logical_and_gate";
+        List<String> modelNames = generateUniqueLogicalANDGateModelNames();
+        for (String modelName : modelNames) {
+            //Initial setup for the model.
+            JsonObject model = new JsonObject();
+            model.addProperty("name", modelName); //The name of the model. Unused by the game, just for organization.
+            model.addProperty("parent", "block/thin_block"); //The parent model to inherit from. Enables using a 3d model as the item model.
+            model.addProperty("ambientocclusion", false);
+            //Provide textures for the models.
+            JsonObject textures = new JsonObject();
+            boolean powered = modelName.contains("_on");
+            boolean left = modelName.contains("_l");
+            boolean right = modelName.contains("_r");
+            String pString = powered ? "_on" : "";
+            String lString = left ? "_l" : "";
+            String rString = right ? "_r" : "";
+            textures.addProperty("particle", JAAVAA.id("block/" + name + pString + lString + rString).toString());
+            textures.addProperty("top", JAAVAA.id("block/" + name + pString + lString + rString).toString());
+            textures.addProperty("side", Identifier.ofVanilla("block/smooth_stone").toString());
+            textures.addProperty("unlit", Identifier.ofVanilla("block/redstone_torch_off").toString());
+            if (powered || left || right) textures.addProperty("lit", Identifier.ofVanilla("block/redstone_torch").toString());
+            model.add("textures", textures);
+            //Creates the elements for the model.
+            JsonArray elements = new JsonArray();
+            elements.add(base);
+            //Torches
+            elements.add(createTorchModel(7.0f, 2.0f, powered ? "#lit" : "#unlit", false)); //Front Torch
+            elements.add(createTorchModel(1.0f, 7.0f, left || powered ? "#lit" : "#unlit", true)); //Left Torch
+            elements.add(createTorchModel(13.0f, 7.0f, right || powered ? "#lit" : "#unlit", true)); //Right Torch
+            if (powered) {
+                for (JsonObject halo : createTorchHaloModels(7.0f, 2.0f, "#lit", false))
+                    elements.add(halo); //Front Torch Halos
+            }
+            if (left || powered) {
+                for (JsonObject halo : createTorchHaloModels(1.0f, 7.0f, "#lit", true))
+                    elements.add(halo); //Left Torch Halos
+            }
+            if (right || powered) {
+                for (JsonObject halo : createTorchHaloModels(13.0f, 7.0f, "#lit", true))
+                    elements.add(halo); //Right Torch Halos
+            }
+            model.add("elements", elements);
+            models.add(model);
+        }
+        return models;
+    }
     private static List<JsonObject> createLogicalORGateModels() {
         List<JsonObject> models = new ArrayList<>();
 
@@ -242,10 +293,62 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
             elements.add(base);
             //Torches
             String key = powered ? "#lit" : "#unlit";
-            elements.add(createTorchModel(7.0f, 2.0f, key)); //Front Torch
+            elements.add(createTorchModel(7.0f, 2.0f, key, false)); //Front Torch
             if (powered) {
-                for (JsonObject halo : createTorchHaloModels(7.0f, 2.0f, "#lit"))
+                for (JsonObject halo : createTorchHaloModels(7.0f, 2.0f, "#lit", false))
                     elements.add(halo); //Front Torch Halos
+            }
+            model.add("elements", elements);
+            models.add(model);
+        }
+        return models;
+    }
+    private static List<JsonObject> createLogicalXORGateModels() {
+        List<JsonObject> models = new ArrayList<>();
+
+        String name = "logical_xor_gate";
+        List<String> modelNames = generateUniqueLogicalXORGateModelNames();
+        for (String modelName : modelNames) {
+            //Initial setup for the model.
+            JsonObject model = new JsonObject();
+            model.addProperty("name", modelName); //The name of the model. Unused by the game, just for organization.
+            model.addProperty("parent", "block/thin_block"); //The parent model to inherit from. Enables using a 3d model as the item model.
+            model.addProperty("ambientocclusion", false);
+            //Provide textures for the models.
+            JsonObject textures = new JsonObject();
+            boolean powered = modelName.contains("_on");
+            boolean left = modelName.contains("_l");
+            boolean right = modelName.contains("_r");
+            String pString = powered ? "_on" : "";
+            String lString = left ? "_l" : "";
+            String rString = right ? "_r" : "";
+            textures.addProperty("particle", JAAVAA.id("block/" + name + pString + lString + rString).toString());
+            textures.addProperty("top", JAAVAA.id("block/" + name + pString + lString + rString).toString());
+            textures.addProperty("side", Identifier.ofVanilla("block/smooth_stone").toString());
+            textures.addProperty("unlit", Identifier.ofVanilla("block/redstone_torch_off").toString());
+            if (powered || left || right) textures.addProperty("lit", Identifier.ofVanilla("block/redstone_torch").toString());
+            model.add("textures", textures);
+            //Creates the elements for the model.
+            JsonArray elements = new JsonArray();
+            elements.add(base);
+            //Torches
+            elements.add(createTorchModel(7.0f, 2.0f, powered ? "#lit" : "#unlit", false)); //Front Torch
+            elements.add(createTorchModel(7.0f, 7.0f, powered ? "#lit" : "#unlit", true)); //Middle Torch
+            elements.add(createTorchModel(1.0f, 7.0f, left ? "#lit" : "#unlit", true)); //Left Torch
+            elements.add(createTorchModel(13.0f, 7.0f, right ? "#lit" : "#unlit", true)); //Right Torch
+            if (powered) {
+                for (JsonObject halo : createTorchHaloModels(7.0f, 2.0f, "#lit", false))
+                    elements.add(halo); //Front Torch Halos
+                for (JsonObject halo : createTorchHaloModels(7.0f, 7.0f, "#lit", true))
+                    elements.add(halo); //Middle Torch Halos
+            }
+            if (left) {
+                for (JsonObject halo : createTorchHaloModels(1.0f, 7.0f, "#lit", true))
+                    elements.add(halo); //Left Torch Halos
+            }
+            if (right) {
+                for (JsonObject halo : createTorchHaloModels(13.0f, 7.0f, "#lit", true))
+                    elements.add(halo); //Right Torch Halos
             }
             model.add("elements", elements);
             models.add(model);
@@ -524,11 +627,56 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
         }
         return modelNames.stream().distinct().toList();
     }
+    private static List<String> generateUniqueLogicalANDGateModelNames() {
+        List<String> modelNames = new ArrayList<>();
+        for (boolean powered : new boolean[] {false, true}) {
+            for (boolean left : new boolean[] {false, true}) {
+                for (boolean right : new boolean[] {false, true}) {
+                    String idPath = "logical_and_gate";
+                    if (powered) {
+                        idPath += "_on";
+                    } else {
+                        if (left) {
+                            idPath += "_l";
+                        } else if (right) {
+                            idPath += "_r";
+                        }
+                    }
+                    modelNames.add(idPath);
+                }
+            }
+        }
+        return modelNames.stream().distinct().toList();
+    }
     private static List<String> generateUniqueLogicalORGateModelNames() {
         List<String> modelNames = new ArrayList<>();
         modelNames.add("logical_or_gate");
         modelNames.add("logical_or_gate_on");
         return(modelNames);
+    }
+    private static List<String> generateUniqueLogicalXORGateModelNames() {
+        List<String> modelNames = new ArrayList<>();
+        for (boolean powered : new boolean[] {false, true}) {
+            for (boolean left : new boolean[] {false, true}) {
+                for (boolean right : new boolean[] {false, true}) {
+                    String idPath = "logical_xor_gate";
+                    if (powered && left && right) continue; //Invalid State
+                    if (powered && !left && !right) continue; //Invalid State
+                    if (!powered && ((left || right) && !(left && right))) continue; //Invalid State
+                    if (powered) {
+                        idPath += "_on";
+                    }
+                    if (left) {
+                        idPath += "_l";
+                    }
+                    if (right) {
+                        idPath += "_r";
+                    }
+                    modelNames.add(idPath);
+                }
+            }
+        }
+        return modelNames.stream().distinct().toList();
     }
     private static List<String> generateUniqueRandomizerModelNames() {
         List<String> names = new ArrayList<>();

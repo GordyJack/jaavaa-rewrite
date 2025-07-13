@@ -48,7 +48,9 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.blockStateCollector.accept(generateAdjustableState());
         bsmGen.blockStateCollector.accept(generateAdvancedRepeaterState());
         bsmGen.blockStateCollector.accept(generateDecoderState());
+        bsmGen.blockStateCollector.accept(generateLogicalANDGateState());
         bsmGen.blockStateCollector.accept(generateLogicalORGateState());
+        bsmGen.blockStateCollector.accept(generateLogicalXORGateState());
         bsmGen.blockStateCollector.accept(generateRandomizerState());
         bsmGen.blockStateCollector.accept(generateRecyclingTableState());
         for (Blocktant block : JAAVAABlocks.BLOCKTANTS.keySet()) {
@@ -183,6 +185,26 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                 }))
                 .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
     }
+    private BlockModelDefinitionCreator generateLogicalANDGateState() {
+        return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.LOGICAL_AND_GATE)
+                .with(BlockStateVariantMap.models(Properties.POWERED,
+                        JAAVAABlockProperties.LEFT_POWERED,
+                        JAAVAABlockProperties.RIGHT_POWERED)
+                        .generate((on, left, right) -> {
+                            StringBuilder stringBuilder = new StringBuilder();
+                            if (on) {
+                                stringBuilder.append("_on");
+                            } else {
+                                if (left) {
+                                    stringBuilder.append("_l");
+                                } else if (right) {
+                                    stringBuilder.append("_r");
+                                }
+                            }
+                            return createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.LOGICAL_AND_GATE, stringBuilder.toString()));
+                        }))
+                .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
+    }
     private BlockModelDefinitionCreator generateLogicalORGateState() {
         return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.LOGICAL_OR_GATE)
                 .with(BlockStateVariantMap.models(Properties.POWERED)
@@ -192,6 +214,30 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                                 stringBuilder.append("_on");
                             }
                             return createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.LOGICAL_OR_GATE, stringBuilder.toString()));
+                        }))
+                .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
+    }
+    private BlockModelDefinitionCreator generateLogicalXORGateState() {
+        return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.LOGICAL_XOR_GATE)
+                .with(BlockStateVariantMap.models(Properties.POWERED,
+                        JAAVAABlockProperties.LEFT_POWERED,
+                        JAAVAABlockProperties.RIGHT_POWERED)
+                        .generate((powered, left, right) -> {
+                            StringBuilder stringBuilder = new StringBuilder();
+                            if (!((powered && left && right)
+                                    || (powered && !left && !right)
+                                    || (!powered && ((left || right) && !(left && right))))) {
+                                if (powered) {
+                                    stringBuilder.append("_on");
+                                }
+                                if (left) {
+                                    stringBuilder.append("_l");
+                                }
+                                if (right) {
+                                    stringBuilder.append("_r");
+                                }
+                            }
+                            return createWeightedVariant(TextureMap.getSubId(JAAVAABlocks.LOGICAL_XOR_GATE, stringBuilder.toString()));
                         }))
                 .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
     }

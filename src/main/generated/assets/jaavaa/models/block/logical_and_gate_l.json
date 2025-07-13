@@ -78,7 +78,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -87,7 +87,7 @@
           ]
         },
         "east": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -96,7 +96,7 @@
           ]
         },
         "north": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -105,7 +105,7 @@
           ]
         },
         "south": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -114,7 +114,7 @@
           ]
         },
         "up": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -123,7 +123,7 @@
           ]
         },
         "west": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -145,6 +145,142 @@
     },
     {
       "faces": {
+        "down": {
+          "texture": "#lit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "east": {
+          "texture": "#lit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "north": {
+          "texture": "#lit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "south": {
+          "texture": "#lit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "up": {
+          "texture": "#lit",
+          "uv": [
+            7,
+            6,
+            9,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#lit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        }
+      },
+      "from": [
+        1.0,
+        2,
+        7.0
+      ],
+      "to": [
+        3.0,
+        7,
+        9.0
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "east": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "north": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "south": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "up": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        }
+      },
+      "from": [
+        13.0,
+        2,
+        7.0
+      ],
+      "to": [
+        15.0,
+        7,
+        9.0
+      ]
+    },
+    {
+      "faces": {
         "up": {
           "texture": "#lit",
           "uv": [
@@ -156,15 +292,15 @@
         }
       },
       "from": [
-        6.5,
-        2.5,
-        1.5
+        0.5,
+        4.5,
+        6.5
       ],
       "shade": false,
       "to": [
-        9.5,
-        2.5,
-        4.5
+        3.5,
+        4.5,
+        9.5
       ]
     },
     {
@@ -180,15 +316,15 @@
         }
       },
       "from": [
-        6.5,
-        5.5,
-        1.5
+        0.5,
+        7.5,
+        6.5
       ],
       "shade": false,
       "to": [
-        9.5,
-        5.5,
-        4.5
+        3.5,
+        7.5,
+        9.5
       ]
     },
     {
@@ -204,15 +340,15 @@
         }
       },
       "from": [
-        6.5,
-        2.5,
-        1.5
+        0.5,
+        4.5,
+        6.5
       ],
       "shade": false,
       "to": [
-        9.5,
-        5.5,
-        1.5
+        3.5,
+        7.5,
+        6.5
       ]
     },
     {
@@ -228,15 +364,15 @@
         }
       },
       "from": [
-        6.5,
-        2.5,
-        4.5
+        0.5,
+        4.5,
+        9.5
       ],
       "shade": false,
       "to": [
-        9.5,
-        5.5,
-        4.5
+        3.5,
+        7.5,
+        9.5
       ]
     },
     {
@@ -252,15 +388,15 @@
         }
       },
       "from": [
-        6.5,
-        2.5,
-        1.5
+        0.5,
+        4.5,
+        6.5
       ],
       "shade": false,
       "to": [
-        6.5,
-        5.5,
-        4.5
+        0.5,
+        7.5,
+        9.5
       ]
     },
     {
@@ -276,24 +412,24 @@
         }
       },
       "from": [
-        9.5,
-        2.5,
-        1.5
+        3.5,
+        4.5,
+        6.5
       ],
       "shade": false,
       "to": [
-        9.5,
-        5.5,
-        4.5
+        3.5,
+        7.5,
+        9.5
       ]
     }
   ],
-  "name": "logical_or_gate_on",
+  "name": "logical_and_gate_l",
   "textures": {
     "lit": "minecraft:block/redstone_torch",
-    "particle": "jaavaa:block/logical_or_gate_on",
+    "particle": "jaavaa:block/logical_and_gate_l",
     "side": "minecraft:block/smooth_stone",
-    "top": "jaavaa:block/logical_or_gate_on",
+    "top": "jaavaa:block/logical_and_gate_l",
     "unlit": "minecraft:block/redstone_torch_off"
   }
 }

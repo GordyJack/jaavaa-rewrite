@@ -78,7 +78,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -87,7 +87,7 @@
           ]
         },
         "east": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -96,7 +96,7 @@
           ]
         },
         "north": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -105,7 +105,7 @@
           ]
         },
         "south": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -114,7 +114,7 @@
           ]
         },
         "up": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -123,7 +123,7 @@
           ]
         },
         "west": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
             7,
             6,
@@ -145,155 +145,214 @@
     },
     {
       "faces": {
-        "up": {
-          "texture": "#lit",
+        "down": {
+          "texture": "#unlit",
           "uv": [
-            8,
-            5,
+            7,
+            6,
             9,
-            6
+            11
+          ]
+        },
+        "east": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "north": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "south": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "up": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
           ]
         }
       },
       "from": [
-        6.5,
-        2.5,
-        1.5
+        7.0,
+        2,
+        7.0
       ],
-      "shade": false,
       "to": [
-        9.5,
-        2.5,
-        4.5
+        9.0,
+        7,
+        9.0
       ]
     },
     {
       "faces": {
         "down": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
-            8,
-            5,
+            7,
+            6,
             9,
-            6
+            11
           ]
-        }
-      },
-      "from": [
-        6.5,
-        5.5,
-        1.5
-      ],
-      "shade": false,
-      "to": [
-        9.5,
-        5.5,
-        4.5
-      ]
-    },
-    {
-      "faces": {
-        "south": {
-          "texture": "#lit",
-          "uv": [
-            8,
-            5,
-            9,
-            6
-          ]
-        }
-      },
-      "from": [
-        6.5,
-        2.5,
-        1.5
-      ],
-      "shade": false,
-      "to": [
-        9.5,
-        5.5,
-        1.5
-      ]
-    },
-    {
-      "faces": {
-        "north": {
-          "texture": "#lit",
-          "uv": [
-            8,
-            5,
-            9,
-            6
-          ]
-        }
-      },
-      "from": [
-        6.5,
-        2.5,
-        4.5
-      ],
-      "shade": false,
-      "to": [
-        9.5,
-        5.5,
-        4.5
-      ]
-    },
-    {
-      "faces": {
+        },
         "east": {
-          "texture": "#lit",
+          "texture": "#unlit",
           "uv": [
-            8,
-            5,
+            7,
+            6,
             9,
-            6
+            11
+          ]
+        },
+        "north": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "south": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "up": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
           ]
         }
       },
       "from": [
-        6.5,
-        2.5,
-        1.5
+        1.0,
+        2,
+        7.0
       ],
-      "shade": false,
       "to": [
-        6.5,
-        5.5,
-        4.5
+        3.0,
+        7,
+        9.0
       ]
     },
     {
       "faces": {
-        "west": {
-          "texture": "#lit",
+        "down": {
+          "texture": "#unlit",
           "uv": [
-            8,
-            5,
+            7,
+            6,
             9,
-            6
+            11
+          ]
+        },
+        "east": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "north": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "south": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
+          ]
+        },
+        "up": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#unlit",
+          "uv": [
+            7,
+            6,
+            9,
+            11
           ]
         }
       },
       "from": [
-        9.5,
-        2.5,
-        1.5
+        13.0,
+        2,
+        7.0
       ],
-      "shade": false,
       "to": [
-        9.5,
-        5.5,
-        4.5
+        15.0,
+        7,
+        9.0
       ]
     }
   ],
-  "name": "logical_or_gate_on",
+  "name": "logical_xor_gate",
   "textures": {
-    "lit": "minecraft:block/redstone_torch",
-    "particle": "jaavaa:block/logical_or_gate_on",
+    "particle": "jaavaa:block/logical_xor_gate",
     "side": "minecraft:block/smooth_stone",
-    "top": "jaavaa:block/logical_or_gate_on",
+    "top": "jaavaa:block/logical_xor_gate",
     "unlit": "minecraft:block/redstone_torch_off"
   }
 }
