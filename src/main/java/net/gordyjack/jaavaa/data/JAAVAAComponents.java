@@ -18,10 +18,13 @@ import static net.minecraft.component.type.ConsumableComponents.*;
 public class JAAVAAComponents {
     public static final ConsumableComponent MALUM_STELLAE_INCANTATAE_CONSUMABLE = food()
             .consumeEffect(new ApplyEffectsConsumeEffect(List.of(
-                    new StatusEffectInstance(StatusEffects.REGENERATION, minutes(1), 3),
-                    new StatusEffectInstance(StatusEffects.RESISTANCE, minutes(5), 1),
-                    new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, minutes(5), 0),
-                    new StatusEffectInstance(StatusEffects.ABSORPTION, minutes(2), 1),
+                    new StatusEffectInstance(StatusEffects.REGENERATION, seconds(30), 9),
+                    new StatusEffectInstance(StatusEffects.REGENERATION, minutes(10), 4),
+                    new StatusEffectInstance(StatusEffects.RESISTANCE, seconds(30), 4),
+                    new StatusEffectInstance(StatusEffects.RESISTANCE, minutes(10), 1),
+                    new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, minutes(10), 0),
+                    new StatusEffectInstance(StatusEffects.HEALTH_BOOST, minutes(10), 4),
+                    new StatusEffectInstance(StatusEffects.ABSORPTION, minutes(5), 4),
                     new StatusEffectInstance(JAAVAAStatusEffects.IMPENDING_DOOM, StatusEffectInstance.INFINITE, 0, false, false, true)
             ))).consumeSeconds(0.5f).build();
     public static final DamageResistantComponent FIRE_AND_EXPLOSION_RESISTANT =

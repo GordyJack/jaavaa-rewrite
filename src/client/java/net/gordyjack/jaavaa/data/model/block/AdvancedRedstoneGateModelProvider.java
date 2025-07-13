@@ -75,20 +75,20 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
             JsonArray elements = new JsonArray();
             elements.add(base);
             //Torches
-            JsonObject frontTorch = createTorchModel(7.0f, 2.0f, powered ? "#lit" : "#unlit");
-            JsonObject leftTorch = createTorchModel(2.0f, 7.0f, powered && leftPowered ? "#lit" : "#unlit", false);
-            JsonObject backTorch = createTorchModel(7.0f, 12.0f, powered && backPowered ? "#lit" : "#unlit", false);
-            JsonObject rightTorch = createTorchModel(12.0f, 7.0f, powered && rightPowered ? "#lit" : "#unlit", false);
+            JsonObject frontTorch = createTorchModel(7.0f, 2.0f, powered ? "#lit" : "#unlit", false);
+            JsonObject leftTorch = createTorchModel(2.0f, 7.0f, powered && leftPowered ? "#lit" : "#unlit", true);
+            JsonObject backTorch = createTorchModel(7.0f, 12.0f, powered && backPowered ? "#lit" : "#unlit", true);
+            JsonObject rightTorch = createTorchModel(12.0f, 7.0f, powered && rightPowered ? "#lit" : "#unlit", true);
             elements.add(frontTorch);
             elements.add(leftTorch);
             elements.add(backTorch);
             elements.add(rightTorch);
             //Halos
             if (powered) {
-                for (var halo : createTorchHaloModels(7.0f, 2.0f, "#lit")) elements.add(halo); //Front Halos
-                if (leftPowered) for (var halo : createTorchHaloModels(2.0f, 7.0f, "#lit", false)) elements.add(halo);
-                if (backPowered) for (var halo : createTorchHaloModels(7.0f, 12.0f, "#lit", false)) elements.add(halo);
-                if (rightPowered) for (var halo : createTorchHaloModels(12.0f, 7.0f, "#lit", false)) elements.add(halo);
+                for (var halo : createTorchHaloModels(7.0f, 2.0f, "#lit", false)) elements.add(halo); //Front Halos
+                if (leftPowered) for (var halo : createTorchHaloModels(2.0f, 7.0f, "#lit", true)) elements.add(halo);
+                if (backPowered) for (var halo : createTorchHaloModels(7.0f, 12.0f, "#lit", true)) elements.add(halo);
+                if (rightPowered) for (var halo : createTorchHaloModels(12.0f, 7.0f, "#lit", true)) elements.add(halo);
             }
             model.add("elements", elements);
             models.add(model);
@@ -385,9 +385,9 @@ public class AdvancedRedstoneGateModelProvider implements DataProvider {
             elements.add(base);
             //Torches
             String key = powered ? "#lit" : "#unlit";
-            elements.add(createTorchModel(7.0f, 2.0f, key)); //Front Torch
+            elements.add(createTorchModel(7.0f, 2.0f, key, false)); //Front Torch
             if (powered) {
-                for (JsonObject halo : createTorchHaloModels(7.0f, 2.0f, "#lit")) elements.add(halo);
+                for (JsonObject halo : createTorchHaloModels(7.0f, 2.0f, "#lit", false)) elements.add(halo);
             }
             int power = powered ? Integer.parseInt(modelName.substring(modelName.lastIndexOf('_') + 1)) : 0;
             elements.add(createLampModel(6.0f, 10.0f, power)); //Lamp
