@@ -3,6 +3,7 @@ package net.gordyjack.jaavaa.block;
 import net.fabricmc.fabric.api.itemgroup.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.custom.*;
+import net.gordyjack.jaavaa.block.custom.redstone_gates.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.item.custom.*;

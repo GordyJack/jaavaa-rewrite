@@ -1,4 +1,4 @@
-package net.gordyjack.jaavaa.block.custom;
+package net.gordyjack.jaavaa.block.custom.redstone_gates;
 
 import com.mojang.serialization.*;
 import net.gordyjack.jaavaa.block.*;

@@ -1,18 +1,16 @@
-package net.gordyjack.jaavaa.block.custom;
+package net.gordyjack.jaavaa.block.custom.redstone_gates;
 
 import com.mojang.serialization.*;
 import net.minecraft.block.*;
 import net.minecraft.particle.*;
-import net.minecraft.server.world.*;
 import net.minecraft.state.*;
 import net.minecraft.state.property.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.*;
 import net.minecraft.world.*;
-import net.minecraft.world.tick.*;
 
 //TODO: add mode to where you can have it constantly change signal strengths while powered.
-public class RandomizerBlock extends AbstractRedstoneGateBlock {
+public class RandomizerBlock extends AbstractAdvancedRedstoneGateBlock {
     public static final MapCodec<RandomizerBlock> CODEC = createCodec(RandomizerBlock::new);
     public static final BooleanProperty POWERED = Properties.POWERED;
     public static final IntProperty POWER = Properties.POWER;
@@ -34,24 +32,26 @@ public class RandomizerBlock extends AbstractRedstoneGateBlock {
         builder.add(FACING, POWERED, POWER);
     }
     @Override
+    protected int calculateOutputPower(World world, BlockPos pos, BlockState state) {
+        return this.hasPower(world, pos, state) ? world.getRandom().nextBetween(1, 15) : 0;
+    }
+    @Override
     protected MapCodec<? extends AbstractRedstoneGateBlock> getCodec() {
         return CODEC;
     }
     @Override
-    protected int getOutputLevel(BlockView world, BlockPos pos, BlockState state) {
-        return state.get(POWER);
-    }
-    @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
-        if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
-            return Blocks.AIR.getDefaultState();
-        } else {
-            return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
-        }
-    }
-    @Override
     protected int getUpdateDelayInternal(BlockState state) {
         return UPDATE_DELAY;
+    }
+    @Override
+    BlockState getUpdatedState(World world, BlockPos pos, BlockState state) {
+        return state
+                .with(POWERED, this.hasPower(world, pos, state))
+                .with(POWER, this.calculateOutputPower(world, pos, state));
+    }
+    @Override
+    boolean hasStateChanged(World world, BlockPos pos, BlockState state) {
+        return state.get(POWERED) != this.hasPower(world, pos, state);
     }
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
@@ -67,25 +67,5 @@ public class RandomizerBlock extends AbstractRedstoneGateBlock {
             double i = g * direction.getOffsetZ();
             world.addParticleClient(DustParticleEffect.DEFAULT, d + h, e, f + i, 0.0, 0.0, 0.0);
         }
-    }
-    @Override
-    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!world.isClient() && state.get(POWERED) != this.hasPower(world, pos, state)) {
-            world.setBlockState(pos, state.cycle(POWERED).with(POWER, calculateOutputPower(world, pos, state)), Block.NOTIFY_LISTENERS);
-            this.updateTarget(world, pos, state);
-        }
-    }
-    @Override
-    protected void updatePowered(World world, BlockPos pos, BlockState state) {
-        if (!world.getBlockTickScheduler().isTicking(pos, this)) {
-            if (state.get(POWERED) != this.hasPower(world, pos, state)) {
-                TickPriority tickPriority = this.isTargetNotAligned(world, pos, state) ? TickPriority.HIGH : TickPriority.NORMAL;
-                world.scheduleBlockTick(pos, this, this.getUpdateDelayInternal(state), tickPriority);
-            }
-        }
-    }
-
-    private int calculateOutputPower(World world, BlockPos pos, BlockState state) {
-        return this.hasPower(world, pos, state) ? world.getRandom().nextBetween(1, 15) : 0;
     }
 }

@@ -1,4 +1,4 @@
-package net.gordyjack.jaavaa.block.custom;
+package net.gordyjack.jaavaa.block.custom.redstone_gates;
 
 import com.mojang.serialization.*;
 import net.gordyjack.jaavaa.block.*;
@@ -6,7 +6,6 @@ import net.gordyjack.jaavaa.block.enums.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.particle.*;
-import net.minecraft.server.world.*;
 import net.minecraft.sound.*;
 import net.minecraft.state.*;
 import net.minecraft.state.property.*;
@@ -16,9 +15,8 @@ import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.*;
 import net.minecraft.world.*;
 import net.minecraft.world.block.*;
-import net.minecraft.world.tick.*;
 
-public class DecoderBlock extends AbstractRedstoneGateBlock{
+public class DecoderBlock extends AbstractAdvancedRedstoneGateBlock{
     //Codec
     public static final MapCodec<DecoderBlock> CODEC = createCodec(DecoderBlock::new);
     //Properties
@@ -48,26 +46,28 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         builder.add(FACING, POWERED, MODE, TARGET, POWER);
     }
     @Override
+    protected int calculateOutputPower(World world, BlockPos pos, BlockState state) {
+        int inputPower = this.getPower(world, pos, state);
+        if (inputPower <= 0) return 0;
+        return switch (state.get(MODE)) {
+            case DEMUX -> inputPower;
+            case DECODE -> 15;
+        };
+    }
+    @Override
     protected MapCodec<? extends AbstractRedstoneGateBlock> getCodec() {
         return CODEC;
     }
     @Override
-    protected int getOutputLevel(BlockView world, BlockPos pos, BlockState state) {
-        return state.get(POWER);
-    }
-    @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView,
-                                                   BlockPos pos, Direction direction, BlockPos neighborPos,
-                                                   BlockState neighborState, Random random) {
-        if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
-            return Blocks.AIR.getDefaultState();
-        } else {
-            return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
-        }
-    }
-    @Override
     protected int getUpdateDelayInternal(BlockState state) {
         return UPDATE_DELAY;
+    }
+    @Override
+    BlockState getUpdatedState(World world, BlockPos pos, BlockState state) {
+        return state
+                .with(POWERED, this.hasPower(world, pos, state))
+                .with(POWER, this.calculateOutputPower(world, pos, state))
+                .with(TARGET, this.getTarget(world, pos, state));
     }
     @Override
     protected int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
@@ -92,6 +92,12 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
             }
         }
         return 0;
+    }
+    @Override
+    boolean hasStateChanged(World world, BlockPos pos, BlockState state) {
+        return state.get(POWERED) != this.hasPower(world, pos, state)
+                || state.get(POWER) != this.calculateOutputPower(world, pos, state)
+                || state.get(TARGET) != this.getTarget(world, pos, state);
     }
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
@@ -126,21 +132,6 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
         }
     }
     @Override
-    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (hasStateChanged(state, world, pos)) {
-            this.updateState(world, pos, state);
-        }
-    }
-    @Override
-    protected void updatePowered(World world, BlockPos pos, BlockState state) {
-        if (world instanceof ServerWorld serverWorld
-                && hasStateChanged(state, serverWorld, pos)
-                && !world.getBlockTickScheduler().isTicking(pos, this)) {
-            TickPriority tickPriority = this.isTargetNotAligned(world, pos, state) ? TickPriority.HIGH : TickPriority.NORMAL;
-            world.scheduleBlockTick(pos, this, this.getUpdateDelayInternal(state), tickPriority);
-        }
-    }
-    @Override
     protected void updateTarget(World world, BlockPos pos, BlockState state) {
         if (world.isClient()) { // Skip update on client side
             return;
@@ -171,14 +162,6 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
     }
 
     //Methods
-    private int calculateOutputPower(World world, BlockPos pos, BlockState state) {
-        int inputPower = this.getPower(world, pos, state);
-        if (inputPower <= 0) return 0;
-        return switch (state.get(MODE)) {
-            case DEMUX -> inputPower;
-            case DECODE -> 15;
-        };
-    }
     private DecoderTarget getTarget(World world, BlockPos pos, BlockState state) {
         return switch (this.getPower(world, pos, state)) {
             case 1, 2, 3, 4, 5 -> DecoderTarget.LEFT;
@@ -186,18 +169,5 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
             case 11, 12, 13, 14, 15 -> DecoderTarget.RIGHT;
             default -> DecoderTarget.NONE; // Should not happen
         };
-    }
-    private boolean hasStateChanged(BlockState state, ServerWorld world, BlockPos pos) {
-        return state.get(POWERED) != this.hasPower(world, pos, state)
-                || state.get(POWER) != this.calculateOutputPower(world, pos, state)
-                || state.get(TARGET) != this.getTarget(world, pos, state);
-    }
-    private void updateState(World world, BlockPos pos, BlockState state) {
-        BlockState updatedState = state
-                .with(POWERED, this.hasPower(world, pos, state))
-                .with(POWER, this.calculateOutputPower(world, pos, state))
-                .with(TARGET, this.getTarget(world, pos, state));
-        world.setBlockState(pos, updatedState, Block.NOTIFY_LISTENERS);
-        this.updateTarget(world, pos, updatedState);
     }
 }

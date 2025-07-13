@@ -4,7 +4,7 @@ import com.google.gson.*;
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.*;
-import net.gordyjack.jaavaa.block.custom.*;
+import net.gordyjack.jaavaa.block.custom.redstone_gates.*;
 import net.gordyjack.jaavaa.block.enums.*;
 import net.minecraft.data.*;
 import net.minecraft.util.*;
