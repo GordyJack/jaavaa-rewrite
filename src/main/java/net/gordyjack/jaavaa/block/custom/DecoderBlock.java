@@ -127,22 +127,17 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
     }
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state.get(POWERED) != this.hasPower(world, pos, state)
-                || state.get(POWER) != this.calculateOutputPower(world, pos, state)
-                || state.get(TARGET) != this.getTarget(world, pos, state)) {
+        if (hasStateChanged(state, world, pos)) {
             this.updateState(world, pos, state);
         }
     }
     @Override
     protected void updatePowered(World world, BlockPos pos, BlockState state) {
-        if (world.isClient()) {
-            return;
-        }
-        if (!world.getBlockTickScheduler().isTicking(pos, this)) {
-            if (state.get(POWERED) != this.hasPower(world, pos, state)) {
-                TickPriority tickPriority = this.isTargetNotAligned(world, pos, state) ? TickPriority.HIGH : TickPriority.NORMAL;
-                world.scheduleBlockTick(pos, this, this.getUpdateDelayInternal(state), tickPriority);
-            }
+        if (world instanceof ServerWorld serverWorld
+                && hasStateChanged(state, serverWorld, pos)
+                && !world.getBlockTickScheduler().isTicking(pos, this)) {
+            TickPriority tickPriority = this.isTargetNotAligned(world, pos, state) ? TickPriority.HIGH : TickPriority.NORMAL;
+            world.scheduleBlockTick(pos, this, this.getUpdateDelayInternal(state), tickPriority);
         }
     }
     @Override
@@ -191,6 +186,11 @@ public class DecoderBlock extends AbstractRedstoneGateBlock{
             case 11, 12, 13, 14, 15 -> DecoderTarget.RIGHT;
             default -> DecoderTarget.NONE; // Should not happen
         };
+    }
+    private boolean hasStateChanged(BlockState state, ServerWorld world, BlockPos pos) {
+        return state.get(POWERED) != this.hasPower(world, pos, state)
+                || state.get(POWER) != this.calculateOutputPower(world, pos, state)
+                || state.get(TARGET) != this.getTarget(world, pos, state);
     }
     private void updateState(World world, BlockPos pos, BlockState state) {
         BlockState updatedState = state
