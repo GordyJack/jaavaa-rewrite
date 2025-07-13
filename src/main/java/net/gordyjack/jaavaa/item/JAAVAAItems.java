@@ -35,6 +35,8 @@ public class JAAVAAItems {
     public static final Item AURON_INGOT = register("auron_ingot");
     public static final Item AURON_NUGGET = register("auron_nugget");
     public static final Item FUSED_ROD = register("fused_rod");
+    public static final Item QUICKSILVER_INGOT = register("quicksilver_ingot");
+    public static final Item QUICKSILVER_NUGGET = register("quicksilver_nugget");
     public static final Item ROSE_GOLD_INGOT = register("rose_gold_ingot");
     public static final Item SHULKER_PEARL = register("shulker_pearl");
     public static final Item STARSTEEL_INGOT = register("starsteel_ingot",
@@ -208,6 +210,8 @@ public class JAAVAAItems {
             entries.add(MOB_NET_IRON);
             entries.add(MOB_NET_DIAMOND);
             entries.add(MOB_NET_NETHERITE);
+            entries.add(QUICKSILVER_INGOT);
+            entries.add(QUICKSILVER_NUGGET);
             entries.add(ROSE_GOLD_INGOT);
             entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);

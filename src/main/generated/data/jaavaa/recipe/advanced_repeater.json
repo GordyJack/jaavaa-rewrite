@@ -5,12 +5,13 @@
   "key": {
     "D": "#jaavaa:deepslate_craftables",
     "G": "minecraft:repeater",
+    "Q": "jaavaa:quicksilver_ingot",
     "R": "minecraft:redstone"
   },
   "pattern": [
     " R ",
     "RGR",
-    " D "
+    "DQD"
   ],
   "result": {
     "count": 1,

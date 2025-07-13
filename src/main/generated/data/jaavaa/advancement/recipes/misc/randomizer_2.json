@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_adjustable_redstone_lamp": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:adjustable_redstone_lamp"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_quicksilver_ingot": {
       "conditions": {
         "items": [
@@ -11,19 +21,9 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_repeater": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:repeater"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jaavaa:advanced_repeater"
+        "recipe": "jaavaa:randomizer_2"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,13 +31,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_repeater",
+      "has_adjustable_redstone_lamp",
       "has_quicksilver_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
-      "jaavaa:advanced_repeater"
+      "jaavaa:randomizer_2"
     ]
   }
 }

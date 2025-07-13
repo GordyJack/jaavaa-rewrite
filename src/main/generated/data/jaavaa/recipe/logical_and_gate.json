@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "jaavaa:logical_and_gate",
+  "key": {
+    "R": "minecraft:redstone",
+    "S": "minecraft:stone",
+    "T": "minecraft:redstone_torch"
+  },
+  "pattern": [
+    " T ",
+    "TRT",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:logical_and_gate"
+  }
+}

@@ -11,6 +11,16 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_quicksilver_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:quicksilver_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "jaavaa:decoder"
@@ -21,7 +31,8 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_comparator"
+      "has_comparator",
+      "has_quicksilver_ingot"
     ]
   ],
   "rewards": {

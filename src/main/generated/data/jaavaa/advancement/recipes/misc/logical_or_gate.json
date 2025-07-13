@@ -1,21 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_comparator": {
+    "has_redstone_torch": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:comparator"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_quicksilver_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": "jaavaa:quicksilver_ingot"
+            "items": "minecraft:redstone_torch"
           }
         ]
       },
@@ -23,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jaavaa:adder"
+        "recipe": "jaavaa:logical_or_gate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,13 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_comparator",
-      "has_quicksilver_ingot"
+      "has_redstone_torch"
     ]
   ],
   "rewards": {
     "recipes": [
-      "jaavaa:adder"
+      "jaavaa:logical_or_gate"
     ]
   }
 }

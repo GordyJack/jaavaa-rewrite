@@ -5,13 +5,13 @@
   "key": {
     "C": "minecraft:comparator",
     "D": "#jaavaa:deepslate_craftables",
-    "R": "minecraft:redstone",
+    "Q": "jaavaa:quicksilver_ingot",
     "T": "minecraft:redstone_torch"
   },
   "pattern": [
-    "RTR",
+    " T ",
     "TCT",
-    "RDR"
+    "DQD"
   ],
   "result": {
     "count": 1,

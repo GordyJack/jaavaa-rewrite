@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "jaavaa:adder",
+  "group": "jaavaa:randomizer",
   "key": {
     "D": "#jaavaa:deepslate_craftables",
-    "G": "jaavaa:logical_or_gate",
+    "L": "jaavaa:adjustable_redstone_lamp",
     "Q": "jaavaa:quicksilver_ingot",
-    "R": "minecraft:redstone"
+    "R": "minecraft:redstone",
+    "T": "minecraft:redstone_torch"
   },
   "pattern": [
-    " R ",
-    "RGR",
+    "LRT",
     "DQD"
   ],
   "result": {
     "count": 1,
-    "id": "jaavaa:adder"
+    "id": "jaavaa:randomizer"
   }
 }
