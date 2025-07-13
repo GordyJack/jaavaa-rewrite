@@ -18,6 +18,7 @@ The purpose of this mod is 3-fold:
     * ❌ - **Lumberjack**
       * Uses the **Woodcutter** to create planks and other wooden items from logs.
 * ❌ - Filling Cauldrons with Potions
+* ✅ - Remove Anvil level cap
 * ✅ - Adding a version of the **Poison** effect that can be fatal.
 ### 2. Adding features that still have a _Vanilla_ feel but aren't drawn from already existing features.
 #### **New Blocks**:
@@ -57,7 +58,6 @@ The purpose of this mod is 3-fold:
     * ❌ - **Fearsome**: Causes all Mobs in range to flee in terror.
     * ❌ - **Infestation**: Causes Mobs to rapidly spawn in range.
 * **Extended Enchanting**
-  * ❌ - **Remove Anvil level cap**
   * **New Enchantments**:
     * ✅ - **Bloodletter**: Heals the attacker for a percentage of the health missing from the target.
     * ⚠️ - **Pacted**: Ensures the item remains intact, even when its durability depletes to zero and ensures it remains with you upon respawning if it was in your hand or equipped at the time of death.

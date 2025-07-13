@@ -3,6 +3,7 @@
   "package": "net.gordyjack.jaavaa.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "AnvilScreenMixin",
     "ExampleClientMixin"
   ],
   "injectors": {
