@@ -31,24 +31,18 @@ public class JAAVAAItems {
                                     Text.literal("sed do eiusmod tempor incididunt"))))
     );
     //Materials
-    public static final Item ALLAY_ESSENCE = register("allay_essence",
-            Item::new, new Item.Settings().rarity(Rarity.UNCOMMON)
-    );
+    public static final Item ALLAY_ESSENCE = register("allay_essence");
     public static final Item AURON_INGOT = register("auron_ingot");
     public static final Item AURON_NUGGET = register("auron_nugget");
-    public static final Item FUSED_ROD = register("fused_rod",
-            Item::new, new Item.Settings().rarity(Rarity.UNCOMMON)
-    );
+    public static final Item FUSED_ROD = register("fused_rod");
     public static final Item ROSE_GOLD_INGOT = register("rose_gold_ingot");
-    public static final Item SHULKER_PEARL = register("shulker_pearl",
-            Item::new, new Item.Settings().rarity(Rarity.UNCOMMON)
-    );
+    public static final Item SHULKER_PEARL = register("shulker_pearl");
     public static final Item STARSTEEL_INGOT = register("starsteel_ingot",
-            EternalItem::new, new Item.Settings().rarity(Rarity.RARE)
+            EternalItem::new, new Item.Settings().rarity(Rarity.UNCOMMON)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
     public static final Item STARSTEEL_NUGGET = register("starsteel_nugget",
-            EternalItem::new, new Item.Settings().rarity(Rarity.RARE)
+            EternalItem::new, new Item.Settings().rarity(Rarity.UNCOMMON)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
     //Misc
