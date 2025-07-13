@@ -40,10 +40,12 @@ The purpose of this mod is 3-fold:
   * ❌ - **Hopper Pipes**: A skinny block that is used for linking Hoppers (or Skinny Hoppers) together. Each hopper pipe can only hold 1 item.
     * ❌ - **Hopper Pipe Junctions**: Used in conjunction with hopper pipes for more advanced item routing.
   * ✅ - **Adjustable Redstone Lamp**: A Redstone Lamp that can be configured to emit any light level. Whenever it emits light, it has a comparator output equal to it's light level. It will also output light equal to it's redstone input when powered.
-  * ✅ - **Advanced Repeater**: A Redstone Repeater that has delay and duration individually configurable.
-  * ✅ - **Decoder**: An advanced redstone gate that will output to different sides based on the input given. It can either output the same signal given to it, or repeat the signal.
-  * ✅ - **Randomizer**: Another advanced redstone gate that utilizes the power of the new **Adjustable Redstone Lamp** to generate a random output strength whenever powered.
   * ✅ - **Encased Redstone Pillars**: These blocks are just bi-directional redstone blocks so that they only emit signal out of two opposing sides. _(Really helpful for avoiding unwanted quasi-connectivity)_
+  * **New Redstone Gates**:
+    * ✅ - **Adder**: A Redstone gate that recieves input on 3 sides and outputs the sum of the inputs (max 15).
+    * ✅ - **Advanced Repeater**: A Redstone Repeater that has delay and duration individually configurable.
+    * ✅ - **Decoder**: An advanced redstone gate that will output to different sides based on the input given. It can either output the same signal given to it, or repeat the signal.
+    * ✅ - **Randomizer**: Another advanced redstone gate that utilizes the power of the new **Adjustable Redstone Lamp** to generate a random output strength whenever powered.
 * **Overhauled Potions**:
   * ❌ - **Potion Flasks**: A new type of container that can hold multiple servings of a single potion.
   * ❌ - **Ancient Flagons**: Another new type of container that can hold multiple potion effects to all apply simultaneously.
