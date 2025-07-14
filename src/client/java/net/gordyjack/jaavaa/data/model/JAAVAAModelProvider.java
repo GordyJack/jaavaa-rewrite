@@ -9,11 +9,14 @@ import net.gordyjack.jaavaa.block.enums.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.item.custom.*;
+import net.gordyjack.jaavaa.property.*;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.*;
 import net.minecraft.client.data.*;
+import net.minecraft.client.render.item.model.*;
 import net.minecraft.client.render.model.json.*;
 import net.minecraft.item.*;
+import net.minecraft.state.property.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
@@ -101,6 +104,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             }
             if (item == JAAVAAItems.FUSED_ROD) {
                 registerRodItemModel(imGen, item, TextureMap.getId(JAAVAAItems.FUSED_ROD));
+                continue;
+            }
+            if (item == JAAVAAItems.BIOME_COMPASS) {
+                registerCompass(imGen, item);
                 continue;
             }
             if (item.getDefaultStack().isIn(JAAVAATags.Items.TOOLS_STARSTEEL)) {
@@ -319,5 +326,21 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             variantMap.register(position, variant);
         }
         bsmGen.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(blocktant).with(variantMap));
+    }
+
+    private void registerCompass(ItemModelGenerator imGen, Item item) {
+        List<RangeDispatchItemModel.Entry> list = imGen.createCompassRangeDispatchEntries(item);
+        imGen.output
+                .accept(
+                        item,
+                        ItemModels.condition(
+                                ItemModels.hasComponentProperty(JAAVAAComponents.Types.BIOME_COMPASS_POSITION),
+                                ItemModels.condition(
+                                        ItemModels.hasComponentProperty(JAAVAAComponents.Types.BIOME_COMPASS_TARGET),
+                                        ItemModels.rangeDispatch(new BiomeCompassProperty(true, BiomeCompassState.Target.BIOME), 32.0F, list),
+                                        ItemModels.rangeDispatch(new BiomeCompassProperty(true, BiomeCompassState.Target.NONE), 32.0F, list)),
+                                ItemModels.rangeDispatch(new BiomeCompassProperty(true, BiomeCompassState.Target.NONE), 32.0F, list)
+                        )
+                );
     }
 }

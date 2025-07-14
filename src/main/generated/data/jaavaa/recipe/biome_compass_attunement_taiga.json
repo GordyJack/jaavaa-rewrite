@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "jaavaa:biome_compass",
+  "ingredients": [
+    "jaavaa:biome_compass",
+    "#jaavaa:attuneable/taiga"
+  ],
+  "result": {
+    "components": {
+      "jaavaa:biome_compass_target": "minecraft:taiga"
+    },
+    "count": 1,
+    "id": "jaavaa:biome_compass"
+  }
+}

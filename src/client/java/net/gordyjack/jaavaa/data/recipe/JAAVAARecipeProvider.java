@@ -15,6 +15,7 @@ import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
+import net.minecraft.world.biome.*;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -31,6 +32,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 RegistryEntryLookup<Item> registryLookup = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
                 this.createAdvancedGateRecipes();
                 this.createAlloyingRecipes();
+                this.createBiomeCompassRecipes();
                 this.createMaterialsRecipes();
                 this.createMiscRecipes();
                 this.createRecyclingRecipes();
@@ -48,7 +50,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         0.1F, 200, JAAVAA.idFromItem(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE).toString());
             }
             private void createAdvancedGateRecipes() {
-                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ADDER)
+                this.createShaped(RecipeCategory.REDSTONE, JAAVAABlocks.ADDER)
                         .input('R', Items.REDSTONE)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
                         .input('G', JAAVAABlocks.LOGICAL_OR_GATE)
@@ -60,7 +62,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .criterion(hasItem(JAAVAAItems.QUICKSILVER_INGOT), conditionsFromItem(JAAVAAItems.QUICKSILVER_INGOT))
                         .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ADVANCED_REPEATER)
+                this.createShaped(RecipeCategory.REDSTONE, JAAVAABlocks.ADVANCED_REPEATER)
                         .input('R', Items.REDSTONE)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
                         .input('G', Items.REPEATER)
@@ -72,7 +74,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.REPEATER), conditionsFromItem(Items.REPEATER))
                         .criterion(hasItem(JAAVAAItems.QUICKSILVER_INGOT), conditionsFromItem(JAAVAAItems.QUICKSILVER_INGOT))
                         .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.DECODER)
+                this.createShaped(RecipeCategory.REDSTONE, JAAVAABlocks.DECODER)
                         .input('T', Items.REDSTONE_TORCH)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
                         .input('C', Items.COMPARATOR)
@@ -84,7 +86,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .criterion(hasItem(JAAVAAItems.QUICKSILVER_INGOT), conditionsFromItem(JAAVAAItems.QUICKSILVER_INGOT))
                         .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.LOGICAL_AND_GATE)
+                this.createShaped(RecipeCategory.REDSTONE, JAAVAABlocks.LOGICAL_AND_GATE)
                         .input('R', Items.REDSTONE)
                         .input('T', Items.REDSTONE_TORCH)
                         .input('S', Items.STONE)
@@ -94,7 +96,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .group(JAAVAA.idFromItem(JAAVAABlocks.LOGICAL_AND_GATE).toString())
                         .criterion(hasItem(Items.REDSTONE_TORCH), conditionsFromItem(Items.REDSTONE_TORCH))
                         .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.LOGICAL_OR_GATE)
+                this.createShaped(RecipeCategory.REDSTONE, JAAVAABlocks.LOGICAL_OR_GATE)
                         .input('R', Items.REDSTONE)
                         .input('T', Items.REDSTONE_TORCH)
                         .input('S', Items.STONE)
@@ -103,7 +105,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .group(JAAVAA.idFromItem(JAAVAABlocks.LOGICAL_OR_GATE).toString())
                         .criterion(hasItem(Items.REDSTONE_TORCH), conditionsFromItem(Items.REDSTONE_TORCH))
                         .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.LOGICAL_XOR_GATE)
+                this.createShaped(RecipeCategory.REDSTONE, JAAVAABlocks.LOGICAL_XOR_GATE)
                         .input('R', Items.REDSTONE)
                         .input('T', Items.REDSTONE_TORCH)
                         .input('S', Items.STONE)
@@ -113,7 +115,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .group(JAAVAA.idFromItem(JAAVAABlocks.LOGICAL_XOR_GATE).toString())
                         .criterion(hasItem(Items.REDSTONE_TORCH), conditionsFromItem(Items.REDSTONE_TORCH))
                         .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.RANDOMIZER)
+                this.createShaped(RecipeCategory.REDSTONE, JAAVAABlocks.RANDOMIZER)
                         .input('R', Items.REDSTONE)
                         .input('T', Items.REDSTONE_TORCH)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
@@ -125,7 +127,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP), conditionsFromItem(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP))
                         .criterion(hasItem(JAAVAAItems.QUICKSILVER_INGOT), conditionsFromItem(JAAVAAItems.QUICKSILVER_INGOT))
                         .offerTo(this.exporter, recipeKeyOf("randomizer_1"));
-                this.createShaped(RecipeCategory.MISC, JAAVAABlocks.RANDOMIZER)
+                this.createShaped(RecipeCategory.REDSTONE, JAAVAABlocks.RANDOMIZER)
                         .input('R', Items.REDSTONE)
                         .input('T', Items.REDSTONE_TORCH)
                         .input('D', JAAVAATags.Items.DEEPSLATE_CRAFTABLES)
@@ -154,6 +156,47 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerAlloyingRecipe(300, 0.5f, Items.RAW_COPPER, 1, Blocks.SAND, 1, Items.COPPER_INGOT, 2);
                 this.offerAlloyingRecipe(300, 0.5f, Items.RAW_IRON, 1, Blocks.SAND, 1, Items.IRON_INGOT, 2);
                 this.offerAlloyingRecipe(300, 0.5f, Items.RAW_GOLD, 1, Blocks.SAND, 1, Items.GOLD_INGOT, 2);
+            }
+            private void createBiomeCompassRecipes() {
+                createShaped(RecipeCategory.TOOLS, JAAVAAItems.BIOME_COMPASS)
+                        .input('C', Items.COMPASS)
+                        .input('S', Items.AMETHYST_SHARD)
+                        .input('A', JAAVAAItems.AURON_INGOT)
+                        .pattern(" S ")
+                        .pattern("ACA")
+                        .pattern(" S ")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.BIOME_COMPASS).toString())
+                        .criterion(hasItem(Items.COMPASS), conditionsFromItem(Items.COMPASS))
+                        .criterion(hasItem(Items.AMETHYST_SHARD), conditionsFromItem(Items.AMETHYST_SHARD))
+                        .criterion(hasItem(JAAVAAItems.AURON_INGOT), conditionsFromItem(JAAVAAItems.AURON_INGOT))
+                        .offerTo(this.exporter);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.BADLANDS, JAAVAATags.Items.ATTUNEABLE_ITEMS_BADLANDS);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.BAMBOO_JUNGLE, Items.BAMBOO);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.BIRCH_FOREST, JAAVAATags.Items.ATTUNEABLE_ITEMS_BIRCH_FOREST);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.CHERRY_GROVE, JAAVAATags.Items.ATTUNEABLE_ITEMS_CHERRY_GROVE);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.DARK_FOREST, JAAVAATags.Items.ATTUNEABLE_ITEMS_DARK_FOREST);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.DEEP_DARK, JAAVAATags.Items.ATTUNEABLE_ITEMS_DEEP_DARK);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.DEEP_FROZEN_OCEAN, Items.BLUE_ICE);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.DEEP_OCEAN, Items.KELP);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.DESERT, JAAVAATags.Items.ATTUNEABLE_ITEMS_DESERT);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.DRIPSTONE_CAVES, JAAVAATags.Items.ATTUNEABLE_ITEMS_DRIPSTONE_CAVES);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.FROZEN_PEAKS, Items.ICE);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.ICE_SPIKES, Items.PACKED_ICE);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.JAGGED_PEAKS, Items.GOAT_HORN);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.JUNGLE, JAAVAATags.Items.ATTUNEABLE_ITEMS_JUNGLE);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA, Items.PODZOL);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.PALE_GARDEN, JAAVAATags.Items.ATTUNEABLE_ITEMS_PALE_GARDEN);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.PLAINS, JAAVAATags.Items.ATTUNEABLE_ITEMS_PLAINS);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.MANGROVE_SWAMP, JAAVAATags.Items.ATTUNEABLE_ITEMS_MANGROVE_SWAMP);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.MUSHROOM_FIELDS, JAAVAATags.Items.ATTUNEABLE_ITEMS_MUSHROOM_FIELDS);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.SAVANNA, JAAVAATags.Items.ATTUNEABLE_ITEMS_SAVANNA);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.SNOWY_SLOPES, Items.POWDER_SNOW_BUCKET);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.SNOWY_PLAINS, Items.SNOWBALL);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.SNOWY_TAIGA, Items.SNOW_BLOCK);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.STONY_PEAKS, Items.STONE);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.SWAMP, Items.SLIME_BALL);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.TAIGA, JAAVAATags.Items.ATTUNEABLE_ITEMS_TAIGA);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, Items.GRAVEL);
             }
             private void createMaterialsRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 4)
@@ -735,6 +778,26 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                                 RegistryKeys.RECIPE, JAAVAA.id("alloying_" + outputName)),
                         new AlloyingRecipe(burnTime, experience, input1Stack, input2Stack, outputStack),
                         null);
+            }
+            private void offerBiomeCompassAttunementRecipe(RegistryKey<Biome> targetBiome, ItemConvertible attunementItem) {
+                ItemStack attunedCompass = new ItemStack(JAAVAAItems.BIOME_COMPASS, 1);
+                attunedCompass.set(JAAVAAComponents.Types.BIOME_COMPASS_TARGET, targetBiome);
+                this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
+                        .input(JAAVAAItems.BIOME_COMPASS)
+                        .input(attunementItem)
+                        .group(JAAVAA.idFromItem(JAAVAAItems.BIOME_COMPASS).toString())
+                        .criterion(hasItem(JAAVAAItems.BIOME_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
+                        .offerTo(this.exporter, recipeKeyOf("biome_compass_attunement_" + targetBiome.getValue().getPath()));
+            }
+            private void offerBiomeCompassAttunementRecipe(RegistryKey<Biome> targetBiome, TagKey<Item> attunementTag) {
+                ItemStack attunedCompass = new ItemStack(JAAVAAItems.BIOME_COMPASS, 1);
+                attunedCompass.set(JAAVAAComponents.Types.BIOME_COMPASS_TARGET, targetBiome);
+                this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
+                        .input(JAAVAAItems.BIOME_COMPASS)
+                        .input(attunementTag)
+                        .group(JAAVAA.idFromItem(JAAVAAItems.BIOME_COMPASS).toString())
+                        .criterion(hasItem(JAAVAAItems.BIOME_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
+                        .offerTo(this.exporter, recipeKeyOf("biome_compass_attunement_" + targetBiome.getValue().getPath()));
             }
             private void offerBlocktantRecipe(ItemConvertible blocktant, ItemConvertible parentBlock) {
                 for (int i = 1; i <= 8; i++) {

@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.enchantment.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.*;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.*;
@@ -37,6 +37,21 @@ public class JAAVAATags {
     }
     public static class Items {
         //Mod Tags
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_BADLANDS = createTag("attuneable/badlands");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_BIRCH_FOREST = createTag("attuneable/birch_forest");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_CHERRY_GROVE = createTag("attuneable/cherry_grove");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_DARK_FOREST = createTag("attuneable/dark_forest");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_DEEP_DARK = createTag("attuneable/deep_dark");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_DESERT = createTag("attuneable/desert");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_DRIPSTONE_CAVES = createTag("attuneable/dripstone_caves");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_JUNGLE = createTag("attuneable/jungle");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_LUSH_CAVES = createTag("attuneable/lush_caves");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_PALE_GARDEN = createTag("attuneable/pale_garden");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_PLAINS = createTag("attuneable/plains");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_MANGROVE_SWAMP = createTag("attuneable/mangrove_swamp");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_MUSHROOM_FIELDS = createTag("attuneable/mushroom_fields");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_SAVANNA = createTag("attuneable/savanna");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_TAIGA = createTag("attuneable/taiga");
         public static final TagKey<Item> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
         public static final TagKey<Item> HAMMERS = createTag("hammers");
         public static final TagKey<Item> MAGNETS = createTag("magnets");

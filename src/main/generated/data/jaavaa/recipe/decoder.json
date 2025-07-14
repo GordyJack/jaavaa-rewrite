@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "redstone",
   "group": "jaavaa:decoder",
   "key": {
     "C": "minecraft:comparator",

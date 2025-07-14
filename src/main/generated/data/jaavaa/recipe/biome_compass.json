@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:biome_compass",
+  "key": {
+    "A": "jaavaa:auron_ingot",
+    "C": "minecraft:compass",
+    "S": "minecraft:amethyst_shard"
+  },
+  "pattern": [
+    " S ",
+    "ACA",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:biome_compass"
+  }
+}

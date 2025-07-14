@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "redstone",
   "group": "jaavaa:randomizer",
   "key": {
     "D": "#jaavaa:deepslate_craftables",

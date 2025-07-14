@@ -12,6 +12,7 @@ import net.minecraft.nbt.*;
 import net.minecraft.registry.*;
 import net.minecraft.text.*;
 import net.minecraft.util.*;
+import net.minecraft.world.biome.*;
 
 import java.util.*;
 import java.util.function.*;
@@ -54,6 +55,12 @@ public class JAAVAAItems {
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
     //Tools
+    public static final Item BIOME_COMPASS = register("biome_compass",
+            BiomeCompassItem::new,
+            new Item.Settings().maxCount(1)
+                    .component(JAAVAAComponents.Types.BIOME_COMPASS_TARGET, BiomeKeys.MANGROVE_SWAMP)
+                    .component(JAAVAAComponents.Types.BIOME_COMPASS_POSITION, null)
+    );
     public static final Item HAMMER_IRON = register("iron_hammer", settings ->
                     new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.IRON), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
@@ -194,6 +201,7 @@ public class JAAVAAItems {
             entries.add(ALLAY_ESSENCE);
             entries.add(AURON_INGOT);
             entries.add(AURON_NUGGET);
+            entries.add(BIOME_COMPASS);
             entries.add(FUSED_ROD);
             entries.add(HAMMER_IRON);
             entries.add(HAMMER_GOLD);

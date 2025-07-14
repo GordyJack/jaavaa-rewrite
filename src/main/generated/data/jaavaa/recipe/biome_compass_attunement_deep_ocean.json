@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "jaavaa:biome_compass",
+  "ingredients": [
+    "jaavaa:biome_compass",
+    "minecraft:kelp"
+  ],
+  "result": {
+    "components": {
+      "jaavaa:biome_compass_target": "minecraft:deep_ocean"
+    },
+    "count": 1,
+    "id": "jaavaa:biome_compass"
+  }
+}

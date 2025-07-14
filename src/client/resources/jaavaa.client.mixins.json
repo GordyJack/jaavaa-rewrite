@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "client": [
     "AnvilScreenMixin",
-    "ExampleClientMixin"
+    "ExampleClientMixin",
+    "NumericPropertiesMixin"
   ],
   "injectors": {
     "defaultRequire": 1
