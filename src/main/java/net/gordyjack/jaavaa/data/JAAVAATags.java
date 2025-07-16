@@ -10,6 +10,8 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.*;
 
+import javax.swing.text.html.*;
+
 public class JAAVAATags {
     public static class Blocks {
         public static final TagKey<Block> BLOCKTANTS = createTag("blocktants");
@@ -44,6 +46,7 @@ public class JAAVAATags {
         public static final TagKey<Item> ATTUNEABLE_ITEMS_DEEP_DARK = createTag("attuneable/deep_dark");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_DESERT = createTag("attuneable/desert");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_DRIPSTONE_CAVES = createTag("attuneable/dripstone_caves");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_FLOWER_FOREST = createTag("attuneable/flower_forest");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_JUNGLE = createTag("attuneable/jungle");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_LUSH_CAVES = createTag("attuneable/lush_caves");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_PALE_GARDEN = createTag("attuneable/pale_garden");
@@ -52,6 +55,7 @@ public class JAAVAATags {
         public static final TagKey<Item> ATTUNEABLE_ITEMS_MUSHROOM_FIELDS = createTag("attuneable/mushroom_fields");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_SAVANNA = createTag("attuneable/savanna");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_TAIGA = createTag("attuneable/taiga");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_WARM_OCEAN = createTag("attuneable/warm_ocean");
         public static final TagKey<Item> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
         public static final TagKey<Item> HAMMERS = createTag("hammers");
         public static final TagKey<Item> MAGNETS = createTag("magnets");

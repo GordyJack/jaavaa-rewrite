@@ -12,6 +12,7 @@ d83f718bfa1851a47e57dbf2c5433398cd98d3dc data/jaavaa/tags/item/attuneable/cherry
 866db34fae50d8a3176d80ec5562991b3ba83c8c data/jaavaa/tags/item/attuneable/deep_dark.json
 4b54ac76660b079da9992a3d0093e9d707736164 data/jaavaa/tags/item/attuneable/desert.json
 d00cb4521d4fc2c41b17331be05ed21363093d18 data/jaavaa/tags/item/attuneable/dripstone_caves.json
+e0a2868470edf2696004c5fda42bd512e2b62d0e data/jaavaa/tags/item/attuneable/flower_forest.json
 c02909f2b0dfe9c2c278edf2a43c84de5513d6d6 data/jaavaa/tags/item/attuneable/jungle.json
 f2e22c61f5d2362db9d4fd3cb41dace103865e70 data/jaavaa/tags/item/attuneable/lush_caves.json
 562b028454f64a334bf769bb95525d621380e4a1 data/jaavaa/tags/item/attuneable/mangrove_swamp.json
@@ -20,6 +21,7 @@ f62f207abd20fba09bf7648cebd0bd81a018af44 data/jaavaa/tags/item/attuneable/pale_g
 42b65014b6583241c3a8f79c51aadf2df2b582d9 data/jaavaa/tags/item/attuneable/plains.json
 0d9becd4729f51beed093866ee0dea971951d042 data/jaavaa/tags/item/attuneable/savanna.json
 69b7d1a158af27da01b0b72a999ff1124b98965c data/jaavaa/tags/item/attuneable/taiga.json
+bc3deb7d1daed552e479cc612852f99d81499efa data/jaavaa/tags/item/attuneable/warm_ocean.json
 3088693cf0974bd912dee2edbca907b15c8835dd data/jaavaa/tags/item/deepslate_craftables.json
 9c9aad346b13bbb57237b1da9800d67c9e389b0e data/jaavaa/tags/item/hammers.json
 ee6178e87ac593be0eb8311221eeb760e0ac5896 data/jaavaa/tags/item/magnets.json

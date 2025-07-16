@@ -53,6 +53,22 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 Items.DRIPSTONE_BLOCK,
                 Items.POINTED_DRIPSTONE
         );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_FLOWER_FOREST).add(
+                Items.ALLIUM,
+                Items.AZURE_BLUET,
+                Items.CORNFLOWER,
+                Items.DANDELION,
+                Items.LILAC,
+                Items.LILY_OF_THE_VALLEY,
+                Items.ORANGE_TULIP,
+                Items.OXEYE_DAISY,
+                Items.PEONY,
+                Items.PINK_TULIP,
+                Items.POPPY,
+                Items.RED_TULIP,
+                Items.ROSE_BUSH,
+                Items.WHITE_TULIP
+        );
         valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_JUNGLE).add(
                 Items.JUNGLE_LOG,
                 Items.JUNGLE_LEAVES,
@@ -105,6 +121,23 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 Items.SPRUCE_LOG,
                 Items.SPRUCE_LEAVES,
                 Items.SPRUCE_SAPLING
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_WARM_OCEAN).add(
+                Items.BRAIN_CORAL,
+                Items.BUBBLE_CORAL,
+                Items.FIRE_CORAL,
+                Items.HORN_CORAL,
+                Items.TUBE_CORAL,
+                Items.BRAIN_CORAL_BLOCK,
+                Items.BUBBLE_CORAL_BLOCK,
+                Items.FIRE_CORAL_BLOCK,
+                Items.HORN_CORAL_BLOCK,
+                Items.TUBE_CORAL_BLOCK,
+                Items.BRAIN_CORAL_FAN,
+                Items.BUBBLE_CORAL_FAN,
+                Items.FIRE_CORAL_FAN,
+                Items.HORN_CORAL_FAN,
+                Items.TUBE_CORAL_FAN
         );
         valueLookupBuilder(JAAVAATags.Items.DEEPSLATE_CRAFTABLES).add(
                 Items.DEEPSLATE,

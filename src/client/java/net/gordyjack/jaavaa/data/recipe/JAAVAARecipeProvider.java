@@ -180,10 +180,12 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 offerBiomeCompassAttunementRecipe(BiomeKeys.DEEP_OCEAN, Items.KELP);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.DESERT, JAAVAATags.Items.ATTUNEABLE_ITEMS_DESERT);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.DRIPSTONE_CAVES, JAAVAATags.Items.ATTUNEABLE_ITEMS_DRIPSTONE_CAVES);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.FLOWER_FOREST, JAAVAATags.Items.ATTUNEABLE_ITEMS_FLOWER_FOREST);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.FROZEN_PEAKS, Items.ICE);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.ICE_SPIKES, Items.PACKED_ICE);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.JAGGED_PEAKS, Items.GOAT_HORN);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.JUNGLE, JAAVAATags.Items.ATTUNEABLE_ITEMS_JUNGLE);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.LUSH_CAVES, JAAVAATags.Items.ATTUNEABLE_ITEMS_LUSH_CAVES);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA, Items.PODZOL);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.PALE_GARDEN, JAAVAATags.Items.ATTUNEABLE_ITEMS_PALE_GARDEN);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.PLAINS, JAAVAATags.Items.ATTUNEABLE_ITEMS_PLAINS);
@@ -194,8 +196,10 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 offerBiomeCompassAttunementRecipe(BiomeKeys.SNOWY_PLAINS, Items.SNOWBALL);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.SNOWY_TAIGA, Items.SNOW_BLOCK);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.STONY_PEAKS, Items.STONE);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.SUNFLOWER_PLAINS, Items.SUNFLOWER);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.SWAMP, Items.SLIME_BALL);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.TAIGA, JAAVAATags.Items.ATTUNEABLE_ITEMS_TAIGA);
+                offerBiomeCompassAttunementRecipe(BiomeKeys.WARM_OCEAN, JAAVAATags.Items.ATTUNEABLE_ITEMS_WARM_OCEAN);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, Items.GRAVEL);
             }
             private void createMaterialsRecipes() {

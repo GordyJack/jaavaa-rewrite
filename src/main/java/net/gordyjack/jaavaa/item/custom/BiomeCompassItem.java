@@ -24,7 +24,8 @@ public class BiomeCompassItem
 
     public BiomeCompassItem(Settings settings) {
         super(settings);
-        this.searcher = new SpiralTickSearcher(null, null, BiomeKeys.THE_VOID, 512); // Placeholder, will be set in inventoryTick
+        this.searcher = new SpiralTickSearcher(null, null, this.getDefaultStack()
+                .get(JAAVAAComponents.Types.BIOME_COMPASS_TARGET)); // Placeholder, will be set in inventoryTick
     }
 
     @Override
@@ -66,7 +67,7 @@ public class BiomeCompassItem
         ItemStack stack = user.getStackInHand(hand);
         if (stack.getItem() instanceof BiomeCompassItem) {
             stack.remove(JAAVAAComponents.Types.BIOME_COMPASS_POSITION);
-            this.searcher = new SpiralTickSearcher(world, user, stack.get(JAAVAAComponents.Types.BIOME_COMPASS_TARGET), 128);
+            this.searcher = new SpiralTickSearcher(world, user, stack.get(JAAVAAComponents.Types.BIOME_COMPASS_TARGET));
             searching = true;
             return ActionResult.SUCCESS_SERVER;
         }

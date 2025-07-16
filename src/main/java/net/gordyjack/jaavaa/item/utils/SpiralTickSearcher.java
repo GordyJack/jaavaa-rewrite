@@ -17,6 +17,9 @@ public class SpiralTickSearcher {
     private final int perTick;               // how many to check each tick
     private int index = 0;
 
+    public SpiralTickSearcher (World world, Entity player, RegistryKey<Biome> target) {
+        this(world, player, target, 256);
+    }
     /**
      * @param world         the world to search
      * @param player        the entity around which to search
@@ -36,7 +39,7 @@ public class SpiralTickSearcher {
                 JAAVAAServerNetworking.clientRenderDistance : 4;
         int renderAreaFactor = (int) Math.pow((renderRadius * 2) + 1, 2); // diameter in chunks
         int chunksRendered = (int) Math.ceil(renderAreaFactor * Math.PI); // total chunks rendered
-        this.perTick = Math.max(1, positions.size() / (chunksRendered / 4));
+        this.perTick = Math.max(1, positions.size() / (chunksRendered / 8));
     }
 
     private List<BlockPos> buildPositions(int maxRad) {
