@@ -17,7 +17,6 @@ import org.jetbrains.annotations.*;
 
 import java.util.function.*;
 
-//TODO: Change textures to match an auron/amethyst construction.
 public class BiomeCompassItem
         extends Item {
     private SpiralTickSearcher searcher;
@@ -63,12 +62,13 @@ public class BiomeCompassItem
     }
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
+        if (world.isClient) return ActionResult.PASS;
         ItemStack stack = user.getStackInHand(hand);
         if (stack.getItem() instanceof BiomeCompassItem) {
             stack.remove(JAAVAAComponents.Types.BIOME_COMPASS_POSITION);
-            this.searcher = new SpiralTickSearcher(world, user, stack.get(JAAVAAComponents.Types.BIOME_COMPASS_TARGET), 512);
+            this.searcher = new SpiralTickSearcher(world, user, stack.get(JAAVAAComponents.Types.BIOME_COMPASS_TARGET), 128);
             searching = true;
-            return ActionResult.SUCCESS;
+            return ActionResult.SUCCESS_SERVER;
         }
         return super.use(world, user, hand);
     }

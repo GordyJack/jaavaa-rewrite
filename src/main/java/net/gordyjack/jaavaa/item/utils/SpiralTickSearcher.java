@@ -1,5 +1,6 @@
 package net.gordyjack.jaavaa.item.utils;
 
+import net.gordyjack.jaavaa.network.*;
 import net.minecraft.entity.*;
 import net.minecraft.registry.*;
 import net.minecraft.util.math.*;
@@ -31,8 +32,11 @@ public class SpiralTickSearcher {
         this.targetBiome = target;
         this.positions = buildPositions(maxChunkRad);
 
-        int rings = maxChunkRad + 1;
-        this.perTick = Math.max(1, positions.size() / (8 * rings));
+        int renderRadius = JAAVAAServerNetworking.clientRenderDistance != -1 ?
+                JAAVAAServerNetworking.clientRenderDistance : 4;
+        int renderAreaFactor = (int) Math.pow((renderRadius * 2) + 1, 2); // diameter in chunks
+        int chunksRendered = (int) Math.ceil(renderAreaFactor * Math.PI); // total chunks rendered
+        this.perTick = Math.max(1, positions.size() / (chunksRendered / 4));
     }
 
     private List<BlockPos> buildPositions(int maxRad) {
