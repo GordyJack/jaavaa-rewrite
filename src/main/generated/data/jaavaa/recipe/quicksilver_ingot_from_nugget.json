@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "jaavaa:quicksilver_ingot",
+  "key": {
+    "#": "jaavaa:quicksilver_nugget"
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:quicksilver_ingot"
+  }
+}

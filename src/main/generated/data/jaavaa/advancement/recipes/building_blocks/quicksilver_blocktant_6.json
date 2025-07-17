@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_quicksilver_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:quicksilver_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:quicksilver_blocktant_6"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_quicksilver_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:quicksilver_blocktant_6"
+    ]
+  }
+}

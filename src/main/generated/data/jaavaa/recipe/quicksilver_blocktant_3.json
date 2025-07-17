@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:quicksilver_blocktant",
+  "ingredients": [
+    "jaavaa:quicksilver_block",
+    "jaavaa:quicksilver_block",
+    "jaavaa:quicksilver_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 24,
+    "id": "jaavaa:quicksilver_blocktant"
+  }
+}

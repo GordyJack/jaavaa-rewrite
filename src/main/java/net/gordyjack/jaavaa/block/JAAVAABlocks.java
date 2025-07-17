@@ -34,6 +34,8 @@ public class JAAVAABlocks {
             QuicksandBlock::new, AbstractBlock.Settings.copy(Blocks.SAND)
                     .sounds(BlockSoundGroup.SAND)
                     .strength(0.5F));
+    public static final Block QUICKSILVER_BLOCK = registerBlock("quicksilver_block",
+            Block::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK));
     public static final Block RAW_VOIDIUM = registerBlock("raw_voidium",
             Block::new, AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS)
                     .mapColor(MapColor.BLACK));
@@ -78,29 +80,6 @@ public class JAAVAABlocks {
             RecyclingTableBlock::new, AbstractBlock.Settings.copy(Blocks.DEEPSLATE_BRICKS)
                     .requiresTool(),
             new Item.Settings().fireproof());
-    // Redstone Gates
-    public static final Block ADDER = registerBlock("adder",
-            AdderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
-    );
-    public static final Block ADVANCED_REPEATER = registerBlock("advanced_repeater",
-            AdvancedRepeaterBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
-    );
-    public static final Block DECODER = registerBlock("decoder",
-            DecoderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
-    );
-    public static final Block LOGICAL_AND_GATE = registerBlock("logical_and_gate",
-            LogicalANDGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
-    );
-    public static final Block LOGICAL_OR_GATE = registerBlock("logical_or_gate",
-            LogicalORGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
-    );
-    public static final Block LOGICAL_XOR_GATE = registerBlock("logical_xor_gate",
-            LogicalXORGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
-    );
-    public static final Block RANDOMIZER = registerBlock("randomizer",
-            RandomizerBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
-                    .luminance(state -> state.get(RandomizerBlock.POWER))
-    );
     // Redstone Blocks
     public static final Block ADJUSTABLE_REDSTONE_LAMP = registerBlock("adjustable_redstone_lamp", AdjustableRedstoneLampBlock::new,
             AbstractBlock.Settings.create()
@@ -112,6 +91,30 @@ public class JAAVAABlocks {
             new Item.Settings().fireproof());
     public static final Block QUARTZ_ENCASED_REDSTONE_PILLAR = registerBlock("quartz_encased_redstone_pillar", EncasedRedstoneBlock::new,
             AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
+    // Redstone Gates
+    public static final Block ADDER = registerBlock("adder",
+            AdderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
+    public static final Block ADVANCED_REPEATER = registerBlock("advanced_repeater",
+            AdvancedRepeaterBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
+    public static final Block DECODER = registerBlock("decoder",
+            DecoderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
+    public static final Block RANDOMIZER = registerBlock("randomizer",
+            RandomizerBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+                    .luminance(state -> state.get(RandomizerBlock.POWER))
+    );
+    //Logical Gates
+    public static final Block LOGICAL_AND_GATE = registerBlock("logical_and_gate",
+            LogicalANDGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
+    public static final Block LOGICAL_OR_GATE = registerBlock("logical_or_gate",
+            LogicalORGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
+    public static final Block LOGICAL_XOR_GATE = registerBlock("logical_xor_gate",
+            LogicalXORGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    );
     // Blocktants
     public static final Block AMETHYST_BLOCKTANT =
             registerBlocktant("amethyst_blocktant", Blocks.AMETHYST_BLOCK);
@@ -230,6 +233,8 @@ public class JAAVAABlocks {
 
     public static final Block AURON_BLOCKTANT =
             registerBlocktant("auron_blocktant", JAAVAABlocks.AURON_BLOCK);
+    public static final Block QUICKSILVER_BLOCKTANT =
+            registerBlocktant("quicksilver_blocktant", JAAVAABlocks.QUICKSILVER_BLOCK);
     public static final Block RAW_VOIDIUM_BLOCKTANT =
             registerBlocktant("raw_voidium_blocktant", JAAVAABlocks.RAW_VOIDIUM);
     public static final Block ROSE_GOLD_BLOCKTANT =
@@ -282,6 +287,7 @@ public class JAAVAABlocks {
             entries.add(ALLOY_FURNACE);
             entries.add(AURON_BLOCK);
             entries.add(QUICKSAND);
+            entries.add(QUICKSILVER_BLOCK);
             entries.add(RAW_VOIDIUM);
             entries.add(RECYCLING_TABLE);
             entries.add(ROSE_GOLD_BLOCK);
@@ -292,16 +298,16 @@ public class JAAVAABlocks {
         });
         //Adding Blocks to main Redstone ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_REDSTONE).register(entries -> {
-            entries.add(ADDER);
-            entries.add(ADVANCED_REPEATER);
-            entries.add(DECODER);
-            entries.add(LOGICAL_AND_GATE);
-            entries.add(LOGICAL_OR_GATE);
-            entries.add(LOGICAL_XOR_GATE);
-            entries.add(RANDOMIZER);
             entries.add(ADJUSTABLE_REDSTONE_LAMP);
             entries.add(ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
             entries.add(QUARTZ_ENCASED_REDSTONE_PILLAR);
+            entries.add(ADDER);
+            entries.add(ADVANCED_REPEATER);
+            entries.add(DECODER);
+            entries.add(RANDOMIZER);
+            entries.add(LOGICAL_AND_GATE);
+            entries.add(LOGICAL_OR_GATE);
+            entries.add(LOGICAL_XOR_GATE);
         });
         //Adding Blocks to mini Block ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKTANTS).register(entries -> {
@@ -348,6 +354,7 @@ public class JAAVAABlocks {
             entries.add(PRISMARINE_BRICKS_BLOCKTANT);
             entries.add(PURPUR_BLOCKTANT);
             entries.add(QUARTZ_BLOCKTANT);
+            entries.add(QUICKSILVER_BLOCKTANT);
             entries.add(RAW_COPPER_BLOCKTANT);
             entries.add(RAW_GOLD_BLOCKTANT);
             entries.add(RAW_IRON_BLOCKTANT);

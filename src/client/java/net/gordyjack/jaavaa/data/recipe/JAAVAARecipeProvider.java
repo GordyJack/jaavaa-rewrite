@@ -225,6 +225,16 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         "auron_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.AURON_INGOT).toString()
                 );
                 this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.QUICKSILVER_NUGGET, RecipeCategory.MISC, JAAVAAItems.QUICKSILVER_INGOT,
+                        "quicksilver_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_INGOT).toString(),
+                        "quicksilver_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_NUGGET).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.QUICKSILVER_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.QUICKSILVER_BLOCK,
+                        "quicksilver_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.QUICKSILVER_BLOCK).toString(),
+                        "quicksilver_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_INGOT).toString()
+                );
+                this.offerReversibleCompactingRecipes(
                         RecipeCategory.MISC, JAAVAAItems.ROSE_GOLD_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.ROSE_GOLD_BLOCK,
                         "rose_gold_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.ROSE_GOLD_BLOCK).toString(),
                         "rose_gold_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.ROSE_GOLD_INGOT).toString()

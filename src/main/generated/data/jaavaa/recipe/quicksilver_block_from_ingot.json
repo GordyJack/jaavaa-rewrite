@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "jaavaa:quicksilver_block",
+  "key": {
+    "#": "jaavaa:quicksilver_ingot"
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:quicksilver_block"
+  }
+}

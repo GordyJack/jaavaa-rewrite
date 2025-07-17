@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "jaavaa:quicksilver_nugget",
+  "ingredients": [
+    "jaavaa:quicksilver_ingot"
+  ],
+  "result": {
+    "count": 9,
+    "id": "jaavaa:quicksilver_nugget"
+  }
+}
