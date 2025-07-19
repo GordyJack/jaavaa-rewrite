@@ -374,6 +374,14 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerRecyclingRecipe(0.2f, Items.IRON_LEGGINGS, Items.IRON_INGOT, 7);
                 this.offerRecyclingRecipe(0.2f, Items.IRON_BOOTS, Items.IRON_INGOT, 4);
                 this.offerRecyclingRecipe(0.2f, Items.IRON_HORSE_ARMOR, Items.IRON_INGOT, 7);
+                //Auron
+                //Tools
+                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_AXE, JAAVAAItems.AURON_INGOT, 3);
+                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_HOE, JAAVAAItems.AURON_INGOT, 2);
+                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_PICKAXE, JAAVAAItems.AURON_INGOT, 3);
+                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_SHOVEL, JAAVAAItems.AURON_INGOT, 1);
+                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_SWORD, JAAVAAItems.AURON_INGOT, 2);
+                this.offerRecyclingRecipe(0.3f, JAAVAAItems.HAMMER_AURON, Items.HEAVY_CORE, 1);
                 //Gold
                 //Tools
                 this.offerRecyclingRecipe(0.4f, Items.GOLDEN_AXE, Items.GOLD_INGOT, 3);
@@ -741,6 +749,10 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerStarsteelUpgradeRecipe(Items.NETHERITE_SWORD, RecipeCategory.TOOLS, JAAVAAItems.STARSTEEL_SWORD);
                 this.offerStarsteelUpgradeRecipe(JAAVAAItems.TOOL_OF_THE_ANCIENTS, RecipeCategory.TOOLS, JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL);
             }
+            private void createToolsetRecipes() {
+                this.offerToolsetRecipes(JAAVAAItems.AURON_INGOT, JAAVAAItems.AURON_SWORD, JAAVAAItems.AURON_SHOVEL,
+                        JAAVAAItems.AURON_PICKAXE, JAAVAAItems.AURON_AXE, JAAVAAItems.AURON_HOE);
+            }
             private void offerAlloyingRecipe(int burnTime, float experience,
                                              ItemConvertible input1, int input1Count,
                                              ItemConvertible input2, int input2Count,
@@ -878,6 +890,72 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         )
                         .criterion("has_starsteel_ingot", this.conditionsFromTag(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS))
                         .offerTo(this.exporter, getItemPath(result) + "_smithing");
+            }
+            private void offerToolsetRecipes(ItemConvertible material, ItemConvertible swordItem, ItemConvertible shovelItem,
+                                             ItemConvertible pickaxeItem, ItemConvertible axeItem, ItemConvertible hoeItem) {
+                this.createShaped(RecipeCategory.TOOLS, swordItem)
+                        .input('M', material)
+                        .input('S', Items.STICK)
+                        .pattern("M")
+                        .pattern("M")
+                        .pattern("S")
+                        .group(JAAVAA.idFromItem(swordItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.TOOLS, shovelItem)
+                        .input('M', material)
+                        .input('S', Items.STICK)
+                        .pattern("M")
+                        .pattern("S")
+                        .pattern("S")
+                        .group(JAAVAA.idFromItem(shovelItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.TOOLS, pickaxeItem)
+                        .input('M', material)
+                        .input('S', Items.STICK)
+                        .pattern("MMM")
+                        .pattern(" S ")
+                        .pattern(" S ")
+                        .group(JAAVAA.idFromItem(pickaxeItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.TOOLS, axeItem)
+                        .input('M', material)
+                        .input('S', Items.STICK)
+                        .pattern("MM")
+                        .pattern("MS")
+                        .pattern(" S")
+                        .group(JAAVAA.idFromItem(axeItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter, recipeKeyOf(JAAVAA.idFromItem(axeItem).getPath() + "_1"));
+                this.createShaped(RecipeCategory.TOOLS, axeItem)
+                        .input('M', material)
+                        .input('S', Items.STICK)
+                        .pattern("MM")
+                        .pattern("SM")
+                        .pattern("S ")
+                        .group(JAAVAA.idFromItem(axeItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter, recipeKeyOf(JAAVAA.idFromItem(axeItem).getPath() + "_2"));
+                this.createShaped(RecipeCategory.TOOLS, hoeItem)
+                        .input('M', material)
+                        .input('S', Items.STICK)
+                        .pattern("MM")
+                        .pattern(" S")
+                        .pattern(" S")
+                        .group(JAAVAA.idFromItem(hoeItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter, recipeKeyOf(JAAVAA.idFromItem(hoeItem).getPath() + "_1"));
+                this.createShaped(RecipeCategory.TOOLS, hoeItem)
+                        .input('M', material)
+                        .input('S', Items.STICK)
+                        .pattern("MM")
+                        .pattern("S ")
+                        .pattern("S ")
+                        .group(JAAVAA.idFromItem(hoeItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter, recipeKeyOf(JAAVAA.idFromItem(hoeItem).getPath() + "_2"));
             }
         };
     }

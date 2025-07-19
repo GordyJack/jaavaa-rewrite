@@ -35,6 +35,10 @@ extends FabricLanguageProvider{
                 translationBuilder.add(block, "Block of Auron");
                 continue;
             }
+            if (block == JAAVAABlocks.QUICKSILVER_BLOCK) {
+                translationBuilder.add(block, "Block of Quicksilver");
+                continue;
+            }
             if (block == JAAVAABlocks.ROSE_GOLD_BLOCK) {
                 translationBuilder.add(block, "Block of Rose Gold");
                 continue;

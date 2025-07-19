@@ -56,6 +56,26 @@ public class JAAVAAItems {
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
     //Tools
+    //Vanilla-like Tools
+    //TODO add textures for Auron tools and add auron armor.
+    public static final Item AURON_SWORD = register("auron_sword",
+            Item::new,
+            new Item.Settings().sword(ToolMaterials.AURON, 3.0f, -2.4f)
+    );
+    public static final Item AURON_SHOVEL = register("auron_shovel",
+            settings -> new ShovelItem(ToolMaterials.AURON, 1.5F, -3.0F, settings)
+    );
+    public static final Item AURON_PICKAXE = register("auron_pickaxe",
+            Item::new,
+            new Item.Settings().pickaxe(ToolMaterials.AURON, 1.0f, -2.8f)
+    );
+    public static final Item AURON_AXE = register("auron_axe",
+            settings -> new AxeItem(ToolMaterials.AURON, 6.0f, -3.0f, settings)
+    );
+    public static final Item AURON_HOE = register("auron_hoe",
+            settings -> new HoeItem(ToolMaterials.AURON, -2.0f, -1.0f, settings)
+    );
+    //Mod Tools
     public static final Item ARCHITECTS_COMPASS = register("architects_compass",
             StructureCompassItem::new,
             new Item.Settings().maxCount(1)
@@ -241,6 +261,12 @@ public class JAAVAAItems {
             entries.add(STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
             entries.add(TOOL_OF_THE_ANCIENTS);
             entries.add(TOOL_OF_THE_ANCIENTS_STARSTEEL);
+
+            entries.add(AURON_SWORD);
+            entries.add(AURON_SHOVEL);
+            entries.add(AURON_PICKAXE);
+            entries.add(AURON_AXE);
+            entries.add(AURON_HOE);
         });
         //Adding Items to Vanilla ItemGroups
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
