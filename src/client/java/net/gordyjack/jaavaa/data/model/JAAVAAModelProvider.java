@@ -103,7 +103,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                 continue;
             }
             if (item == JAAVAAItems.ARCHITECTS_COMPASS) {
-                registerStructureCompass(imGen, item);
+                //registerStructureCompass(imGen, item);
                 continue;
             }
             if (item == JAAVAAItems.BIOME_COMPASS) {
