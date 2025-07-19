@@ -33,7 +33,7 @@ The purpose of this mod is 3-fold:
     * ⚠️ - **Rose Gold**: I honestly don't know why you would use this material, but the alloys felt incomplete without it. Oh, this is Gold and Copper by the way.
     * ⚠️ - **Quicksilver**: The best alloy, a combination of mercury and iron. Almost mystical in nature, its durability and speed rival that of diamonds with better magical properties than gold. But keep in mind it is poisonous. So every time the tool takes durability damage, there is a chance that the user becomes poisoned.
 #### **New Items**:
-  * ⚠️ - **Biome Compass**: It seems that when you infuse a compass needle with Mercury and use some Amethyst for calibration and have a more resilient casing, you get a new kind of compass that can point to any biome you like.
+  * ✅ - **Biome Compass**: It seems that when you infuse a compass needle with Mercury and use some Amethyst for calibration and have a more resilient casing, you get a new kind of compass that can point to any biome you like.
   * ✅ - **Hammers**: Mining tools made from the Heavy Core that clear out entire areas at once. Scaling from 3x3 all the way to 9x9. 
   * ✅ - **Simple Magnets**: Magnets that attract items using the power of the Allay.
 * **New Redstone Components**:
@@ -74,7 +74,7 @@ The purpose of this mod is 3-fold:
   * ⚠️ - **Voidium**: Made from Dragonsteel and the Void Corrupted Endstone found on the underside of islands, Armor made from this material turns you into the void incarnate, not even having a true physical form.
 #### **New _Legendary_ Loot**:
   * ⚠️ - **The Tool of the Ancients**: This tool is made from Netherite and is only found in the deepest bowels of Bastions. It is able to mine anything put in front of it, from dirt to Ancient Debris and everything in between. It also makes for a rather formidable weapon. Since it's made of Netherite, you can also upgrade it using **Starsteel**.
-  * ❌ - **The Architect's Compass**: A compass whose method of construction has been lost to time, this compass can find any structure in the world. It may be found in any structure, but is extremely rare. The Architect is nothing if not meticulous.
+  * ✅ - **The Architect's Compass**: A compass whose method of construction has been lost to time, this compass can find any structure in the world. It may be found in any structure, but is extremely rare. The Architect is nothing if not meticulous.
   * ❌ - **A New Kind of Beacon**: Crafted using **Starsteel** this beacon behaves similarly to a _Vanilla_ beacon, but it's effect is determined by a potion you give it. It is also more sensitive to how it's base is constructed.
 ___
 All of these features are fully configurable through the config file. I plan on adding compatibility with [Mod Menu](https://www.curseforge.com/minecraft/mc-mods/modmenu) in the future.  
