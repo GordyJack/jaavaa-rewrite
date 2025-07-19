@@ -3,13 +3,13 @@
   "category": "equipment",
   "group": "jaavaa:golden_hammer",
   "key": {
-    "G": "minecraft:gold_block",
-    "H": "minecraft:heavy_core",
+    "C": "minecraft:heavy_core",
+    "H": "minecraft:gold_block",
     "R": "jaavaa:fused_rod"
   },
   "pattern": [
-    "HG ",
-    "GR ",
+    "CH ",
+    "HR ",
     "  R"
   ],
   "result": {

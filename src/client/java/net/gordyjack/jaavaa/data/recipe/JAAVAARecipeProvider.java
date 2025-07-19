@@ -600,72 +600,10 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerRecyclingRecipe(0.1f, Items.NETHERITE_INGOT, Items.NETHERITE_SCRAP, 4);
             }
             private void createShapedHammerRecipes() {
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.HAMMER_IRON)
-                        .input('H', Items.HEAVY_CORE)
-                        .input('I', Blocks.IRON_BLOCK)
-                        .input('R', JAAVAAItems.FUSED_ROD)
-                        .pattern(" IH")
-                        .pattern(" RI")
-                        .pattern("R  ")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.HAMMER_IRON).toString())
-                        .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
-                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
-                        .offerTo(this.exporter, recipeKeyOf("hammer_iron_1"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.HAMMER_IRON)
-                        .input('H', Items.HEAVY_CORE)
-                        .input('I', Blocks.IRON_BLOCK)
-                        .input('R', JAAVAAItems.FUSED_ROD)
-                        .pattern("HI ")
-                        .pattern("IR ")
-                        .pattern("  R")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.HAMMER_IRON).toString())
-                        .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
-                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
-                        .offerTo(this.exporter, recipeKeyOf("hammer_iron_2"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.HAMMER_GOLD)
-                        .input('H', Items.HEAVY_CORE)
-                        .input('G', Blocks.GOLD_BLOCK)
-                        .input('R', JAAVAAItems.FUSED_ROD)
-                        .pattern(" GH")
-                        .pattern(" RG")
-                        .pattern("R  ")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.HAMMER_GOLD).toString())
-                        .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
-                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
-                        .offerTo(this.exporter, recipeKeyOf("hammer_golden_1"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.HAMMER_GOLD)
-                        .input('H', Items.HEAVY_CORE)
-                        .input('G', Blocks.GOLD_BLOCK)
-                        .input('R', JAAVAAItems.FUSED_ROD)
-                        .pattern("HG ")
-                        .pattern("GR ")
-                        .pattern("  R")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.HAMMER_GOLD).toString())
-                        .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
-                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
-                        .offerTo(this.exporter, recipeKeyOf("hammer_golden_2"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.HAMMER_DIAMOND)
-                        .input('H', Items.HEAVY_CORE)
-                        .input('D', Blocks.DIAMOND_BLOCK)
-                        .input('R', JAAVAAItems.FUSED_ROD)
-                        .pattern(" DH")
-                        .pattern(" RD")
-                        .pattern("R  ")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.HAMMER_DIAMOND).toString())
-                        .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
-                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
-                        .offerTo(this.exporter, recipeKeyOf("hammer_diamond_1"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.HAMMER_DIAMOND)
-                        .input('H', Items.HEAVY_CORE)
-                        .input('D', Blocks.DIAMOND_BLOCK)
-                        .input('R', JAAVAAItems.FUSED_ROD)
-                        .pattern("HD ")
-                        .pattern("DR ")
-                        .pattern("  R")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.HAMMER_DIAMOND).toString())
-                        .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
-                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
-                        .offerTo(this.exporter, recipeKeyOf("hammer_diamond_2"));
+                offerHammerRecipePair(JAAVAAItems.HAMMER_IRON, Blocks.IRON_BLOCK, "iron");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_AURON, JAAVAABlocks.AURON_BLOCK, "auron");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_GOLD, Blocks.GOLD_BLOCK, "gold");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_DIAMOND, Blocks.DIAMOND_BLOCK, "diamond");
             }
             private void createShapedMagnetRecipes() {
                 this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_IRON, 1)
@@ -816,26 +754,6 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         new AlloyingRecipe(burnTime, experience, input1Stack, input2Stack, outputStack),
                         null);
             }
-            private void offerBiomeCompassAttunementRecipe(RegistryKey<Biome> targetBiome, ItemConvertible attunementItem) {
-                ItemStack attunedCompass = new ItemStack(JAAVAAItems.BIOME_COMPASS, 1);
-                attunedCompass.set(JAAVAAComponents.Types.COMPASS_BIOME_TARGET, targetBiome);
-                this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
-                        .input(JAAVAAItems.BIOME_COMPASS)
-                        .input(attunementItem)
-                        .group(JAAVAA.idFromItem(JAAVAAItems.BIOME_COMPASS).toString())
-                        .criterion(hasItem(JAAVAAItems.BIOME_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
-                        .offerTo(this.exporter, recipeKeyOf("biome_compass_attunement_" + targetBiome.getValue().getPath()));
-            }
-            private void offerBiomeCompassAttunementRecipe(RegistryKey<Biome> targetBiome, TagKey<Item> attunementTag) {
-                ItemStack attunedCompass = new ItemStack(JAAVAAItems.BIOME_COMPASS, 1);
-                attunedCompass.set(JAAVAAComponents.Types.COMPASS_BIOME_TARGET, targetBiome);
-                this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
-                        .input(JAAVAAItems.BIOME_COMPASS)
-                        .input(attunementTag)
-                        .group(JAAVAA.idFromItem(JAAVAAItems.BIOME_COMPASS).toString())
-                        .criterion(hasItem(JAAVAAItems.BIOME_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
-                        .offerTo(this.exporter, recipeKeyOf("biome_compass_attunement_" + targetBiome.getValue().getPath()));
-            }
             private void offerArchitectsCompassAttunementRecipe(TagKey<Structure> targetStructure, ItemConvertible attunementItem) {
                 ItemStack attunedCompass = new ItemStack(JAAVAAItems.ARCHITECTS_COMPASS, 1);
                 attunedCompass.set(JAAVAAComponents.Types.COMPASS_STRUCTURE_TARGET, targetStructure);
@@ -855,6 +773,26 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .group(JAAVAA.idFromItem(JAAVAAItems.ARCHITECTS_COMPASS).toString())
                         .criterion(hasItem(JAAVAAItems.ARCHITECTS_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
                         .offerTo(this.exporter, recipeKeyOf("architects_compass_attunement_" + targetStructure.id().getPath()));
+            }
+            private void offerBiomeCompassAttunementRecipe(RegistryKey<Biome> targetBiome, ItemConvertible attunementItem) {
+                ItemStack attunedCompass = new ItemStack(JAAVAAItems.BIOME_COMPASS, 1);
+                attunedCompass.set(JAAVAAComponents.Types.COMPASS_BIOME_TARGET, targetBiome);
+                this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
+                        .input(JAAVAAItems.BIOME_COMPASS)
+                        .input(attunementItem)
+                        .group(JAAVAA.idFromItem(JAAVAAItems.BIOME_COMPASS).toString())
+                        .criterion(hasItem(JAAVAAItems.BIOME_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
+                        .offerTo(this.exporter, recipeKeyOf("biome_compass_attunement_" + targetBiome.getValue().getPath()));
+            }
+            private void offerBiomeCompassAttunementRecipe(RegistryKey<Biome> targetBiome, TagKey<Item> attunementTag) {
+                ItemStack attunedCompass = new ItemStack(JAAVAAItems.BIOME_COMPASS, 1);
+                attunedCompass.set(JAAVAAComponents.Types.COMPASS_BIOME_TARGET, targetBiome);
+                this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
+                        .input(JAAVAAItems.BIOME_COMPASS)
+                        .input(attunementTag)
+                        .group(JAAVAA.idFromItem(JAAVAAItems.BIOME_COMPASS).toString())
+                        .criterion(hasItem(JAAVAAItems.BIOME_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
+                        .offerTo(this.exporter, recipeKeyOf("biome_compass_attunement_" + targetBiome.getValue().getPath()));
             }
             private void offerBlocktantRecipe(ItemConvertible blocktant, ItemConvertible parentBlock) {
                 for (int i = 1; i <= 8; i++) {
@@ -893,6 +831,30 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(casing), conditionsFromItem(casing))
                         .criterion(hasItem(infill), conditionsFromItem(infill))
                         .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_v")));
+            }
+            private void offerHammerRecipePair(Item hammer, ItemConvertible head, String material) {
+                this.createShaped(RecipeCategory.TOOLS, hammer)
+                        .input('C', Items.HEAVY_CORE)
+                        .input('H', head)
+                        .input('R', JAAVAAItems.FUSED_ROD)
+                        .pattern(" HC")
+                        .pattern(" RH")
+                        .pattern("R  ")
+                        .group(JAAVAA.idFromItem(hammer).toString())
+                        .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
+                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
+                        .offerTo(this.exporter, recipeKeyOf("hammer_" + material + "_1"));
+                this.createShaped(RecipeCategory.TOOLS, hammer)
+                        .input('C', Items.HEAVY_CORE)
+                        .input('H', head)
+                        .input('R', JAAVAAItems.FUSED_ROD)
+                        .pattern("CH ")
+                        .pattern("HR ")
+                        .pattern("  R")
+                        .group(JAAVAA.idFromItem(hammer).toString())
+                        .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
+                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
+                        .offerTo(this.exporter, recipeKeyOf("hammer_" + material + "_2"));
             }
             private void offerRecyclingRecipe(float experience, ItemConvertible input, ItemConvertible output, int outputCount) {
                 String inputName = JAAVAA.idFromItem(input).getPath();

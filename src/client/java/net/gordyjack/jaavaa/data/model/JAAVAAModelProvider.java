@@ -82,6 +82,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                     bandId = TextureMap.getId(Blocks.IRON_BLOCK);
                     headId = bandId;
                     ringId = TextureMap.getId(Blocks.STONE);
+                } else if (hammer == JAAVAAItems.HAMMER_AURON) {
+                    bandId = TextureMap.getId(JAAVAABlocks.AURON_BLOCK);
+                    headId = bandId;
+                    ringId = TextureMap.getId(Blocks.IRON_BLOCK);
                 } else if (hammer == JAAVAAItems.HAMMER_GOLD) {
                     bandId = TextureMap.getId(Blocks.GOLD_BLOCK);
                     headId = bandId;

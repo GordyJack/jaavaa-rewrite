@@ -3,13 +3,13 @@
   "category": "equipment",
   "group": "jaavaa:diamond_hammer",
   "key": {
-    "D": "minecraft:diamond_block",
-    "H": "minecraft:heavy_core",
+    "C": "minecraft:heavy_core",
+    "H": "minecraft:diamond_block",
     "R": "jaavaa:fused_rod"
   },
   "pattern": [
-    " DH",
-    " RD",
+    " HC",
+    " RH",
     "R  "
   ],
   "result": {

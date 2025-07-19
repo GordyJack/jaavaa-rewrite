@@ -3,13 +3,13 @@
   "category": "equipment",
   "group": "jaavaa:iron_hammer",
   "key": {
-    "H": "minecraft:heavy_core",
-    "I": "minecraft:iron_block",
+    "C": "minecraft:heavy_core",
+    "H": "minecraft:iron_block",
     "R": "jaavaa:fused_rod"
   },
   "pattern": [
-    "HI ",
-    "IR ",
+    "CH ",
+    "HR ",
     "  R"
   ],
   "result": {

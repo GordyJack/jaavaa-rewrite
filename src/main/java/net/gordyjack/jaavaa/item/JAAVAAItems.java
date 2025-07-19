@@ -72,6 +72,10 @@ public class JAAVAAItems {
                     new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.IRON), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
     );
+    public static final Item HAMMER_AURON = register("auron_hammer", settings ->
+                    new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterials.AURON), settings),
+            new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
+    );
     public static final Item HAMMER_GOLD = register("golden_hammer", settings ->
                     new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.GOLD), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
@@ -212,6 +216,7 @@ public class JAAVAAItems {
             entries.add(BIOME_COMPASS);
             entries.add(FUSED_ROD);
             entries.add(HAMMER_IRON);
+            entries.add(HAMMER_AURON);
             entries.add(HAMMER_GOLD);
             entries.add(HAMMER_DIAMOND);
             entries.add(HAMMER_NETHERITE);
@@ -259,6 +264,7 @@ public class JAAVAAItems {
             entries.addAfter(Items.NETHERITE_HOE, TOOL_OF_THE_ANCIENTS);
             entries.addAfter(TOOL_OF_THE_ANCIENTS, TOOL_OF_THE_ANCIENTS_STARSTEEL);
             entries.add(HAMMER_IRON);
+            entries.add(HAMMER_AURON);
             entries.add(HAMMER_GOLD);
             entries.add(HAMMER_DIAMOND);
             entries.add(HAMMER_NETHERITE);
@@ -277,6 +283,11 @@ public class JAAVAAItems {
     }
 
     public static class ToolMaterials {
+        public static final ToolMaterial AURON = new ToolMaterial(
+                BlockTags.INCORRECT_FOR_IRON_TOOL,
+                384, 8.0f, 1.0f, 20,
+                JAAVAATags.Items.AURON_TOOL_MATERIALS
+        );
         public static final ToolMaterial STARSTEEL = new ToolMaterial(
                 JAAVAATags.Blocks.INCORRECT_FOR_STARSTEEL_TOOL,
                 3072, 12.0f, 5.0f, 20,
