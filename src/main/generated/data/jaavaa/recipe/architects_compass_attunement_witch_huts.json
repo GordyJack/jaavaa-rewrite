@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "jaavaa:architects_compass",
+  "ingredients": [
+    "jaavaa:architects_compass",
+    "#jaavaa:attuneable/witch_hut"
+  ],
+  "result": {
+    "components": {
+      "jaavaa:compass_structure_target": "#jaavaa:witch_huts"
+    },
+    "count": 1,
+    "id": "jaavaa:architects_compass"
+  }
+}

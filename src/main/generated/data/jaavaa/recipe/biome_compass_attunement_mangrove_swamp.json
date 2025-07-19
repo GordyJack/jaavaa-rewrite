@@ -7,6 +7,9 @@
     "#jaavaa:attuneable/mangrove_swamp"
   ],
   "result": {
+    "components": {
+      "jaavaa:compass_biome_target": "minecraft:mangrove_swamp"
+    },
     "count": 1,
     "id": "jaavaa:biome_compass"
   }

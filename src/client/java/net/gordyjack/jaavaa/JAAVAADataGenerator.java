@@ -27,6 +27,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider tagEntityProvider;
 	public DataProvider tagEnchantmentProvider;
 	public DataProvider tagItemProvider;
+	public DataProvider tagStructureProvider;
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
@@ -42,6 +43,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 		tagEntityProvider = pack.addProvider(JAAVAAEntityTypeTagProvider::new);
 		tagEnchantmentProvider = pack.addProvider(JAAVAAEnchantmentTagProvider::new);
 		tagItemProvider = pack.addProvider(JAAVAAItemTagProvider::new);
+		tagStructureProvider = pack.addProvider(JAAVAAStructureTagProvider::new);
 
 		blockLootTableProvider = pack.addProvider((FabricDataGenerator.Pack.Factory<JAAVAABlockLootTableProvider>) output -> new JAAVAABlockLootTableProvider(
 				output,

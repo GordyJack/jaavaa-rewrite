@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "jaavaa:architects_compass",
+  "ingredients": [
+    "jaavaa:architects_compass",
+    "#jaavaa:attuneable/ocean_monument"
+  ],
+  "result": {
+    "components": {
+      "jaavaa:compass_structure_target": "#jaavaa:ocean_monuments"
+    },
+    "count": 1,
+    "id": "jaavaa:architects_compass"
+  }
+}

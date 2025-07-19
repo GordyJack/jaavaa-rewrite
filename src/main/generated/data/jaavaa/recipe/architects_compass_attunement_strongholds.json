@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "jaavaa:architects_compass",
+  "ingredients": [
+    "jaavaa:architects_compass",
+    "minecraft:ender_eye"
+  ],
+  "result": {
+    "components": {
+      "jaavaa:compass_structure_target": "#jaavaa:strongholds"
+    },
+    "count": 1,
+    "id": "jaavaa:architects_compass"
+  }
+}

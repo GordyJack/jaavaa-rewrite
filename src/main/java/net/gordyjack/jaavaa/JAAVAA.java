@@ -6,7 +6,6 @@ import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.enchantment.*;
 import net.gordyjack.jaavaa.event.*;
 import net.gordyjack.jaavaa.item.*;
-import net.gordyjack.jaavaa.network.*;
 import net.gordyjack.jaavaa.potion.*;
 import net.gordyjack.jaavaa.recipe.*;
 import net.gordyjack.jaavaa.screen.*;
@@ -48,8 +47,6 @@ public class JAAVAA implements ModInitializer {
 		JAAVAAScreenHandlers.init();
 
 		JAAVAALootTableEventsHandler.init();
-
-		JAAVAAServerNetworking.init();
 	}
 	
 	public static Identifier id(String path) {

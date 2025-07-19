@@ -27,5 +27,9 @@ public abstract class NumericPropertiesMixin {
                 JAAVAA.id("biome_compass"),
                 BiomeCompassProperty.CODEC
         );
+        ID_MAPPER.put(
+                JAAVAA.id("structure_compass"),
+                StructureCompassProperty.CODEC
+        );
     }
 }

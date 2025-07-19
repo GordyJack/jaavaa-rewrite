@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "jaavaa:architects_compass",
+  "ingredients": [
+    "jaavaa:architects_compass",
+    "#jaavaa:attuneable/bastion"
+  ],
+  "result": {
+    "components": {
+      "jaavaa:compass_structure_target": "#jaavaa:bastions"
+    },
+    "count": 1,
+    "id": "jaavaa:architects_compass"
+  }
+}

@@ -18,6 +18,7 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        //Biome Attunement Tags
         valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_BADLANDS)
                 .addOptionalTag(ItemTags.TERRACOTTA).add(
                         Items.RED_SAND,
@@ -139,6 +140,62 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 Items.HORN_CORAL_FAN,
                 Items.TUBE_CORAL_FAN
         );
+        //Structure Attunement Tags
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_ANCIENT_CITY).add(
+                Items.CHISELED_DEEPSLATE,
+                Items.GRAY_WOOL,
+                Items.SOUL_LANTERN
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_BASTION).add(
+                Items.GILDED_BLACKSTONE,
+                Items.GOLD_BLOCK,
+                Items.POLISHED_BLACKSTONE_BRICKS,
+                Items.CRACKED_POLISHED_BLACKSTONE_BRICKS
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_END_CITY).add(
+                Items.END_STONE_BRICKS,
+                Items.PURPUR_BLOCK,
+                Items.PURPUR_PILLAR
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_OCEAN_MONUMENT).add(
+                Items.PRISMARINE,
+                Items.PRISMARINE_BRICKS,
+                Items.DARK_PRISMARINE,
+                Items.SEA_LANTERN,
+                Items.SPONGE,
+                Items.WET_SPONGE
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_PILLAGER_OUTPOST).add(
+                Items.CROSSBOW,
+                Items.OMINOUS_BOTTLE
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_RUINED_PORTAL).add(
+                Items.GOLD_INGOT,
+                Items.OBSIDIAN,
+                Items.CRYING_OBSIDIAN,
+                Items.NETHERRACK
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_TRIAL_CHAMBER).add(
+                Items.COPPER_BULB,
+                Items.TRIAL_KEY,
+                Items.CHISELED_TUFF,
+                Items.CHISELED_TUFF_BRICKS,
+                Items.BREEZE_ROD,
+                Items.HEAVY_CORE
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_WITCH_HUT).add(
+                Items.POTION,
+                Items.GLASS_BOTTLE,
+                Items.SPIDER_EYE,
+                Items.SUGAR,
+                Items.REDSTONE,
+                Items.GLOWSTONE_DUST
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_WOODLAND_MANSION).add(
+                Items.TOTEM_OF_UNDYING,
+                Items.IRON_AXE
+        );
+        //Other Mod Tags
         valueLookupBuilder(JAAVAATags.Items.DEEPSLATE_CRAFTABLES).add(
                 Items.DEEPSLATE,
                 Items.POLISHED_DEEPSLATE,

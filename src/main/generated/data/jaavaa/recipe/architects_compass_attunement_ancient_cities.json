@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "jaavaa:architects_compass",
+  "ingredients": [
+    "jaavaa:architects_compass",
+    "#jaavaa:attuneable/ancient_city"
+  ],
+  "result": {
+    "components": {
+      "jaavaa:compass_structure_target": "#jaavaa:ancient_cities"
+    },
+    "count": 1,
+    "id": "jaavaa:architects_compass"
+  }
+}

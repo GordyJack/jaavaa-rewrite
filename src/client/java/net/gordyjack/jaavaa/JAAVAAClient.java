@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.custom.*;
-import net.gordyjack.jaavaa.network.*;
 import net.gordyjack.jaavaa.screen.*;
 import net.gordyjack.jaavaa.utils.*;
 import net.minecraft.client.*;
@@ -32,8 +31,6 @@ public class JAAVAAClient implements ClientModInitializer {
 		BlockRenderLayerMap.putBlock(JAAVAABlocks.STARSTEEL_GLASS_PANE, BlockRenderLayer.TRANSLUCENT);
 
 		this.modifyRenderEvents();
-
-		JAAVAAClientNetworking.init();
 
 //		if (FabricLoader.getInstance().isModLoaded("roughlyenoughitems")) {
 //			JAAVAA.log("REI detected, adding plugin");

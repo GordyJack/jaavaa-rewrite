@@ -17,6 +17,7 @@ public class JAAVAALootTableEventsHandler {
     public static void init() {
         JAAVAA.log("Initializing JAAVAA Loot Table Events Handler");
         LootTableEvents.MODIFY.register((lootTable, lootManager, id, supplier) -> {
+            //Structures
             if (lootTable == LootTables.BASTION_BRIDGE_CHEST
                     || lootTable == LootTables.BASTION_HOGLIN_STABLE_CHEST
                     || lootTable == LootTables.BASTION_OTHER_CHEST) {
@@ -25,6 +26,10 @@ public class JAAVAALootTableEventsHandler {
             if (lootTable == LootTables.BASTION_TREASURE_CHEST) {
                 modifyBastionTreasureLootTable(lootManager);
             }
+            if (LootTables.getAll().contains(lootTable)) {
+                addArchitectsCompassToLootTable(lootManager);
+            }
+            //Entities
             if (lootTable == tableOf("entities/allay")) {
                 modifyEntityAllayLootTable(lootManager, supplier);
             }
@@ -35,6 +40,14 @@ public class JAAVAALootTableEventsHandler {
                 modifyEntityWitherLootTable(lootManager, supplier);
             }
         });
+    }
+    private static void addArchitectsCompassToLootTable(LootTable.Builder lootManager) {
+        var lootPool = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(1))
+                .with(ItemEntry.builder(JAAVAAItems.ARCHITECTS_COMPASS)
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
+                        .conditionally(RandomChanceLootCondition.builder(0.001f)));
+        lootManager.pool(lootPool);
     }
     private static void modifyBastionLootTables(LootTable.Builder lootManager) {
         var lootPool = LootPool.builder()

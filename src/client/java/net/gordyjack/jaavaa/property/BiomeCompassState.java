@@ -9,11 +9,9 @@ import net.minecraft.client.world.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
-import net.minecraft.registry.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.*;
-import net.minecraft.world.biome.*;
 import org.jetbrains.annotations.*;
 
 @Environment(EnvType.CLIENT)
@@ -108,7 +106,7 @@ public class BiomeCompassState extends NeedleAngleState {
             @Nullable
             @Override
             public GlobalPos getPosition(ClientWorld world, ItemStack stack, Entity holder) {
-                return GlobalPos.create(world.getRegistryKey(), stack.getOrDefault(JAAVAAComponents.Types.BIOME_COMPASS_POSITION, BlockPos.ORIGIN));
+                return GlobalPos.create(world.getRegistryKey(), stack.getOrDefault(JAAVAAComponents.Types.COMPASS_TARGET_POSITION, BlockPos.ORIGIN));
             }
         };
 
@@ -125,48 +123,5 @@ public class BiomeCompassState extends NeedleAngleState {
 
         @Nullable
         abstract GlobalPos getPosition(ClientWorld world, ItemStack stack, Entity holder);
-        private static BlockPos findClosestBiome(ClientWorld world, RegistryKey<Biome> targetBiome, Entity holder) {
-            return findClosestBiome(world, targetBiome, holder, 512);
-        }
-        private static BlockPos findClosestBiome(ClientWorld world, RegistryKey<Biome> targetBiome, Entity holder, int maxChunkRadius) {
-            // Convert the player’s block coords into chunk coords
-            int centerChunkX = holder.getBlockX() >> 4;
-            int centerChunkZ = holder.getBlockZ() >> 4;
-            int playerY      = holder.getBlockY();
-
-            // Iterate chunk‐radius rings 0,1,2,…maxChunkRadius
-            for (int r = 0; r <= maxChunkRadius; r++) {
-                // Walk the perimeter of the square at “radius = r”
-                for (int dx = -r; dx <= r; dx++) {
-                    for (int dz = -r; dz <= r; dz++) {
-                        // only test the “ring” cells, not the interior
-                        if (Math.abs(dx) != r && Math.abs(dz) != r) continue;
-
-                        int chunkX = centerChunkX + dx;
-                        int chunkZ = centerChunkZ + dz;
-
-                        // load or get the chunk
-                        var chunk = world.getChunk(chunkX, chunkZ);
-
-                        // scan every column in this chunk
-                        for (int x = 0; x < 16; x++) {
-                            for (int z = 0; z < 16; z++) {
-                                int worldX = (chunkX << 4) + x;
-                                int worldZ = (chunkZ << 4) + z;
-                                BlockPos pos = new BlockPos(worldX, playerY, worldZ);
-
-                                // Fabric’s biome lookup – replace with your API if different
-                                if (chunk.getBiomeFabric(pos) != null && chunk.getBiomeFabric(pos).matchesId(targetBiome.getValue())) {
-                                    return pos;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            // not found within given radius
-            return null;
-        }
-
     }
 }

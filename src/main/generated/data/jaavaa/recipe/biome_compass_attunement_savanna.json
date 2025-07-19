@@ -8,7 +8,7 @@
   ],
   "result": {
     "components": {
-      "jaavaa:biome_compass_target": "minecraft:savanna"
+      "jaavaa:compass_biome_target": "minecraft:savanna"
     },
     "count": 1,
     "id": "jaavaa:biome_compass"

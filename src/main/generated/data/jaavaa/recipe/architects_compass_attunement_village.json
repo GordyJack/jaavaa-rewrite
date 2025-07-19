@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "jaavaa:architects_compass",
+  "ingredients": [
+    "jaavaa:architects_compass",
+    "minecraft:emerald"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:architects_compass"
+  }
+}

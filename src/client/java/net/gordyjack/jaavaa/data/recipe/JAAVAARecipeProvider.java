@@ -16,6 +16,7 @@ import net.minecraft.recipe.book.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.structure.*;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -32,6 +33,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 RegistryEntryLookup<Item> registryLookup = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
                 this.createAdvancedGateRecipes();
                 this.createAlloyingRecipes();
+                this.createArchitectsCompassRecipes();
                 this.createBiomeCompassRecipes();
                 this.createMaterialsRecipes();
                 this.createMiscRecipes();
@@ -156,6 +158,27 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerAlloyingRecipe(300, 0.5f, Items.RAW_COPPER, 1, Blocks.SAND, 1, Items.COPPER_INGOT, 2);
                 this.offerAlloyingRecipe(300, 0.5f, Items.RAW_IRON, 1, Blocks.SAND, 1, Items.IRON_INGOT, 2);
                 this.offerAlloyingRecipe(300, 0.5f, Items.RAW_GOLD, 1, Blocks.SAND, 1, Items.GOLD_INGOT, 2);
+            }
+            private void createArchitectsCompassRecipes() {
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.ANCIENT_CITIES, JAAVAATags.Items.ATTUNEABLE_ITEMS_ANCIENT_CITY);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.BASTIONS, JAAVAATags.Items.ATTUNEABLE_ITEMS_BASTION);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.DESERT_PYRAMIDS, Items.CHISELED_SANDSTONE);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.END_CITIES, JAAVAATags.Items.ATTUNEABLE_ITEMS_END_CITY);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.IGLOOS, Items.SNOW_BLOCK);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.JUNGLE_TEMPLES, Items.MOSSY_COBBLESTONE);
+                offerArchitectsCompassAttunementRecipe(StructureTags.MINESHAFT, Items.RAIL);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.NETHER_FORTRESSES, Items.NETHER_BRICKS);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.NETHER_FOSSILS, Items.BONE_BLOCK);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.OCEAN_MONUMENTS, JAAVAATags.Items.ATTUNEABLE_ITEMS_OCEAN_MONUMENT);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.PILLAGER_OUTPOSTS, JAAVAATags.Items.ATTUNEABLE_ITEMS_PILLAGER_OUTPOST);
+                offerArchitectsCompassAttunementRecipe(StructureTags.RUINED_PORTAL, JAAVAATags.Items.ATTUNEABLE_ITEMS_RUINED_PORTAL);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.RUINS, Items.BRUSH);
+                offerArchitectsCompassAttunementRecipe(StructureTags.SHIPWRECK, Items.WATER_BUCKET);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.STRONGHOLDS, Items.ENDER_EYE);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.TRIAL_CHAMBERS, JAAVAATags.Items.ATTUNEABLE_ITEMS_TRIAL_CHAMBER);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.WITCH_HUTS, JAAVAATags.Items.ATTUNEABLE_ITEMS_WITCH_HUT);
+                offerArchitectsCompassAttunementRecipe(JAAVAATags.Structures.WOODLAND_MANSIONS, JAAVAATags.Items.ATTUNEABLE_ITEMS_WOODLAND_MANSION);
+                offerArchitectsCompassAttunementRecipe(StructureTags.VILLAGE, Items.EMERALD);
             }
             private void createBiomeCompassRecipes() {
                 createShaped(RecipeCategory.TOOLS, JAAVAAItems.BIOME_COMPASS)
@@ -795,7 +818,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             }
             private void offerBiomeCompassAttunementRecipe(RegistryKey<Biome> targetBiome, ItemConvertible attunementItem) {
                 ItemStack attunedCompass = new ItemStack(JAAVAAItems.BIOME_COMPASS, 1);
-                attunedCompass.set(JAAVAAComponents.Types.BIOME_COMPASS_TARGET, targetBiome);
+                attunedCompass.set(JAAVAAComponents.Types.COMPASS_BIOME_TARGET, targetBiome);
                 this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
                         .input(JAAVAAItems.BIOME_COMPASS)
                         .input(attunementItem)
@@ -805,13 +828,33 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             }
             private void offerBiomeCompassAttunementRecipe(RegistryKey<Biome> targetBiome, TagKey<Item> attunementTag) {
                 ItemStack attunedCompass = new ItemStack(JAAVAAItems.BIOME_COMPASS, 1);
-                attunedCompass.set(JAAVAAComponents.Types.BIOME_COMPASS_TARGET, targetBiome);
+                attunedCompass.set(JAAVAAComponents.Types.COMPASS_BIOME_TARGET, targetBiome);
                 this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
                         .input(JAAVAAItems.BIOME_COMPASS)
                         .input(attunementTag)
                         .group(JAAVAA.idFromItem(JAAVAAItems.BIOME_COMPASS).toString())
                         .criterion(hasItem(JAAVAAItems.BIOME_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
                         .offerTo(this.exporter, recipeKeyOf("biome_compass_attunement_" + targetBiome.getValue().getPath()));
+            }
+            private void offerArchitectsCompassAttunementRecipe(TagKey<Structure> targetStructure, ItemConvertible attunementItem) {
+                ItemStack attunedCompass = new ItemStack(JAAVAAItems.ARCHITECTS_COMPASS, 1);
+                attunedCompass.set(JAAVAAComponents.Types.COMPASS_STRUCTURE_TARGET, targetStructure);
+                this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
+                        .input(JAAVAAItems.ARCHITECTS_COMPASS)
+                        .input(attunementItem)
+                        .group(JAAVAA.idFromItem(JAAVAAItems.ARCHITECTS_COMPASS).toString())
+                        .criterion(hasItem(JAAVAAItems.ARCHITECTS_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
+                        .offerTo(this.exporter, recipeKeyOf("architects_compass_attunement_" + targetStructure.id().getPath()));
+            }
+            private void offerArchitectsCompassAttunementRecipe(TagKey<Structure> targetStructure, TagKey<Item> attunementTag) {
+                ItemStack attunedCompass = new ItemStack(JAAVAAItems.ARCHITECTS_COMPASS, 1);
+                attunedCompass.set(JAAVAAComponents.Types.COMPASS_STRUCTURE_TARGET, targetStructure);
+                this.createShapeless(RecipeCategory.TOOLS, attunedCompass)
+                        .input(JAAVAAItems.ARCHITECTS_COMPASS)
+                        .input(attunementTag)
+                        .group(JAAVAA.idFromItem(JAAVAAItems.ARCHITECTS_COMPASS).toString())
+                        .criterion(hasItem(JAAVAAItems.ARCHITECTS_COMPASS), conditionsFromItem(JAAVAAItems.BIOME_COMPASS))
+                        .offerTo(this.exporter, recipeKeyOf("architects_compass_attunement_" + targetStructure.id().getPath()));
             }
             private void offerBlocktantRecipe(ItemConvertible blocktant, ItemConvertible parentBlock) {
                 for (int i = 1; i <= 8; i++) {

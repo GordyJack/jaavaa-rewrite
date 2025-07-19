@@ -8,7 +8,7 @@
   ],
   "result": {
     "components": {
-      "jaavaa:biome_compass_target": "minecraft:windswept_gravelly_hills"
+      "jaavaa:compass_biome_target": "minecraft:windswept_gravelly_hills"
     },
     "count": 1,
     "id": "jaavaa:biome_compass"

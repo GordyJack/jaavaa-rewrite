@@ -8,8 +8,10 @@ import net.minecraft.component.type.*;
 import net.minecraft.entity.effect.*;
 import net.minecraft.item.consume.*;
 import net.minecraft.registry.*;
+import net.minecraft.registry.tag.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.structure.*;
 
 import java.util.*;
 import java.util.function.*;
@@ -39,16 +41,24 @@ public class JAAVAAComponents {
         JAAVAA.log("Initializing JAAVAA components");
     }
     public static class Types {
-        public static final ComponentType<BlockPos> BIOME_COMPASS_POSITION =
-                register("biome_compass_position", builder -> builder.codec(BlockPos.CODEC));
-        public static final ComponentType<RegistryKey<Biome>> BIOME_COMPASS_TARGET =
-                register("biome_compass_target", builder -> builder.codec(RegistryKey.createCodec(RegistryKeys.BIOME)));
-        public static final ComponentType<Integer> HAMMER_RANGE =
-                register("hammer_range", builder -> builder.codec(Codec.INT));
-        public static final ComponentType<Boolean> MAGNET_ENABLED =
-                register("enabled", builder -> builder.codec(Codec.BOOL));
-        public static final ComponentType<CapturedMobComponent> MOB_NET_ENTITY =
-                register("mob_net_entity", builder -> builder.codec(CapturedMobComponent.CODEC));
+        public static final ComponentType<RegistryKey<Biome>> COMPASS_BIOME_TARGET = register(
+                "compass_biome_target", builder -> builder.codec(RegistryKey.createCodec(RegistryKeys.BIOME))
+        );
+        public static final ComponentType<TagKey<Structure>> COMPASS_STRUCTURE_TARGET = register(
+                "compass_structure_target", builder -> builder.codec(TagKey.codec(RegistryKeys.STRUCTURE))
+        );
+        public static final ComponentType<BlockPos> COMPASS_TARGET_POSITION = register(
+                "compass_target_position", builder -> builder.codec(BlockPos.CODEC)
+        );
+        public static final ComponentType<Integer> HAMMER_RANGE = register(
+                "hammer_range", builder -> builder.codec(Codec.INT)
+        );
+        public static final ComponentType<Boolean> MAGNET_ENABLED = register(
+                "enabled", builder -> builder.codec(Codec.BOOL)
+        );
+        public static final ComponentType<CapturedMobComponent> MOB_NET_ENTITY = register(
+                "mob_net_entity", builder -> builder.codec(CapturedMobComponent.CODEC)
+        );
         private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
             return Registry.register(Registries.DATA_COMPONENT_TYPE, JAAVAA.id(name),
                     builderOperator.apply(ComponentType.builder()).build());

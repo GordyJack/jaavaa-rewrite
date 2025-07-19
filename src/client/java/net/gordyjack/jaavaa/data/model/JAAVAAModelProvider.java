@@ -102,12 +102,16 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                 registerHammerItemModel(imGen, hammer, bandId, headId, ringId, rodId);
                 continue;
             }
-            if (item == JAAVAAItems.FUSED_ROD) {
-                registerRodItemModel(imGen, item, TextureMap.getId(JAAVAAItems.FUSED_ROD));
+            if (item == JAAVAAItems.ARCHITECTS_COMPASS) {
+                registerStructureCompass(imGen, item);
                 continue;
             }
             if (item == JAAVAAItems.BIOME_COMPASS) {
-                registerCompass(imGen, item);
+                registerBiomeCompass(imGen, item);
+                continue;
+            }
+            if (item == JAAVAAItems.FUSED_ROD) {
+                registerRodItemModel(imGen, item, TextureMap.getId(JAAVAAItems.FUSED_ROD));
                 continue;
             }
             if (item.getDefaultStack().isIn(JAAVAATags.Items.TOOLS_STARSTEEL)) {
@@ -135,6 +139,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                 }))
                 .coordinate(SOUTH_DEFAULT_HORIZONTAL_ROTATION_OPERATIONS);
     }
+    //Blocks
     private BlockModelDefinitionCreator generateAdjustableState() {
         return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP)
                 .with(BlockStateVariantMap.models(JAAVAABlockProperties.LUMINANCE).generate((luminance) -> {
@@ -327,19 +332,34 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         }
         bsmGen.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(blocktant).with(variantMap));
     }
-
-    private void registerCompass(ItemModelGenerator imGen, Item item) {
+    //Items
+    private void registerBiomeCompass(ItemModelGenerator imGen, Item item) {
         List<RangeDispatchItemModel.Entry> list = imGen.createCompassRangeDispatchEntries(item);
         imGen.output
                 .accept(
                         item,
                         ItemModels.condition(
-                                ItemModels.hasComponentProperty(JAAVAAComponents.Types.BIOME_COMPASS_POSITION),
+                                ItemModels.hasComponentProperty(JAAVAAComponents.Types.COMPASS_TARGET_POSITION),
                                 ItemModels.condition(
-                                        ItemModels.hasComponentProperty(JAAVAAComponents.Types.BIOME_COMPASS_TARGET),
+                                        ItemModels.hasComponentProperty(JAAVAAComponents.Types.COMPASS_BIOME_TARGET),
                                         ItemModels.rangeDispatch(new BiomeCompassProperty(true, BiomeCompassState.Target.BIOME), 32.0F, list),
                                         ItemModels.rangeDispatch(new BiomeCompassProperty(true, BiomeCompassState.Target.NONE), 32.0F, list)),
                                 ItemModels.rangeDispatch(new BiomeCompassProperty(true, BiomeCompassState.Target.NONE), 32.0F, list)
+                        )
+                );
+    }
+    private void registerStructureCompass(ItemModelGenerator imGen, Item item) {
+        List<RangeDispatchItemModel.Entry> list = imGen.createCompassRangeDispatchEntries(item);
+        imGen.output
+                .accept(
+                        item,
+                        ItemModels.condition(
+                                ItemModels.hasComponentProperty(JAAVAAComponents.Types.COMPASS_TARGET_POSITION),
+                                ItemModels.condition(
+                                        ItemModels.hasComponentProperty(JAAVAAComponents.Types.COMPASS_STRUCTURE_TARGET),
+                                        ItemModels.rangeDispatch(new StructureCompassProperty(true, StructureCompassState.Target.STRUCTURE), 32.0F, list),
+                                        ItemModels.rangeDispatch(new StructureCompassProperty(true, StructureCompassState.Target.NONE), 32.0F, list)),
+                                ItemModels.rangeDispatch(new StructureCompassProperty(true, StructureCompassState.Target.NONE), 32.0F, list)
                         )
                 );
     }

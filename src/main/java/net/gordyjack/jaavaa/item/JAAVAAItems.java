@@ -10,6 +10,7 @@ import net.minecraft.component.type.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
 import net.minecraft.registry.*;
+import net.minecraft.registry.tag.*;
 import net.minecraft.text.*;
 import net.minecraft.util.*;
 import net.minecraft.world.biome.*;
@@ -55,11 +56,17 @@ public class JAAVAAItems {
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
     //Tools
+    public static final Item ARCHITECTS_COMPASS = register("architects_compass", //TODO: Add custom texture. Potentially add a custom model.
+            StructureCompassItem::new,
+            new Item.Settings().maxCount(1)
+                    .component(JAAVAAComponents.Types.COMPASS_STRUCTURE_TARGET, StructureTags.VILLAGE)
+                    .component(JAAVAAComponents.Types.COMPASS_TARGET_POSITION, null)
+    );
     public static final Item BIOME_COMPASS = register("biome_compass",
             BiomeCompassItem::new,
             new Item.Settings().maxCount(1)
-                    .component(JAAVAAComponents.Types.BIOME_COMPASS_TARGET, BiomeKeys.MANGROVE_SWAMP)
-                    .component(JAAVAAComponents.Types.BIOME_COMPASS_POSITION, null)
+                    .component(JAAVAAComponents.Types.COMPASS_BIOME_TARGET, BiomeKeys.THE_VOID)
+                    .component(JAAVAAComponents.Types.COMPASS_TARGET_POSITION, null)
     );
     public static final Item HAMMER_IRON = register("iron_hammer", settings ->
                     new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.IRON), settings),
@@ -199,6 +206,7 @@ public class JAAVAAItems {
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_ITEMS).register(entries -> {
             entries.add(MALUM_STELLAE_INCANTATAE);
             entries.add(ALLAY_ESSENCE);
+            entries.add(ARCHITECTS_COMPASS);
             entries.add(AURON_INGOT);
             entries.add(AURON_NUGGET);
             entries.add(BIOME_COMPASS);

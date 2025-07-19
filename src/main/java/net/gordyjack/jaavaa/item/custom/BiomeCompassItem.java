@@ -26,8 +26,8 @@ public class BiomeCompassItem
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        var biome = stack.get(JAAVAAComponents.Types.BIOME_COMPASS_TARGET);
-        var biomePosition = stack.get(JAAVAAComponents.Types.BIOME_COMPASS_POSITION);
+        var biome = stack.get(JAAVAAComponents.Types.COMPASS_BIOME_TARGET);
+        var biomePosition = stack.get(JAAVAAComponents.Types.COMPASS_TARGET_POSITION);
         if (biome != null) {
             textConsumer.accept(Text.literal("§7Attuned to: §b" + biome.getValue().getPath()));
             if (biomePosition != null){
@@ -39,7 +39,7 @@ public class BiomeCompassItem
     }
     @Override
     public boolean hasGlint(ItemStack stack) {
-        return stack.get(JAAVAAComponents.Types.BIOME_COMPASS_POSITION) != null;
+        return stack.get(JAAVAAComponents.Types.COMPASS_TARGET_POSITION) != null;
     }
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
@@ -47,11 +47,11 @@ public class BiomeCompassItem
         ItemStack stack = user.getStackInHand(hand);
         if (stack.getItem() instanceof BiomeCompassItem) {
             if (user.isSneaking()) {
-                stack.remove(JAAVAAComponents.Types.BIOME_COMPASS_POSITION);
+                stack.remove(JAAVAAComponents.Types.COMPASS_TARGET_POSITION);
                 return ActionResult.SUCCESS_SERVER;
-            } else if (stack.get(JAAVAAComponents.Types.BIOME_COMPASS_POSITION) == null) {
-                stack.set(JAAVAAComponents.Types.BIOME_COMPASS_POSITION,
-                        this.locateBiome(serverWorld, user, stack.get(JAAVAAComponents.Types.BIOME_COMPASS_TARGET))
+            } else if (stack.get(JAAVAAComponents.Types.COMPASS_TARGET_POSITION) == null) {
+                stack.set(JAAVAAComponents.Types.COMPASS_TARGET_POSITION,
+                        this.locateBiome(serverWorld, user, stack.get(JAAVAAComponents.Types.COMPASS_BIOME_TARGET))
                 );
                 return ActionResult.SUCCESS_SERVER;
             }

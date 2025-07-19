@@ -1,16 +1,15 @@
 package net.gordyjack.jaavaa.data;
 
-import net.gordyjack.jaavaa.JAAVAA;
-import net.minecraft.block.Block;
+import net.gordyjack.jaavaa.*;
+import net.minecraft.block.*;
 import net.minecraft.enchantment.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.*;
 import net.minecraft.item.*;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.registry.*;
+import net.minecraft.registry.tag.*;
 import net.minecraft.util.*;
-
-import javax.swing.text.html.*;
+import net.minecraft.world.gen.structure.*;
 
 public class JAAVAATags {
     public static class Blocks {
@@ -39,6 +38,7 @@ public class JAAVAATags {
     }
     public static class Items {
         //Mod Tags
+        //Biome Attunement Tags
         public static final TagKey<Item> ATTUNEABLE_ITEMS_BADLANDS = createTag("attuneable/badlands");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_BIRCH_FOREST = createTag("attuneable/birch_forest");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_CHERRY_GROVE = createTag("attuneable/cherry_grove");
@@ -56,6 +56,17 @@ public class JAAVAATags {
         public static final TagKey<Item> ATTUNEABLE_ITEMS_SAVANNA = createTag("attuneable/savanna");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_TAIGA = createTag("attuneable/taiga");
         public static final TagKey<Item> ATTUNEABLE_ITEMS_WARM_OCEAN = createTag("attuneable/warm_ocean");
+        //Structure Attunement Tags
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_ANCIENT_CITY = createTag("attuneable/ancient_city");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_BASTION = createTag("attuneable/bastion");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_END_CITY = createTag("attuneable/end_city");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_OCEAN_MONUMENT = createTag("attuneable/ocean_monument");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_PILLAGER_OUTPOST = createTag("attuneable/pillager_outpost");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_RUINED_PORTAL = createTag("attuneable/ruined_portal");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_TRIAL_CHAMBER = createTag("attuneable/trial_chamber");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_WITCH_HUT = createTag("attuneable/witch_hut");
+        public static final TagKey<Item> ATTUNEABLE_ITEMS_WOODLAND_MANSION = createTag("attuneable/woodland_mansion");
+        //Other Mod Tags
         public static final TagKey<Item> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
         public static final TagKey<Item> HAMMERS = createTag("hammers");
         public static final TagKey<Item> MAGNETS = createTag("magnets");
@@ -78,6 +89,27 @@ public class JAAVAATags {
         }
         public static final TagKey<Item> createTagOf(String namespace, String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(namespace, name));
+        }
+    }
+    public static class Structures {
+        public static final TagKey<Structure> ANCIENT_CITIES = createTag("ancient_cities");
+        public static final TagKey<Structure> BASTIONS = createTag("bastions");
+        public static final TagKey<Structure> DESERT_PYRAMIDS = createTag("desert_pyramids");
+        public static final TagKey<Structure> END_CITIES = createTag("end_cities");
+        public static final TagKey<Structure> IGLOOS = createTag("igloos");
+        public static final TagKey<Structure> JUNGLE_TEMPLES = createTag("jungle_temples");
+        public static final TagKey<Structure> NETHER_FORTRESSES = createTag("nether_fortresses");
+        public static final TagKey<Structure> NETHER_FOSSILS = createTag("nether_fossils");
+        public static final TagKey<Structure> OCEAN_MONUMENTS = createTag("ocean_monuments");
+        public static final TagKey<Structure> PILLAGER_OUTPOSTS = createTag("pillager_outposts");
+        public static final TagKey<Structure> RUINS = createTag("ruins");
+        public static final TagKey<Structure> STRONGHOLDS = createTag("strongholds");
+        public static final TagKey<Structure> TRIAL_CHAMBERS = createTag("trial_chambers");
+        public static final TagKey<Structure> WITCH_HUTS = createTag("witch_huts");
+        public static final TagKey<Structure> WOODLAND_MANSIONS = createTag("woodland_mansions");
+
+        private static TagKey<Structure> createTag(String name) {
+            return TagKey.of(RegistryKeys.STRUCTURE, JAAVAA.id(name));
         }
     }
     public static class Other {
