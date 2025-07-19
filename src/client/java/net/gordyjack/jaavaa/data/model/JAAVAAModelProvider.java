@@ -104,6 +104,9 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             }
             if (item == JAAVAAItems.ARCHITECTS_COMPASS) {
                 //registerStructureCompass(imGen, item);
+                // This item has a custom Blockbench Model.
+                // Will need to retain this code if we want to increase the number of steps for the compass animation.
+                // Or figure out how to create the items file without the model files.
                 continue;
             }
             if (item == JAAVAAItems.BIOME_COMPASS) {

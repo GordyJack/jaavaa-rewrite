@@ -56,7 +56,7 @@ public class JAAVAAItems {
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
     //Tools
-    public static final Item ARCHITECTS_COMPASS = register("architects_compass", //TODO: Add custom texture. Potentially add a custom model.
+    public static final Item ARCHITECTS_COMPASS = register("architects_compass",
             StructureCompassItem::new,
             new Item.Settings().maxCount(1)
                     .component(JAAVAAComponents.Types.COMPASS_STRUCTURE_TARGET, StructureTags.VILLAGE)
