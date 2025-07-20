@@ -33,14 +33,14 @@ bdcba64fe761ce091167930eed9c74a7a4ce9911 data/jaavaa/tags/item/attuneable/witch_
 a09100d74b1d699f75a64c408d91b3ccba8aecfa data/jaavaa/tags/item/attuneable/woodland_mansion.json
 d1bb553cab65498cec26c475bb84cf4cf8ba92d4 data/jaavaa/tags/item/auron_tool_materials.json
 3088693cf0974bd912dee2edbca907b15c8835dd data/jaavaa/tags/item/deepslate_craftables.json
-68f2eec2f90de597d1a332753e5f98772856baa2 data/jaavaa/tags/item/hammers.json
+36fe37e82c6c37babb47e041404bb886c9d75b37 data/jaavaa/tags/item/hammers.json
 ee6178e87ac593be0eb8311221eeb760e0ac5896 data/jaavaa/tags/item/magnets.json
 100ee538f5ff83172a3eab6bd7a0c0ce4b959720 data/jaavaa/tags/item/mob_nets.json
 564caf9fc2094fed000637f5b350a45b98f6d022 data/jaavaa/tags/item/paxels.json
 0ec76ee143715fc0e06596c34e70d7095c061499 data/jaavaa/tags/item/starsteel_tool_materials.json
 56a0f5225ef55802979f4d9da22134c36fd000ca data/jaavaa/tags/item/tools/auron.json
 6f32a79200c6271bd2d9d226d0544acaeb119562 data/jaavaa/tags/item/tools/starsteel.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/jaavaa/tags/item/tools/voidium.json
+afe01c0c8c991257bab388f51f747cbfa1478746 data/jaavaa/tags/item/tools/voidium.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/jaavaa/tags/item/voidium_tool_materials.json
 564caf9fc2094fed000637f5b350a45b98f6d022 data/minecraft/tags/item/axes.json
 8db3ee47d4f6cfa961e9153cdf8da4b96d9d6217 data/minecraft/tags/item/enchantable/durability.json

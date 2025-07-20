@@ -102,6 +102,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                     bandId = TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK);
                     headId = bandId;
                     ringId = TextureMap.getId(Blocks.NETHERITE_BLOCK);
+                } else if (hammer == JAAVAAItems.HAMMER_VOIDIUM) {
+                    bandId = TextureMap.getId(JAAVAABlocks.RAW_VOIDIUM);
+                    headId = bandId;
+                    ringId = TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK);
                 }
                 registerHammerItemModel(imGen, hammer, bandId, headId, ringId, rodId);
                 continue;

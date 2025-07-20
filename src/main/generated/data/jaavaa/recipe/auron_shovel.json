@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:auron_shovel",
+  "key": {
+    "M": "jaavaa:auron_ingot",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "M",
+    "S",
+    "S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:auron_shovel"
+  }
+}

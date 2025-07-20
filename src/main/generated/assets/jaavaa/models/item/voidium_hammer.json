@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:item/hammer_base",
+  "textures": {
+    "band": "jaavaa:block/raw_voidium",
+    "head": "jaavaa:block/raw_voidium",
+    "ring": "jaavaa:block/starsteel_block",
+    "rod": "jaavaa:item/fused_rod"
+  }
+}

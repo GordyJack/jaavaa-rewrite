@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.*;
 import net.minecraft.item.consume.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.structure.*;
@@ -49,6 +50,9 @@ public class JAAVAAComponents {
         );
         public static final ComponentType<BlockPos> COMPASS_TARGET_POSITION = register(
                 "compass_target_position", builder -> builder.codec(BlockPos.CODEC)
+        );
+        public static final ComponentType<Unit> FLYER = register(
+                "flyer", builder -> builder.codec(Unit.CODEC).packetCodec(Unit.PACKET_CODEC)
         );
         public static final ComponentType<Integer> HAMMER_RANGE = register(
                 "hammer_range", builder -> builder.codec(Codec.INT)

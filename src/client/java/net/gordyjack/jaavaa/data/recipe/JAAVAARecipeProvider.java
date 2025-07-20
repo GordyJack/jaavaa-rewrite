@@ -42,6 +42,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.createShapedMagnetRecipes();
                 this.createShapedMobNetRecipes();
                 this.createSmithingRecipes();
+                this.createToolsetRecipes();
                 this.offerEncasedPillarRecipes(Items.QUARTZ_PILLAR, Items.REDSTONE_BLOCK, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR);
                 this.offerEncasedPillarRecipes(Items.ANCIENT_DEBRIS, Items.REDSTONE_BLOCK, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
                 for (Blocktant block : JAAVAABlocks.BLOCKTANTS.keySet()) {
@@ -285,6 +286,23 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .group(JAAVAA.idFromItem(JAAVAABlocks.ALLOY_FURNACE).toString())
                         .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
                         .criterion(hasItem(Items.BLAST_FURNACE), conditionsFromItem(Items.BLAST_FURNACE))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.MISC, JAAVAAItems.HAPPY_GHAST_HARNESS)
+                        .input('G', Blocks.DRIED_GHAST)
+                        .input('E', Items.ELYTRA)
+                        .input('N', JAAVAAItems.STARSTEEL_NUGGET)
+                        .input('I', JAAVAAItems.STARSTEEL_INGOT)
+                        .input('S', JAAVAAItems.SHULKER_PEARL)
+                        .input('L', Items.LEAD)
+                        .pattern("IGI")
+                        .pattern("LSL")
+                        .pattern("NEN")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.HAPPY_GHAST_HARNESS).toString())
+                        .criterion(hasItem(Blocks.DRIED_GHAST), conditionsFromItem(Blocks.DRIED_GHAST))
+                        .criterion(hasItem(Items.ELYTRA), conditionsFromItem(Items.ELYTRA))
+                        .criterion(hasItem(JAAVAAItems.SHULKER_PEARL), conditionsFromItem(JAAVAAItems.SHULKER_PEARL))
+                        .criterion(hasItem(JAAVAAItems.STARSTEEL_INGOT), conditionsFromItem(JAAVAAItems.STARSTEEL_INGOT))
+                        .criterion(hasItem(JAAVAAItems.STARSTEEL_NUGGET), conditionsFromItem(JAAVAAItems.STARSTEEL_NUGGET))
                         .offerTo(this.exporter);
                 this.createShaped(RecipeCategory.MISC, JAAVAAItems.MALUM_STELLAE_INCANTATAE)
                         .input('G', Items.ENCHANTED_GOLDEN_APPLE)

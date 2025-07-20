@@ -131,6 +131,7 @@ df9035204816dc320b90d82847e0e8c6d1adae45 assets/jaavaa/items/golden_hammer.json
 90036e9dcd7ad0e2c69a8076a6da62ade2b773c4 assets/jaavaa/items/golden_magnet.json
 3be19d4ce342c20df72b65633ff723694a28c728 assets/jaavaa/items/golden_mob_net.json
 6ae9b73197578453edad2fcee74ed9605c3bfda6 assets/jaavaa/items/granite_blocktant.json
+a9651dda995942e64d39d28817c10da548879d24 assets/jaavaa/items/happy_ghast_harness.json
 a8e40942ae43964964a02b71ebe6dbc8adbbd9a4 assets/jaavaa/items/iron_blocktant.json
 2d2bd8acaaa43305c1d51b0bdf3fa1ed100258e3 assets/jaavaa/items/iron_hammer.json
 e48611f2a29a1883991fd5cdfad5d9685b4c4e4b assets/jaavaa/items/iron_magnet.json
@@ -197,6 +198,7 @@ b8457099176dc6993ce30e9a289ab5cfe00f266e assets/jaavaa/items/starsteel_ingot.jso
 49ad90e06ae332298f0462f986681bb96a423b85 assets/jaavaa/items/stone_bricks_blocktant.json
 8e5ea2bd76dc86489834e47db1b1fa8d51584607 assets/jaavaa/items/stone_mob_net.json
 632b44eb6bd88d3c9b5c4885689b18d6c89a32ef assets/jaavaa/items/tool_of_the_ancients.json
+5468e13737d325a80fb5f5538170229257e4fd29 assets/jaavaa/items/voidium_hammer.json
 70b1fc4a9c7df80edd5d987650c6847c50322b0f assets/jaavaa/items/warped_planks_blocktant.json
 7553dc07ba56482f3a91bd80e377b6de4108de88 assets/jaavaa/models/block/alloy_furnace.json
 54ce10c8f0475b1d3d7639e9b162616bbc958b42 assets/jaavaa/models/block/alloy_furnace_on.json
@@ -263,6 +265,7 @@ a762cc5be9f1e432533a9b772fee9ea024781a53 assets/jaavaa/models/item/fused_rod.jso
 e5099239ab9eddd784c196708b859be325cb4966 assets/jaavaa/models/item/golden_hammer.json
 914b8b0945d62e075073bed02cbfdd532ee1c017 assets/jaavaa/models/item/golden_magnet.json
 4c0ec7a151e62f424186c630805ea29018c377d7 assets/jaavaa/models/item/golden_mob_net.json
+b9673dde142fe49b25cee42f421aa81be5b95a68 assets/jaavaa/models/item/happy_ghast_harness.json
 d769ff238f9f048ea8a37001914c1e57ca303875 assets/jaavaa/models/item/iron_hammer.json
 0dda3fc17bc2797c1588e46d1a47fd003472d49c assets/jaavaa/models/item/iron_magnet.json
 3f5f54d09e675aef133d231eb77973ef27e495e7 assets/jaavaa/models/item/iron_mob_net.json
@@ -283,3 +286,4 @@ d3b19102be2df104a2da1a5e0f985bc33023c8d6 assets/jaavaa/models/item/starsteel_ing
 c300f25cee478c491ce1b8f5e1c4a0d630e47377 assets/jaavaa/models/item/starsteel_upgrade_smithing_template.json
 4cd00c6f6300349ae62a4aa8d94b12667d067230 assets/jaavaa/models/item/stone_mob_net.json
 dd70365898a08eecaee3816ac001cefb46b35f69 assets/jaavaa/models/item/tool_of_the_ancients.json
+37170f2a7c7b39faae113509fd953dfb18fe0287 assets/jaavaa/models/item/voidium_hammer.json

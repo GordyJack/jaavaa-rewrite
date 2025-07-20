@@ -8,5 +8,6 @@ public class JAAVAAEventHandler {
         PlayerBlockBreakEvents.BEFORE.register(new HammerMiningEvent());
         PlayerBlockBreakEvents.BEFORE.register(new CurseOfTheCapriciousEvent());
         ServerEntityEvents.ENTITY_LOAD.register(new EternalItemDespawnEvent());
+        ServerEntityEvents.EQUIPMENT_CHANGE.register(new FlyerEquipEvent());
     }
 }

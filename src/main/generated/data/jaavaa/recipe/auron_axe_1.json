@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:auron_axe",
+  "key": {
+    "M": "jaavaa:auron_ingot",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "MM",
+    "MS",
+    " S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:auron_axe"
+  }
+}

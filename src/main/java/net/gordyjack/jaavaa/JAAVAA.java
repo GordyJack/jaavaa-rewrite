@@ -34,6 +34,7 @@ public class JAAVAA implements ModInitializer {
 		
 		JAAVAABlocks.init();
 		JAAVAAItems.init();
+		JAAVAAEquipmentAssetKeys.init();
 		JAAVAAEventHandler.init();
 
 		JAAVAAPotions.init();

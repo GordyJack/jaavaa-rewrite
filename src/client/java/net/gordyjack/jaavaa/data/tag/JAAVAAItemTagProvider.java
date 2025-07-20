@@ -32,7 +32,8 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.HAMMER_GOLD,
                 JAAVAAItems.HAMMER_DIAMOND,
                 JAAVAAItems.HAMMER_NETHERITE,
-                JAAVAAItems.HAMMER_STARSTEEL
+                JAAVAAItems.HAMMER_STARSTEEL,
+                JAAVAAItems.HAMMER_VOIDIUM
         );
         valueLookupBuilder(JAAVAATags.Items.MAGNETS).add(
                 JAAVAAItems.MAGNET_IRON,
@@ -67,7 +68,9 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.HAMMER_STARSTEEL
         );
         valueLookupBuilder(JAAVAATags.Items.VOIDIUM_TOOL_MATERIALS);
-        valueLookupBuilder(JAAVAATags.Items.TOOLS_VOIDIUM);
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_VOIDIUM).add(
+                JAAVAAItems.HAMMER_VOIDIUM
+        );
         //Common Tags
         valueLookupBuilder(JAAVAATags.Items.TOOLS_WOODEN).add(
                 Items.WOODEN_AXE,

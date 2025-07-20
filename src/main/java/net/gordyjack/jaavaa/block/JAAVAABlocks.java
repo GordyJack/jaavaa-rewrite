@@ -18,230 +18,245 @@ import org.jetbrains.annotations.*;
 import java.util.*;
 import java.util.function.*;
 
-public class JAAVAABlocks {
-    public static final ArrayList<Block> BLOCKS = new ArrayList<>();
-    public static final Map<Blocktant, Block> BLOCKTANTS = new HashMap<>();
-    public static final Item.Settings STARSTEEL_DEFAULT_SETTINGS =
+public interface JAAVAABlocks {
+    ArrayList<Block> BLOCKS = new ArrayList<>();
+    Map<Blocktant, Block> BLOCKTANTS = new HashMap<>();
+    Item.Settings STARSTEEL_DEFAULT_SETTINGS =
             new Item.Settings()
                     .rarity(Rarity.RARE)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT);
 
     // Blocks
-    public static final Block AURON_BLOCK = registerBlock("auron_block",
-            Block::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
-                    .mapColor(MapColor.PALE_YELLOW));
-    public static final Block QUICKSAND = registerBlock("quicksand",
-            QuicksandBlock::new, AbstractBlock.Settings.copy(Blocks.SAND)
+    Block AURON_BLOCK = registerBlock("auron_block", Block::new,
+            AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
+                    .mapColor(MapColor.PALE_YELLOW)
+    );
+    Block QUICKSAND = registerBlock("quicksand", QuicksandBlock::new,
+            AbstractBlock.Settings.copy(Blocks.SAND)
                     .sounds(BlockSoundGroup.SAND)
-                    .strength(0.5F));
-    public static final Block QUICKSILVER_BLOCK = registerBlock("quicksilver_block",
-            Block::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK));
-    public static final Block RAW_VOIDIUM = registerBlock("raw_voidium",
-            Block::new, AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS)
-                    .mapColor(MapColor.BLACK));
-    public static final Block ROSE_GOLD_BLOCK = registerBlock("rose_gold_block",
-            Block::new, AbstractBlock.Settings.copy(Blocks.GOLD_BLOCK)
-                    .mapColor(MapColor.RAW_IRON_PINK));
-    public static final Block SMOOTH_POLISHED_DEEPSLATE = registerBlock("smooth_polished_deepslate", Block::new,
-            AbstractBlock.Settings.copy(Blocks.POLISHED_DEEPSLATE));
-    public static final Block STARSTEEL_BLOCK = registerBlock("starsteel_block",
-            Block::new, AbstractBlock.Settings.create()
+                    .strength(0.5F)
+    );
+    Block QUICKSILVER_BLOCK = registerBlock("quicksilver_block", Block::new,
+            AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
+    );
+    Block RAW_VOIDIUM = registerBlock("raw_voidium", Block::new,
+            AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS)
+                    .mapColor(MapColor.BLACK)
+                    .requiresTool()
+    );
+    Block ROSE_GOLD_BLOCK = registerBlock("rose_gold_block", Block::new,
+            AbstractBlock.Settings.copy(Blocks.GOLD_BLOCK)
+                    .mapColor(MapColor.RAW_IRON_PINK)
+    );
+    Block SMOOTH_POLISHED_DEEPSLATE = registerBlock("smooth_polished_deepslate", Block::new,
+            AbstractBlock.Settings.copy(Blocks.POLISHED_DEEPSLATE)
+    );
+    Block STARSTEEL_BLOCK = registerBlock("starsteel_block", Block::new,
+            AbstractBlock.Settings.create()
                     .allowsSpawning(Blocks::never)
                     .luminance(state -> 2)
                     .mapColor(MapColor.WHITE_GRAY)
                     .requiresTool()
                     .sounds(BlockSoundGroup.METAL)
                     .strength(50.0F, 1200.0F),
-            EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS);
-    public static final Block STARSTEEL_GLASS = registerBlock("starsteel_glass",
-            TransparentBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS)
+            EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS
+    );
+    Block STARSTEEL_GLASS = registerBlock("starsteel_glass", TransparentBlock::new,
+            AbstractBlock.Settings.copy(Blocks.GLASS)
                     .allowsSpawning(Blocks::never)
                     .luminance(state -> 2)
                     .mapColor(MapColor.WHITE_GRAY)
                     .requiresTool()
                     .strength(1.0F, 1200.0F),
-            EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS);
-    public static final Block STARSTEEL_GLASS_PANE = registerBlock("starsteel_glass_pane",
-            PaneBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS_PANE)
+            EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS
+    );
+    Block STARSTEEL_GLASS_PANE = registerBlock("starsteel_glass_pane", PaneBlock::new,
+            AbstractBlock.Settings.copy(Blocks.GLASS_PANE)
                     .allowsSpawning(Blocks::never)
                     .luminance(state -> 2)
                     .mapColor(MapColor.WHITE_GRAY)
                     .requiresTool()
                     .strength(1.0F, 1200.0F),
-            EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS);
+            EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS
+    );
     // Functional Blocks
-    public static final Block ALLOY_FURNACE = registerBlock("alloy_furnace",
-            AlloyFurnaceBlock::new, AbstractBlock.Settings.create()
+    Block ALLOY_FURNACE = registerBlock("alloy_furnace", AlloyFurnaceBlock::new,
+            AbstractBlock.Settings.create()
                     .luminance(state -> state.get(AlloyFurnaceBlock.LIT) ? 13 : 0)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(3.5F),
-            new Item.Settings().fireproof());
-    public static final Block RECYCLING_TABLE = registerBlock("recycling_table",
-            RecyclingTableBlock::new, AbstractBlock.Settings.copy(Blocks.DEEPSLATE_BRICKS)
-                    .requiresTool(),
-            new Item.Settings().fireproof());
+            new Item.Settings().fireproof()
+    );
+    Block RECYCLING_TABLE = registerBlock("recycling_table", RecyclingTableBlock::new,
+            AbstractBlock.Settings.copy(Blocks.DEEPSLATE_BRICKS)
+                    .sounds(BlockSoundGroup.STONE),
+            new Item.Settings().fireproof()
+    );
     // Redstone Blocks
-    public static final Block ADJUSTABLE_REDSTONE_LAMP = registerBlock("adjustable_redstone_lamp", AdjustableRedstoneLampBlock::new,
+    Block ADJUSTABLE_REDSTONE_LAMP = registerBlock("adjustable_redstone_lamp", AdjustableRedstoneLampBlock::new,
             AbstractBlock.Settings.create()
                     .luminance(state -> state.get(AdjustableRedstoneLampBlock.LUMINANCE))
                     .sounds(BlockSoundGroup.GLASS)
-                    .strength(0.3F));
-    public static final Block ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR = registerBlock("ancient_debris_encased_redstone_pillar",
-            EncasedRedstoneBlock::new, AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS),
-            new Item.Settings().fireproof());
-    public static final Block QUARTZ_ENCASED_REDSTONE_PILLAR = registerBlock("quartz_encased_redstone_pillar", EncasedRedstoneBlock::new,
-            AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
+                    .strength(0.3F)
+    );
+    Block ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR = registerBlock("ancient_debris_encased_redstone_pillar", EncasedRedstoneBlock::new,
+            AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS),
+            new Item.Settings().fireproof()
+    );
+    Block QUARTZ_ENCASED_REDSTONE_PILLAR = registerBlock("quartz_encased_redstone_pillar", EncasedRedstoneBlock::new,
+            AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK)
+    );
     // Redstone Gates
-    public static final Block ADDER = registerBlock("adder",
-            AdderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    Block ADDER = registerBlock("adder", AdderBlock::new,
+            AbstractBlock.Settings.copy(Blocks.REPEATER)
     );
-    public static final Block ADVANCED_REPEATER = registerBlock("advanced_repeater",
-            AdvancedRepeaterBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    Block ADVANCED_REPEATER = registerBlock("advanced_repeater", AdvancedRepeaterBlock::new,
+            AbstractBlock.Settings.copy(Blocks.REPEATER)
     );
-    public static final Block DECODER = registerBlock("decoder",
-            DecoderBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    Block DECODER = registerBlock("decoder", DecoderBlock::new,
+            AbstractBlock.Settings.copy(Blocks.REPEATER)
     );
-    public static final Block RANDOMIZER = registerBlock("randomizer",
-            RandomizerBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    Block RANDOMIZER = registerBlock("randomizer", RandomizerBlock::new,
+            AbstractBlock.Settings.copy(Blocks.REPEATER)
                     .luminance(state -> state.get(RandomizerBlock.POWER))
     );
     //Logical Gates
-    public static final Block LOGICAL_AND_GATE = registerBlock("logical_and_gate",
-            LogicalANDGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    Block LOGICAL_AND_GATE = registerBlock("logical_and_gate", LogicalANDGateBlock::new,
+            AbstractBlock.Settings.copy(Blocks.REPEATER)
     );
-    public static final Block LOGICAL_OR_GATE = registerBlock("logical_or_gate",
-            LogicalORGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    Block LOGICAL_OR_GATE = registerBlock("logical_or_gate", LogicalORGateBlock::new,
+            AbstractBlock.Settings.copy(Blocks.REPEATER)
     );
-    public static final Block LOGICAL_XOR_GATE = registerBlock("logical_xor_gate",
-            LogicalXORGateBlock::new, AbstractBlock.Settings.copy(Blocks.REPEATER)
+    Block LOGICAL_XOR_GATE = registerBlock("logical_xor_gate", LogicalXORGateBlock::new,
+            AbstractBlock.Settings.copy(Blocks.REPEATER)
     );
     // Blocktants
-    public static final Block AMETHYST_BLOCKTANT =
+    Block AMETHYST_BLOCKTANT =
             registerBlocktant("amethyst_blocktant", Blocks.AMETHYST_BLOCK);
-    public static final Block ANDESITE_BLOCKTANT =
+    Block ANDESITE_BLOCKTANT =
             registerBlocktant("andesite_blocktant", Blocks.ANDESITE);
-    public static final Block BRICKS_BLOCKTANT =
+    Block BRICKS_BLOCKTANT =
             registerBlocktant("bricks_blocktant", Blocks.BRICKS);
-    public static final Block COAL_BLOCKTANT =
+    Block COAL_BLOCKTANT =
             registerBlocktant("coal_blocktant", Blocks.COAL_BLOCK);
-    public static final Block COARSE_DIRT_BLOCKTANT =
+    Block COARSE_DIRT_BLOCKTANT =
             registerBlocktant("coarse_dirt_blocktant", Blocks.COARSE_DIRT);
-    public static final Block COBBLESTONE_BLOCKTANT =
+    Block COBBLESTONE_BLOCKTANT =
             registerBlocktant("cobblestone_blocktant", Blocks.COBBLESTONE);
-    public static final Block DARK_PRISMARINE_BLOCKTANT =
+    Block DARK_PRISMARINE_BLOCKTANT =
             registerBlocktant("dark_prismarine_blocktant", Blocks.DARK_PRISMARINE);
-    public static final Block DEEPSLATE_BLOCKTANT =
+    Block DEEPSLATE_BLOCKTANT =
             registerBlocktant("deepslate_blocktant", Blocks.DEEPSLATE);
-    public static final Block DEEPSLATE_TILES_BLOCKTANT =
+    Block DEEPSLATE_TILES_BLOCKTANT =
             registerBlocktant("deepslate_tiles_blocktant", Blocks.DEEPSLATE_TILES);
-    public static final Block DIAMOND_BLOCKTANT =
+    Block DIAMOND_BLOCKTANT =
             registerBlocktant("diamond_blocktant", Blocks.DIAMOND_BLOCK);
-    public static final Block DIORITE_BLOCKTANT =
+    Block DIORITE_BLOCKTANT =
             registerBlocktant("diorite_blocktant", Blocks.DIORITE);
-    public static final Block DIRT_BLOCKTANT =
+    Block DIRT_BLOCKTANT =
             registerBlocktant("dirt_blocktant", Blocks.DIRT);
-    public static final Block END_STONE_BLOCKTANT =
+    Block END_STONE_BLOCKTANT =
             registerBlocktant("end_stone_blocktant", Blocks.END_STONE);
-    public static final Block END_STONE_BRICKS_BLOCKTANT =
+    Block END_STONE_BRICKS_BLOCKTANT =
             registerBlocktant("end_stone_bricks_blocktant", Blocks.END_STONE_BRICKS);
-    public static final Block EMERALD_BLOCKTANT =
+    Block EMERALD_BLOCKTANT =
             registerBlocktant("emerald_blocktant", Blocks.EMERALD_BLOCK);
-    public static final Block GLOWSTONE_BLOCKTANT =
+    Block GLOWSTONE_BLOCKTANT =
             registerBlocktant("glowstone_blocktant", Blocks.GLOWSTONE);
-    public static final Block GOLD_BLOCKTANT =
+    Block GOLD_BLOCKTANT =
             registerBlocktant("gold_blocktant", Blocks.GOLD_BLOCK);
-    public static final Block GRANITE_BLOCKTANT =
+    Block GRANITE_BLOCKTANT =
             registerBlocktant("granite_blocktant", Blocks.GRANITE);
-    public static final Block IRON_BLOCKTANT =
+    Block IRON_BLOCKTANT =
             registerBlocktant("iron_blocktant", Blocks.IRON_BLOCK);
-    public static final Block LAPIS_LAZULI_BLOCKTANT =
+    Block LAPIS_LAZULI_BLOCKTANT =
             registerBlocktant("lapis_lazuli_blocktant", Blocks.LAPIS_BLOCK);
-    public static final Block NETHER_BRICK_BLOCKTANT =
+    Block NETHER_BRICK_BLOCKTANT =
             registerBlocktant("nether_brick_blocktant", Blocks.NETHER_BRICKS);
-    public static final Block NETHERITE_BLOCKTANT =
+    Block NETHERITE_BLOCKTANT =
             registerBlocktant("netherite_blocktant", Blocks.NETHERITE_BLOCK);
-    public static final Block OBSIDIAN_BLOCKTANT =
+    Block OBSIDIAN_BLOCKTANT =
             registerBlocktant("obsidian_blocktant", Blocks.OBSIDIAN);
-    public static final Block POLISHED_ANDESITE_BLOCKTANT =
+    Block POLISHED_ANDESITE_BLOCKTANT =
             registerBlocktant("polished_andesite_blocktant", Blocks.POLISHED_ANDESITE);
-    public static final Block POLISHED_DEEPSLATE_BLOCKTANT =
+    Block POLISHED_DEEPSLATE_BLOCKTANT =
             registerBlocktant("polished_deepslate_blocktant", Blocks.POLISHED_DEEPSLATE);
-    public static final Block POLISHED_DIORITE_BLOCKTANT =
+    Block POLISHED_DIORITE_BLOCKTANT =
             registerBlocktant("polished_diorite_blocktant", Blocks.POLISHED_DIORITE);
-    public static final Block POLISHED_GRANITE_BLOCKTANT =
+    Block POLISHED_GRANITE_BLOCKTANT =
             registerBlocktant("polished_granite_blocktant", Blocks.POLISHED_GRANITE);
-    public static final Block PRISMARINE_BLOCKTANT =
+    Block PRISMARINE_BLOCKTANT =
             registerBlocktant("prismarine_blocktant", Blocks.PRISMARINE);
-    public static final Block PRISMARINE_BRICKS_BLOCKTANT =
+    Block PRISMARINE_BRICKS_BLOCKTANT =
             registerBlocktant("prismarine_bricks_blocktant", Blocks.PRISMARINE_BRICKS);
-    public static final Block PURPUR_BLOCKTANT =
+    Block PURPUR_BLOCKTANT =
             registerBlocktant("purpur_blocktant", Blocks.PURPUR_BLOCK);
-    public static final Block QUARTZ_BLOCKTANT =
+    Block QUARTZ_BLOCKTANT =
             registerBlocktant("quartz_blocktant", Blocks.QUARTZ_BLOCK);
-//    public static final Block SMOOTH_QUARTZ_BLOCKTANT =
+//    Block SMOOTH_QUARTZ_BLOCKTANT =
 //            registerMiniBlock("smooth_quartz_blocktant", Blocks.SMOOTH_QUARTZ);
-    public static final Block RAW_COPPER_BLOCKTANT =
+    Block RAW_COPPER_BLOCKTANT =
             registerBlocktant("raw_copper_blocktant", Blocks.RAW_COPPER_BLOCK);
-    public static final Block RAW_IRON_BLOCKTANT =
+    Block RAW_IRON_BLOCKTANT =
             registerBlocktant("raw_iron_blocktant", Blocks.RAW_IRON_BLOCK);
-    public static final Block RAW_GOLD_BLOCKTANT =
+    Block RAW_GOLD_BLOCKTANT =
             registerBlocktant("raw_gold_blocktant", Blocks.RAW_GOLD_BLOCK);
-    public static final Block REDSTONE_BLOCKTANT =
+    Block REDSTONE_BLOCKTANT =
             registerBlocktant("redstone_blocktant", Blocks.REDSTONE_BLOCK);
-    public static final Block RED_NETHER_BRICK_BLOCKTANT =
+    Block RED_NETHER_BRICK_BLOCKTANT =
             registerBlocktant("red_nether_brick_blocktant", Blocks.RED_NETHER_BRICKS);
-    public static final Block RESIN_BLOCKTANT =
+    Block RESIN_BLOCKTANT =
             registerBlocktant("resin_blocktant", Blocks.RESIN_BLOCK);
-    public static final Block RESIN_BRICKS_BLOCKTANT =
+    Block RESIN_BRICKS_BLOCKTANT =
             registerBlocktant("resin_bricks_blocktant", Blocks.RESIN_BRICKS);
-    public static final Block SANDSTONE_BLOCKTANT =
+    Block SANDSTONE_BLOCKTANT =
             registerBlocktant("sandstone_blocktant", Blocks.SANDSTONE);
-//    public static final Block SMOOTH_SANDSTONE_BLOCKTANT =
+//    Block SMOOTH_SANDSTONE_BLOCKTANT =
 //            registerMiniBlock("smooth_sandstone_blocktant", Blocks.SMOOTH_SANDSTONE);
-    public static final Block SMOOTH_STONE_BLOCKTANT =
+    Block SMOOTH_STONE_BLOCKTANT =
             registerBlocktant("smooth_stone_blocktant", Blocks.SMOOTH_STONE);
-    public static final Block STONE_BLOCKTANT =
+    Block STONE_BLOCKTANT =
             registerBlocktant("stone_blocktant", Blocks.STONE);
-    public static final Block STONE_BRICKS_BLOCKTANT =
+    Block STONE_BRICKS_BLOCKTANT =
             registerBlocktant("stone_bricks_blocktant", Blocks.STONE_BRICKS);
-    public static final Block OAK_PLANKS_BLOCKTANT =
+    Block OAK_PLANKS_BLOCKTANT =
             registerBlocktant("oak_planks_blocktant", Blocks.OAK_PLANKS);
-    public static final Block SPRUCE_PLANKS_BLOCKTANT =
+    Block SPRUCE_PLANKS_BLOCKTANT =
             registerBlocktant("spruce_planks_blocktant", Blocks.SPRUCE_PLANKS);
-    public static final Block BIRCH_PLANKS_BLOCKTANT =
+    Block BIRCH_PLANKS_BLOCKTANT =
             registerBlocktant("birch_planks_blocktant", Blocks.BIRCH_PLANKS);
-    public static final Block JUNGLE_PLANKS_BLOCKTANT =
+    Block JUNGLE_PLANKS_BLOCKTANT =
             registerBlocktant("jungle_planks_blocktant", Blocks.JUNGLE_PLANKS);
-    public static final Block ACACIA_PLANKS_BLOCKTANT =
+    Block ACACIA_PLANKS_BLOCKTANT =
             registerBlocktant("acacia_planks_blocktant", Blocks.ACACIA_PLANKS);
-    public static final Block DARK_OAK_PLANKS_BLOCKTANT =
+    Block DARK_OAK_PLANKS_BLOCKTANT =
             registerBlocktant("dark_oak_planks_blocktant", Blocks.DARK_OAK_PLANKS);
-    public static final Block CRIMSON_PLANKS_BLOCKTANT =
+    Block CRIMSON_PLANKS_BLOCKTANT =
             registerBlocktant("crimson_planks_blocktant", Blocks.CRIMSON_PLANKS);
-    public static final Block WARPED_PLANKS_BLOCKTANT =
+    Block WARPED_PLANKS_BLOCKTANT =
             registerBlocktant("warped_planks_blocktant", Blocks.WARPED_PLANKS);
-    public static final Block MANGROVE_PLANKS_BLOCKTANT =
+    Block MANGROVE_PLANKS_BLOCKTANT =
             registerBlocktant("mangrove_planks_blocktant", Blocks.MANGROVE_PLANKS);
-    public static final Block CHERRY_PLANKS_BLOCKTANT =
+    Block CHERRY_PLANKS_BLOCKTANT =
             registerBlocktant("cherry_planks_blocktant", Blocks.CHERRY_PLANKS);
-    public static final Block PALE_OAK_PLANKS_BLOCKTANT =
+    Block PALE_OAK_PLANKS_BLOCKTANT =
             registerBlocktant("pale_oak_planks_blocktant", Blocks.PALE_OAK_PLANKS);
-    public static final Block BAMBOO_PLANKS_BLOCKTANT =
+    Block BAMBOO_PLANKS_BLOCKTANT =
             registerBlocktant("bamboo_planks_blocktant", Blocks.BAMBOO_PLANKS);
-    public static final Block BAMBOO_MOSAIC_BLOCKTANT =
+    Block BAMBOO_MOSAIC_BLOCKTANT =
             registerBlocktant("bamboo_mosaic_blocktant", Blocks.BAMBOO_MOSAIC);
 
-    public static final Block AURON_BLOCKTANT =
+    Block AURON_BLOCKTANT =
             registerBlocktant("auron_blocktant", JAAVAABlocks.AURON_BLOCK);
-    public static final Block QUICKSILVER_BLOCKTANT =
+    Block QUICKSILVER_BLOCKTANT =
             registerBlocktant("quicksilver_blocktant", JAAVAABlocks.QUICKSILVER_BLOCK);
-    public static final Block RAW_VOIDIUM_BLOCKTANT =
+    Block RAW_VOIDIUM_BLOCKTANT =
             registerBlocktant("raw_voidium_blocktant", JAAVAABlocks.RAW_VOIDIUM);
-    public static final Block ROSE_GOLD_BLOCKTANT =
+    Block ROSE_GOLD_BLOCKTANT =
             registerBlocktant("rose_gold_blocktant", JAAVAABlocks.ROSE_GOLD_BLOCK);
-    public static final Block SMOOTH_POLISHED_DEEPSLATE_BLOCKTANT =
+    Block SMOOTH_POLISHED_DEEPSLATE_BLOCKTANT =
             registerBlocktant("smooth_polished_deepslate_blocktant", JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
-    public static final Block STARSTEEL_BLOCKTANT =
+    Block STARSTEEL_BLOCKTANT =
             registerBlocktant("starsteel_blocktant", JAAVAABlocks.STARSTEEL_BLOCK);
 
     //Methods
@@ -279,7 +294,7 @@ public class JAAVAABlocks {
     /**
      * Initializes all blocks.
      */
-    public static void init() {
+    static void init() {
         JAAVAA.log("Initializing blocks");
 
         //Adding Blocks to main Block ItemGroup
