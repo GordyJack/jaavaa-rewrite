@@ -785,7 +785,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             }
             private void createSmithingRecipes() {
                 this.offerSmithingTemplateCopyingRecipe(JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE, Items.NETHERITE_INGOT);
-                this.offerStarsteelUpgradeRecipe(Items.NETHERITE_SWORD, RecipeCategory.TOOLS, JAAVAAItems.STARSTEEL_SWORD);
+                this.offerStarsteelUpgradeRecipe(Items.NETHERITE_SWORD, RecipeCategory.COMBAT, JAAVAAItems.STARSTEEL_SWORD);
                 this.offerStarsteelUpgradeRecipe(JAAVAAItems.TOOL_OF_THE_ANCIENTS, RecipeCategory.TOOLS, JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL);
             }
             private void createToolsetRecipes() {
@@ -933,7 +933,6 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerRecyclingRecipe(0.1f, legItem, material, 7);
                 this.offerRecyclingRecipe(0.1f, bootItem, material, 4);
             }
-
             private void offerHammerRecipePair(Item hammer, ItemConvertible head, String material) {
                 this.createShaped(RecipeCategory.TOOLS, hammer)
                         .input('C', Items.HEAVY_CORE)
@@ -985,7 +984,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             }
             private void offerToolsetRecipes(ItemConvertible material, ItemConvertible swordItem, ItemConvertible shovelItem,
                                              ItemConvertible pickaxeItem, ItemConvertible axeItem, ItemConvertible hoeItem) {
-                this.createShaped(RecipeCategory.TOOLS, swordItem)
+                this.createShaped(RecipeCategory.COMBAT, swordItem)
                         .input('M', material)
                         .input('S', Items.STICK)
                         .pattern("M")
