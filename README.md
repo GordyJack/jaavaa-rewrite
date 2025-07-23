@@ -22,15 +22,15 @@ The purpose of this mod is 3-fold:
 * ✅ - Adding a version of the **Poison** effect that can be fatal.
 ### 2. Adding features that still have a _Vanilla_ feel but aren't drawn from already existing features.
 #### **New Blocks**:
-  * ✅ - **Mini Blocks** These are 1/8 the size of a normal block so that you can create any slab or stair shape that you might want.
+  * ✅ - **Blocktants** These are 1/8 the size of a normal block so that you can create any slab or stair shape that you might want.
   * ✅ - **Alloy Furnace**: A new kind of furnace that works passively off lava underneat it to craft new _(and old)_ alloys.
   * ⚠️ - **Recycling Table**: A block that allows recycling of old gear or unused blocks to reclaim their most important components.
 #### **New Materials**:
   * ❌ - **Mercury**: Found as a liquid metal, this material is dense and poisonous to the touch making it near impossible to move through. But due to its conductivity, sensitivity, and reactivity it has many implications for new technologies and other advancements.
   * **Alloys**:
-    * ⚠️ - **Auron**: An alloy of Iron and Gold, tools made of this metal are both faster and more durable than iron with higher enchantability. Diamond is still better, but this fills the gap.
+    * ✅ - **Auron**: An alloy of Iron and Gold, tools made of this metal are both faster and more durable than iron with higher enchantability. Diamond is still better, but this fills the gap.
+    * ⚠️ - **Cupaureum**: I honestly don't know why you would use this material, but the alloys felt incomplete without it. Oh, this is Gold and Copper by the way.
     * ❌ - **Iron Bronze**: An alloy of Iron and Copper. This alloy is more durable than copper but is just as fast and uses minimal iron for those stuck in the early game.
-    * ⚠️ - **Rose Gold**: I honestly don't know why you would use this material, but the alloys felt incomplete without it. Oh, this is Gold and Copper by the way.
     * ⚠️ - **Quicksilver**: The best alloy, a combination of mercury and iron. Almost mystical in nature, its durability and speed rival that of diamonds with better magical properties than gold. But keep in mind it is poisonous. So every time the tool takes durability damage, there is a chance that the user becomes poisoned.
     * ✅ - **Steel**: Good old Iron and Coal. This alloy serves as a midpoint between Iron and Diamond, being more durable than Iron but slower than Diamond. It is also more enchantable than Diamond, but less than Iron.
 #### **New Items**:
