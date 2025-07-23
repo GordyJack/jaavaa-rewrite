@@ -1,9 +1,0 @@
-{
-  "parent": "jaavaa:item/hammer_base",
-  "textures": {
-    "band": "jaavaa:block/rose_gold_block",
-    "head": "jaavaa:block/rose_gold_block",
-    "ring": "minecraft:block/iron_block",
-    "rod": "jaavaa:item/fused_rod"
-  }
-}

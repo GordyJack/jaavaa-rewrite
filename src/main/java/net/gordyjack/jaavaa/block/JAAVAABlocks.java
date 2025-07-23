@@ -44,7 +44,7 @@ public interface JAAVAABlocks {
                     .mapColor(MapColor.BLACK)
                     .requiresTool()
     );
-    Block ROSE_GOLD_BLOCK = registerBlock("rose_gold_block", Block::new,
+    Block CUPAUREUM_BLOCK = registerBlock("cupaureum_block", Block::new,
             AbstractBlock.Settings.copy(Blocks.GOLD_BLOCK)
                     .mapColor(MapColor.RAW_IRON_PINK)
     );
@@ -257,8 +257,8 @@ public interface JAAVAABlocks {
             registerBlocktant("quicksilver_blocktant", JAAVAABlocks.QUICKSILVER_BLOCK);
     Block RAW_VOIDIUM_BLOCKTANT =
             registerBlocktant("raw_voidium_blocktant", JAAVAABlocks.RAW_VOIDIUM);
-    Block ROSE_GOLD_BLOCKTANT =
-            registerBlocktant("rose_gold_blocktant", JAAVAABlocks.ROSE_GOLD_BLOCK);
+    Block CUPAUREUM_BLOCKTANT =
+            registerBlocktant("cupaureum_blocktant", JAAVAABlocks.CUPAUREUM_BLOCK);
     Block SMOOTH_POLISHED_DEEPSLATE_BLOCKTANT =
             registerBlocktant("smooth_polished_deepslate_blocktant", JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
     Block STARSTEEL_BLOCKTANT =
@@ -314,7 +314,7 @@ public interface JAAVAABlocks {
 
             entries.add(AURON_BLOCK);
             entries.add(QUICKSILVER_BLOCK);
-            entries.add(ROSE_GOLD_BLOCK);
+            entries.add(CUPAUREUM_BLOCK);
             entries.add(STARSTEEL_BLOCK);
             entries.add(STEEL_BLOCK);
 
@@ -389,7 +389,7 @@ public interface JAAVAABlocks {
             entries.add(RED_NETHER_BRICK_BLOCKTANT);
             entries.add(RESIN_BLOCKTANT);
             entries.add(RESIN_BRICKS_BLOCKTANT);
-            entries.add(ROSE_GOLD_BLOCKTANT);
+            entries.add(CUPAUREUM_BLOCKTANT);
             entries.add(SANDSTONE_BLOCKTANT);
             entries.add(SMOOTH_POLISHED_DEEPSLATE_BLOCKTANT);
             entries.add(SMOOTH_STONE_BLOCKTANT);

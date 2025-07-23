@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:auron_boots",
+  "key": {
+    "#": "jaavaa:auron_ingot"
+  },
+  "pattern": [
+    "# #",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:auron_boots"
+  }
+}

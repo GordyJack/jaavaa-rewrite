@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "jaavaa:cupaureum_ingot",
+  "ingredients": [
+    "jaavaa:cupaureum_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "jaavaa:cupaureum_ingot"
+  }
+}

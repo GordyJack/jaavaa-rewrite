@@ -43,7 +43,7 @@ public interface JAAVAAItems {
     Item FUSED_ROD = register("fused_rod");
     Item QUICKSILVER_INGOT = register("quicksilver_ingot");
     Item QUICKSILVER_NUGGET = register("quicksilver_nugget");
-    Item ROSE_GOLD_INGOT = register("rose_gold_ingot");
+    Item CUPAUREUM_INGOT = register("cupaureum_ingot");
     Item SHULKER_PEARL = register("shulker_pearl");
     Item STARSTEEL_INGOT = register("starsteel_ingot",
             EternalItem::new, new Item.Settings().rarity(Rarity.UNCOMMON)
@@ -63,6 +63,22 @@ public interface JAAVAAItems {
     );
     //Equipment/Armor
     //Vanilla-like Armor
+    Item AURON_HELMET = register("auron_helmet",
+            Item::new,
+            new Item.Settings().armor(JAAVAAArmorMaterials.AURON, EquipmentType.HELMET)
+    );
+    Item AURON_CHESTPLATE = register("auron_chestplate",
+            Item::new,
+            new Item.Settings().armor(JAAVAAArmorMaterials.AURON, EquipmentType.CHESTPLATE)
+    );
+    Item AURON_LEGGINGS = register("auron_leggings",
+            Item::new,
+            new Item.Settings().armor(JAAVAAArmorMaterials.AURON, EquipmentType.LEGGINGS)
+    );
+    Item AURON_BOOTS = register("auron_boots",
+            Item::new,
+            new Item.Settings().armor(JAAVAAArmorMaterials.AURON, EquipmentType.BOOTS)
+    );
     Item STEEL_HELMET = register("steel_helmet",
             Item::new,
             new Item.Settings().armor(JAAVAAArmorMaterials.STEEL, EquipmentType.HELMET)
@@ -117,22 +133,22 @@ public interface JAAVAAItems {
     Item AURON_HOE = register("auron_hoe",
             settings -> new HoeItem(JAAVAAToolMaterials.AURON, -2.0f, -1.0f, settings)
     );
-    Item ROSE_GOLD_SWORD = register("rose_gold_sword",
+    Item CUPAUREUM_SWORD = register("cupaureum_sword",
             Item::new,
-            new Item.Settings().sword(JAAVAAToolMaterials.ROSE_GOLD, 3.0f, -2.4f)
+            new Item.Settings().sword(JAAVAAToolMaterials.CUPAUREUM, 3.0f, -2.4f)
     );
-    Item ROSE_GOLD_SHOVEL = register("rose_gold_shovel",
-            settings -> new ShovelItem(JAAVAAToolMaterials.ROSE_GOLD, 1.5F, -3.0F, settings)
+    Item CUPAUREUM_SHOVEL = register("cupaureum_shovel",
+            settings -> new ShovelItem(JAAVAAToolMaterials.CUPAUREUM, 1.5F, -3.0F, settings)
     );
-    Item ROSE_GOLD_PICKAXE = register("rose_gold_pickaxe",
+    Item CUPAUREUM_PICKAXE = register("cupaureum_pickaxe",
             Item::new,
-            new Item.Settings().pickaxe(JAAVAAToolMaterials.ROSE_GOLD, 1.0f, -2.8f)
+            new Item.Settings().pickaxe(JAAVAAToolMaterials.CUPAUREUM, 1.0f, -2.8f)
     );
-    Item ROSE_GOLD_AXE = register("rose_gold_axe",
-            settings -> new AxeItem(JAAVAAToolMaterials.ROSE_GOLD, 6.0f, -3.0f, settings)
+    Item CUPAUREUM_AXE = register("cupaureum_axe",
+            settings -> new AxeItem(JAAVAAToolMaterials.CUPAUREUM, 6.0f, -3.0f, settings)
     );
-    Item ROSE_GOLD_HOE = register("rose_gold_hoe",
-            settings -> new HoeItem(JAAVAAToolMaterials.ROSE_GOLD, -2.0f, -1.0f, settings)
+    Item CUPAUREUM_HOE = register("cupaureum_hoe",
+            settings -> new HoeItem(JAAVAAToolMaterials.CUPAUREUM, -2.0f, -1.0f, settings)
     );
     Item STEEL_SWORD = register("steel_sword",
             Item::new,
@@ -179,8 +195,8 @@ public interface JAAVAAItems {
             settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.AURON), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
     );
-    Item HAMMER_ROSE_GOLD = register("rose_gold_hammer",
-            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.ROSE_GOLD), settings),
+    Item HAMMER_CUPAUREUM = register("cupaureum_hammer",
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.CUPAUREUM), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
     );
     Item HAMMER_GOLD = register("golden_hammer",
@@ -326,7 +342,7 @@ public interface JAAVAAItems {
             entries.add(FUSED_ROD);
             entries.add(QUICKSILVER_INGOT);
             entries.add(QUICKSILVER_NUGGET);
-            entries.add(ROSE_GOLD_INGOT);
+            entries.add(CUPAUREUM_INGOT);
             entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);
             entries.add(STARSTEEL_NUGGET);
@@ -336,6 +352,10 @@ public interface JAAVAAItems {
             entries.add(STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
             //Equipment/Armor
             //Vanilla-like Armor
+            entries.add(AURON_HELMET);
+            entries.add(AURON_CHESTPLATE);
+            entries.add(AURON_LEGGINGS);
+            entries.add(AURON_BOOTS);
             entries.add(STEEL_HELMET);
             entries.add(STEEL_CHESTPLATE);
             entries.add(STEEL_LEGGINGS);
@@ -349,11 +369,11 @@ public interface JAAVAAItems {
             entries.add(AURON_PICKAXE);
             entries.add(AURON_AXE);
             entries.add(AURON_HOE);
-            entries.add(ROSE_GOLD_SWORD);
-            entries.add(ROSE_GOLD_SHOVEL);
-            entries.add(ROSE_GOLD_PICKAXE);
-            entries.add(ROSE_GOLD_AXE);
-            entries.add(ROSE_GOLD_HOE);
+            entries.add(CUPAUREUM_SWORD);
+            entries.add(CUPAUREUM_SHOVEL);
+            entries.add(CUPAUREUM_PICKAXE);
+            entries.add(CUPAUREUM_AXE);
+            entries.add(CUPAUREUM_HOE);
             entries.add(STEEL_SWORD);
             entries.add(STEEL_SHOVEL);
             entries.add(STEEL_PICKAXE);
@@ -367,7 +387,7 @@ public interface JAAVAAItems {
             //Hammers
             entries.add(HAMMER_IRON);
             entries.add(HAMMER_AURON);
-            entries.add(HAMMER_ROSE_GOLD);
+            entries.add(HAMMER_CUPAUREUM);
             entries.add(HAMMER_GOLD);
             entries.add(HAMMER_STEEL);
             entries.add(HAMMER_DIAMOND);
@@ -392,14 +412,24 @@ public interface JAAVAAItems {
         });
     }
     interface JAAVAAArmorMaterials {
+        ArmorMaterial AURON = new ArmorMaterial(
+                20,
+                createDefenseMap(2, 5, 6, 2, 7),
+                20,
+                SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+                0.5f,
+                0.0f,
+                JAAVAATags.Items.AURON_MATERIALS,
+                JAAVAAEquipmentAssetKeys.AURON
+        );
         ArmorMaterial STEEL = new ArmorMaterial(
                 24,
-                createDefenseMap(2, 5, 6, 2, 5),
+                createDefenseMap(2, 5, 6, 2, 7),
                 9,
                 SoundEvents.ITEM_ARMOR_EQUIP_IRON,
                 1.0F,
                 0.05F,
-                ItemTags.REPAIRS_IRON_ARMOR,
+                JAAVAATags.Items.STEEL_MATERIALS,
                 JAAVAAEquipmentAssetKeys.STEEL
         );
         private static Map<EquipmentType, Integer> createDefenseMap(int bootsDefense, int leggingsDefense, int chestplateDefense, int helmetDefense, int bodyDefense) {
@@ -423,27 +453,27 @@ public interface JAAVAAItems {
         ToolMaterial AURON = new ToolMaterial(
                 BlockTags.INCORRECT_FOR_IRON_TOOL,
                 384, 8.0f, 1.0f, 20,
-                JAAVAATags.Items.AURON_TOOL_MATERIALS
+                JAAVAATags.Items.AURON_MATERIALS
         );
-        ToolMaterial ROSE_GOLD = new ToolMaterial(
+        ToolMaterial CUPAUREUM = new ToolMaterial(
                 BlockTags.INCORRECT_FOR_GOLD_TOOL,
                 116, 9.0f, 1.5f, 15,
-                JAAVAATags.Items.ROSE_GOLD_TOOL_MATERIALS
+                JAAVAATags.Items.CUPAUREUM_MATERIALS
         );
         ToolMaterial STARSTEEL = new ToolMaterial(
                 JAAVAATags.Blocks.INCORRECT_FOR_STARSTEEL_TOOL,
                 3072, 12.0f, 5.0f, 20,
-                JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS
+                JAAVAATags.Items.STARSTEEL_MATERIALS
         );
         ToolMaterial STEEL = new ToolMaterial(
                 BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
                 768, 7.0f, 2.5f, 12,
-                JAAVAATags.Items.STEEL_TOOL_MATERIALS
+                JAAVAATags.Items.STEEL_MATERIALS
         );
         ToolMaterial VOIDIUM = new ToolMaterial(
                 JAAVAATags.Blocks.INCORRECT_FOR_VOIDIUM_TOOL,
                 8192, 24, 10.0f, 30,
-                JAAVAATags.Items.VOIDIUM_TOOL_MATERIALS
+                JAAVAATags.Items.VOIDIUM_MATERIALS
         );
         static ToolMaterial getModifiedDurability(ToolMaterial baseMaterial, int newDurability) {
             return new ToolMaterial(

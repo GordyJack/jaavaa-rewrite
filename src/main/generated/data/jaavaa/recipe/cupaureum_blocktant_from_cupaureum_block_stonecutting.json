@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jaavaa:cupaureum_block",
+  "result": {
+    "count": 8,
+    "id": "jaavaa:cupaureum_blocktant"
+  }
+}

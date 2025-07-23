@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "jaavaa:cupaureum_block",
+  "key": {
+    "#": "jaavaa:cupaureum_ingot"
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:cupaureum_block"
+  }
+}

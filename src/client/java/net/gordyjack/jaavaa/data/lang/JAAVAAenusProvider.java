@@ -39,8 +39,8 @@ extends FabricLanguageProvider{
                 translationBuilder.add(block, "Block of Quicksilver");
                 continue;
             }
-            if (block == JAAVAABlocks.ROSE_GOLD_BLOCK) {
-                translationBuilder.add(block, "Block of Rose Gold");
+            if (block == JAAVAABlocks.CUPAUREUM_BLOCK) {
+                translationBuilder.add(block, "Block of Cupaureum");
                 continue;
             }
             if (block == JAAVAABlocks.STARSTEEL_BLOCK) {

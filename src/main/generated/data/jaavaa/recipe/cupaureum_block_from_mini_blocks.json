@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:cupaureum_block",
+  "ingredients": [
+    "jaavaa:cupaureum_blocktant",
+    "jaavaa:cupaureum_blocktant",
+    "jaavaa:cupaureum_blocktant",
+    "jaavaa:cupaureum_blocktant",
+    "jaavaa:cupaureum_blocktant",
+    "jaavaa:cupaureum_blocktant",
+    "jaavaa:cupaureum_blocktant",
+    "jaavaa:cupaureum_blocktant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:cupaureum_block"
+  }
+}

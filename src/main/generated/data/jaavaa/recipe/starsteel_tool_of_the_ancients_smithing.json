@@ -1,6 +1,6 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "#jaavaa:starsteel_tool_materials",
+  "addition": "#jaavaa:starsteel_materials",
   "base": "jaavaa:tool_of_the_ancients",
   "result": {
     "id": "jaavaa:starsteel_tool_of_the_ancients"

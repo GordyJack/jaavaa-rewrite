@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cupaureum_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:cupaureum_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:cupaureum_axe_1"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cupaureum_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:cupaureum_axe_1"
+    ]
+  }
+}

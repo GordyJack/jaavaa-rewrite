@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_auron_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:auron_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:auron_helmet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_auron_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:auron_helmet"
+    ]
+  }
+}

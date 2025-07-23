@@ -1,6 +1,6 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "#jaavaa:starsteel_tool_materials",
+  "addition": "#jaavaa:starsteel_materials",
   "base": "jaavaa:netherite_hammer",
   "result": {
     "id": "jaavaa:starsteel_hammer"

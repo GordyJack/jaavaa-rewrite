@@ -154,8 +154,8 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerAlloyingRecipe(200, 0.9f, Items.GOLD_INGOT, 1, Items.IRON_INGOT, 1, JAAVAAItems.AURON_INGOT, 2);
                 this.offerAlloyingRecipe(1800, 8.1f, Blocks.GOLD_BLOCK, 1, Blocks.IRON_BLOCK, 1, JAAVAABlocks.AURON_BLOCK, 2);
                 this.offerAlloyingRecipe(200, 1.0f, Items.BLAZE_ROD, 1, Items.BREEZE_ROD, 1, JAAVAAItems.FUSED_ROD, 1);
-                this.offerAlloyingRecipe(200, 0.9f, Items.COPPER_INGOT, 1, Items.GOLD_INGOT, 1, JAAVAAItems.ROSE_GOLD_INGOT, 2);
-                this.offerAlloyingRecipe(1800, 8.1f, Blocks.COPPER_BLOCK, 1, Blocks.GOLD_BLOCK, 1, JAAVAABlocks.ROSE_GOLD_BLOCK, 2);
+                this.offerAlloyingRecipe(200, 0.9f, Items.COPPER_INGOT, 1, Items.GOLD_INGOT, 1, JAAVAAItems.CUPAUREUM_INGOT, 2);
+                this.offerAlloyingRecipe(1800, 8.1f, Blocks.COPPER_BLOCK, 1, Blocks.GOLD_BLOCK, 1, JAAVAABlocks.CUPAUREUM_BLOCK, 2);
                 this.offerAlloyingRecipe(1800, 9.0f, Items.NETHER_STAR, 1, Items.NETHERITE_BLOCK, 1, JAAVAABlocks.STARSTEEL_BLOCK, 1);
                 this.offerAlloyingRecipe(800, 2.0f, Items.COAL, 1, Items.IRON_INGOT, 3, JAAVAAItems.STEEL_INGOT, 2, "from_coal");
                 this.offerAlloyingRecipe(1200, 3.0f, Items.CHARCOAL, 1, Items.IRON_INGOT, 3, JAAVAAItems.STEEL_INGOT, 3, "from_charcoal");
@@ -231,12 +231,13 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 offerBiomeCompassAttunementRecipe(BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, Items.GRAVEL);
             }
             private void createEquipmentSetRecipes() {
+                this.offerEquipmentSetRecipes(JAAVAAItems.AURON_INGOT, JAAVAAItems.AURON_HELMET, JAAVAAItems.AURON_CHESTPLATE, JAAVAAItems.AURON_LEGGINGS, JAAVAAItems.AURON_BOOTS);
                 this.offerEquipmentSetRecipes(JAAVAAItems.STEEL_INGOT, JAAVAAItems.STEEL_HELMET, JAAVAAItems.STEEL_CHESTPLATE, JAAVAAItems.STEEL_LEGGINGS, JAAVAAItems.STEEL_BOOTS);
             }
             private void createHammerRecipes() {
                 offerHammerRecipePair(JAAVAAItems.HAMMER_IRON, Blocks.IRON_BLOCK, "iron");
                 offerHammerRecipePair(JAAVAAItems.HAMMER_AURON, JAAVAABlocks.AURON_BLOCK, "auron");
-                offerHammerRecipePair(JAAVAAItems.HAMMER_ROSE_GOLD, JAAVAABlocks.ROSE_GOLD_BLOCK, "rose_gold");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_CUPAUREUM, JAAVAABlocks.CUPAUREUM_BLOCK, "rose_gold");
                 offerHammerRecipePair(JAAVAAItems.HAMMER_GOLD, Blocks.GOLD_BLOCK, "gold");
                 offerHammerRecipePair(JAAVAAItems.HAMMER_STEEL, JAAVAABlocks.STEEL_BLOCK, "steel");
                 offerHammerRecipePair(JAAVAAItems.HAMMER_DIAMOND, Blocks.DIAMOND_BLOCK, "diamond");
@@ -757,9 +758,9 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         "quicksilver_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_INGOT).toString()
                 );
                 this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.ROSE_GOLD_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.ROSE_GOLD_BLOCK,
-                        "rose_gold_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.ROSE_GOLD_BLOCK).toString(),
-                        "rose_gold_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.ROSE_GOLD_INGOT).toString()
+                        RecipeCategory.MISC, JAAVAAItems.CUPAUREUM_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.CUPAUREUM_BLOCK,
+                        "cupaureum_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.CUPAUREUM_BLOCK).toString(),
+                        "cupaureum_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.CUPAUREUM_INGOT).toString()
                 );
                 this.offerReversibleCompactingRecipes(
                         RecipeCategory.MISC, JAAVAAItems.STARSTEEL_NUGGET, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT,
@@ -790,8 +791,8 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             private void createToolsetRecipes() {
                 this.offerToolsetRecipes(JAAVAAItems.AURON_INGOT, JAAVAAItems.AURON_SWORD, JAAVAAItems.AURON_SHOVEL,
                         JAAVAAItems.AURON_PICKAXE, JAAVAAItems.AURON_AXE, JAAVAAItems.AURON_HOE);
-                this.offerToolsetRecipes(JAAVAAItems.ROSE_GOLD_INGOT, JAAVAAItems.ROSE_GOLD_SWORD, JAAVAAItems.ROSE_GOLD_SHOVEL,
-                        JAAVAAItems.ROSE_GOLD_PICKAXE, JAAVAAItems.ROSE_GOLD_AXE, JAAVAAItems.ROSE_GOLD_HOE);
+                this.offerToolsetRecipes(JAAVAAItems.CUPAUREUM_INGOT, JAAVAAItems.CUPAUREUM_SWORD, JAAVAAItems.CUPAUREUM_SHOVEL,
+                        JAAVAAItems.CUPAUREUM_PICKAXE, JAAVAAItems.CUPAUREUM_AXE, JAAVAAItems.CUPAUREUM_HOE);
                 this.offerToolsetRecipes(JAAVAAItems.STEEL_INGOT, JAAVAAItems.STEEL_SWORD, JAAVAAItems.STEEL_SHOVEL,
                         JAAVAAItems.STEEL_PICKAXE, JAAVAAItems.STEEL_AXE, JAAVAAItems.STEEL_HOE);
             }
@@ -975,11 +976,11 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 SmithingTransformRecipeJsonBuilder.create(
                                 Ingredient.ofItem(JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE),
                                 Ingredient.ofItem(input),
-                                this.ingredientFromTag(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS),
+                                this.ingredientFromTag(JAAVAATags.Items.STARSTEEL_MATERIALS),
                                 category,
                                 result
                         )
-                        .criterion("has_starsteel_ingot", this.conditionsFromTag(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS))
+                        .criterion("has_starsteel_ingot", this.conditionsFromTag(JAAVAATags.Items.STARSTEEL_MATERIALS))
                         .offerTo(this.exporter, getItemPath(result) + "_smithing");
             }
             private void offerToolsetRecipes(ItemConvertible material, ItemConvertible swordItem, ItemConvertible shovelItem,

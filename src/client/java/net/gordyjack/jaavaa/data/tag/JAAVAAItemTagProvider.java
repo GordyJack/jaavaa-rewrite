@@ -29,7 +29,7 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
         valueLookupBuilder(JAAVAATags.Items.HAMMERS).add(
                 JAAVAAItems.HAMMER_IRON,
                 JAAVAAItems.HAMMER_AURON,
-                JAAVAAItems.HAMMER_ROSE_GOLD,
+                JAAVAAItems.HAMMER_CUPAUREUM,
                 JAAVAAItems.HAMMER_GOLD,
                 JAAVAAItems.HAMMER_STEEL,
                 JAAVAAItems.HAMMER_DIAMOND,
@@ -55,13 +55,13 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
-        valueLookupBuilder(JAAVAATags.Items.AURON_TOOL_MATERIALS).add(
+        valueLookupBuilder(JAAVAATags.Items.AURON_MATERIALS).add(
                 JAAVAAItems.AURON_INGOT
         );
-        valueLookupBuilder(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS).add(
+        valueLookupBuilder(JAAVAATags.Items.STARSTEEL_MATERIALS).add(
                 JAAVAAItems.STARSTEEL_INGOT
         );
-        valueLookupBuilder(JAAVAATags.Items.STEEL_TOOL_MATERIALS).add(
+        valueLookupBuilder(JAAVAATags.Items.STEEL_MATERIALS).add(
                 JAAVAAItems.STEEL_INGOT
         );
         valueLookupBuilder(JAAVAATags.Items.TOOLS_AURON).add(
@@ -72,13 +72,13 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.AURON_SWORD,
                 JAAVAAItems.HAMMER_AURON
         );
-        valueLookupBuilder(JAAVAATags.Items.TOOLS_ROSE_GOLD).add(
-                JAAVAAItems.ROSE_GOLD_AXE,
-                JAAVAAItems.ROSE_GOLD_HOE,
-                JAAVAAItems.ROSE_GOLD_PICKAXE,
-                JAAVAAItems.ROSE_GOLD_SHOVEL,
-                JAAVAAItems.ROSE_GOLD_SWORD,
-                JAAVAAItems.HAMMER_ROSE_GOLD
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_CUPAUREUM).add(
+                JAAVAAItems.CUPAUREUM_AXE,
+                JAAVAAItems.CUPAUREUM_HOE,
+                JAAVAAItems.CUPAUREUM_PICKAXE,
+                JAAVAAItems.CUPAUREUM_SHOVEL,
+                JAAVAAItems.CUPAUREUM_SWORD,
+                JAAVAAItems.HAMMER_CUPAUREUM
         );
         valueLookupBuilder(JAAVAATags.Items.TOOLS_STARSTEEL).add(
                 JAAVAAItems.STARSTEEL_SWORD,
@@ -93,7 +93,7 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.STEEL_SWORD,
                 JAAVAAItems.HAMMER_STEEL
         );
-        valueLookupBuilder(JAAVAATags.Items.VOIDIUM_TOOL_MATERIALS);
+        valueLookupBuilder(JAAVAATags.Items.VOIDIUM_MATERIALS);
         valueLookupBuilder(JAAVAATags.Items.TOOLS_VOIDIUM).add(
                 JAAVAAItems.HAMMER_VOIDIUM
         );
@@ -158,35 +158,35 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
         //Vanilla Tags
         valueLookupBuilder(ItemTags.AXES).add(
                 JAAVAAItems.AURON_AXE,
-                JAAVAAItems.ROSE_GOLD_AXE,
+                JAAVAAItems.CUPAUREUM_AXE,
                 JAAVAAItems.STEEL_AXE,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.HOES).add(
                 JAAVAAItems.AURON_HOE,
-                JAAVAAItems.ROSE_GOLD_HOE,
+                JAAVAAItems.CUPAUREUM_HOE,
                 JAAVAAItems.STEEL_HOE,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.PICKAXES).add(
                 JAAVAAItems.AURON_PICKAXE,
-                JAAVAAItems.ROSE_GOLD_PICKAXE,
+                JAAVAAItems.CUPAUREUM_PICKAXE,
                 JAAVAAItems.STEEL_PICKAXE,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.SHOVELS).add(
                 JAAVAAItems.AURON_SHOVEL,
-                JAAVAAItems.ROSE_GOLD_SHOVEL,
+                JAAVAAItems.CUPAUREUM_SHOVEL,
                 JAAVAAItems.STEEL_SHOVEL,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.SWORDS).add(
                 JAAVAAItems.AURON_SWORD,
-                JAAVAAItems.ROSE_GOLD_SWORD,
+                JAAVAAItems.CUPAUREUM_SWORD,
                 JAAVAAItems.STARSTEEL_SWORD,
                 JAAVAAItems.STEEL_SWORD,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
@@ -194,16 +194,20 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
         );
 
         valueLookupBuilder(ItemTags.HEAD_ARMOR).add(
-            JAAVAAItems.STEEL_HELMET
+                JAAVAAItems.AURON_HELMET,
+                JAAVAAItems.STEEL_HELMET
         );
         valueLookupBuilder(ItemTags.CHEST_ARMOR).add(
-            JAAVAAItems.STEEL_CHESTPLATE
+                JAAVAAItems.AURON_CHESTPLATE,
+                JAAVAAItems.STEEL_CHESTPLATE
         );
         valueLookupBuilder(ItemTags.LEG_ARMOR).add(
-            JAAVAAItems.STEEL_LEGGINGS
+                JAAVAAItems.AURON_LEGGINGS,
+                JAAVAAItems.STEEL_LEGGINGS
         );
         valueLookupBuilder(ItemTags.FOOT_ARMOR).add(
-            JAAVAAItems.STEEL_BOOTS
+                JAAVAAItems.AURON_BOOTS,
+                JAAVAAItems.STEEL_BOOTS
         );
 
         valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)

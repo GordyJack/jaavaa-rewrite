@@ -85,7 +85,7 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
         valueLookupBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
                 JAAVAABlocks.AURON_BLOCK,
                 JAAVAABlocks.QUICKSILVER_BLOCK,
-                JAAVAABlocks.ROSE_GOLD_BLOCK,
+                JAAVAABlocks.CUPAUREUM_BLOCK,
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STEEL_BLOCK
         );
@@ -113,7 +113,7 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 Blocks.GLOWSTONE,
                 JAAVAABlocks.AURON_BLOCK,
                 JAAVAABlocks.RAW_VOIDIUM,
-                JAAVAABlocks.ROSE_GOLD_BLOCK,
+                JAAVAABlocks.CUPAUREUM_BLOCK,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE,
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STARSTEEL_GLASS,
@@ -156,7 +156,7 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 JAAVAABlocks.RAW_VOIDIUM_BLOCKTANT,
                 JAAVAABlocks.REDSTONE_BLOCKTANT,
                 JAAVAABlocks.RED_NETHER_BRICK_BLOCKTANT,
-                JAAVAABlocks.ROSE_GOLD_BLOCKTANT,
+                JAAVAABlocks.CUPAUREUM_BLOCKTANT,
                 JAAVAABlocks.SANDSTONE_BLOCKTANT,
                 JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE_BLOCKTANT,
                 JAAVAABlocks.SMOOTH_STONE_BLOCKTANT,

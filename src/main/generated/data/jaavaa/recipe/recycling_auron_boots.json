@@ -1,0 +1,12 @@
+{
+  "type": "jaavaa:recycling",
+  "experience": 0.1,
+  "inputStack": {
+    "count": 1,
+    "id": "jaavaa:auron_boots"
+  },
+  "result": {
+    "count": 4,
+    "id": "jaavaa:auron_ingot"
+  }
+}

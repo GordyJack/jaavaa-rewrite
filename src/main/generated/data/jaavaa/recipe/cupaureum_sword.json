@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:cupaureum_sword",
+  "key": {
+    "M": "jaavaa:cupaureum_ingot",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "M",
+    "M",
+    "S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:cupaureum_sword"
+  }
+}

@@ -17,7 +17,6 @@ import net.minecraft.client.render.model.json.*;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.*;
 import net.minecraft.registry.*;
-import net.minecraft.state.property.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
@@ -44,7 +43,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.AURON_BLOCK);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.QUICKSAND);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.RAW_VOIDIUM);
-        bsmGen.registerSimpleCubeAll(JAAVAABlocks.ROSE_GOLD_BLOCK);
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.CUPAUREUM_BLOCK);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.registerGlassAndPane(JAAVAABlocks.STARSTEEL_GLASS, JAAVAABlocks.STARSTEEL_GLASS_PANE);
@@ -81,10 +80,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         this.registerGeneratedItemModel(JAAVAAItems.ALLAY_ESSENCE);
         this.registerGeneratedItemModel(JAAVAAItems.AURON_INGOT);
         this.registerGeneratedItemModel(JAAVAAItems.AURON_NUGGET);
+        this.registerGeneratedItemModel(JAAVAAItems.CUPAUREUM_INGOT);
         this.registerRodItemModel(JAAVAAItems.FUSED_ROD);
         this.registerGeneratedItemModel(JAAVAAItems.QUICKSILVER_INGOT);
         this.registerGeneratedItemModel(JAAVAAItems.QUICKSILVER_NUGGET);
-        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_INGOT);
         this.registerGeneratedItemModel(JAAVAAItems.SHULKER_PEARL);
         this.registerGeneratedItemModel(JAAVAAItems.STARSTEEL_INGOT);
         this.registerGeneratedItemModel(JAAVAAItems.STARSTEEL_NUGGET);
@@ -94,6 +93,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         this.registerGeneratedItemModel(JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
         //Equipment/Armor
         //Vanilla-like Armor
+        this.registerEquipmentSetModels(JAAVAAEquipmentAssetKeys.AURON, JAAVAAItems.AURON_HELMET, JAAVAAItems.AURON_CHESTPLATE, JAAVAAItems.AURON_LEGGINGS, JAAVAAItems.AURON_BOOTS);
         this.registerEquipmentSetModels(JAAVAAEquipmentAssetKeys.STEEL, JAAVAAItems.STEEL_HELMET, JAAVAAItems.STEEL_CHESTPLATE, JAAVAAItems.STEEL_LEGGINGS, JAAVAAItems.STEEL_BOOTS);
         //Mod Equipment
         //TODO: this.registerHappyGhastPackModel();
@@ -104,11 +104,11 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         this.registerGeneratedItemModel(JAAVAAItems.AURON_PICKAXE);
         this.registerGeneratedItemModel(JAAVAAItems.AURON_AXE);
         this.registerGeneratedItemModel(JAAVAAItems.AURON_HOE);
-        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_SWORD);
-        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_SHOVEL);
-        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_PICKAXE);
-        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_AXE);
-        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_HOE);
+        this.registerGeneratedItemModel(JAAVAAItems.CUPAUREUM_SWORD);
+        this.registerGeneratedItemModel(JAAVAAItems.CUPAUREUM_SHOVEL);
+        this.registerGeneratedItemModel(JAAVAAItems.CUPAUREUM_PICKAXE);
+        this.registerGeneratedItemModel(JAAVAAItems.CUPAUREUM_AXE);
+        this.registerGeneratedItemModel(JAAVAAItems.CUPAUREUM_HOE);
         this.registerGeneratedItemModel(JAAVAAItems.STEEL_SWORD);
         this.registerGeneratedItemModel(JAAVAAItems.STEEL_SHOVEL);
         this.registerGeneratedItemModel(JAAVAAItems.STEEL_PICKAXE);
@@ -121,7 +121,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         //Hammers
         this.registerHammerItemModel(JAAVAAItems.HAMMER_IRON, TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(Blocks.STONE), TextureMap.getId(JAAVAAItems.FUSED_ROD));
         this.registerHammerItemModel(JAAVAAItems.HAMMER_AURON, TextureMap.getId(JAAVAABlocks.AURON_BLOCK), TextureMap.getId(JAAVAABlocks.AURON_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_ROSE_GOLD, TextureMap.getId(JAAVAABlocks.ROSE_GOLD_BLOCK), TextureMap.getId(JAAVAABlocks.ROSE_GOLD_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_CUPAUREUM, TextureMap.getId(JAAVAABlocks.CUPAUREUM_BLOCK), TextureMap.getId(JAAVAABlocks.CUPAUREUM_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
         this.registerHammerItemModel(JAAVAAItems.HAMMER_GOLD, TextureMap.getId(Blocks.GOLD_BLOCK), TextureMap.getId(Blocks.GOLD_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
         this.registerHammerItemModel(JAAVAAItems.HAMMER_STEEL, TextureMap.getId(JAAVAABlocks.STEEL_BLOCK), TextureMap.getId(JAAVAABlocks.STEEL_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
         this.registerHammerItemModel(JAAVAAItems.HAMMER_DIAMOND, TextureMap.getId(Blocks.DIAMOND_BLOCK), TextureMap.getId(Blocks.DIAMOND_BLOCK), TextureMap.getId(Blocks.GOLD_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
