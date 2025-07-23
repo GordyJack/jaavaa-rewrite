@@ -4,7 +4,7 @@
 	"textures": {
 		"body": "jaavaa:block/smooth_polished_deepslate",
 		"face": "minecraft:block/tinted_glass",
-		"needle": "jaavaa:block/rose_gold_block",
+		"needle": "jaavaa:block/cupaureum_block",
 		"particle": "jaavaa:block/smooth_polished_deepslate"
 	},
 	"elements": [
