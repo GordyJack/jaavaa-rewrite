@@ -83,7 +83,11 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addOptionalTag(BlockTags.SHOVEL_MINEABLE);
         //Vanilla Tags
         valueLookupBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
-                JAAVAABlocks.STARSTEEL_BLOCK
+                JAAVAABlocks.AURON_BLOCK,
+                JAAVAABlocks.QUICKSILVER_BLOCK,
+                JAAVAABlocks.ROSE_GOLD_BLOCK,
+                JAAVAABlocks.STARSTEEL_BLOCK,
+                JAAVAABlocks.STEEL_BLOCK
         );
         valueLookupBuilder(BlockTags.DRAGON_IMMUNE).add(
                 JAAVAABlocks.STARSTEEL_BLOCK,
@@ -114,6 +118,7 @@ public class JAAVAABlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 JAAVAABlocks.STARSTEEL_BLOCK,
                 JAAVAABlocks.STARSTEEL_GLASS,
                 JAAVAABlocks.STARSTEEL_GLASS_PANE,
+                JAAVAABlocks.STEEL_BLOCK,
 
                 JAAVAABlocks.AMETHYST_BLOCKTANT,
                 JAAVAABlocks.ANDESITE_BLOCKTANT,

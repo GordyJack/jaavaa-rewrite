@@ -1,6 +1,6 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.2,
+  "experience": 0.1,
   "inputStack": {
     "count": 1,
     "id": "jaavaa:iron_mob_net"

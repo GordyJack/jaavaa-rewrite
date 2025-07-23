@@ -1,0 +1,76 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dried_ghast": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:dried_ghast"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_elytra": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:elytra"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_shulker_pearl": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:shulker_pearl"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_starsteel_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:starsteel_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_starsteel_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:starsteel_nugget"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:happy_ghast_pack"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dried_ghast",
+      "has_elytra",
+      "has_shulker_pearl",
+      "has_starsteel_ingot",
+      "has_starsteel_nugget"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:happy_ghast_pack"
+    ]
+  }
+}

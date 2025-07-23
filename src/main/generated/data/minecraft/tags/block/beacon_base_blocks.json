@@ -1,5 +1,9 @@
 {
   "values": [
-    "jaavaa:starsteel_block"
+    "jaavaa:auron_block",
+    "jaavaa:quicksilver_block",
+    "jaavaa:rose_gold_block",
+    "jaavaa:starsteel_block",
+    "jaavaa:steel_block"
   ]
 }

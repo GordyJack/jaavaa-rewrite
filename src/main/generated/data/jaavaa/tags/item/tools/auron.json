@@ -1,5 +1,10 @@
 {
   "values": [
+    "jaavaa:auron_axe",
+    "jaavaa:auron_hoe",
+    "jaavaa:auron_pickaxe",
+    "jaavaa:auron_shovel",
+    "jaavaa:auron_sword",
     "jaavaa:auron_hammer"
   ]
 }

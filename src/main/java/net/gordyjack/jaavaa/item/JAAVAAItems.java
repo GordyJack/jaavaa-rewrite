@@ -1,5 +1,6 @@
 package net.gordyjack.jaavaa.item;
 
+import com.google.common.collect.*;
 import net.fabricmc.fabric.api.itemgroup.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.data.*;
@@ -9,6 +10,7 @@ import net.minecraft.component.*;
 import net.minecraft.component.type.*;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.*;
 import net.minecraft.nbt.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
@@ -51,31 +53,109 @@ public interface JAAVAAItems {
             EternalItem::new, new Item.Settings().rarity(Rarity.UNCOMMON)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
+    Item STEEL_INGOT = register("steel_ingot");
+    Item STEEL_NUGGET = register("steel_nugget");
     //Misc
     Item STARSTEEL_UPGRADE_SMITHING_TEMPLATE = register("starsteel_upgrade_smithing_template",
             JAAVAAItems::createStarsteelUpgradeSmithingTemplate,
             new Item.Settings().rarity(Rarity.RARE)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
+    //Equipment/Armor
+    //Vanilla-like Armor
+    Item STEEL_HELMET = register("steel_helmet",
+            Item::new,
+            new Item.Settings().armor(JAAVAAArmorMaterials.STEEL, EquipmentType.HELMET)
+    );
+    Item STEEL_CHESTPLATE = register("steel_chestplate",
+            Item::new,
+            new Item.Settings().armor(JAAVAAArmorMaterials.STEEL, EquipmentType.CHESTPLATE)
+    );
+    Item STEEL_LEGGINGS = register("steel_leggings",
+            Item::new,
+            new Item.Settings().armor(JAAVAAArmorMaterials.STEEL, EquipmentType.LEGGINGS)
+    );
+    Item STEEL_BOOTS = register("steel_boots",
+            Item::new,
+            new Item.Settings().armor(JAAVAAArmorMaterials.STEEL, EquipmentType.BOOTS)
+    );
+    //Mod Equipment
+    Item HAPPY_GHAST_PACK = register("happy_ghast_pack", //TODO: Add custom model.
+            Item::new,
+            new Item.Settings()
+                    .maxDamage(1024)
+                    .rarity(Rarity.EPIC)
+                    .component(JAAVAAComponents.Types.FLYER, Unit.INSTANCE)
+                    .component(DataComponentTypes.GLIDER, Unit.INSTANCE)
+                    .component(
+                            DataComponentTypes.EQUIPPABLE,
+                            EquippableComponent.builder(EquipmentSlot.CHEST)
+                                    .equipSound(SoundEvents.ITEM_ARMOR_EQUIP_ELYTRA)
+                                    .model(JAAVAAEquipmentAssetKeys.HAPPY_GHAST_HARNESS)
+                                    .damageOnHurt(false)
+                                    .build()
+                    )
+                    .repairable(STARSTEEL_NUGGET)
+    );
     //Tools
     //Vanilla-like Tools
     //TODO add textures for Auron tools and add auron armor.
     Item AURON_SWORD = register("auron_sword",
             Item::new,
-            new Item.Settings().sword(ToolMaterials.AURON, 3.0f, -2.4f)
+            new Item.Settings().sword(JAAVAAToolMaterials.AURON, 3.0f, -2.4f)
     );
     Item AURON_SHOVEL = register("auron_shovel",
-            settings -> new ShovelItem(ToolMaterials.AURON, 1.5F, -3.0F, settings)
+            settings -> new ShovelItem(JAAVAAToolMaterials.AURON, 1.5F, -3.0F, settings)
     );
     Item AURON_PICKAXE = register("auron_pickaxe",
             Item::new,
-            new Item.Settings().pickaxe(ToolMaterials.AURON, 1.0f, -2.8f)
+            new Item.Settings().pickaxe(JAAVAAToolMaterials.AURON, 1.0f, -2.8f)
     );
     Item AURON_AXE = register("auron_axe",
-            settings -> new AxeItem(ToolMaterials.AURON, 6.0f, -3.0f, settings)
+            settings -> new AxeItem(JAAVAAToolMaterials.AURON, 6.0f, -3.0f, settings)
     );
     Item AURON_HOE = register("auron_hoe",
-            settings -> new HoeItem(ToolMaterials.AURON, -2.0f, -1.0f, settings)
+            settings -> new HoeItem(JAAVAAToolMaterials.AURON, -2.0f, -1.0f, settings)
+    );
+    Item ROSE_GOLD_SWORD = register("rose_gold_sword",
+            Item::new,
+            new Item.Settings().sword(JAAVAAToolMaterials.ROSE_GOLD, 3.0f, -2.4f)
+    );
+    Item ROSE_GOLD_SHOVEL = register("rose_gold_shovel",
+            settings -> new ShovelItem(JAAVAAToolMaterials.ROSE_GOLD, 1.5F, -3.0F, settings)
+    );
+    Item ROSE_GOLD_PICKAXE = register("rose_gold_pickaxe",
+            Item::new,
+            new Item.Settings().pickaxe(JAAVAAToolMaterials.ROSE_GOLD, 1.0f, -2.8f)
+    );
+    Item ROSE_GOLD_AXE = register("rose_gold_axe",
+            settings -> new AxeItem(JAAVAAToolMaterials.ROSE_GOLD, 6.0f, -3.0f, settings)
+    );
+    Item ROSE_GOLD_HOE = register("rose_gold_hoe",
+            settings -> new HoeItem(JAAVAAToolMaterials.ROSE_GOLD, -2.0f, -1.0f, settings)
+    );
+    Item STEEL_SWORD = register("steel_sword",
+            Item::new,
+            new Item.Settings().sword(JAAVAAToolMaterials.STEEL, 3.0f, -2.4f)
+    );
+    Item STEEL_SHOVEL = register("steel_shovel",
+            settings -> new ShovelItem(JAAVAAToolMaterials.STEEL, 1.5F, -3.0F, settings)
+    );
+    Item STEEL_PICKAXE = register("steel_pickaxe",
+            Item::new,
+            new Item.Settings().pickaxe(JAAVAAToolMaterials.STEEL, 1.0f, -2.8f)
+    );
+    Item STEEL_AXE = register("steel_axe",
+            settings -> new AxeItem(JAAVAAToolMaterials.STEEL, 6.0f, -3.0f, settings)
+    );
+    Item STEEL_HOE = register("steel_hoe",
+            settings -> new HoeItem(JAAVAAToolMaterials.STEEL, -2.0f, -1.0f, settings)
+    );
+    //TODO: Add Texture \/ Copy from Netherite sword, change blade color, add sparkle effect. Create broken texture as well that has no animation.
+    Item STARSTEEL_SWORD = register("starsteel_sword",
+            settings -> new Item(settings.sword(JAAVAAToolMaterials.STARSTEEL, 3, -2.4f)),
+            new Item.Settings().rarity(Rarity.RARE).maxCount(1)
+                    .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
     //Mod Tools
     Item ARCHITECTS_COMPASS = register("architects_compass",
@@ -90,53 +170,46 @@ public interface JAAVAAItems {
                     .component(JAAVAAComponents.Types.COMPASS_BIOME_TARGET, BiomeKeys.THE_VOID)
                     .component(JAAVAAComponents.Types.COMPASS_TARGET_POSITION, null)
     );
-    Item HAPPY_GHAST_HARNESS = register("happy_ghast_harness", //TODO: Add custom model.
-            Item::new,
-            new Item.Settings()
-                    .maxDamage(1024)
-                    .rarity(Rarity.EPIC)
-                    .component(JAAVAAComponents.Types.FLYER, Unit.INSTANCE)
-                    .component(
-                            DataComponentTypes.EQUIPPABLE,
-                            EquippableComponent.builder(EquipmentSlot.CHEST)
-                                    .equipSound(SoundEvents.ITEM_ARMOR_EQUIP_ELYTRA)
-                                    .model(JAAVAAEquipmentAssetKeys.HAPPY_GHAST_HARNESS)
-                                    .damageOnHurt(false)
-                                    .build()
-                    )
-                    .repairable(STARSTEEL_NUGGET)
-    );
+    //Hammers
     Item HAMMER_IRON = register("iron_hammer",
-            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.IRON), settings),
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(ToolMaterial.IRON), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
     );
     Item HAMMER_AURON = register("auron_hammer",
-            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterials.AURON), settings),
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.AURON), settings),
+            new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
+    );
+    Item HAMMER_ROSE_GOLD = register("rose_gold_hammer",
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.ROSE_GOLD), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
     );
     Item HAMMER_GOLD = register("golden_hammer",
-            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.GOLD), settings),
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(ToolMaterial.GOLD), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
     );
+    Item HAMMER_STEEL = register("steel_hammer",
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.STEEL), settings),
+            new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 2)
+    );
     Item HAMMER_DIAMOND = register("diamond_hammer",
-            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.DIAMOND), settings),
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(ToolMaterial.DIAMOND), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 2)
     );
     Item HAMMER_NETHERITE = register("netherite_hammer",
-            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterial.NETHERITE), settings),
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(ToolMaterial.NETHERITE), settings),
             new Item.Settings().fireproof().component(JAAVAAComponents.Types.HAMMER_RANGE, 3)
     );
     Item HAMMER_STARSTEEL = register("starsteel_hammer",
-            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterials.STARSTEEL), settings),
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.STARSTEEL), settings),
             new Item.Settings().rarity(Rarity.RARE).component(JAAVAAComponents.Types.HAMMER_RANGE, 4)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
     Item HAMMER_VOIDIUM = register("voidium_hammer",
-            settings -> new HammerItem(ToolMaterials.getHammerMaterial(ToolMaterials.VOIDIUM), settings),
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.VOIDIUM), settings),
             new Item.Settings().rarity(Rarity.RARE).component(JAAVAAComponents.Types.HAMMER_RANGE, 5)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
-
+    //Magnets
     Item MAGNET_IRON = register("iron_magnet",
             settings -> new SimpleMagnetItem(settings, 3, 1),
             new Item.Settings().maxCount(1).component(JAAVAAComponents.Types.MAGNET_ENABLED, false)
@@ -153,7 +226,7 @@ public interface JAAVAAItems {
             settings -> new SimpleMagnetItem(settings, 15, 5),
             new Item.Settings().maxCount(1).fireproof().component(JAAVAAComponents.Types.MAGNET_ENABLED, false)
     );
-
+    //Mob Nets
     Item MOB_NET_WOOD = register("bamboo_mob_net",
             settings -> new MobNetItem(settings, ToolMaterial.WOOD),
             new Item.Settings().maxDamage(59).maxCount(1)
@@ -184,12 +257,6 @@ public interface JAAVAAItems {
             new Item.Settings().maxDamage(2031).maxCount(1).fireproof()
                     .component(JAAVAAComponents.Types.MOB_NET_ENTITY, new CapturedMobComponent(null, new NbtCompound()))
     );
-    //TODO: Add Texture \/ Copy from Netherite sword, change blade color, add sparkle effect. Create broken texture as well that has no animation.
-    Item STARSTEEL_SWORD = register("starsteel_sword",
-            settings -> new Item(settings.sword(ToolMaterials.STARSTEEL, 3, -2.4f)),
-            new Item.Settings().rarity(Rarity.RARE).maxCount(1)
-                    .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
-    );
     //TODO: Add Starsteel weapons and items. Or make MALUM_STELLAE_INCANTATAE act like an enchanted book and give any tool/weapon/armor it's rarity and DamageResistantComponent and make it eternal. Should be able to be done by adding a custom enchantment.
     Item TOOL_OF_THE_ANCIENTS = register("tool_of_the_ancients",
             settings -> new PaxelItem(ToolMaterial.NETHERITE, 5.0f, -1.5f, settings),
@@ -197,7 +264,7 @@ public interface JAAVAAItems {
     );
     //TODO: Add Texture \/
     Item TOOL_OF_THE_ANCIENTS_STARSTEEL = register("starsteel_tool_of_the_ancients",
-            settings -> new PaxelItem(ToolMaterials.STARSTEEL, 5.0f, -1.5f, settings),
+            settings -> new PaxelItem(JAAVAAToolMaterials.STARSTEEL, 5.0f, -1.5f, settings),
             new Item.Settings().rarity(Rarity.EPIC).fireproof().maxCount(1).maxDamage(4096)
                     .component(DataComponentTypes.DAMAGE_RESISTANT, JAAVAAComponents.FIRE_AND_EXPLOSION_RESISTANT)
     );
@@ -247,103 +314,131 @@ public interface JAAVAAItems {
      */
     static void init() {
         JAAVAA.log("Initializing items");
-        ToolMaterials.init();
 
         //Adding Items to main Item ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_ITEMS).register(entries -> {
+            //Food
             entries.add(MALUM_STELLAE_INCANTATAE);
+            //Materials
             entries.add(ALLAY_ESSENCE);
-            entries.add(ARCHITECTS_COMPASS);
             entries.add(AURON_INGOT);
             entries.add(AURON_NUGGET);
-            entries.add(BIOME_COMPASS);
             entries.add(FUSED_ROD);
-            entries.add(HAPPY_GHAST_HARNESS);
-            entries.add(HAMMER_IRON);
-            entries.add(HAMMER_AURON);
-            entries.add(HAMMER_GOLD);
-            entries.add(HAMMER_DIAMOND);
-            entries.add(HAMMER_NETHERITE);
-            entries.add(HAMMER_STARSTEEL);
-            entries.add(HAMMER_VOIDIUM);
-            entries.add(MAGNET_IRON);
-            entries.add(MAGNET_GOLD);
-            entries.add(MAGNET_DIAMOND);
-            entries.add(MAGNET_NETHERITE);
-            entries.add(MOB_NET_WOOD);
-            entries.add(MOB_NET_STONE);
-            entries.add(MOB_NET_GOLD);
-            entries.add(MOB_NET_IRON);
-            entries.add(MOB_NET_DIAMOND);
-            entries.add(MOB_NET_NETHERITE);
             entries.add(QUICKSILVER_INGOT);
             entries.add(QUICKSILVER_NUGGET);
             entries.add(ROSE_GOLD_INGOT);
             entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);
             entries.add(STARSTEEL_NUGGET);
-            entries.add(STARSTEEL_SWORD);
+            entries.add(STEEL_INGOT);
+            entries.add(STEEL_NUGGET);
+            //Misc
             entries.add(STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
-            entries.add(TOOL_OF_THE_ANCIENTS);
-            entries.add(TOOL_OF_THE_ANCIENTS_STARSTEEL);
-
+            //Equipment/Armor
+            //Vanilla-like Armor
+            entries.add(STEEL_HELMET);
+            entries.add(STEEL_CHESTPLATE);
+            entries.add(STEEL_LEGGINGS);
+            entries.add(STEEL_BOOTS);
+            //Mod Equipment
+            entries.add(HAPPY_GHAST_PACK);
+            //Tools
+            //Vanilla-like Tools
             entries.add(AURON_SWORD);
             entries.add(AURON_SHOVEL);
             entries.add(AURON_PICKAXE);
             entries.add(AURON_AXE);
             entries.add(AURON_HOE);
-        });
-        //Adding Items to Vanilla ItemGroups
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
-            entries.addAfter(Items.NETHERITE_SWORD, STARSTEEL_SWORD);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
-            entries.addAfter(Items.ENCHANTED_GOLDEN_APPLE, MALUM_STELLAE_INCANTATAE);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-            entries.addAfter(Items.SHULKER_SHELL, SHULKER_PEARL);
-            entries.addAfter(SHULKER_PEARL, ALLAY_ESSENCE);
-            entries.addAfter(Items.NETHERITE_INGOT, STARSTEEL_INGOT);
-            entries.addAfter(Items.GOLD_NUGGET, STARSTEEL_NUGGET);
-            entries.addAfter(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
-            entries.add(AURON_INGOT);
-            entries.add(AURON_NUGGET);
-            entries.add(FUSED_ROD);
-            entries.add(ROSE_GOLD_INGOT);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
-            entries.addAfter(Items.NETHERITE_HOE, TOOL_OF_THE_ANCIENTS);
-            entries.addAfter(TOOL_OF_THE_ANCIENTS, TOOL_OF_THE_ANCIENTS_STARSTEEL);
+            entries.add(ROSE_GOLD_SWORD);
+            entries.add(ROSE_GOLD_SHOVEL);
+            entries.add(ROSE_GOLD_PICKAXE);
+            entries.add(ROSE_GOLD_AXE);
+            entries.add(ROSE_GOLD_HOE);
+            entries.add(STEEL_SWORD);
+            entries.add(STEEL_SHOVEL);
+            entries.add(STEEL_PICKAXE);
+            entries.add(STEEL_AXE);
+            entries.add(STEEL_HOE);
+
+            entries.add(STARSTEEL_SWORD);
+            //Mod Tools
+            entries.add(ARCHITECTS_COMPASS);
+            entries.add(BIOME_COMPASS);
+            //Hammers
             entries.add(HAMMER_IRON);
             entries.add(HAMMER_AURON);
+            entries.add(HAMMER_ROSE_GOLD);
             entries.add(HAMMER_GOLD);
+            entries.add(HAMMER_STEEL);
             entries.add(HAMMER_DIAMOND);
             entries.add(HAMMER_NETHERITE);
             entries.add(HAMMER_STARSTEEL);
             entries.add(HAMMER_VOIDIUM);
+            //Magnets
             entries.add(MAGNET_IRON);
             entries.add(MAGNET_GOLD);
             entries.add(MAGNET_DIAMOND);
             entries.add(MAGNET_NETHERITE);
+            //Mob Nets
             entries.add(MOB_NET_WOOD);
             entries.add(MOB_NET_STONE);
             entries.add(MOB_NET_GOLD);
             entries.add(MOB_NET_IRON);
             entries.add(MOB_NET_DIAMOND);
             entries.add(MOB_NET_NETHERITE);
+            //Tools of the Ancients
+            entries.add(TOOL_OF_THE_ANCIENTS);
+            entries.add(TOOL_OF_THE_ANCIENTS_STARSTEEL);
         });
     }
-
-    interface ToolMaterials {
+    interface JAAVAAArmorMaterials {
+        ArmorMaterial STEEL = new ArmorMaterial(
+                24,
+                createDefenseMap(2, 5, 6, 2, 5),
+                9,
+                SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+                1.0F,
+                0.05F,
+                ItemTags.REPAIRS_IRON_ARMOR,
+                JAAVAAEquipmentAssetKeys.STEEL
+        );
+        private static Map<EquipmentType, Integer> createDefenseMap(int bootsDefense, int leggingsDefense, int chestplateDefense, int helmetDefense, int bodyDefense) {
+            return Maps.newEnumMap(
+                    Map.of(
+                            EquipmentType.BOOTS,
+                            bootsDefense,
+                            EquipmentType.LEGGINGS,
+                            leggingsDefense,
+                            EquipmentType.CHESTPLATE,
+                            chestplateDefense,
+                            EquipmentType.HELMET,
+                            helmetDefense,
+                            EquipmentType.BODY,
+                            bodyDefense
+                    )
+            );
+        }
+    }
+    interface JAAVAAToolMaterials {
         ToolMaterial AURON = new ToolMaterial(
                 BlockTags.INCORRECT_FOR_IRON_TOOL,
                 384, 8.0f, 1.0f, 20,
                 JAAVAATags.Items.AURON_TOOL_MATERIALS
         );
+        ToolMaterial ROSE_GOLD = new ToolMaterial(
+                BlockTags.INCORRECT_FOR_GOLD_TOOL,
+                116, 9.0f, 1.5f, 15,
+                JAAVAATags.Items.ROSE_GOLD_TOOL_MATERIALS
+        );
         ToolMaterial STARSTEEL = new ToolMaterial(
                 JAAVAATags.Blocks.INCORRECT_FOR_STARSTEEL_TOOL,
                 3072, 12.0f, 5.0f, 20,
                 JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS
+        );
+        ToolMaterial STEEL = new ToolMaterial(
+                BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+                768, 7.0f, 2.5f, 12,
+                JAAVAATags.Items.STEEL_TOOL_MATERIALS
         );
         ToolMaterial VOIDIUM = new ToolMaterial(
                 JAAVAATags.Blocks.INCORRECT_FOR_VOIDIUM_TOOL,
@@ -372,9 +467,6 @@ public interface JAAVAAItems {
         }
         static ToolMaterial getHammerMaterial(ToolMaterial baseMaterial) {
             return getModifiedDurability(getModifiedSpeed(baseMaterial, baseMaterial.speed() * 0.75f), (int) (baseMaterial.durability() * 7.5));
-        }
-        static void init() {
-            JAAVAA.log("Initializing tool materials");
         }
     }
 }

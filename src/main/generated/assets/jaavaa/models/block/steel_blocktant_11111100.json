@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:block/blocktant_11111100",
+  "position": "11111100",
+  "textures": {
+    "down": "jaavaa:block/steel_block",
+    "side": "jaavaa:block/steel_block",
+    "up": "jaavaa:block/steel_block"
+  }
+}

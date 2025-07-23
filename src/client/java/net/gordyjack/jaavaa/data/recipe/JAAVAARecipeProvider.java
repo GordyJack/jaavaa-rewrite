@@ -35,12 +35,13 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.createAlloyingRecipes();
                 this.createArchitectsCompassRecipes();
                 this.createBiomeCompassRecipes();
-                this.createMaterialsRecipes();
+                this.createEquipmentSetRecipes();
                 this.createMiscRecipes();
                 this.createRecyclingRecipes();
-                this.createShapedHammerRecipes();
-                this.createShapedMagnetRecipes();
-                this.createShapedMobNetRecipes();
+                this.createHammerRecipes();
+                this.createMagnetRecipes();
+                this.createShapedMaterialsRecipes();
+                this.createMobNetRecipes();
                 this.createSmithingRecipes();
                 this.createToolsetRecipes();
                 this.offerEncasedPillarRecipes(Items.QUARTZ_PILLAR, Items.REDSTONE_BLOCK, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR);
@@ -52,6 +53,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         Items.POLISHED_DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE,
                         0.1F, 200, JAAVAA.idFromItem(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE).toString());
             }
+
             private void createAdvancedGateRecipes() {
                 this.createShaped(RecipeCategory.REDSTONE, JAAVAABlocks.ADDER)
                         .input('R', Items.REDSTONE)
@@ -155,6 +157,8 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerAlloyingRecipe(200, 0.9f, Items.COPPER_INGOT, 1, Items.GOLD_INGOT, 1, JAAVAAItems.ROSE_GOLD_INGOT, 2);
                 this.offerAlloyingRecipe(1800, 8.1f, Blocks.COPPER_BLOCK, 1, Blocks.GOLD_BLOCK, 1, JAAVAABlocks.ROSE_GOLD_BLOCK, 2);
                 this.offerAlloyingRecipe(1800, 9.0f, Items.NETHER_STAR, 1, Items.NETHERITE_BLOCK, 1, JAAVAABlocks.STARSTEEL_BLOCK, 1);
+                this.offerAlloyingRecipe(800, 2.0f, Items.COAL, 1, Items.IRON_INGOT, 3, JAAVAAItems.STEEL_INGOT, 2, "from_coal");
+                this.offerAlloyingRecipe(1200, 3.0f, Items.CHARCOAL, 1, Items.IRON_INGOT, 3, JAAVAAItems.STEEL_INGOT, 3, "from_charcoal");
                 //Dirty Ore Recipes
                 this.offerAlloyingRecipe(300, 0.5f, Items.RAW_COPPER, 1, Blocks.SAND, 1, Items.COPPER_INGOT, 2);
                 this.offerAlloyingRecipe(300, 0.5f, Items.RAW_IRON, 1, Blocks.SAND, 1, Items.IRON_INGOT, 2);
@@ -226,53 +230,89 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 offerBiomeCompassAttunementRecipe(BiomeKeys.WARM_OCEAN, JAAVAATags.Items.ATTUNEABLE_ITEMS_WARM_OCEAN);
                 offerBiomeCompassAttunementRecipe(BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, Items.GRAVEL);
             }
-            private void createMaterialsRecipes() {
-                this.createShaped(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 4)
-                        .input('I', Items.NETHERITE_INGOT)
-                        .input('S', Items.NETHER_STAR)
-                        .pattern(" I ")
-                        .pattern("ISI")
-                        .pattern(" I ")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString())
-                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
-                        .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR))
-                        .criterion(hasItem(JAAVAAItems.STARSTEEL_INGOT), conditionsFromItem(JAAVAAItems.STARSTEEL_INGOT))
-                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT)));
-                this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.AURON_NUGGET, RecipeCategory.MISC, JAAVAAItems.AURON_INGOT,
-                        "auron_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.AURON_INGOT).toString(),
-                        "auron_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.AURON_NUGGET).toString()
-                );
-                this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.AURON_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.AURON_BLOCK,
-                        "auron_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.AURON_BLOCK).toString(),
-                        "auron_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.AURON_INGOT).toString()
-                );
-                this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.QUICKSILVER_NUGGET, RecipeCategory.MISC, JAAVAAItems.QUICKSILVER_INGOT,
-                        "quicksilver_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_INGOT).toString(),
-                        "quicksilver_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_NUGGET).toString()
-                );
-                this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.QUICKSILVER_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.QUICKSILVER_BLOCK,
-                        "quicksilver_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.QUICKSILVER_BLOCK).toString(),
-                        "quicksilver_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_INGOT).toString()
-                );
-                this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.ROSE_GOLD_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.ROSE_GOLD_BLOCK,
-                        "rose_gold_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.ROSE_GOLD_BLOCK).toString(),
-                        "rose_gold_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.ROSE_GOLD_INGOT).toString()
-                );
-                this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_NUGGET, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT,
-                        "starsteel_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString(),
-                        "starsteel_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_NUGGET).toString()
-                );
-                this.offerReversibleCompactingRecipes(
-                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STARSTEEL_BLOCK,
-                        "starsteel_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.STARSTEEL_BLOCK).toString(),
-                        "starsteel_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString()
-                );
+            private void createEquipmentSetRecipes() {
+                this.offerEquipmentSetRecipes(JAAVAAItems.STEEL_INGOT, JAAVAAItems.STEEL_HELMET, JAAVAAItems.STEEL_CHESTPLATE, JAAVAAItems.STEEL_LEGGINGS, JAAVAAItems.STEEL_BOOTS);
+            }
+            private void createHammerRecipes() {
+                offerHammerRecipePair(JAAVAAItems.HAMMER_IRON, Blocks.IRON_BLOCK, "iron");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_AURON, JAAVAABlocks.AURON_BLOCK, "auron");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_ROSE_GOLD, JAAVAABlocks.ROSE_GOLD_BLOCK, "rose_gold");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_GOLD, Blocks.GOLD_BLOCK, "gold");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_STEEL, JAAVAABlocks.STEEL_BLOCK, "steel");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_DIAMOND, Blocks.DIAMOND_BLOCK, "diamond");
+
+                this.offerNetheriteUpgradeRecipe(JAAVAAItems.HAMMER_DIAMOND, RecipeCategory.TOOLS, JAAVAAItems.HAMMER_NETHERITE);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.HAMMER_NETHERITE, Items.HEAVY_CORE, 1);
+                this.offerStarsteelUpgradeRecipe(JAAVAAItems.HAMMER_NETHERITE, RecipeCategory.TOOLS, JAAVAAItems.HAMMER_STARSTEEL);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.HAMMER_STARSTEEL, Items.HEAVY_CORE, 1);
+                //offerDragonsteelUpgradeRecipe
+                //recycleDragonsteel
+                //offerVoidiumUpgradeRecipe
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.HAMMER_VOIDIUM, Items.HEAVY_CORE, 1);
+            }
+            private void createMagnetRecipes() {
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_IRON, 1)
+                        .input('I', Items.IRON_INGOT)
+                        .input('R', Items.REDSTONE)
+                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
+                        .pattern("R R")
+                        .pattern("IAI")
+                        .pattern("III")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_IRON).toString())
+                        .criterion(hasItem(JAAVAAItems.ALLAY_ESSENCE), conditionsFromItem(JAAVAAItems.ALLAY_ESSENCE))
+                        .offerTo(this.exporter);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MAGNET_IRON, Items.IRON_INGOT, 5);
+
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_GOLD, 1)
+                        .input('G', Items.GOLD_INGOT)
+                        .input('R', Items.REDSTONE)
+                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
+                        .input('M', JAAVAAItems.MAGNET_IRON)
+                        .pattern("RGA")
+                        .pattern("GMG")
+                        .pattern("AGR")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_GOLD).toString())
+                        .criterion(hasItem(JAAVAAItems.MAGNET_IRON), conditionsFromItem(JAAVAAItems.MAGNET_IRON))
+                        .offerTo(this.exporter, recipeKeyOf("magnet_golden_1"));
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_GOLD, 1)
+                        .input('G', Items.GOLD_INGOT)
+                        .input('R', Items.REDSTONE)
+                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
+                        .input('M', JAAVAAItems.MAGNET_IRON)
+                        .pattern("AGR")
+                        .pattern("GMG")
+                        .pattern("RGA")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_GOLD).toString())
+                        .criterion(hasItem(JAAVAAItems.MAGNET_IRON), conditionsFromItem(JAAVAAItems.MAGNET_IRON))
+                        .offerTo(this.exporter, recipeKeyOf("magnet_golden_2"));
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MAGNET_GOLD, Items.GOLD_INGOT, 4);
+
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_DIAMOND, 1)
+                        .input('D', Items.DIAMOND)
+                        .input('R', Items.REDSTONE)
+                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
+                        .input('M', JAAVAAItems.MAGNET_IRON)
+                        .pattern("RDA")
+                        .pattern("DMD")
+                        .pattern("ADR")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_DIAMOND).toString())
+                        .criterion(hasItem(JAAVAAItems.MAGNET_GOLD), conditionsFromItem(JAAVAAItems.MAGNET_GOLD))
+                        .offerTo(this.exporter, recipeKeyOf("magnet_diamond_1"));
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_DIAMOND, 1)
+                        .input('D', Items.DIAMOND)
+                        .input('R', Items.REDSTONE)
+                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
+                        .input('M', JAAVAAItems.MAGNET_IRON)
+                        .pattern("ADR")
+                        .pattern("DMD")
+                        .pattern("RDA")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_DIAMOND).toString())
+                        .criterion(hasItem(JAAVAAItems.MAGNET_GOLD), conditionsFromItem(JAAVAAItems.MAGNET_GOLD))
+                        .offerTo(this.exporter, recipeKeyOf("magnet_diamond_2"));
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MAGNET_DIAMOND, Items.DIAMOND, 4);
+
+                this.offerNetheriteUpgradeRecipe(JAAVAAItems.MAGNET_DIAMOND, RecipeCategory.TOOLS, JAAVAAItems.MAGNET_NETHERITE);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MAGNET_NETHERITE, Items.NETHERITE_INGOT, 1);
             }
             private void createMiscRecipes() {
                 this.createShaped(RecipeCategory.MISC, JAAVAABlocks.ALLOY_FURNACE)
@@ -287,7 +327,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
                         .criterion(hasItem(Items.BLAST_FURNACE), conditionsFromItem(Items.BLAST_FURNACE))
                         .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, JAAVAAItems.HAPPY_GHAST_HARNESS)
+                this.createShaped(RecipeCategory.MISC, JAAVAAItems.HAPPY_GHAST_PACK)
                         .input('G', Blocks.DRIED_GHAST)
                         .input('E', Items.ELYTRA)
                         .input('N', JAAVAAItems.STARSTEEL_NUGGET)
@@ -297,7 +337,7 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .pattern("IGI")
                         .pattern("LSL")
                         .pattern("NEN")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.HAPPY_GHAST_HARNESS).toString())
+                        .group(JAAVAA.idFromItem(JAAVAAItems.HAPPY_GHAST_PACK).toString())
                         .criterion(hasItem(Blocks.DRIED_GHAST), conditionsFromItem(Blocks.DRIED_GHAST))
                         .criterion(hasItem(Items.ELYTRA), conditionsFromItem(Items.ELYTRA))
                         .criterion(hasItem(JAAVAAItems.SHULKER_PEARL), conditionsFromItem(JAAVAAItems.SHULKER_PEARL))
@@ -347,6 +387,88 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Blocks.GRINDSTONE), conditionsFromItem(Blocks.GRINDSTONE))
                         .offerTo(this.exporter);
             }
+            private void createMobNetRecipes() {
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_WOOD, 1)
+                        .input('B', Items.BAMBOO)
+                        .input('S', Items.STRING)
+                        .pattern(" SB")
+                        .pattern(" BS")
+                        .pattern("B  ")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_WOOD).toString())
+                        .criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO))
+                        .offerTo(this.exporter, recipeKeyOf("bamboo_mob_net_1"));
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_WOOD, 1)
+                        .input('B', Items.BAMBOO)
+                        .input('S', Items.STRING)
+                        .pattern("BS ")
+                        .pattern("SB ")
+                        .pattern("  B")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_WOOD).toString())
+                        .criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO))
+                        .offerTo(this.exporter, recipeKeyOf("bamboo_mob_net_2"));
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MOB_NET_WOOD, Items.BAMBOO, 2);
+
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_STONE, 1)
+                        .input('N', JAAVAAItems.MOB_NET_WOOD)
+                        .input('S', Items.STICK)
+                        .input('C', ItemTags.STONE_CRAFTING_MATERIALS)
+                        .pattern("CSC")
+                        .pattern("SNS")
+                        .pattern("CSC")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_STONE).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_WOOD), conditionsFromItem(JAAVAAItems.MOB_NET_WOOD))
+                        .offerTo(this.exporter);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MOB_NET_STONE, Items.COBBLESTONE, 4);
+
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_GOLD, 1)
+                        .input('N', JAAVAAItems.MOB_NET_STONE)
+                        .input('S', Items.STICK)
+                        .input('G', ItemTags.GOLD_TOOL_MATERIALS)
+                        .pattern("GSG")
+                        .pattern("SNS")
+                        .pattern("GSG")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_GOLD).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_STONE), conditionsFromItem(JAAVAAItems.MOB_NET_STONE))
+                        .offerTo(this.exporter);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MOB_NET_GOLD, Items.GOLD_INGOT, 4);
+
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_IRON, 1)
+                        .input('N', JAAVAAItems.MOB_NET_STONE)
+                        .input('S', Items.STICK)
+                        .input('I', ItemTags.IRON_TOOL_MATERIALS)
+                        .pattern("ISI")
+                        .pattern("SNS")
+                        .pattern("ISI")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_IRON).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_STONE), conditionsFromItem(JAAVAAItems.MOB_NET_STONE))
+                        .offerTo(this.exporter);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MOB_NET_IRON, Items.IRON_INGOT, 4);
+
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_DIAMOND, 1)
+                        .input('N', JAAVAAItems.MOB_NET_IRON)
+                        .input('S', Items.STICK)
+                        .input('D', ItemTags.DIAMOND_TOOL_MATERIALS)
+                        .pattern("DSD")
+                        .pattern("SNS")
+                        .pattern("DSD")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_DIAMOND).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_IRON), conditionsFromItem(JAAVAAItems.MOB_NET_IRON))
+                        .offerTo(this.exporter, recipeKeyOf("diamond_mob_net_from_iron"));
+                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_DIAMOND, 1)
+                        .input('N', JAAVAAItems.MOB_NET_GOLD)
+                        .input('S', Items.STICK)
+                        .input('D', ItemTags.DIAMOND_TOOL_MATERIALS)
+                        .pattern("DSD")
+                        .pattern("SNS")
+                        .pattern("DSD")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_DIAMOND).toString())
+                        .criterion(hasItem(JAAVAAItems.MOB_NET_GOLD), conditionsFromItem(JAAVAAItems.MOB_NET_GOLD))
+                        .offerTo(this.exporter, recipeKeyOf("diamond_mob_net_from_gold"));
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MOB_NET_DIAMOND, Items.DIAMOND, 4);
+
+                this.offerNetheriteUpgradeRecipe(JAAVAAItems.MOB_NET_DIAMOND, RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_NETHERITE);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MOB_NET_NETHERITE, Items.NETHERITE_INGOT, 1);
+            }
             private void createRecyclingRecipes() {
                 //Equipment
                 //Wood & Leather
@@ -356,7 +478,6 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerRecyclingRecipe(0.1f, Items.WOODEN_PICKAXE, Items.STICK, 6);
                 this.offerRecyclingRecipe(0.1f, Items.WOODEN_SHOVEL, Items.STICK, 2);
                 this.offerRecyclingRecipe(0.1f, Items.WOODEN_SWORD, Items.STICK, 4);
-                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MOB_NET_WOOD, Items.BAMBOO, 2);
                 //Armor
                 this.offerRecyclingRecipe(0.1f, Items.LEATHER_HELMET, Items.LEATHER, 5);
                 this.offerRecyclingRecipe(0.1f, Items.LEATHER_CHESTPLATE, Items.LEATHER, 8);
@@ -370,98 +491,76 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerRecyclingRecipe(0.1f, Items.STONE_PICKAXE, Items.COBBLESTONE, 3);
                 this.offerRecyclingRecipe(0.1f, Items.STONE_SHOVEL, Items.COBBLESTONE, 1);
                 this.offerRecyclingRecipe(0.1f, Items.STONE_SWORD, Items.COBBLESTONE, 2);
-                this.offerRecyclingRecipe(0.1f, JAAVAAItems.MOB_NET_STONE, Items.COBBLESTONE, 4);
                 //Armor
-                this.offerRecyclingRecipe(0.2f, Items.CHAINMAIL_HELMET, Items.IRON_NUGGET, 20);
-                this.offerRecyclingRecipe(0.2f, Items.CHAINMAIL_CHESTPLATE, Items.IRON_NUGGET, 32);
-                this.offerRecyclingRecipe(0.2f, Items.CHAINMAIL_LEGGINGS, Items.IRON_NUGGET, 28);
-                this.offerRecyclingRecipe(0.2f, Items.CHAINMAIL_BOOTS, Items.IRON_NUGGET, 16);
+                this.offerRecyclingRecipe(0.1f, Items.CHAINMAIL_HELMET, Items.IRON_NUGGET, 20);
+                this.offerRecyclingRecipe(0.1f, Items.CHAINMAIL_CHESTPLATE, Items.IRON_NUGGET, 32);
+                this.offerRecyclingRecipe(0.1f, Items.CHAINMAIL_LEGGINGS, Items.IRON_NUGGET, 28);
+                this.offerRecyclingRecipe(0.1f, Items.CHAINMAIL_BOOTS, Items.IRON_NUGGET, 16);
                 //Iron
                 //Tools
-                this.offerRecyclingRecipe(0.2f, Items.IRON_AXE, Items.IRON_INGOT, 3);
-                this.offerRecyclingRecipe(0.2f, Items.IRON_HOE, Items.IRON_INGOT, 2);
-                this.offerRecyclingRecipe(0.2f, Items.IRON_PICKAXE, Items.IRON_INGOT, 3);
-                this.offerRecyclingRecipe(0.2f, Items.IRON_SHOVEL, Items.IRON_INGOT, 1);
-                this.offerRecyclingRecipe(0.2f, Items.IRON_SWORD, Items.IRON_INGOT, 2);
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.HAMMER_IRON, Items.HEAVY_CORE, 1);
-                this.offerRecyclingRecipe(0.2f, JAAVAAItems.MAGNET_IRON, Items.IRON_INGOT, 5);
-                this.offerRecyclingRecipe(0.2f, JAAVAAItems.MOB_NET_IRON, Items.IRON_INGOT, 4);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_AXE, Items.IRON_INGOT, 3);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_HOE, Items.IRON_INGOT, 2);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_PICKAXE, Items.IRON_INGOT, 3);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_SHOVEL, Items.IRON_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_SWORD, Items.IRON_INGOT, 2);
                 //Armor
-                this.offerRecyclingRecipe(0.2f, Items.IRON_HELMET, Items.IRON_INGOT, 5);
-                this.offerRecyclingRecipe(0.2f, Items.IRON_CHESTPLATE, Items.IRON_INGOT, 8);
-                this.offerRecyclingRecipe(0.2f, Items.IRON_LEGGINGS, Items.IRON_INGOT, 7);
-                this.offerRecyclingRecipe(0.2f, Items.IRON_BOOTS, Items.IRON_INGOT, 4);
-                this.offerRecyclingRecipe(0.2f, Items.IRON_HORSE_ARMOR, Items.IRON_INGOT, 7);
-                //Auron
-                //Tools
-                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_AXE, JAAVAAItems.AURON_INGOT, 3);
-                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_HOE, JAAVAAItems.AURON_INGOT, 2);
-                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_PICKAXE, JAAVAAItems.AURON_INGOT, 3);
-                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_SHOVEL, JAAVAAItems.AURON_INGOT, 1);
-                this.offerRecyclingRecipe(0.3f, JAAVAAItems.AURON_SWORD, JAAVAAItems.AURON_INGOT, 2);
-                this.offerRecyclingRecipe(0.3f, JAAVAAItems.HAMMER_AURON, Items.HEAVY_CORE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_HELMET, Items.IRON_INGOT, 5);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_CHESTPLATE, Items.IRON_INGOT, 8);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_LEGGINGS, Items.IRON_INGOT, 7);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_BOOTS, Items.IRON_INGOT, 4);
+                this.offerRecyclingRecipe(0.1f, Items.IRON_HORSE_ARMOR, Items.IRON_INGOT, 7);
                 //Gold
                 //Tools
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_AXE, Items.GOLD_INGOT, 3);
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_HOE, Items.GOLD_INGOT, 2);
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_PICKAXE, Items.GOLD_INGOT, 3);
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_SHOVEL, Items.GOLD_INGOT, 1);
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_SWORD, Items.GOLD_INGOT, 2);
-                this.offerRecyclingRecipe(1.0f, JAAVAAItems.HAMMER_GOLD, Items.HEAVY_CORE, 1);
-                this.offerRecyclingRecipe(0.4f, JAAVAAItems.MAGNET_GOLD, Items.GOLD_INGOT, 4);
-                this.offerRecyclingRecipe(0.4f, JAAVAAItems.MOB_NET_GOLD, Items.GOLD_INGOT, 4);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_AXE, Items.GOLD_INGOT, 3);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_HOE, Items.GOLD_INGOT, 2);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_PICKAXE, Items.GOLD_INGOT, 3);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_SHOVEL, Items.GOLD_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_SWORD, Items.GOLD_INGOT, 2);
                 //Armor
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_HELMET, Items.GOLD_INGOT, 5);
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_CHESTPLATE, Items.GOLD_INGOT, 8);
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_LEGGINGS, Items.GOLD_INGOT, 7);
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_BOOTS, Items.GOLD_INGOT, 4);
-                this.offerRecyclingRecipe(0.4f, Items.GOLDEN_HORSE_ARMOR, Items.GOLD_INGOT, 7);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_HELMET, Items.GOLD_INGOT, 5);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_CHESTPLATE, Items.GOLD_INGOT, 8);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_LEGGINGS, Items.GOLD_INGOT, 7);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_BOOTS, Items.GOLD_INGOT, 4);
+                this.offerRecyclingRecipe(0.1f, Items.GOLDEN_HORSE_ARMOR, Items.GOLD_INGOT, 7);
                 //Diamond
                 //Tools
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_AXE, Items.DIAMOND, 3);
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_HOE, Items.DIAMOND, 2);
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_PICKAXE, Items.DIAMOND, 3);
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_SHOVEL, Items.DIAMOND, 1);
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_SWORD, Items.DIAMOND, 2);
-                this.offerRecyclingRecipe(0.3f, JAAVAAItems.HAMMER_DIAMOND, Items.HEAVY_CORE, 1);
-                this.offerRecyclingRecipe(0.3f, JAAVAAItems.MAGNET_DIAMOND, Items.DIAMOND, 4);
-                this.offerRecyclingRecipe(0.3f, JAAVAAItems.MOB_NET_DIAMOND, Items.DIAMOND, 4);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_AXE, Items.DIAMOND, 3);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_HOE, Items.DIAMOND, 2);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_PICKAXE, Items.DIAMOND, 3);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_SHOVEL, Items.DIAMOND, 1);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_SWORD, Items.DIAMOND, 2);
                 //Armor
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_HELMET, Items.DIAMOND, 5);
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_CHESTPLATE, Items.DIAMOND, 8);
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_LEGGINGS, Items.DIAMOND, 7);
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_BOOTS, Items.DIAMOND, 4);
-                this.offerRecyclingRecipe(0.3f, Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_HELMET, Items.DIAMOND, 5);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_CHESTPLATE, Items.DIAMOND, 8);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_LEGGINGS, Items.DIAMOND, 7);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_BOOTS, Items.DIAMOND, 4);
+                this.offerRecyclingRecipe(0.1f, Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND, 7);
                 //Netherite
                 //Tools
-                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_AXE, Items.NETHERITE_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_HOE, Items.NETHERITE_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_PICKAXE, Items.NETHERITE_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_SHOVEL, Items.NETHERITE_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_SWORD, Items.NETHERITE_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.TOOL_OF_THE_ANCIENTS, Items.NETHERITE_INGOT, 2);
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.HAMMER_NETHERITE, Items.HEAVY_CORE, 1);
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.MAGNET_NETHERITE, Items.NETHERITE_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.MOB_NET_NETHERITE, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_AXE, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_HOE, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_PICKAXE, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_SHOVEL, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_SWORD, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.TOOL_OF_THE_ANCIENTS, Items.NETHERITE_INGOT, 2);
                 //Armor
-                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_HELMET, Items.NETHERITE_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_CHESTPLATE, Items.NETHERITE_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_LEGGINGS, Items.NETHERITE_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, Items.NETHERITE_BOOTS, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_HELMET, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_CHESTPLATE, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_LEGGINGS, Items.NETHERITE_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.NETHERITE_BOOTS, Items.NETHERITE_INGOT, 1);
                 //Starsteel
                 //Tools
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.STARSTEEL_SWORD, JAAVAAItems.STARSTEEL_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL, JAAVAAItems.STARSTEEL_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.HAMMER_STARSTEEL, Items.HEAVY_CORE, 1);
-                this.offerRecyclingRecipe(0.5f, JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE, JAAVAAItems.STARSTEEL_NUGGET, 1);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.STARSTEEL_SWORD, JAAVAAItems.STARSTEEL_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL, JAAVAAItems.STARSTEEL_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE, JAAVAAItems.STARSTEEL_NUGGET, 1);
 
                 //Misc
-                this.offerRecyclingRecipe(0.2f, Items.CROSSBOW, Items.IRON_INGOT, 3);
-                this.offerRecyclingRecipe(0.5f, Items.ELYTRA, Items.PHANTOM_MEMBRANE, 2);
-                this.offerRecyclingRecipe(0.5f, Items.MACE, Items.HEAVY_CORE, 1);
-                this.offerRecyclingRecipe(0.2f, Items.SHIELD, Items.IRON_INGOT, 1);
-                this.offerRecyclingRecipe(0.5f, Items.TRIDENT, Items.PRISMARINE_SHARD, 3);
-                this.offerRecyclingRecipe(0.0f, Items.WARPED_FUNGUS_ON_A_STICK, Items.WARPED_FUNGUS, 1);
+                this.offerRecyclingRecipe(0.1f, Items.CROSSBOW, Items.IRON_INGOT, 3);
+                this.offerRecyclingRecipe(0.1f, Items.ELYTRA, Items.PHANTOM_MEMBRANE, 2);
+                this.offerRecyclingRecipe(0.1f, Items.MACE, Items.HEAVY_CORE, 1);
+                this.offerRecyclingRecipe(0.1f, Items.SHIELD, Items.IRON_INGOT, 1);
+                this.offerRecyclingRecipe(0.1f, Items.TRIDENT, Items.PRISMARINE_SHARD, 3);
+                this.offerRecyclingRecipe(0.1f, Items.WARPED_FUNGUS_ON_A_STICK, Items.WARPED_FUNGUS, 1);
 
                 //Blocks
                 //Shulkers
@@ -625,162 +724,94 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 //Uncrafting
                 this.offerRecyclingRecipe(0.1f, Items.NETHERITE_INGOT, Items.NETHERITE_SCRAP, 4);
             }
-            private void createShapedHammerRecipes() {
-                offerHammerRecipePair(JAAVAAItems.HAMMER_IRON, Blocks.IRON_BLOCK, "iron");
-                offerHammerRecipePair(JAAVAAItems.HAMMER_AURON, JAAVAABlocks.AURON_BLOCK, "auron");
-                offerHammerRecipePair(JAAVAAItems.HAMMER_GOLD, Blocks.GOLD_BLOCK, "gold");
-                offerHammerRecipePair(JAAVAAItems.HAMMER_DIAMOND, Blocks.DIAMOND_BLOCK, "diamond");
-            }
-            private void createShapedMagnetRecipes() {
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_IRON, 1)
-                        .input('I', Items.IRON_INGOT)
-                        .input('R', Items.REDSTONE)
-                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
-                        .pattern("R R")
-                        .pattern("IAI")
-                        .pattern("III")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_IRON).toString())
-                        .criterion(hasItem(JAAVAAItems.ALLAY_ESSENCE), conditionsFromItem(JAAVAAItems.ALLAY_ESSENCE))
-                        .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_GOLD, 1)
-                        .input('G', Items.GOLD_INGOT)
-                        .input('R', Items.REDSTONE)
-                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
-                        .input('M', JAAVAAItems.MAGNET_IRON)
-                        .pattern("RGA")
-                        .pattern("GMG")
-                        .pattern("AGR")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_GOLD).toString())
-                        .criterion(hasItem(JAAVAAItems.MAGNET_IRON), conditionsFromItem(JAAVAAItems.MAGNET_IRON))
-                        .offerTo(this.exporter, recipeKeyOf("magnet_golden_1"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_GOLD, 1)
-                        .input('G', Items.GOLD_INGOT)
-                        .input('R', Items.REDSTONE)
-                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
-                        .input('M', JAAVAAItems.MAGNET_IRON)
-                        .pattern("AGR")
-                        .pattern("GMG")
-                        .pattern("RGA")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_GOLD).toString())
-                        .criterion(hasItem(JAAVAAItems.MAGNET_IRON), conditionsFromItem(JAAVAAItems.MAGNET_IRON))
-                        .offerTo(this.exporter, recipeKeyOf("magnet_golden_2"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_DIAMOND, 1)
-                        .input('D', Items.DIAMOND)
-                        .input('R', Items.REDSTONE)
-                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
-                        .input('M', JAAVAAItems.MAGNET_IRON)
-                        .pattern("RDA")
-                        .pattern("DMD")
-                        .pattern("ADR")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_DIAMOND).toString())
-                        .criterion(hasItem(JAAVAAItems.MAGNET_GOLD), conditionsFromItem(JAAVAAItems.MAGNET_GOLD))
-                        .offerTo(this.exporter, recipeKeyOf("magnet_diamond_1"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MAGNET_DIAMOND, 1)
-                        .input('D', Items.DIAMOND)
-                        .input('R', Items.REDSTONE)
-                        .input('A', JAAVAAItems.ALLAY_ESSENCE)
-                        .input('M', JAAVAAItems.MAGNET_IRON)
-                        .pattern("ADR")
-                        .pattern("DMD")
-                        .pattern("RDA")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MAGNET_DIAMOND).toString())
-                        .criterion(hasItem(JAAVAAItems.MAGNET_GOLD), conditionsFromItem(JAAVAAItems.MAGNET_GOLD))
-                        .offerTo(this.exporter, recipeKeyOf("magnet_diamond_2"));
-            }
-            private void createShapedMobNetRecipes() {
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_WOOD, 1)
-                        .input('B', Items.BAMBOO)
-                        .input('S', Items.STRING)
-                        .pattern(" SB")
-                        .pattern(" BS")
-                        .pattern("B  ")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_WOOD).toString())
-                        .criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO))
-                        .offerTo(this.exporter, recipeKeyOf("bamboo_mob_net_1"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_WOOD, 1)
-                        .input('B', Items.BAMBOO)
-                        .input('S', Items.STRING)
-                        .pattern("BS ")
-                        .pattern("SB ")
-                        .pattern("  B")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_WOOD).toString())
-                        .criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO))
-                        .offerTo(this.exporter, recipeKeyOf("bamboo_mob_net_2"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_STONE, 1)
-                        .input('N', JAAVAAItems.MOB_NET_WOOD)
-                        .input('S', Items.STICK)
-                        .input('C', ItemTags.STONE_CRAFTING_MATERIALS)
-                        .pattern("CSC")
-                        .pattern("SNS")
-                        .pattern("CSC")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_STONE).toString())
-                        .criterion(hasItem(JAAVAAItems.MOB_NET_WOOD), conditionsFromItem(JAAVAAItems.MOB_NET_WOOD))
-                        .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_GOLD, 1)
-                        .input('N', JAAVAAItems.MOB_NET_STONE)
-                        .input('S', Items.STICK)
-                        .input('G', ItemTags.GOLD_TOOL_MATERIALS)
-                        .pattern("GSG")
-                        .pattern("SNS")
-                        .pattern("GSG")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_GOLD).toString())
-                        .criterion(hasItem(JAAVAAItems.MOB_NET_STONE), conditionsFromItem(JAAVAAItems.MOB_NET_STONE))
-                        .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_IRON, 1)
-                        .input('N', JAAVAAItems.MOB_NET_STONE)
-                        .input('S', Items.STICK)
-                        .input('I', ItemTags.IRON_TOOL_MATERIALS)
+            private void createShapedMaterialsRecipes() {
+                this.createShaped(RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, 4)
+                        .input('I', Items.NETHERITE_INGOT)
+                        .input('S', Items.NETHER_STAR)
+                        .pattern(" I ")
                         .pattern("ISI")
-                        .pattern("SNS")
-                        .pattern("ISI")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_IRON).toString())
-                        .criterion(hasItem(JAAVAAItems.MOB_NET_STONE), conditionsFromItem(JAAVAAItems.MOB_NET_STONE))
-                        .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_DIAMOND, 1)
-                        .input('N', JAAVAAItems.MOB_NET_IRON)
-                        .input('S', Items.STICK)
-                        .input('D', ItemTags.DIAMOND_TOOL_MATERIALS)
-                        .pattern("DSD")
-                        .pattern("SNS")
-                        .pattern("DSD")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_DIAMOND).toString())
-                        .criterion(hasItem(JAAVAAItems.MOB_NET_IRON), conditionsFromItem(JAAVAAItems.MOB_NET_IRON))
-                        .offerTo(this.exporter, recipeKeyOf("diamond_mob_net_from_iron"));
-                this.createShaped(RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_DIAMOND, 1)
-                        .input('N', JAAVAAItems.MOB_NET_GOLD)
-                        .input('S', Items.STICK)
-                        .input('D', ItemTags.DIAMOND_TOOL_MATERIALS)
-                        .pattern("DSD")
-                        .pattern("SNS")
-                        .pattern("DSD")
-                        .group(JAAVAA.idFromItem(JAAVAAItems.MOB_NET_DIAMOND).toString())
-                        .criterion(hasItem(JAAVAAItems.MOB_NET_GOLD), conditionsFromItem(JAAVAAItems.MOB_NET_GOLD))
-                        .offerTo(this.exporter, recipeKeyOf("diamond_mob_net_from_gold"));
+                        .pattern(" I ")
+                        .group(JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString())
+                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
+                        .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR))
+                        .criterion(hasItem(JAAVAAItems.STARSTEEL_INGOT), conditionsFromItem(JAAVAAItems.STARSTEEL_INGOT))
+                        .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT)));
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.AURON_NUGGET, RecipeCategory.MISC, JAAVAAItems.AURON_INGOT,
+                        "auron_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.AURON_INGOT).toString(),
+                        "auron_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.AURON_NUGGET).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.AURON_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.AURON_BLOCK,
+                        "auron_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.AURON_BLOCK).toString(),
+                        "auron_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.AURON_INGOT).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.QUICKSILVER_NUGGET, RecipeCategory.MISC, JAAVAAItems.QUICKSILVER_INGOT,
+                        "quicksilver_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_INGOT).toString(),
+                        "quicksilver_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_NUGGET).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.QUICKSILVER_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.QUICKSILVER_BLOCK,
+                        "quicksilver_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.QUICKSILVER_BLOCK).toString(),
+                        "quicksilver_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.QUICKSILVER_INGOT).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.ROSE_GOLD_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.ROSE_GOLD_BLOCK,
+                        "rose_gold_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.ROSE_GOLD_BLOCK).toString(),
+                        "rose_gold_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.ROSE_GOLD_INGOT).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_NUGGET, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT,
+                        "starsteel_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString(),
+                        "starsteel_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_NUGGET).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STARSTEEL_BLOCK,
+                        "starsteel_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.STARSTEEL_BLOCK).toString(),
+                        "starsteel_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.STARSTEEL_INGOT).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.STEEL_NUGGET, RecipeCategory.MISC, JAAVAAItems.STEEL_INGOT,
+                        "steel_ingot_from_nugget", JAAVAA.idFromItem(JAAVAAItems.STEEL_INGOT).toString(),
+                        "steel_nugget_from_ingot", JAAVAA.idFromItem(JAAVAAItems.STEEL_NUGGET).toString()
+                );
+                this.offerReversibleCompactingRecipes(
+                        RecipeCategory.MISC, JAAVAAItems.STEEL_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STEEL_BLOCK,
+                        "steel_block_from_ingot", JAAVAA.idFromItem(JAAVAABlocks.STEEL_BLOCK).toString(),
+                        "steel_ingot_from_block", JAAVAA.idFromItem(JAAVAAItems.STEEL_INGOT).toString()
+                );
             }
             private void createSmithingRecipes() {
-                this.offerNetheriteUpgradeRecipe(JAAVAAItems.HAMMER_DIAMOND, RecipeCategory.TOOLS, JAAVAAItems.HAMMER_NETHERITE);
-                this.offerNetheriteUpgradeRecipe(JAAVAAItems.MAGNET_DIAMOND, RecipeCategory.TOOLS, JAAVAAItems.MAGNET_NETHERITE);
-                this.offerNetheriteUpgradeRecipe(JAAVAAItems.MOB_NET_DIAMOND, RecipeCategory.TOOLS, JAAVAAItems.MOB_NET_NETHERITE);
-
                 this.offerSmithingTemplateCopyingRecipe(JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE, Items.NETHERITE_INGOT);
-                this.offerStarsteelUpgradeRecipe(JAAVAAItems.HAMMER_NETHERITE, RecipeCategory.TOOLS, JAAVAAItems.HAMMER_STARSTEEL);
                 this.offerStarsteelUpgradeRecipe(Items.NETHERITE_SWORD, RecipeCategory.TOOLS, JAAVAAItems.STARSTEEL_SWORD);
                 this.offerStarsteelUpgradeRecipe(JAAVAAItems.TOOL_OF_THE_ANCIENTS, RecipeCategory.TOOLS, JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL);
             }
             private void createToolsetRecipes() {
                 this.offerToolsetRecipes(JAAVAAItems.AURON_INGOT, JAAVAAItems.AURON_SWORD, JAAVAAItems.AURON_SHOVEL,
                         JAAVAAItems.AURON_PICKAXE, JAAVAAItems.AURON_AXE, JAAVAAItems.AURON_HOE);
+                this.offerToolsetRecipes(JAAVAAItems.ROSE_GOLD_INGOT, JAAVAAItems.ROSE_GOLD_SWORD, JAAVAAItems.ROSE_GOLD_SHOVEL,
+                        JAAVAAItems.ROSE_GOLD_PICKAXE, JAAVAAItems.ROSE_GOLD_AXE, JAAVAAItems.ROSE_GOLD_HOE);
+                this.offerToolsetRecipes(JAAVAAItems.STEEL_INGOT, JAAVAAItems.STEEL_SWORD, JAAVAAItems.STEEL_SHOVEL,
+                        JAAVAAItems.STEEL_PICKAXE, JAAVAAItems.STEEL_AXE, JAAVAAItems.STEEL_HOE);
             }
             private void offerAlloyingRecipe(int burnTime, float experience,
                                              ItemConvertible input1, int input1Count,
                                              ItemConvertible input2, int input2Count,
                                              ItemConvertible output, int outputCount) {
-               String outputName = JAAVAA.idFromItem(output).getPath();
+               this.offerAlloyingRecipe(burnTime, experience, input1, input1Count, input2, input2Count, output, outputCount, "");
+            }
+            private void offerAlloyingRecipe(int burnTime, float experience,
+                                             ItemConvertible input1, int input1Count,
+                                             ItemConvertible input2, int input2Count,
+                                             ItemConvertible output, int outputCount,
+                                             String suffix) {
+                String outputName = JAAVAA.idFromItem(output).getPath();
                 var input1Stack = new ItemStack(input1, input1Count);
                 var input2Stack = new ItemStack(input2, input2Count);
                 var outputStack = new ItemStack(output, outputCount);
                 recipeExporter.accept(RegistryKey.of(
-                                RegistryKeys.RECIPE, JAAVAA.id("alloying_" + outputName)),
+                                RegistryKeys.RECIPE, JAAVAA.id("alloying_" + outputName + (!suffix.isEmpty() ? "_" + suffix : ""))),
                         new AlloyingRecipe(burnTime, experience, input1Stack, input2Stack, outputStack),
                         null);
             }
@@ -862,6 +893,46 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(infill), conditionsFromItem(infill))
                         .offerTo(this.exporter, RegistryKey.of(RegistryKeys.RECIPE, JAAVAA.id(JAAVAA.idFromItem(output).getPath() + "_v")));
             }
+            private void offerEquipmentSetRecipes(ItemConvertible material,
+                                                  ItemConvertible helmetItem, ItemConvertible chestplateItem,
+                                                  ItemConvertible legItem, ItemConvertible bootItem) {
+                this.createShaped(RecipeCategory.COMBAT, helmetItem)
+                        .input('#', material)
+                        .pattern("###")
+                        .pattern("# #")
+                        .group(JAAVAA.idFromItem(helmetItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.COMBAT, chestplateItem)
+                        .input('#', material)
+                        .pattern("# #")
+                        .pattern("###")
+                        .pattern("###")
+                        .group(JAAVAA.idFromItem(chestplateItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.COMBAT, legItem)
+                        .input('#', material)
+                        .pattern("###")
+                        .pattern("# #")
+                        .pattern("# #")
+                        .group(JAAVAA.idFromItem(legItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter);
+                this.createShaped(RecipeCategory.COMBAT, bootItem)
+                        .input('#', material)
+                        .pattern("# #")
+                        .pattern("# #")
+                        .group(JAAVAA.idFromItem(bootItem).toString())
+                        .criterion(hasItem(material), conditionsFromItem(material))
+                        .offerTo(this.exporter);
+
+                this.offerRecyclingRecipe(0.1f, helmetItem, material, 5);
+                this.offerRecyclingRecipe(0.1f, chestplateItem, material, 8);
+                this.offerRecyclingRecipe(0.1f, legItem, material, 7);
+                this.offerRecyclingRecipe(0.1f, bootItem, material, 4);
+            }
+
             private void offerHammerRecipePair(Item hammer, ItemConvertible head, String material) {
                 this.createShaped(RecipeCategory.TOOLS, hammer)
                         .input('C', Items.HEAVY_CORE)
@@ -885,6 +956,8 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
                         .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
                         .offerTo(this.exporter, recipeKeyOf("hammer_" + material + "_2"));
+
+                this.offerRecyclingRecipe(0.1f, hammer, Items.HEAVY_CORE, 1);
             }
             private void offerRecyclingRecipe(float experience, ItemConvertible input, ItemConvertible output, int outputCount) {
                 String inputName = JAAVAA.idFromItem(input).getPath();
@@ -974,6 +1047,12 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                         .group(JAAVAA.idFromItem(hoeItem).toString())
                         .criterion(hasItem(material), conditionsFromItem(material))
                         .offerTo(this.exporter, recipeKeyOf(JAAVAA.idFromItem(hoeItem).getPath() + "_2"));
+
+                this.offerRecyclingRecipe(0.1f, swordItem, material, 2);
+                this.offerRecyclingRecipe(0.1f, shovelItem, material, 1);
+                this.offerRecyclingRecipe(0.1f, pickaxeItem, material, 3);
+                this.offerRecyclingRecipe(0.1f, axeItem, material, 3);
+                this.offerRecyclingRecipe(0.1f, hoeItem, material, 2);
             }
         };
     }

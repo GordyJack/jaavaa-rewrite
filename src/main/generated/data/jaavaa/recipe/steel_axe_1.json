@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:steel_axe",
+  "key": {
+    "M": "jaavaa:steel_ingot",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "MM",
+    "MS",
+    " S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:steel_axe"
+  }
+}

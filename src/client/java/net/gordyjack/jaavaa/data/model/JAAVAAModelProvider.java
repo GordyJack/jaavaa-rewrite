@@ -8,7 +8,6 @@ import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.block.enums.*;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.item.*;
-import net.gordyjack.jaavaa.item.custom.*;
 import net.gordyjack.jaavaa.property.*;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.*;
@@ -16,6 +15,8 @@ import net.minecraft.client.data.*;
 import net.minecraft.client.render.item.model.*;
 import net.minecraft.client.render.model.json.*;
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.*;
+import net.minecraft.registry.*;
 import net.minecraft.state.property.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
@@ -32,6 +33,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                     .register(Direction.WEST, ROTATE_Y_90)
                     .register(Direction.NORTH, ROTATE_Y_180)
                     .register(Direction.EAST, ROTATE_Y_270);
+    private ItemModelGenerator imGen = null;
 
     public JAAVAAModelProvider(FabricDataOutput output) {
         super(output);
@@ -46,6 +48,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.registerGlassAndPane(JAAVAABlocks.STARSTEEL_GLASS, JAAVAABlocks.STARSTEEL_GLASS_PANE);
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.STEEL_BLOCK);
 
         bsmGen.blockStateCollector.accept(generateAdderState());
         bsmGen.blockStateCollector.accept(generateAdjustableState());
@@ -71,66 +74,75 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
-        for(Item item : JAAVAAItems.ITEMS) {
-            if (item instanceof BlockItem) continue;
-            if (item instanceof HammerItem hammer) {
-                Identifier bandId = TextureMap.getId(Blocks.DIRT);
-                Identifier headId = TextureMap.getId(Blocks.DIRT);
-                Identifier ringId = TextureMap.getId(Blocks.DIRT);
-                Identifier rodId = TextureMap.getId(JAAVAAItems.FUSED_ROD);
-                if (hammer == JAAVAAItems.HAMMER_IRON) {
-                    bandId = TextureMap.getId(Blocks.IRON_BLOCK);
-                    headId = bandId;
-                    ringId = TextureMap.getId(Blocks.STONE);
-                } else if (hammer == JAAVAAItems.HAMMER_AURON) {
-                    bandId = TextureMap.getId(JAAVAABlocks.AURON_BLOCK);
-                    headId = bandId;
-                    ringId = TextureMap.getId(Blocks.IRON_BLOCK);
-                } else if (hammer == JAAVAAItems.HAMMER_GOLD) {
-                    bandId = TextureMap.getId(Blocks.GOLD_BLOCK);
-                    headId = bandId;
-                    ringId = TextureMap.getId(Blocks.IRON_BLOCK);
-                } else if (hammer == JAAVAAItems.HAMMER_DIAMOND) {
-                    bandId = TextureMap.getId(Blocks.DIAMOND_BLOCK);
-                    headId = bandId;
-                    ringId = TextureMap.getId(Blocks.GOLD_BLOCK);
-                } else if (hammer == JAAVAAItems.HAMMER_NETHERITE) {
-                    bandId = TextureMap.getId(Blocks.NETHERITE_BLOCK);
-                    headId = bandId;
-                    ringId = TextureMap.getId(Blocks.DIAMOND_BLOCK);
-                } else if (hammer == JAAVAAItems.HAMMER_STARSTEEL) {
-                    bandId = TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK);
-                    headId = bandId;
-                    ringId = TextureMap.getId(Blocks.NETHERITE_BLOCK);
-                } else if (hammer == JAAVAAItems.HAMMER_VOIDIUM) {
-                    bandId = TextureMap.getId(JAAVAABlocks.RAW_VOIDIUM);
-                    headId = bandId;
-                    ringId = TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK);
-                }
-                registerHammerItemModel(imGen, hammer, bandId, headId, ringId, rodId);
-                continue;
-            }
-            if (item == JAAVAAItems.ARCHITECTS_COMPASS) {
-                //registerStructureCompass(imGen, item);
-                // This item has a custom Blockbench Model.
-                // Will need to retain this code if we want to increase the number of steps for the compass animation.
-                // Or figure out how to create the items file without the model files.
-                continue;
-            }
-            if (item == JAAVAAItems.BIOME_COMPASS) {
-                registerBiomeCompass(imGen, item);
-                continue;
-            }
-            if (item == JAAVAAItems.FUSED_ROD) {
-                registerRodItemModel(imGen, item, TextureMap.getId(JAAVAAItems.FUSED_ROD));
-                continue;
-            }
-            if (item.getDefaultStack().isIn(JAAVAATags.Items.TOOLS_STARSTEEL)) {
-                imGen.registerWithBrokenCondition(item);
-                continue;
-            }
-            imGen.register(item, Models.GENERATED);
-        }
+        this.imGen = imGen;
+        //Food
+        this.registerGeneratedItemModel(JAAVAAItems.MALUM_STELLAE_INCANTATAE);
+        //Materials
+        this.registerGeneratedItemModel(JAAVAAItems.ALLAY_ESSENCE);
+        this.registerGeneratedItemModel(JAAVAAItems.AURON_INGOT);
+        this.registerGeneratedItemModel(JAAVAAItems.AURON_NUGGET);
+        this.registerRodItemModel(JAAVAAItems.FUSED_ROD);
+        this.registerGeneratedItemModel(JAAVAAItems.QUICKSILVER_INGOT);
+        this.registerGeneratedItemModel(JAAVAAItems.QUICKSILVER_NUGGET);
+        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_INGOT);
+        this.registerGeneratedItemModel(JAAVAAItems.SHULKER_PEARL);
+        this.registerGeneratedItemModel(JAAVAAItems.STARSTEEL_INGOT);
+        this.registerGeneratedItemModel(JAAVAAItems.STARSTEEL_NUGGET);
+        this.registerGeneratedItemModel(JAAVAAItems.STEEL_INGOT);
+        this.registerGeneratedItemModel(JAAVAAItems.STEEL_NUGGET);
+        //Misc
+        this.registerGeneratedItemModel(JAAVAAItems.STARSTEEL_UPGRADE_SMITHING_TEMPLATE);
+        //Equipment/Armor
+        //Vanilla-like Armor
+        this.registerEquipmentSetModels(JAAVAAEquipmentAssetKeys.STEEL, JAAVAAItems.STEEL_HELMET, JAAVAAItems.STEEL_CHESTPLATE, JAAVAAItems.STEEL_LEGGINGS, JAAVAAItems.STEEL_BOOTS);
+        //Mod Equipment
+        //TODO: this.registerHappyGhastPackModel();
+        //Tools
+        //Vanilla-like Tools
+        this.registerGeneratedItemModel(JAAVAAItems.AURON_SWORD);
+        this.registerGeneratedItemModel(JAAVAAItems.AURON_SHOVEL);
+        this.registerGeneratedItemModel(JAAVAAItems.AURON_PICKAXE);
+        this.registerGeneratedItemModel(JAAVAAItems.AURON_AXE);
+        this.registerGeneratedItemModel(JAAVAAItems.AURON_HOE);
+        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_SWORD);
+        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_SHOVEL);
+        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_PICKAXE);
+        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_AXE);
+        this.registerGeneratedItemModel(JAAVAAItems.ROSE_GOLD_HOE);
+        this.registerGeneratedItemModel(JAAVAAItems.STEEL_SWORD);
+        this.registerGeneratedItemModel(JAAVAAItems.STEEL_SHOVEL);
+        this.registerGeneratedItemModel(JAAVAAItems.STEEL_PICKAXE);
+        this.registerGeneratedItemModel(JAAVAAItems.STEEL_AXE);
+        this.registerGeneratedItemModel(JAAVAAItems.STEEL_HOE);
+        this.registerGeneratedItemModel(JAAVAAItems.STARSTEEL_SWORD, true);
+        //Mod Tools
+        //this.registerStructureCompass(JAAVAAItems.ARCHITECTS_COMPASS);
+        this.registerBiomeCompass(JAAVAAItems.BIOME_COMPASS);
+        //Hammers
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_IRON, TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(Blocks.STONE), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_AURON, TextureMap.getId(JAAVAABlocks.AURON_BLOCK), TextureMap.getId(JAAVAABlocks.AURON_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_ROSE_GOLD, TextureMap.getId(JAAVAABlocks.ROSE_GOLD_BLOCK), TextureMap.getId(JAAVAABlocks.ROSE_GOLD_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_GOLD, TextureMap.getId(Blocks.GOLD_BLOCK), TextureMap.getId(Blocks.GOLD_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_STEEL, TextureMap.getId(JAAVAABlocks.STEEL_BLOCK), TextureMap.getId(JAAVAABlocks.STEEL_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_DIAMOND, TextureMap.getId(Blocks.DIAMOND_BLOCK), TextureMap.getId(Blocks.DIAMOND_BLOCK), TextureMap.getId(Blocks.GOLD_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_NETHERITE, TextureMap.getId(Blocks.NETHERITE_BLOCK), TextureMap.getId(Blocks.NETHERITE_BLOCK), TextureMap.getId(Blocks.DIAMOND_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_STARSTEEL, TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK), TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK), TextureMap.getId(Blocks.NETHERITE_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_VOIDIUM, TextureMap.getId(JAAVAABlocks.RAW_VOIDIUM), TextureMap.getId(JAAVAABlocks.RAW_VOIDIUM), TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        //Magnets
+        this.registerGeneratedItemModel(JAAVAAItems.MAGNET_IRON);
+        this.registerGeneratedItemModel(JAAVAAItems.MAGNET_GOLD);
+        this.registerGeneratedItemModel(JAAVAAItems.MAGNET_DIAMOND);
+        this.registerGeneratedItemModel(JAAVAAItems.MAGNET_NETHERITE);
+        //Mob Nets
+        this.registerGeneratedItemModel(JAAVAAItems.MOB_NET_WOOD);
+        this.registerGeneratedItemModel(JAAVAAItems.MOB_NET_STONE);
+        this.registerGeneratedItemModel(JAAVAAItems.MOB_NET_GOLD);
+        this.registerGeneratedItemModel(JAAVAAItems.MOB_NET_IRON);
+        this.registerGeneratedItemModel(JAAVAAItems.MOB_NET_DIAMOND);
+        this.registerGeneratedItemModel(JAAVAAItems.MOB_NET_NETHERITE);
+        //Tool of the Ancients
+        this.registerGeneratedItemModel(JAAVAAItems.TOOL_OF_THE_ANCIENTS);
+        this.registerGeneratedItemModel(JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL, true);
     }
     private BlockModelDefinitionCreator generateAdderState() {
         return VariantsBlockModelDefinitionCreator.of(JAAVAABlocks.ADDER)
@@ -306,7 +318,23 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         }, new Model(Optional.of(JAAVAA.id("block/encased_pillar")), Optional.empty(),
                 TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
     }
-    private void registerHammerItemModel(ItemModelGenerator imGen, HammerItem hammer,
+    private void registerEquipmentSetModels(RegistryKey<EquipmentAsset> equipmentKey, Item helmetItem, Item chestplateItem, Item legItem, Item bootItem) {
+        this.imGen.registerArmor(helmetItem, equipmentKey, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
+        this.imGen.registerArmor(chestplateItem, equipmentKey, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+        this.imGen.registerArmor(legItem, equipmentKey, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+        this.imGen.registerArmor(bootItem, equipmentKey, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
+    }
+    private void registerGeneratedItemModel(Item item) {
+        this.registerGeneratedItemModel(item, false);
+    }
+    private void registerGeneratedItemModel(Item item, boolean withBrokenCondition) {
+        if (withBrokenCondition) {
+            this.imGen.registerWithBrokenCondition(item);
+        } else {
+            this.imGen.register(item, Models.GENERATED);
+        }
+    }
+    private void registerHammerItemModel(Item hammer,
                                          Identifier band, Identifier head, Identifier ring, Identifier rod) {
         TextureKey bandKey = TextureKey.of("band");
         TextureKey headKey = TextureKey.of("head");
@@ -319,15 +347,18 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         map.put(rodKey, rod);
         Model model = new Model(Optional.of(JAAVAA.id("item/hammer_base")), Optional.empty(), bandKey, headKey, ringKey, rodKey);
         model.upload(hammer, map, imGen.modelCollector);
-        imGen.register(hammer);
+        this.imGen.register(hammer);
     }
-    private void registerRodItemModel(ItemModelGenerator imGen, Item rodItem, Identifier rod) {
+    private void registerRodItemModel(Item rodItem) {
+        this.registerRodItemModel(rodItem, TextureMap.getId(rodItem));
+    }
+    private void registerRodItemModel(Item rodItem, Identifier rod) {
         TextureKey rodKey = TextureKey.of("rod");
         TextureMap map = TextureMap.texture(rod);
         map.put(rodKey, rod);
         Model model = new Model(Optional.of(JAAVAA.id("item/rod_base")), Optional.empty(), rodKey);
-        model.upload(rodItem, map, imGen.modelCollector);
-        imGen.register(rodItem);
+        model.upload(rodItem, map, this.imGen.modelCollector);
+        this.imGen.register(rodItem);
     }
     private void registerBlocktantModel(BlockStateModelGenerator bsmGen, Blocktant blocktant) {
         String idPath = "block/" + JAAVAA.idFromItem(blocktant.asItem()).getPath();
@@ -344,9 +375,9 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(blocktant).with(variantMap));
     }
     //Items
-    private void registerBiomeCompass(ItemModelGenerator imGen, Item item) {
-        List<RangeDispatchItemModel.Entry> list = imGen.createCompassRangeDispatchEntries(item);
-        imGen.output
+    private void registerBiomeCompass(Item item) {
+        List<RangeDispatchItemModel.Entry> list = this.imGen.createCompassRangeDispatchEntries(item);
+        this.imGen.output
                 .accept(
                         item,
                         ItemModels.condition(
@@ -359,9 +390,9 @@ public class JAAVAAModelProvider extends FabricModelProvider {
                         )
                 );
     }
-    private void registerStructureCompass(ItemModelGenerator imGen, Item item) {
-        List<RangeDispatchItemModel.Entry> list = imGen.createCompassRangeDispatchEntries(item);
-        imGen.output
+    private void registerStructureCompass(Item item) {
+        List<RangeDispatchItemModel.Entry> list = this.imGen.createCompassRangeDispatchEntries(item);
+        this.imGen.output
                 .accept(
                         item,
                         ItemModels.condition(

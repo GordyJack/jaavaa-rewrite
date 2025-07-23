@@ -1,6 +1,6 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.5,
+  "experience": 0.1,
   "inputStack": {
     "count": 1,
     "id": "minecraft:netherite_shovel"

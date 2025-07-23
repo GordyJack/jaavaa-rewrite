@@ -1,0 +1,17 @@
+{
+  "type": "jaavaa:alloying",
+  "burnTime": 1200,
+  "experience": 3.0,
+  "inputStack1": {
+    "count": 1,
+    "id": "minecraft:charcoal"
+  },
+  "inputStack2": {
+    "count": 3,
+    "id": "minecraft:iron_ingot"
+  },
+  "result": {
+    "count": 3,
+    "id": "jaavaa:steel_ingot"
+  }
+}

@@ -29,7 +29,9 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
         valueLookupBuilder(JAAVAATags.Items.HAMMERS).add(
                 JAAVAAItems.HAMMER_IRON,
                 JAAVAAItems.HAMMER_AURON,
+                JAAVAAItems.HAMMER_ROSE_GOLD,
                 JAAVAAItems.HAMMER_GOLD,
+                JAAVAAItems.HAMMER_STEEL,
                 JAAVAAItems.HAMMER_DIAMOND,
                 JAAVAAItems.HAMMER_NETHERITE,
                 JAAVAAItems.HAMMER_STARSTEEL,
@@ -53,19 +55,43 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
-        valueLookupBuilder(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS).add(
-                JAAVAAItems.STARSTEEL_INGOT
-        );
         valueLookupBuilder(JAAVAATags.Items.AURON_TOOL_MATERIALS).add(
                 JAAVAAItems.AURON_INGOT
         );
+        valueLookupBuilder(JAAVAATags.Items.STARSTEEL_TOOL_MATERIALS).add(
+                JAAVAAItems.STARSTEEL_INGOT
+        );
+        valueLookupBuilder(JAAVAATags.Items.STEEL_TOOL_MATERIALS).add(
+                JAAVAAItems.STEEL_INGOT
+        );
         valueLookupBuilder(JAAVAATags.Items.TOOLS_AURON).add(
+                JAAVAAItems.AURON_AXE,
+                JAAVAAItems.AURON_HOE,
+                JAAVAAItems.AURON_PICKAXE,
+                JAAVAAItems.AURON_SHOVEL,
+                JAAVAAItems.AURON_SWORD,
                 JAAVAAItems.HAMMER_AURON
+        );
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_ROSE_GOLD).add(
+                JAAVAAItems.ROSE_GOLD_AXE,
+                JAAVAAItems.ROSE_GOLD_HOE,
+                JAAVAAItems.ROSE_GOLD_PICKAXE,
+                JAAVAAItems.ROSE_GOLD_SHOVEL,
+                JAAVAAItems.ROSE_GOLD_SWORD,
+                JAAVAAItems.HAMMER_ROSE_GOLD
         );
         valueLookupBuilder(JAAVAATags.Items.TOOLS_STARSTEEL).add(
                 JAAVAAItems.STARSTEEL_SWORD,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL,
                 JAAVAAItems.HAMMER_STARSTEEL
+        );
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_STEEL).add(
+                JAAVAAItems.STEEL_AXE,
+                JAAVAAItems.STEEL_HOE,
+                JAAVAAItems.STEEL_PICKAXE,
+                JAAVAAItems.STEEL_SHOVEL,
+                JAAVAAItems.STEEL_SWORD,
+                JAAVAAItems.HAMMER_STEEL
         );
         valueLookupBuilder(JAAVAATags.Items.VOIDIUM_TOOL_MATERIALS);
         valueLookupBuilder(JAAVAATags.Items.TOOLS_VOIDIUM).add(
@@ -131,26 +157,55 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
         );
         //Vanilla Tags
         valueLookupBuilder(ItemTags.AXES).add(
+                JAAVAAItems.AURON_AXE,
+                JAAVAAItems.ROSE_GOLD_AXE,
+                JAAVAAItems.STEEL_AXE,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.HOES).add(
+                JAAVAAItems.AURON_HOE,
+                JAAVAAItems.ROSE_GOLD_HOE,
+                JAAVAAItems.STEEL_HOE,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.PICKAXES).add(
+                JAAVAAItems.AURON_PICKAXE,
+                JAAVAAItems.ROSE_GOLD_PICKAXE,
+                JAAVAAItems.STEEL_PICKAXE,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.SHOVELS).add(
+                JAAVAAItems.AURON_SHOVEL,
+                JAAVAAItems.ROSE_GOLD_SHOVEL,
+                JAAVAAItems.STEEL_SHOVEL,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
         valueLookupBuilder(ItemTags.SWORDS).add(
+                JAAVAAItems.AURON_SWORD,
+                JAAVAAItems.ROSE_GOLD_SWORD,
                 JAAVAAItems.STARSTEEL_SWORD,
+                JAAVAAItems.STEEL_SWORD,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS,
                 JAAVAAItems.TOOL_OF_THE_ANCIENTS_STARSTEEL
         );
+
+        valueLookupBuilder(ItemTags.HEAD_ARMOR).add(
+            JAAVAAItems.STEEL_HELMET
+        );
+        valueLookupBuilder(ItemTags.CHEST_ARMOR).add(
+            JAAVAAItems.STEEL_CHESTPLATE
+        );
+        valueLookupBuilder(ItemTags.LEG_ARMOR).add(
+            JAAVAAItems.STEEL_LEGGINGS
+        );
+        valueLookupBuilder(ItemTags.FOOT_ARMOR).add(
+            JAAVAAItems.STEEL_BOOTS
+        );
+
         valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addOptionalTag(JAAVAATags.Items.HAMMERS)
                 .addOptionalTag(JAAVAATags.Items.MAGNETS)
@@ -165,65 +220,6 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptionalTag(JAAVAATags.Items.HAMMERS)
                 .addOptionalTag(JAAVAATags.Items.PAXELS);
     }
-
-    private void configureStructureAttuneableItems() {
-        //Structure Attunement Tags
-        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_ANCIENT_CITY).add(
-                Items.CHISELED_DEEPSLATE,
-                Items.GRAY_WOOL,
-                Items.SOUL_LANTERN
-        );
-        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_BASTION).add(
-                Items.GILDED_BLACKSTONE,
-                Items.GOLD_BLOCK,
-                Items.POLISHED_BLACKSTONE_BRICKS,
-                Items.CRACKED_POLISHED_BLACKSTONE_BRICKS
-        );
-        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_END_CITY).add(
-                Items.END_STONE_BRICKS,
-                Items.PURPUR_BLOCK,
-                Items.PURPUR_PILLAR
-        );
-        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_OCEAN_MONUMENT).add(
-                Items.PRISMARINE,
-                Items.PRISMARINE_BRICKS,
-                Items.DARK_PRISMARINE,
-                Items.SEA_LANTERN,
-                Items.SPONGE,
-                Items.WET_SPONGE
-        );
-        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_PILLAGER_OUTPOST).add(
-                Items.CROSSBOW,
-                Items.OMINOUS_BOTTLE
-        );
-        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_RUINED_PORTAL).add(
-                Items.GOLD_INGOT,
-                Items.OBSIDIAN,
-                Items.CRYING_OBSIDIAN,
-                Items.NETHERRACK
-        );
-        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_TRIAL_CHAMBER).add(
-                Items.COPPER_BULB,
-                Items.TRIAL_KEY,
-                Items.CHISELED_TUFF,
-                Items.CHISELED_TUFF_BRICKS,
-                Items.BREEZE_ROD,
-                Items.HEAVY_CORE
-        );
-        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_WITCH_HUT).add(
-                Items.POTION,
-                Items.GLASS_BOTTLE,
-                Items.SPIDER_EYE,
-                Items.SUGAR,
-                Items.REDSTONE,
-                Items.GLOWSTONE_DUST
-        );
-        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_WOODLAND_MANSION).add(
-                Items.TOTEM_OF_UNDYING,
-                Items.IRON_AXE
-        );
-    }
-
     private void configureBiomeAttuneableItems() {
         //Biome Attunement Tags
         valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_BADLANDS)
@@ -346,6 +342,63 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 Items.FIRE_CORAL_FAN,
                 Items.HORN_CORAL_FAN,
                 Items.TUBE_CORAL_FAN
+        );
+    }
+    private void configureStructureAttuneableItems() {
+        //Structure Attunement Tags
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_ANCIENT_CITY).add(
+                Items.CHISELED_DEEPSLATE,
+                Items.GRAY_WOOL,
+                Items.SOUL_LANTERN
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_BASTION).add(
+                Items.GILDED_BLACKSTONE,
+                Items.GOLD_BLOCK,
+                Items.POLISHED_BLACKSTONE_BRICKS,
+                Items.CRACKED_POLISHED_BLACKSTONE_BRICKS
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_END_CITY).add(
+                Items.END_STONE_BRICKS,
+                Items.PURPUR_BLOCK,
+                Items.PURPUR_PILLAR
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_OCEAN_MONUMENT).add(
+                Items.PRISMARINE,
+                Items.PRISMARINE_BRICKS,
+                Items.DARK_PRISMARINE,
+                Items.SEA_LANTERN,
+                Items.SPONGE,
+                Items.WET_SPONGE
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_PILLAGER_OUTPOST).add(
+                Items.CROSSBOW,
+                Items.OMINOUS_BOTTLE
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_RUINED_PORTAL).add(
+                Items.GOLD_INGOT,
+                Items.OBSIDIAN,
+                Items.CRYING_OBSIDIAN,
+                Items.NETHERRACK
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_TRIAL_CHAMBER).add(
+                Items.COPPER_BULB,
+                Items.TRIAL_KEY,
+                Items.CHISELED_TUFF,
+                Items.CHISELED_TUFF_BRICKS,
+                Items.BREEZE_ROD,
+                Items.HEAVY_CORE
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_WITCH_HUT).add(
+                Items.POTION,
+                Items.GLASS_BOTTLE,
+                Items.SPIDER_EYE,
+                Items.SUGAR,
+                Items.REDSTONE,
+                Items.GLOWSTONE_DUST
+        );
+        valueLookupBuilder(JAAVAATags.Items.ATTUNEABLE_ITEMS_WOODLAND_MANSION).add(
+                Items.TOTEM_OF_UNDYING,
+                Items.IRON_AXE
         );
     }
 }

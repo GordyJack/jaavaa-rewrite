@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jaavaa:item/starsteel_tool_of_the_ancients_broken"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:steel_blocktant",
+  "ingredients": [
+    "jaavaa:steel_block",
+    "jaavaa:steel_block",
+    "jaavaa:steel_block",
+    "jaavaa:steel_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 32,
+    "id": "jaavaa:steel_blocktant"
+  }
+}

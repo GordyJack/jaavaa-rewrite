@@ -1,6 +1,6 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 1.0,
+  "experience": 0.1,
   "inputStack": {
     "count": 1,
     "id": "jaavaa:golden_hammer"

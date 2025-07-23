@@ -4,6 +4,7 @@ import net.fabricmc.api.*;
 import net.fabricmc.fabric.api.client.rendering.v1.*;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.data.*;
+import net.gordyjack.jaavaa.entity.*;
 import net.gordyjack.jaavaa.item.custom.*;
 import net.gordyjack.jaavaa.screen.*;
 import net.gordyjack.jaavaa.utils.*;
@@ -29,6 +30,9 @@ public class JAAVAAClient implements ClientModInitializer {
 		// RenderTranslucentLayers
 		BlockRenderLayerMap.putBlock(JAAVAABlocks.STARSTEEL_GLASS, BlockRenderLayer.TRANSLUCENT);
 		BlockRenderLayerMap.putBlock(JAAVAABlocks.STARSTEEL_GLASS_PANE, BlockRenderLayer.TRANSLUCENT);
+
+		EntityModelLayerRegistry.registerModelLayer(HappyGhastPackEntityModel.HAPPY_GHAST_PACK, HappyGhastPackEntityModel::getTexturedModelData);
+		//EntityRendererRegistry.register(EntityType.PLAYER, context -> new HappyGhastPackFeatureRenderer<>());
 
 		this.modifyRenderEvents();
 

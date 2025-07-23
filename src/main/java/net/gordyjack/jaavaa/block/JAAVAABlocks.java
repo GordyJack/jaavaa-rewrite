@@ -79,6 +79,11 @@ public interface JAAVAABlocks {
                     .strength(1.0F, 1200.0F),
             EternalBlockItem::new, STARSTEEL_DEFAULT_SETTINGS
     );
+    Block STEEL_BLOCK = registerBlock("steel_block", Block::new,
+            AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
+                    .strength(8.0f, 12.0f)
+                    .mapColor(MapColor.DEEPSLATE_GRAY)
+    );
     // Functional Blocks
     Block ALLOY_FURNACE = registerBlock("alloy_furnace", AlloyFurnaceBlock::new,
             AbstractBlock.Settings.create()
@@ -258,6 +263,8 @@ public interface JAAVAABlocks {
             registerBlocktant("smooth_polished_deepslate_blocktant", JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
     Block STARSTEEL_BLOCKTANT =
             registerBlocktant("starsteel_blocktant", JAAVAABlocks.STARSTEEL_BLOCK);
+    Block STEEL_BLOCKTANT =
+            registerBlocktant("steel_blocktant", JAAVAABlocks.STEEL_BLOCK);
 
     //Methods
     private static Block registerBlock(String path, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings blockSettings) {
@@ -300,14 +307,18 @@ public interface JAAVAABlocks {
         //Adding Blocks to main Block ItemGroup
         ItemGroupEvents.modifyEntriesEvent(JAAVAAItemGroups.JAAVAA_BLOCKS).register(entries -> {
             entries.add(ALLOY_FURNACE);
-            entries.add(AURON_BLOCK);
-            entries.add(QUICKSAND);
-            entries.add(QUICKSILVER_BLOCK);
-            entries.add(RAW_VOIDIUM);
             entries.add(RECYCLING_TABLE);
+
+            entries.add(QUICKSAND);
+            entries.add(RAW_VOIDIUM);
+
+            entries.add(AURON_BLOCK);
+            entries.add(QUICKSILVER_BLOCK);
             entries.add(ROSE_GOLD_BLOCK);
-            entries.add(SMOOTH_POLISHED_DEEPSLATE);
             entries.add(STARSTEEL_BLOCK);
+            entries.add(STEEL_BLOCK);
+
+            entries.add(SMOOTH_POLISHED_DEEPSLATE);
             entries.add(STARSTEEL_GLASS);
             entries.add(STARSTEEL_GLASS_PANE);
         });
@@ -383,37 +394,11 @@ public interface JAAVAABlocks {
             entries.add(SMOOTH_POLISHED_DEEPSLATE_BLOCKTANT);
             entries.add(SMOOTH_STONE_BLOCKTANT);
             entries.add(SPRUCE_PLANKS_BLOCKTANT);
+            entries.add(STARSTEEL_BLOCKTANT);
+            entries.add(STEEL_BLOCKTANT);
             entries.add(STONE_BLOCKTANT);
             entries.add(STONE_BRICKS_BLOCKTANT);
-            entries.add(STARSTEEL_BLOCKTANT);
             entries.add(WARPED_PLANKS_BLOCKTANT);
-        });
-        //Adding Blocks to vanilla ItemGroups
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
-            entries.add(AURON_BLOCK);
-            entries.add(ROSE_GOLD_BLOCK);
-            entries.add(SMOOTH_POLISHED_DEEPSLATE);
-            entries.add(STARSTEEL_BLOCK);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
-            entries.addAfter(Items.PINK_STAINED_GLASS, STARSTEEL_GLASS);
-            entries.addAfter(Items.PINK_STAINED_GLASS_PANE, STARSTEEL_GLASS_PANE);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
-            entries.add(ALLOY_FURNACE);
-            entries.add(RECYCLING_TABLE);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
-            entries.add(QUICKSAND);
-            entries.add(RAW_VOIDIUM);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
-            entries.add(ADDER);
-            entries.add(ADVANCED_REPEATER);
-            entries.add(DECODER);
-            entries.add(ADJUSTABLE_REDSTONE_LAMP);
-            entries.add(ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR);
-            entries.add(QUARTZ_ENCASED_REDSTONE_PILLAR);
         });
     }
 }
