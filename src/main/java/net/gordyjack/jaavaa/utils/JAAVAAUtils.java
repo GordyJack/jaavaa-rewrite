@@ -82,6 +82,7 @@ public class JAAVAAUtils {
         mineableBlocksMap.put(JAAVAATags.Items.TOOLS_IRON, BlockTags.INCORRECT_FOR_IRON_TOOL);
         mineableBlocksMap.put(JAAVAATags.Items.TOOLS_AURON, BlockTags.INCORRECT_FOR_IRON_TOOL);
         mineableBlocksMap.put(JAAVAATags.Items.TOOLS_CUPAUREUM, BlockTags.INCORRECT_FOR_GOLD_TOOL);
+        mineableBlocksMap.put(JAAVAATags.Items.TOOLS_CUPERUM, BlockTags.INCORRECT_FOR_IRON_TOOL);
         mineableBlocksMap.put(JAAVAATags.Items.TOOLS_GOLD, BlockTags.INCORRECT_FOR_GOLD_TOOL);
         mineableBlocksMap.put(JAAVAATags.Items.TOOLS_STEEL, BlockTags.INCORRECT_FOR_DIAMOND_TOOL);
         mineableBlocksMap.put(JAAVAATags.Items.TOOLS_DIAMOND, BlockTags.INCORRECT_FOR_DIAMOND_TOOL);

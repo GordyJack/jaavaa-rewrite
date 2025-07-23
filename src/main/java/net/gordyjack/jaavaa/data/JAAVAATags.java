@@ -74,11 +74,13 @@ public class JAAVAATags {
         public static final TagKey<Item> PAXELS = createTag("paxels");
         public static final TagKey<Item> AURON_MATERIALS = createTag("auron_materials");
         public static final TagKey<Item> CUPAUREUM_MATERIALS = createTag("cupaureum_materials");
+        public static final TagKey<Item> CUPERUM_MATERIALS = createTag("cuperum_materials");
         public static final TagKey<Item> STARSTEEL_MATERIALS = createTag("starsteel_materials");
         public static final TagKey<Item> STEEL_MATERIALS = createTag("steel_materials");
         public static final TagKey<Item> VOIDIUM_MATERIALS = createTag("voidium_materials");
         public static final TagKey<Item> TOOLS_AURON = createTag("tools/auron");
         public static final TagKey<Item> TOOLS_CUPAUREUM = createTag("tools/cupaureum");
+        public static final TagKey<Item> TOOLS_CUPERUM = createTag("tools/cuperum");
         public static final TagKey<Item> TOOLS_STARSTEEL = createTag("tools/starsteel");
         public static final TagKey<Item> TOOLS_STEEL = createTag("tools/steel");
         public static final TagKey<Item> TOOLS_VOIDIUM = createTag("tools/voidium");

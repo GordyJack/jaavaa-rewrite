@@ -30,6 +30,7 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.HAMMER_IRON,
                 JAAVAAItems.HAMMER_AURON,
                 JAAVAAItems.HAMMER_CUPAUREUM,
+                JAAVAAItems.HAMMER_CUPERUM,
                 JAAVAAItems.HAMMER_GOLD,
                 JAAVAAItems.HAMMER_STEEL,
                 JAAVAAItems.HAMMER_DIAMOND,
@@ -58,6 +59,12 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
         valueLookupBuilder(JAAVAATags.Items.AURON_MATERIALS).add(
                 JAAVAAItems.AURON_INGOT
         );
+        valueLookupBuilder(JAAVAATags.Items.CUPAUREUM_MATERIALS).add(
+                JAAVAAItems.CUPAUREUM_INGOT
+        );
+        valueLookupBuilder(JAAVAATags.Items.CUPERUM_MATERIALS).add(
+                JAAVAAItems.CUPERUM_INGOT
+        );
         valueLookupBuilder(JAAVAATags.Items.STARSTEEL_MATERIALS).add(
                 JAAVAAItems.STARSTEEL_INGOT
         );
@@ -79,6 +86,9 @@ public class JAAVAAItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 JAAVAAItems.CUPAUREUM_SHOVEL,
                 JAAVAAItems.CUPAUREUM_SWORD,
                 JAAVAAItems.HAMMER_CUPAUREUM
+        );
+        valueLookupBuilder(JAAVAATags.Items.TOOLS_CUPERUM).add(
+                JAAVAAItems.HAMMER_CUPERUM
         );
         valueLookupBuilder(JAAVAATags.Items.TOOLS_STARSTEEL).add(
                 JAAVAAItems.STARSTEEL_SWORD,

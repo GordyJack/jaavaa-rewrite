@@ -156,6 +156,8 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerAlloyingRecipe(200, 1.0f, Items.BLAZE_ROD, 1, Items.BREEZE_ROD, 1, JAAVAAItems.FUSED_ROD, 1);
                 this.offerAlloyingRecipe(200, 0.9f, Items.COPPER_INGOT, 1, Items.GOLD_INGOT, 1, JAAVAAItems.CUPAUREUM_INGOT, 2);
                 this.offerAlloyingRecipe(1800, 8.1f, Blocks.COPPER_BLOCK, 1, Blocks.GOLD_BLOCK, 1, JAAVAABlocks.CUPAUREUM_BLOCK, 2);
+                this.offerAlloyingRecipe(200, 0.9f, Items.COPPER_INGOT, 1, Items.IRON_INGOT, 1, JAAVAAItems.CUPERUM_INGOT, 2);
+                this.offerAlloyingRecipe(1800, 8.1f, Blocks.COPPER_BLOCK, 1, Blocks.IRON_BLOCK, 1, JAAVAABlocks.CUPERUM_BLOCK, 2);
                 this.offerAlloyingRecipe(1800, 9.0f, Items.NETHER_STAR, 1, Items.NETHERITE_BLOCK, 1, JAAVAABlocks.STARSTEEL_BLOCK, 1);
                 this.offerAlloyingRecipe(800, 2.0f, Items.COAL, 1, Items.IRON_INGOT, 3, JAAVAAItems.STEEL_INGOT, 2, "from_coal");
                 this.offerAlloyingRecipe(1200, 3.0f, Items.CHARCOAL, 1, Items.IRON_INGOT, 3, JAAVAAItems.STEEL_INGOT, 3, "from_charcoal");
@@ -237,7 +239,8 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
             private void createHammerRecipes() {
                 offerHammerRecipePair(JAAVAAItems.HAMMER_IRON, Blocks.IRON_BLOCK, "iron");
                 offerHammerRecipePair(JAAVAAItems.HAMMER_AURON, JAAVAABlocks.AURON_BLOCK, "auron");
-                offerHammerRecipePair(JAAVAAItems.HAMMER_CUPAUREUM, JAAVAABlocks.CUPAUREUM_BLOCK, "rose_gold");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_CUPAUREUM, JAAVAABlocks.CUPAUREUM_BLOCK, "cupaureum");
+                offerHammerRecipePair(JAAVAAItems.HAMMER_CUPERUM, JAAVAABlocks.CUPERUM_BLOCK, "cuperum");
                 offerHammerRecipePair(JAAVAAItems.HAMMER_GOLD, Blocks.GOLD_BLOCK, "gold");
                 offerHammerRecipePair(JAAVAAItems.HAMMER_STEEL, JAAVAABlocks.STEEL_BLOCK, "steel");
                 offerHammerRecipePair(JAAVAAItems.HAMMER_DIAMOND, Blocks.DIAMOND_BLOCK, "diamond");
@@ -934,27 +937,28 @@ public class JAAVAARecipeProvider extends FabricRecipeProvider {
                 this.offerRecyclingRecipe(0.1f, bootItem, material, 4);
             }
             private void offerHammerRecipePair(Item hammer, ItemConvertible head, String material) {
+                Item rodItem = material.equals("diamond") ? JAAVAAItems.FUSED_ROD : JAAVAAItems.IRON_ROD;
                 this.createShaped(RecipeCategory.TOOLS, hammer)
                         .input('C', Items.HEAVY_CORE)
                         .input('H', head)
-                        .input('R', JAAVAAItems.FUSED_ROD)
+                        .input('R', rodItem)
                         .pattern(" HC")
                         .pattern(" RH")
                         .pattern("R  ")
                         .group(JAAVAA.idFromItem(hammer).toString())
                         .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
-                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
+                        .criterion(hasItem(rodItem), conditionsFromItem(rodItem))
                         .offerTo(this.exporter, recipeKeyOf("hammer_" + material + "_1"));
                 this.createShaped(RecipeCategory.TOOLS, hammer)
                         .input('C', Items.HEAVY_CORE)
                         .input('H', head)
-                        .input('R', JAAVAAItems.FUSED_ROD)
+                        .input('R', rodItem)
                         .pattern("CH ")
                         .pattern("HR ")
                         .pattern("  R")
                         .group(JAAVAA.idFromItem(hammer).toString())
                         .criterion(hasItem(Items.HEAVY_CORE), conditionsFromItem(Items.HEAVY_CORE))
-                        .criterion(hasItem(JAAVAAItems.FUSED_ROD), conditionsFromItem(JAAVAAItems.FUSED_ROD))
+                        .criterion(hasItem(rodItem), conditionsFromItem(rodItem))
                         .offerTo(this.exporter, recipeKeyOf("hammer_" + material + "_2"));
 
                 this.offerRecyclingRecipe(0.1f, hammer, Items.HEAVY_CORE, 1);

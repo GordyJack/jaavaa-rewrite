@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jaavaa:cuperum_blocktant",
+  "ingredients": [
+    "jaavaa:cuperum_block",
+    "jaavaa:cuperum_block",
+    "jaavaa:cuperum_block",
+    "jaavaa:cuperum_block",
+    "jaavaa:starsteel_nugget"
+  ],
+  "result": {
+    "count": 32,
+    "id": "jaavaa:cuperum_blocktant"
+  }
+}

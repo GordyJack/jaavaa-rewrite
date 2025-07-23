@@ -1,21 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fused_rod": {
-      "conditions": {
-        "items": [
-          {
-            "items": "jaavaa:fused_rod"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_heavy_core": {
       "conditions": {
         "items": [
           {
             "items": "minecraft:heavy_core"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_iron_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:iron_rod"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_heavy_core",
-      "has_fused_rod"
+      "has_iron_rod"
     ]
   ],
   "rewards": {

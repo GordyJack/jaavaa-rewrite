@@ -3,7 +3,7 @@
   "textures": {
     "band": "minecraft:block/iron_block",
     "head": "minecraft:block/iron_block",
-    "ring": "minecraft:block/stone",
-    "rod": "jaavaa:item/fused_rod"
+    "ring": "minecraft:block/iron_block",
+    "rod": "jaavaa:item/iron_rod"
   }
 }

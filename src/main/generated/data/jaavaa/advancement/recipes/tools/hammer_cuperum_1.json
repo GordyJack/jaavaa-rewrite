@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_heavy_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:heavy_core"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_iron_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jaavaa:iron_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:hammer_cuperum_1"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_heavy_core",
+      "has_iron_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:hammer_cuperum_1"
+    ]
+  }
+}

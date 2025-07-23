@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jaavaa:cuperum_block",
+  "result": {
+    "count": 8,
+    "id": "jaavaa:cuperum_blocktant"
+  }
+}

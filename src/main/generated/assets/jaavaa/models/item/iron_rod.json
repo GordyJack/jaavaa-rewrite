@@ -1,0 +1,6 @@
+{
+  "parent": "jaavaa:item/rod_base",
+  "textures": {
+    "rod": "jaavaa:item/iron_rod"
+  }
+}

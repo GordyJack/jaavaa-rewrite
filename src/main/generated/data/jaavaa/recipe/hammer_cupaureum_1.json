@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jaavaa:cupaureum_hammer",
+  "key": {
+    "C": "minecraft:heavy_core",
+    "H": "jaavaa:cupaureum_block",
+    "R": "jaavaa:iron_rod"
+  },
+  "pattern": [
+    " HC",
+    " RH",
+    "R  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "jaavaa:cupaureum_hammer"
+  }
+}

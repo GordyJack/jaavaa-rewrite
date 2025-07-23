@@ -1,14 +1,14 @@
 // 1.21.7	-999999999-01-01T00:00:00	JAAVAA/Tags for minecraft:block
-209c5d5803c0a8503b8f9a699ce19fbe76725f1f data/jaavaa/tags/block/blocktants.json
+d8d3e1e7b7196cf8fd4793762f3eac67517393e6 data/jaavaa/tags/block/blocktants.json
 483c4fe9c7f76496059d9f7ff356050907e93190 data/jaavaa/tags/block/capricious_blocks.json
 3088693cf0974bd912dee2edbca907b15c8835dd data/jaavaa/tags/block/deepslate_craftables.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/jaavaa/tags/block/incorrect_for_starsteel_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/jaavaa/tags/block/incorrect_for_voidium_tool.json
 40cd8e04401d48a8c6d972d447480f8db831fafe data/jaavaa/tags/block/mineable/paxel.json
-ce7c683a61edca0b878c18271fe53ecc76652bbf data/minecraft/tags/block/beacon_base_blocks.json
+938cae78f7e7ae6e19d606f22832a61bd54b07ed data/minecraft/tags/block/beacon_base_blocks.json
 eb87b44cc2909dcd3880dcbaf466f84d55d5e9c8 data/minecraft/tags/block/dragon_immune.json
 69e06de6b83e61bf4c81fc7dc2b7e9866caa7588 data/minecraft/tags/block/mineable/axe.json
-0a7d63d518d5e763411ca7bc0f5c05e3dfbabe57 data/minecraft/tags/block/mineable/pickaxe.json
+ffca945bd4563fd3f2bbd644454144c436834595 data/minecraft/tags/block/mineable/pickaxe.json
 199cc63ca1016452c94228d5d544e2b040df8e8e data/minecraft/tags/block/mineable/shovel.json
 df7daaebcafbbe09502f56b12f3d4883185533b2 data/minecraft/tags/block/needs_diamond_tool.json
 bb2b0bc0a642a8bbe9c05085f6c6b3b7de5fc438 data/minecraft/tags/block/sand.json

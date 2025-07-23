@@ -1,0 +1,9 @@
+{
+  "parent": "jaavaa:item/hammer_base",
+  "textures": {
+    "band": "jaavaa:block/cuperum_block",
+    "head": "jaavaa:block/cuperum_block",
+    "ring": "jaavaa:block/cuperum_block",
+    "rod": "jaavaa:item/iron_rod"
+  }
+}

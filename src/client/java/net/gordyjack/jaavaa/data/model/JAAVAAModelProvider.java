@@ -41,9 +41,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
         bsmGen.registerCooker(JAAVAABlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.AURON_BLOCK);
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.CUPAUREUM_BLOCK);
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.CUPERUM_BLOCK);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.QUICKSAND);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.RAW_VOIDIUM);
-        bsmGen.registerSimpleCubeAll(JAAVAABlocks.CUPAUREUM_BLOCK);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.SMOOTH_POLISHED_DEEPSLATE);
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.registerGlassAndPane(JAAVAABlocks.STARSTEEL_GLASS, JAAVAABlocks.STARSTEEL_GLASS_PANE);
@@ -81,7 +82,9 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         this.registerGeneratedItemModel(JAAVAAItems.AURON_INGOT);
         this.registerGeneratedItemModel(JAAVAAItems.AURON_NUGGET);
         this.registerGeneratedItemModel(JAAVAAItems.CUPAUREUM_INGOT);
+        this.registerGeneratedItemModel(JAAVAAItems.CUPERUM_INGOT);
         this.registerRodItemModel(JAAVAAItems.FUSED_ROD);
+        this.registerRodItemModel(JAAVAAItems.IRON_ROD);
         this.registerGeneratedItemModel(JAAVAAItems.QUICKSILVER_INGOT);
         this.registerGeneratedItemModel(JAAVAAItems.QUICKSILVER_NUGGET);
         this.registerGeneratedItemModel(JAAVAAItems.SHULKER_PEARL);
@@ -119,15 +122,16 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         //this.registerStructureCompass(JAAVAAItems.ARCHITECTS_COMPASS);
         this.registerBiomeCompass(JAAVAAItems.BIOME_COMPASS);
         //Hammers
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_IRON, TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(Blocks.STONE), TextureMap.getId(JAAVAAItems.FUSED_ROD));
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_AURON, TextureMap.getId(JAAVAABlocks.AURON_BLOCK), TextureMap.getId(JAAVAABlocks.AURON_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_CUPAUREUM, TextureMap.getId(JAAVAABlocks.CUPAUREUM_BLOCK), TextureMap.getId(JAAVAABlocks.CUPAUREUM_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_GOLD, TextureMap.getId(Blocks.GOLD_BLOCK), TextureMap.getId(Blocks.GOLD_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_STEEL, TextureMap.getId(JAAVAABlocks.STEEL_BLOCK), TextureMap.getId(JAAVAABlocks.STEEL_BLOCK), TextureMap.getId(Blocks.IRON_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_DIAMOND, TextureMap.getId(Blocks.DIAMOND_BLOCK), TextureMap.getId(Blocks.DIAMOND_BLOCK), TextureMap.getId(Blocks.GOLD_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_NETHERITE, TextureMap.getId(Blocks.NETHERITE_BLOCK), TextureMap.getId(Blocks.NETHERITE_BLOCK), TextureMap.getId(Blocks.DIAMOND_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_STARSTEEL, TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK), TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK), TextureMap.getId(Blocks.NETHERITE_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
-        this.registerHammerItemModel(JAAVAAItems.HAMMER_VOIDIUM, TextureMap.getId(JAAVAABlocks.RAW_VOIDIUM), TextureMap.getId(JAAVAABlocks.RAW_VOIDIUM), TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK), TextureMap.getId(JAAVAAItems.FUSED_ROD));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_IRON, TextureMap.getId(Blocks.IRON_BLOCK));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_AURON, TextureMap.getId(JAAVAABlocks.AURON_BLOCK));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_CUPAUREUM, TextureMap.getId(JAAVAABlocks.CUPAUREUM_BLOCK));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_CUPERUM, TextureMap.getId(JAAVAABlocks.CUPERUM_BLOCK));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_GOLD, TextureMap.getId(Blocks.GOLD_BLOCK));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_STEEL, TextureMap.getId(JAAVAABlocks.STEEL_BLOCK));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_DIAMOND, TextureMap.getId(Blocks.DIAMOND_BLOCK));
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_NETHERITE, TextureMap.getId(Blocks.NETHERITE_BLOCK), TextureMap.getId(Blocks.DIAMOND_BLOCK), JAAVAAItems.FUSED_ROD);
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_STARSTEEL, TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK), TextureMap.getId(Blocks.NETHERITE_BLOCK), JAAVAAItems.FUSED_ROD);
+        this.registerHammerItemModel(JAAVAAItems.HAMMER_VOIDIUM, TextureMap.getId(JAAVAABlocks.RAW_VOIDIUM), TextureMap.getId(JAAVAABlocks.STARSTEEL_BLOCK), JAAVAAItems.FUSED_ROD);
         //Magnets
         this.registerGeneratedItemModel(JAAVAAItems.MAGNET_IRON);
         this.registerGeneratedItemModel(JAAVAAItems.MAGNET_GOLD);
@@ -333,6 +337,18 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         } else {
             this.imGen.register(item, Models.GENERATED);
         }
+    }
+    private void registerHammerItemModel(Item hammer, Identifier material) {
+        this.registerHammerItemModel(hammer, material, material);
+    }
+    private void registerHammerItemModel(Item hammer, Identifier material, Item rod) {
+        this.registerHammerItemModel(hammer, material, material, rod);
+    }
+    private void registerHammerItemModel(Item hammer, Identifier head, Identifier ring) {
+        this.registerHammerItemModel(hammer, head, ring, JAAVAAItems.IRON_ROD);
+    }
+    private void registerHammerItemModel(Item hammer, Identifier head, Identifier ring, Item rod) {
+        this.registerHammerItemModel(hammer, head, head, ring, TextureMap.getId(rod));
     }
     private void registerHammerItemModel(Item hammer,
                                          Identifier band, Identifier head, Identifier ring, Identifier rod) {

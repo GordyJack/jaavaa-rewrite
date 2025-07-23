@@ -35,12 +35,16 @@ extends FabricLanguageProvider{
                 translationBuilder.add(block, "Block of Auron");
                 continue;
             }
-            if (block == JAAVAABlocks.QUICKSILVER_BLOCK) {
-                translationBuilder.add(block, "Block of Quicksilver");
-                continue;
-            }
             if (block == JAAVAABlocks.CUPAUREUM_BLOCK) {
                 translationBuilder.add(block, "Block of Cupaureum");
+                continue;
+            }
+            if (block == JAAVAABlocks.CUPERUM_BLOCK) {
+                translationBuilder.add(block, "Block of Cuperum");
+                continue;
+            }
+            if (block == JAAVAABlocks.QUICKSILVER_BLOCK) {
+                translationBuilder.add(block, "Block of Quicksilver");
                 continue;
             }
             if (block == JAAVAABlocks.STARSTEEL_BLOCK) {

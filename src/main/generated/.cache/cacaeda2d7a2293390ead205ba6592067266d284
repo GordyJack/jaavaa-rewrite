@@ -32,8 +32,10 @@ bc3deb7d1daed552e479cc612852f99d81499efa data/jaavaa/tags/item/attuneable/warm_o
 bdcba64fe761ce091167930eed9c74a7a4ce9911 data/jaavaa/tags/item/attuneable/witch_hut.json
 a09100d74b1d699f75a64c408d91b3ccba8aecfa data/jaavaa/tags/item/attuneable/woodland_mansion.json
 d1bb553cab65498cec26c475bb84cf4cf8ba92d4 data/jaavaa/tags/item/auron_materials.json
+fee486608656a8755f780d2f3a835c470eca5cfd data/jaavaa/tags/item/cupaureum_materials.json
+e0d407a6f74d1afe1eb0254d3df144c0371d561e data/jaavaa/tags/item/cuperum_materials.json
 3088693cf0974bd912dee2edbca907b15c8835dd data/jaavaa/tags/item/deepslate_craftables.json
-b8999dbd73473a4197351282f3158c52c7f57eac data/jaavaa/tags/item/hammers.json
+74068fcce3e6de378d4b042e21772d099dc2a228 data/jaavaa/tags/item/hammers.json
 ee6178e87ac593be0eb8311221eeb760e0ac5896 data/jaavaa/tags/item/magnets.json
 100ee538f5ff83172a3eab6bd7a0c0ce4b959720 data/jaavaa/tags/item/mob_nets.json
 564caf9fc2094fed000637f5b350a45b98f6d022 data/jaavaa/tags/item/paxels.json
@@ -41,6 +43,7 @@ ee6178e87ac593be0eb8311221eeb760e0ac5896 data/jaavaa/tags/item/magnets.json
 c216a92c5978f0cbb8a14bb0fc1ee545f8dbc3c1 data/jaavaa/tags/item/steel_materials.json
 8aa7956f821a8ab5275d87f894870ecaf456d911 data/jaavaa/tags/item/tools/auron.json
 218741b52b34630d2f3fcc373d1572ee04870ec0 data/jaavaa/tags/item/tools/cupaureum.json
+c44040f987b145164e9eda7b5b57d3346d847ded data/jaavaa/tags/item/tools/cuperum.json
 6f32a79200c6271bd2d9d226d0544acaeb119562 data/jaavaa/tags/item/tools/starsteel.json
 7f340d80444e85a2a28a4d1407d83eaf5a115433 data/jaavaa/tags/item/tools/steel.json
 afe01c0c8c991257bab388f51f747cbfa1478746 data/jaavaa/tags/item/tools/voidium.json

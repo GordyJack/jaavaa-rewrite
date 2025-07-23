@@ -40,10 +40,12 @@ public interface JAAVAAItems {
     Item ALLAY_ESSENCE = register("allay_essence");
     Item AURON_INGOT = register("auron_ingot");
     Item AURON_NUGGET = register("auron_nugget");
+    Item CUPAUREUM_INGOT = register("cupaureum_ingot");
+    Item CUPERUM_INGOT = register("cuperum_ingot");
     Item FUSED_ROD = register("fused_rod");
+    Item IRON_ROD = register("iron_rod");
     Item QUICKSILVER_INGOT = register("quicksilver_ingot");
     Item QUICKSILVER_NUGGET = register("quicksilver_nugget");
-    Item CUPAUREUM_INGOT = register("cupaureum_ingot");
     Item SHULKER_PEARL = register("shulker_pearl");
     Item STARSTEEL_INGOT = register("starsteel_ingot",
             EternalItem::new, new Item.Settings().rarity(Rarity.UNCOMMON)
@@ -199,6 +201,10 @@ public interface JAAVAAItems {
             settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.CUPAUREUM), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
     );
+    Item HAMMER_CUPERUM = register("cuperum_hammer",
+            settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(JAAVAAToolMaterials.CUPERUM), settings),
+            new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
+    );
     Item HAMMER_GOLD = register("golden_hammer",
             settings -> new HammerItem(JAAVAAToolMaterials.getHammerMaterial(ToolMaterial.GOLD), settings),
             new Item.Settings().component(JAAVAAComponents.Types.HAMMER_RANGE, 1)
@@ -339,10 +345,12 @@ public interface JAAVAAItems {
             entries.add(ALLAY_ESSENCE);
             entries.add(AURON_INGOT);
             entries.add(AURON_NUGGET);
+            entries.add(CUPAUREUM_INGOT);
+            entries.add(CUPERUM_INGOT);
             entries.add(FUSED_ROD);
+            entries.add(IRON_ROD);
             entries.add(QUICKSILVER_INGOT);
             entries.add(QUICKSILVER_NUGGET);
-            entries.add(CUPAUREUM_INGOT);
             entries.add(SHULKER_PEARL);
             entries.add(STARSTEEL_INGOT);
             entries.add(STARSTEEL_NUGGET);
@@ -388,6 +396,7 @@ public interface JAAVAAItems {
             entries.add(HAMMER_IRON);
             entries.add(HAMMER_AURON);
             entries.add(HAMMER_CUPAUREUM);
+            entries.add(HAMMER_CUPERUM);
             entries.add(HAMMER_GOLD);
             entries.add(HAMMER_STEEL);
             entries.add(HAMMER_DIAMOND);
@@ -452,13 +461,18 @@ public interface JAAVAAItems {
     interface JAAVAAToolMaterials {
         ToolMaterial AURON = new ToolMaterial(
                 BlockTags.INCORRECT_FOR_IRON_TOOL,
-                384, 8.0f, 1.0f, 20,
+                512, 8.0f, 1.0f, 20,
                 JAAVAATags.Items.AURON_MATERIALS
         );
         ToolMaterial CUPAUREUM = new ToolMaterial(
                 BlockTags.INCORRECT_FOR_GOLD_TOOL,
-                116, 9.0f, 1.5f, 15,
+                128, 9.0f, 1.5f, 15,
                 JAAVAATags.Items.CUPAUREUM_MATERIALS
+        );
+        ToolMaterial CUPERUM = new ToolMaterial(
+                BlockTags.INCORRECT_FOR_IRON_TOOL,
+                384, 7.5f, 1.0f, 15,
+                JAAVAATags.Items.CUPERUM_MATERIALS
         );
         ToolMaterial STARSTEEL = new ToolMaterial(
                 JAAVAATags.Blocks.INCORRECT_FOR_STARSTEEL_TOOL,

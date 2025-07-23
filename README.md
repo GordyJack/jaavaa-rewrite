@@ -30,7 +30,7 @@ The purpose of this mod is 3-fold:
   * **Alloys**:
     * ✅ - **Auron**: An alloy of Iron and Gold, tools made of this metal are both faster and more durable than iron with higher enchantability. Diamond is still better, but this fills the gap.
     * ⚠️ - **Cupaureum**: I honestly don't know why you would use this material, but the alloys felt incomplete without it. Oh, this is Gold and Copper by the way.
-    * ❌ - **Cuperum**: An alloy of Iron and Copper. This alloy is more durable than copper but is just as fast and uses minimal iron for those stuck in the early game.
+    * ️⚠️ - **Cuperum**: An alloy of Iron and Copper. This alloy is more durable than copper but is just as fast and uses minimal iron for those stuck in the early game.
     * ⚠️ - **Quicksilver**: The best alloy, a combination of mercury and iron. Almost mystical in nature, its durability and speed rival that of diamonds with better magical properties than gold. But keep in mind it is poisonous. So every time the tool takes durability damage, there is a chance that the user becomes poisoned.
     * ✅ - **Steel**: Good old Iron and Coal. This alloy serves as a midpoint between Iron and Diamond, being more durable than Iron but slower than Diamond. It is also more enchantable than Diamond, but less than Iron.
 #### **New Items**:

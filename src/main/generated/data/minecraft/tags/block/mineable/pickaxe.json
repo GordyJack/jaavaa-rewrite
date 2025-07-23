@@ -3,8 +3,9 @@
     "minecraft:glass",
     "minecraft:glowstone",
     "jaavaa:auron_block",
-    "jaavaa:raw_voidium",
     "jaavaa:cupaureum_block",
+    "jaavaa:cuperum_block",
+    "jaavaa:raw_voidium",
     "jaavaa:smooth_polished_deepslate",
     "jaavaa:starsteel_block",
     "jaavaa:starsteel_glass",
@@ -16,6 +17,8 @@
     "jaavaa:bricks_blocktant",
     "jaavaa:coal_blocktant",
     "jaavaa:cobblestone_blocktant",
+    "jaavaa:cupaureum_blocktant",
+    "jaavaa:cuperum_blocktant",
     "jaavaa:dark_prismarine_blocktant",
     "jaavaa:deepslate_blocktant",
     "jaavaa:deepslate_tiles_blocktant",
@@ -46,12 +49,12 @@
     "jaavaa:raw_voidium_blocktant",
     "jaavaa:redstone_blocktant",
     "jaavaa:red_nether_brick_blocktant",
-    "jaavaa:cupaureum_blocktant",
     "jaavaa:sandstone_blocktant",
     "jaavaa:smooth_polished_deepslate_blocktant",
     "jaavaa:smooth_stone_blocktant",
     "jaavaa:stone_blocktant",
     "jaavaa:stone_bricks_blocktant",
-    "jaavaa:starsteel_blocktant"
+    "jaavaa:starsteel_blocktant",
+    "jaavaa:steel_blocktant"
   ]
 }

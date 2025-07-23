@@ -5,7 +5,7 @@
   "key": {
     "C": "minecraft:heavy_core",
     "H": "minecraft:iron_block",
-    "R": "jaavaa:fused_rod"
+    "R": "jaavaa:iron_rod"
   },
   "pattern": [
     "CH ",
