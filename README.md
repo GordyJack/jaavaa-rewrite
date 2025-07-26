@@ -38,6 +38,7 @@ The purpose of this mod is 3-fold:
   * ✅ - **Hammers**: Mining tools made from the Heavy Core that clear out entire areas at once. Scaling from 3x3 all the way to 9x9. 
   * ✅ - **Simple Magnets**: Magnets that attract items using the power of the Allay.
 * **New Redstone Components**:
+  * ❌ - **Redstone Pipes**: Basically a pipe filled with redstone dust that can be used to transport redstone signals over longer distances without the need for repeaters. Can also be used to send signals directly vertical. Can only connect to other redstone components that are full blocks.
   * ❌ - **Skinny Hopper**: A version of the Hopper that only has a single inventory slot.
   * ❌ - **Hopper Pipes**: A skinny block that is used for linking Hoppers (or Skinny Hoppers) together. Each hopper pipe can only hold 1 item.
     * ❌ - **Hopper Pipe Junctions**: Used in conjunction with hopper pipes for more advanced item routing.
