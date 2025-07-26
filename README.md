@@ -22,9 +22,15 @@ The purpose of this mod is 3-fold:
 * ✅ - Adding a version of the **Poison** effect that can be fatal.
 ### 2. Adding features that still have a _Vanilla_ feel but aren't drawn from already existing features.
 #### **New Blocks**:
-  * ✅ - **Blocktants** These are 1/8 the size of a normal block so that you can create any slab or stair shape that you might want.
-  * ✅ - **Alloy Furnace**: A new kind of furnace that works passively off lava underneat it to craft new _(and old)_ alloys.
-  * ✅ - **Recycling Table**: A block that allows recycling of old gear or unused blocks to reclaim their most important components.
+  * **Building Blocks**:
+    * ❌ - **Beams**: You know how you love building with walls but hate when they connect to something? Well, thats what these are for. They are walls without the wall --- Just the post. Oh, also they are omnidirectional.
+    * ❌ - **Beam Caps**: These go along with the beams so that you can more cleanly transition from a beam to a full block.
+    * ✅ - **Blocktants** (Block Octants) These are mini cuboids that are 1/8 the size of a normal block so that you can create any slab or stair shape that you might want.
+    * ❌ - **Panels**: These are blocks that are kind of like a thinner slab. They are 1/8th the thickness of a normal block. These can place on any face of a block and stack just like snow layers from there, opening up a whole new world of building possibilities.
+    * ❌ - **Wedges**: Just a diagonal slope. Nothing special. 
+  * **Functional Blocks**:
+    * ✅ - **Alloy Furnace**: A new kind of furnace that works passively off lava underneat it to craft new _(and old)_ alloys.
+    * ✅ - **Recycling Table**: A block that allows recycling of old gear or unused blocks to reclaim their most important components.
 #### **New Materials**:
   * ❌ - **Mercury**: Found as a liquid metal, this material is dense and poisonous to the touch making it near impossible to move through. But due to its conductivity, sensitivity, and reactivity it has many implications for new technologies and other advancements.
   * **Alloys**:
@@ -37,7 +43,7 @@ The purpose of this mod is 3-fold:
   * ✅ - **Biome Compass**: It seems that when you infuse a compass needle with Mercury and use some Amethyst for calibration and have a more resilient casing, you get a new kind of compass that can point to any biome you like.
   * ✅ - **Hammers**: Mining tools made from the Heavy Core that clear out entire areas at once. Scaling from 3x3 all the way to 9x9. 
   * ✅ - **Simple Magnets**: Magnets that attract items using the power of the Allay.
-* **New Redstone Components**:
+#### **New Redstone Components**:
   * ❌ - **Redstone Pipes**: Basically a pipe filled with redstone dust that can be used to transport redstone signals over longer distances without the need for repeaters. Can also be used to send signals directly vertical. Can only connect to other redstone components that are full blocks.
   * ❌ - **Skinny Hopper**: A version of the Hopper that only has a single inventory slot.
   * ❌ - **Hopper Pipes**: A skinny block that is used for linking Hoppers (or Skinny Hoppers) together. Each hopper pipe can only hold 1 item.
@@ -53,13 +59,13 @@ The purpose of this mod is 3-fold:
       * ✅ - **AND Gate**: Outputs a signal if all inputs are powered.
       * ✅ - **OR Gate**: Outputs a signal if any input is powered.
       * ✅ - **XOR Gate**: Outputs a signal if a single inputs is powered.
-* **Overhauled Potions**:
+#### **Overhauled Potions**:
   * ❌ - **Potion Flasks**: A new type of container that can hold multiple servings of a single potion.
   * ❌ - **Ancient Flagons**: Another new type of container that can hold multiple potion effects to all apply simultaneously.
   * **New Effects**:
     * ❌ - **Fearsome**: Causes all Mobs in range to flee in terror.
     * ❌ - **Infestation**: Causes Mobs to rapidly spawn in range.
-* **Extended Enchanting**
+#### **Extended Enchanting**
   * **New Enchantments**:
     * ✅ - **Bloodletter**: Heals the attacker for a percentage of the health missing from the target.
     * ⚠️ - **Pacted**: Ensures the item remains intact, even when its durability depletes to zero and ensures it remains with you upon respawning if it was in your hand or equipped at the time of death.
