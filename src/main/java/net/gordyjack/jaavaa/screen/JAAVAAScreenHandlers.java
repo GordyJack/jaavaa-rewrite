@@ -9,7 +9,7 @@ import net.minecraft.util.math.*;
 
 import java.util.*;
 
-public class JAAVAAScreenHandlers {
+public final class JAAVAAScreenHandlers {
     public static final List<ScreenHandlerType<? extends ScreenHandler>> SCREEN_HANDLERS = new ArrayList<>();
     public static final ScreenHandlerType<AlloyFurnaceBlockEntityScreenHandler> ALLOY_FURNACE_SCREEN_HANDLER =
             registerCustom("alloy_furnace_screen_handler", new ExtendedScreenHandlerType<>(AlloyFurnaceBlockEntityScreenHandler::new, BlockPos.PACKET_CODEC));

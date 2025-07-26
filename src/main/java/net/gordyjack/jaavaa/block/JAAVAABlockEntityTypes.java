@@ -6,12 +6,12 @@ import net.gordyjack.jaavaa.block.custom.entity.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.registry.*;
 
-public class JAAVAABlockEntityTypes {
+public final class JAAVAABlockEntityTypes {
     public static final BlockEntityType<AlloyFurnaceBlockEntity> ALLOY_FURNACE_BLOCK_ENTITY_TYPE =
             FabricBlockEntityTypeBuilder.create(AlloyFurnaceBlockEntity::new, JAAVAABlocks.ALLOY_FURNACE).build();
     public static final BlockEntityType<RecyclingTableBlockEntity> RECYCLING_TABLE_BLOCK_ENTITY_TYPE =
             FabricBlockEntityTypeBuilder.create(RecyclingTableBlockEntity::new, JAAVAABlocks.RECYCLING_TABLE).build();
-    
+
     public static void init() {
         JAAVAA.log("Initializing block entity types");
         

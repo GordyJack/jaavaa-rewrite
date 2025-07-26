@@ -8,10 +8,10 @@ import net.minecraft.registry.entry.*;
 
 import java.util.*;
 
-import static net.gordyjack.jaavaa.JAAVAA.minutes;
-import static net.gordyjack.jaavaa.JAAVAA.seconds;
+import static net.gordyjack.jaavaa.utils.JAAVAAUtils.minutes;
+import static net.gordyjack.jaavaa.utils.JAAVAAUtils.seconds;
 
-public class JAAVAAPotions {
+public final class JAAVAAPotions {
     public static final List<RegistryEntry<Potion>> POTION_ENTRIES = new ArrayList<>();
     private static final int INFINITY = StatusEffectInstance.INFINITE;
 
@@ -297,7 +297,7 @@ public class JAAVAAPotions {
 
     // Saturation Potion
     // TODO: Might need to add a custom StatusEffect for Saturation to work properly.
-    public static final int SATURATION_SHORT = minutes(10), SATURATION_LONG = minutes(30);
+    private static final int SATURATION_SHORT = minutes(10), SATURATION_LONG = minutes(30);
     public static final RegistryEntry<Potion> SATURATION_1_POTION = registerPotion("saturation_1",
             new Potion("saturation", new StatusEffectInstance(StatusEffects.SATURATION, SATURATION_SHORT, 0)));
     public static final RegistryEntry<Potion> SATURATION_1_POTION_LONG = registerPotion("saturation_1_long",
@@ -349,7 +349,7 @@ public class JAAVAAPotions {
             new Potion("infinite_darkness", new StatusEffectInstance(StatusEffects.DARKNESS, INFINITY, 0, false, false)));
 
     // Fatal Poison Potion
-    public static final int FATAL_POISON_SHORT = seconds(5), FATAL_POISON_LONG = seconds(15);
+    private static final int FATAL_POISON_SHORT = seconds(5), FATAL_POISON_LONG = seconds(15);
     public static final RegistryEntry<Potion> FATAL_POISON_1_POTION = registerPotion("fatal_poison_1",
             new Potion("fatal_poison", new StatusEffectInstance(StatusEffects.POISON, FATAL_POISON_SHORT, 0)));
     public static final RegistryEntry<Potion> FATAL_POISON_1_POTION_LONG = registerPotion("fatal_poison_1_long",
@@ -376,7 +376,7 @@ public class JAAVAAPotions {
             new Potion("eternal_fatal_poison", new StatusEffectInstance(StatusEffects.POISON, INFINITY, 5, false, false)));
 
     // Hunger Potion
-    public static final int HUNGER_SHORT = minutes(1.5), HUNGER_LONG = minutes(4);
+    private static final int HUNGER_SHORT = minutes(1.5), HUNGER_LONG = minutes(4);
     public static final RegistryEntry<Potion> HUNGER_1_POTION = registerPotion("hunger_1",
             new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, HUNGER_SHORT, 0)));
     public static final RegistryEntry<Potion> HUNGER_1_POTION_LONG = registerPotion("hunger_1_long",

@@ -16,7 +16,7 @@ import org.jetbrains.annotations.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class JAAVAAUtils {
+public final class JAAVAAUtils {
     public static boolean damageBreakable(ItemStack itemStack, int damage, ServerWorld world, ServerPlayerEntity player) {
         if (itemStack.isDamageable()) {
             itemStack.damage(damage, world, player, item ->
@@ -74,7 +74,6 @@ public class JAAVAAUtils {
         // Test the blockstate against the materials mineable blocks and return the result.
         return !blockState.isIn(incorrectBlocksForMaterial);
     }
-
     private static @NotNull HashMap<TagKey<Item>, TagKey<Block>> getIncorrectBlocksForMaterialMap() {
         HashMap<TagKey<Item>, TagKey<Block>> mineableBlocksMap = new HashMap<>();
         mineableBlocksMap.put(JAAVAATags.Items.TOOLS_WOODEN, BlockTags.INCORRECT_FOR_WOODEN_TOOL);
@@ -100,5 +99,11 @@ public class JAAVAAUtils {
         mineableBlocksMap.put(ItemTags.SHOVELS, BlockTags.SHOVEL_MINEABLE);
         mineableBlocksMap.put(JAAVAATags.Items.PAXELS, JAAVAATags.Blocks.PAXEL_MINEABLE);
         return mineableBlocksMap;
+    }
+    public static int minutes(Number minutes) {
+        return seconds(minutes.floatValue() * 60);
+    }
+    public static int seconds(Number seconds) {
+        return Math.round(seconds.floatValue() * 20);
     }
 }

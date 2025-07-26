@@ -5,7 +5,7 @@ import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.*;
 import net.minecraft.registry.*;
 
-public class JAAVAARecipes {
+public final class JAAVAARecipes {
     public static void init() {
         JAAVAA.log("Initializing JAAVAA Recipes");
         Categories.init();
@@ -14,28 +14,28 @@ public class JAAVAARecipes {
         Types.init();
     }
 
-    public static class Categories {
+    public static final class Categories {
         public static final RecipeBookCategory ALLOYING = register("alloying");
         public static final RecipeBookCategory RECYCLING = register("recycling");
 
         private static RecipeBookCategory register(String name) {
             return Registry.register(Registries.RECIPE_BOOK_CATEGORY, JAAVAA.id(name), new RecipeBookCategory());
         }
-        protected static void init() {
+        private static void init() {
             JAAVAA.log("Initializing JAAVAA Recipe Categories");
         }
     }
-    public static class Properties {
+    public static final class Properties {
         public static final RegistryKey<RecipePropertySet> RECYCLING = of("recycling");
 
         private static RegistryKey<RecipePropertySet> of(String id) {
             return RegistryKey.of(RecipePropertySet.REGISTRY, JAAVAA.id(id));
         }
-        protected static void init() {
+        private static void init() {
             JAAVAA.log("Initializing JAAVAA Recipe Properties");
         }
     }
-    public static class Serializers {
+    public static final class Serializers {
         public static final RecipeSerializer<AlloyingRecipe> ALLOYING =
                 register("alloying", new AlloyingRecipe.Serializer());
         public static final RecipeSerializer<RecyclingRecipe> RECYCLING =
@@ -44,11 +44,11 @@ public class JAAVAARecipes {
         private static <T extends Recipe<?>> RecipeSerializer<T> register(String name, RecipeSerializer<T> serializer) {
             return Registry.register(Registries.RECIPE_SERIALIZER, JAAVAA.id(name), serializer);
         }
-        protected static void init() {
+        private static void init() {
             JAAVAA.log("Initializing JAAVAA Recipe Serializers");
         }
     }
-    public static class Types {
+    public static final class Types {
         public static final RecipeType<AlloyingRecipe> ALLOYING = register("alloying");
         public static final RecipeType<RecyclingRecipe> RECYCLING = register("recycling");
 
@@ -60,7 +60,7 @@ public class JAAVAARecipes {
                 }
             });
         }
-        protected static void init() {
+        private static void init() {
             JAAVAA.log("Initializing JAAVAA Recipe Types");
         }
     }

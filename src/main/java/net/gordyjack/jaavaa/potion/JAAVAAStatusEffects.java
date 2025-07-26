@@ -8,7 +8,7 @@ import net.minecraft.registry.entry.*;
 
 import java.util.*;
 
-public class JAAVAAStatusEffects {
+public final class JAAVAAStatusEffects {
     public static final List<RegistryEntry<StatusEffect>> EFFECTS = new ArrayList<>();
     public static final RegistryEntry<StatusEffect> FATAL_POISON =
             register("fatal_poison", new FatalPoisonEffect());

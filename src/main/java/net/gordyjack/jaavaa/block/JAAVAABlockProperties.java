@@ -3,7 +3,7 @@ package net.gordyjack.jaavaa.block;
 import net.gordyjack.jaavaa.block.enums.*;
 import net.minecraft.state.property.*;
 
-public class JAAVAABlockProperties {
+public final class JAAVAABlockProperties {
     public static final BooleanProperty BACK_POWERED = BooleanProperty.of("back_powered");
     public static final BooleanProperty LEFT_POWERED = BooleanProperty.of("left_powered");
     public static final BooleanProperty RIGHT_POWERED = BooleanProperty.of("right_powered");

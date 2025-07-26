@@ -5,7 +5,7 @@ import net.gordyjack.jaavaa.item.*;
 import net.minecraft.item.*;
 import net.minecraft.potion.*;
 
-public class JAAVAAPotionRecipeBuilder {
+public final class JAAVAAPotionRecipeBuilder {
     private static final Item TIER_1_UPGRADE = Items.GLOWSTONE_DUST;
     private static final Item TIER_2_UPGRADE = JAAVAAItems.ALLAY_ESSENCE;
     private static final Item TIER_3_UPGRADE = JAAVAAItems.SHULKER_PEARL;

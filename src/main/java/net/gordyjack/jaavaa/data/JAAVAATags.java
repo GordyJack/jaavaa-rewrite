@@ -11,8 +11,8 @@ import net.minecraft.registry.tag.*;
 import net.minecraft.util.*;
 import net.minecraft.world.gen.structure.*;
 
-public class JAAVAATags {
-    public static class Blocks {
+public final class JAAVAATags {
+    public static final class Blocks {
         public static final TagKey<Block> BLOCKTANTS = createTag("blocktants");
         public static final TagKey<Block> CAPRICIOUS_BLOCKS = createTag("capricious_blocks");
         public static final TagKey<Block> DEEPSLATE_CRAFTABLES = createTag("deepslate_craftables");
@@ -24,7 +24,7 @@ public class JAAVAATags {
             return TagKey.of(RegistryKeys.BLOCK, JAAVAA.id(name));
         }
     }
-    public static class Entity {
+    public static final class Entity {
         public static final TagKey<EntityType<?>> CAPTURABLE_MOBS_WOOD = createTag("caputrable_mobs_wood");
         public static final TagKey<EntityType<?>> CAPTURABLE_MOBS_STONE = createTag("capturable_mobs_stone");
         public static final TagKey<EntityType<?>> CAPTURABLE_MOBS_IRON = createTag("capturable_mobs_iron");
@@ -36,7 +36,7 @@ public class JAAVAATags {
             return TagKey.of(RegistryKeys.ENTITY_TYPE, JAAVAA.id(name));
         }
     }
-    public static class Items {
+    public static final class Items {
         //Mod Tags
         //Biome Attunement Tags
         public static final TagKey<Item> ATTUNEABLE_ITEMS_BADLANDS = createTag("attuneable/badlands");
@@ -99,7 +99,7 @@ public class JAAVAATags {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(namespace, name));
         }
     }
-    public static class Structures {
+    public static final class Structures {
         public static final TagKey<Structure> ANCIENT_CITIES = createTag("ancient_cities");
         public static final TagKey<Structure> BASTIONS = createTag("bastions");
         public static final TagKey<Structure> DESERT_PYRAMIDS = createTag("desert_pyramids");
@@ -120,7 +120,7 @@ public class JAAVAATags {
             return TagKey.of(RegistryKeys.STRUCTURE, JAAVAA.id(name));
         }
     }
-    public static class Other {
+    public static final class Other {
         public static final TagKey<DamageType> IS_EXPLOSION_OR_FIRE =
                 TagKey.of(RegistryKeys.DAMAGE_TYPE, JAAVAA.id("is_explosion_or_fire"));
         public static final TagKey<Enchantment> UNBRIDLED_DESTRUCTION_EXCLUSIVE_SET =

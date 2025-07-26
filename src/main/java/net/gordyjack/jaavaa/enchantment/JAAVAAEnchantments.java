@@ -15,7 +15,7 @@ import net.minecraft.registry.tag.*;
 import java.util.*;
 import java.util.function.*;
 
-public class JAAVAAEnchantments {
+public final class JAAVAAEnchantments {
     public static final List<RegistryKey<Enchantment>> ENCHANTMENTS = new ArrayList<>();
     public static final RegistryKey<Enchantment> CURSE_OF_THE_CAPRICIOUS = of("curse_of_the_capricious");
     public static final RegistryKey<Enchantment> CURSE_OF_PERSISTENCE = of("curse_of_persistence");
@@ -95,7 +95,7 @@ public class JAAVAAEnchantments {
         Effects.init();
     }
 
-    public static class Components {
+    public static final class Components {
         public static final ComponentType<List<EnchantmentEffectEntry<EnchantmentEntityEffect>>> ITEM_DAMAGE = register(
                 "jaavaa_item_damage", builder -> builder.codec(EnchantmentEffectEntry.createCodec(EnchantmentEntityEffect.CODEC, LootContextTypes.ENCHANTED_ITEM).listOf())
         );
@@ -103,11 +103,11 @@ public class JAAVAAEnchantments {
         private static <T> ComponentType<T> register(String id, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
             return Registry.register(Registries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, id, builderOperator.apply(ComponentType.builder()).build());
         }
-        protected static void init() {
+        private static void init() {
             JAAVAA.log("Initializing JAAVAA enchantment components");
         }
     }
-    public static class Effects {
+    public static final class Effects {
         public static final MapCodec<? extends EnchantmentEntityEffect> CURSE_OF_UNBRIDLED_DESTRUCTION_EFFECT =
                 registerEntityEffect("curse_of_unbridled_destruction", CurseOfUnbridledDestructionEffect.CODEC);
         public static final MapCodec<? extends EnchantmentEntityEffect> BLOODLETTER_EFFECT =
@@ -119,10 +119,10 @@ public class JAAVAAEnchantments {
         private static MapCodec<? extends EnchantmentEntityEffect> registerEntityEffect(String name, MapCodec<? extends EnchantmentEntityEffect> codec) {
             return Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, JAAVAA.id(name), codec);
         }
-        public static MapCodec<? extends EnchantmentValueEffect> registerValueEffect(String name, MapCodec<? extends EnchantmentValueEffect> codec) {
+        private static MapCodec<? extends EnchantmentValueEffect> registerValueEffect(String name, MapCodec<? extends EnchantmentValueEffect> codec) {
             return Registry.register(Registries.ENCHANTMENT_VALUE_EFFECT_TYPE, JAAVAA.id(name), codec);
         }
-        protected static void init() {
+        private static void init() {
             JAAVAA.log("Initializing JAAVAA enchantment effects");
             CurseOfPersistenceHandler.init();
             PactedHandler.init();

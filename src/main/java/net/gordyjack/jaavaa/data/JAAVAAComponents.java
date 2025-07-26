@@ -17,10 +17,11 @@ import net.minecraft.world.gen.structure.*;
 import java.util.*;
 import java.util.function.*;
 
-import static net.gordyjack.jaavaa.JAAVAA.*;
+import static net.gordyjack.jaavaa.utils.JAAVAAUtils.minutes;
+import static net.gordyjack.jaavaa.utils.JAAVAAUtils.seconds;
 import static net.minecraft.component.type.ConsumableComponents.*;
 
-public class JAAVAAComponents {
+public final class JAAVAAComponents {
     public static final ConsumableComponent MALUM_STELLAE_INCANTATAE_CONSUMABLE = food()
             .consumeEffect(new ApplyEffectsConsumeEffect(List.of(
                     new StatusEffectInstance(StatusEffects.REGENERATION, seconds(30), 9),
@@ -30,6 +31,7 @@ public class JAAVAAComponents {
                     new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, minutes(10), 0),
                     new StatusEffectInstance(StatusEffects.HEALTH_BOOST, minutes(10), 4),
                     new StatusEffectInstance(StatusEffects.ABSORPTION, minutes(5), 4),
+                    new StatusEffectInstance(StatusEffects.STRENGTH, minutes(10), 1),
                     new StatusEffectInstance(JAAVAAStatusEffects.IMPENDING_DOOM, StatusEffectInstance.INFINITE, 0, false, false, true)
             ))).consumeSeconds(0.5f).build();
     public static final DamageResistantComponent FIRE_AND_EXPLOSION_RESISTANT =
@@ -41,7 +43,7 @@ public class JAAVAAComponents {
         Types.registerDataComponentTypes();
         JAAVAA.log("Initializing JAAVAA components");
     }
-    public static class Types {
+    public static final class Types {
         public static final ComponentType<RegistryKey<Biome>> COMPASS_BIOME_TARGET = register(
                 "compass_biome_target", builder -> builder.codec(RegistryKey.createCodec(RegistryKeys.BIOME))
         );

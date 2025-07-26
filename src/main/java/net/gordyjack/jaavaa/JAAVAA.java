@@ -46,8 +46,6 @@ public class JAAVAA implements ModInitializer {
 		JAAVAARecipes.init();
 		JAAVAAPotionRecipeBuilder.build();
 		JAAVAAScreenHandlers.init();
-
-		JAAVAALootTableEventsHandler.init();
 	}
 	
 	public static Identifier id(String path) {
@@ -64,12 +62,6 @@ public class JAAVAA implements ModInitializer {
             case 'e' -> LOGGER.error(message);
             default -> throw new IllegalArgumentException("Invalid log type: " + type);
         }
-	}
-	public static int seconds(Number seconds) {
-		return Math.round(seconds.floatValue() * 20);
-	}
-	public static int minutes(Number minutes) {
-		return seconds(minutes.floatValue() * 60);
 	}
 	public static Identifier idFromItem(ItemConvertible item) {
 		return Registries.ITEM.getId(item.asItem());
