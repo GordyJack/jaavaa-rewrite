@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 400,
   "inputStack": {
     "count": 1,
     "id": "minecraft:leather_chestplate"
   },
-  "result": {
-    "count": 8,
-    "id": "minecraft:leather"
-  }
+  "outputs": [
+    {
+      "count": 8,
+      "id": "minecraft:leather"
+    }
+  ]
 }

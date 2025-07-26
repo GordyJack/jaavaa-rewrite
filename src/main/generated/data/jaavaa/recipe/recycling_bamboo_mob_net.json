@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 200,
   "inputStack": {
     "count": 1,
     "id": "jaavaa:bamboo_mob_net"
   },
-  "result": {
-    "count": 2,
-    "id": "minecraft:bamboo"
-  }
+  "outputs": [
+    {
+      "count": 2,
+      "id": "minecraft:bamboo"
+    }
+  ]
 }

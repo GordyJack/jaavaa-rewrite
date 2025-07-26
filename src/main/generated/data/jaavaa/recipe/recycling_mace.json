@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 400,
   "inputStack": {
     "count": 1,
     "id": "minecraft:mace"
   },
-  "result": {
-    "count": 1,
-    "id": "minecraft:heavy_core"
-  }
+  "outputs": [
+    {
+      "count": 1,
+      "id": "minecraft:heavy_core"
+    }
+  ]
 }

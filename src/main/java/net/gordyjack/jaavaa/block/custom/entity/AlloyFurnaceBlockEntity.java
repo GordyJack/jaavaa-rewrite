@@ -28,20 +28,26 @@ import java.util.*;
 public class AlloyFurnaceBlockEntity
         extends BlockEntity
         implements SidedInventory, ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
+    //Constants
     private static final int INPUT_SLOT_1 = 0;
     private static final int INPUT_SLOT_2 = 1;
     private static final int OUTPUT_SLOT = 2;
     private static final int SIZE = 3;
     private static final int DEFAULT_MAX_PROGRESS = 200;
+    //Final Instance Fields
     private final DefaultedList<ItemStack> INV = DefaultedList.ofSize(SIZE, ItemStack.EMPTY);
     private final PropertyDelegate PROPERTY_DELEGATE;
+    private final BlockState STATE;
+    //Instance Fields
     private int progress = 0;
     private int maxProgress = DEFAULT_MAX_PROGRESS;
     private boolean isLit = false;
 
+    //Constructor
     public AlloyFurnaceBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(JAAVAABlockEntityTypes.ALLOY_FURNACE_BLOCK_ENTITY_TYPE, blockPos, blockState);
         this.isLit = blockState.get(AlloyFurnaceBlock.LIT);
+        this.STATE = blockState;
         this.PROPERTY_DELEGATE = new PropertyDelegate() {
             @Override
             public int get(int index) {
@@ -67,9 +73,25 @@ public class AlloyFurnaceBlockEntity
         };
     }
 
+    //Overrides
     @Override
-    public BlockPos getScreenOpeningData(ServerPlayerEntity serverPlayerEntity) {
-        return this.pos;
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+        //Only allow extracting from the output slot through the bottom face
+        return slot == OUTPUT_SLOT && side == Direction.DOWN;
+    }
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+        Direction facing = this.STATE.get(AlloyFurnaceBlock.FACING);
+        Direction right = facing.rotateYCounterclockwise();
+        Direction left = facing.rotateYClockwise();
+        Direction back = facing.getOpposite();
+        //Allow inserting only into input slots. Top and left for slot 1, right and back for slot 2.
+        return (slot == INPUT_SLOT_1 && (side == Direction.UP || side == left)) ||
+               (slot == INPUT_SLOT_2 && (side == back || side == right));
+    }
+    @Override
+    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        return new AlloyFurnaceBlockEntityScreenHandler(syncId, playerInventory, this, PROPERTY_DELEGATE);
     }
     /**
      * Returns the title of this screen handler; will be a part of the open
@@ -90,16 +112,8 @@ public class AlloyFurnaceBlockEntity
         return this.INV;
     }
     @Override
-    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new AlloyFurnaceBlockEntityScreenHandler(syncId, playerInventory, this, PROPERTY_DELEGATE);
-    }
-    @Override
-    protected void writeData(WriteView view) {
-        super.writeData(view);
-        Inventories.writeData(view, this.INV);
-        view.putInt("alloy_furnace.progress", this.progress);
-        view.putInt("alloy_furnace.max_progress", this.maxProgress);
-        view.putBoolean("alloy_furnace.is_lit", this.isLit);
+    public BlockPos getScreenOpeningData(ServerPlayerEntity serverPlayerEntity) {
+        return this.pos;
     }
     @Override
     protected void readData(ReadView view) {
@@ -109,6 +123,15 @@ public class AlloyFurnaceBlockEntity
         this.isLit = view.getBoolean("alloy_furnace.is_lit", false);
         super.readData(view);
     }
+    @Override
+    protected void writeData(WriteView view) {
+        super.writeData(view);
+        Inventories.writeData(view, this.INV);
+        view.putInt("alloy_furnace.progress", this.progress);
+        view.putInt("alloy_furnace.max_progress", this.maxProgress);
+        view.putBoolean("alloy_furnace.is_lit", this.isLit);
+    }
+    //Methods
     public void tick(World world, BlockPos pos, BlockState state) {
         if(world.isClient()) {
             return;
@@ -127,9 +150,14 @@ public class AlloyFurnaceBlockEntity
             resetProgress();
         }
     }
-    private void resetProgress() {
-        this.progress = 0;
-        this.maxProgress = this.getCurrentRecipe().isPresent() ? this.getCurrentRecipe().get().value().burnTime() : DEFAULT_MAX_PROGRESS;
+    private boolean canInsertAmountIntoOutputSlot(int count) {
+        int maxCount = this.getStack(OUTPUT_SLOT).isEmpty() ? 64 : this.getStack(OUTPUT_SLOT).getMaxCount();
+        int currentCount = this.getStack(OUTPUT_SLOT).getCount();
+
+        return maxCount >= currentCount + count;
+    }
+    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
+        return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getItem() == output.getItem();
     }
     private void craftItem() {
         var recipe = getCurrentRecipe().get().value();
@@ -144,15 +172,9 @@ public class AlloyFurnaceBlockEntity
         this.setStack(OUTPUT_SLOT, new ItemStack(recipe.output().getItem(),
                 this.getStack(OUTPUT_SLOT).getCount() + recipe.output().getCount()));
     }
-    private boolean hasCraftingFinished() {
-        return this.progress >= this.maxProgress;
-    }
-    private void increaseCraftingProgress() {
-        this.progress++;
-    }
-    private boolean isOutputNotFull() {
-        return this.getStack(OUTPUT_SLOT).isEmpty() ||
-                this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
+    private Optional<RecipeEntry<AlloyingRecipe>> getCurrentRecipe() {
+        return ((ServerRecipeManager)this.getWorld().getRecipeManager())
+                .getFirstMatch(JAAVAARecipes.Types.ALLOYING, new AlloyingRecipeInput(INV.get(INPUT_SLOT_1), INV.get(INPUT_SLOT_2)), this.getWorld());
     }
     private boolean hasRecipe() {
         Optional<RecipeEntry<AlloyingRecipe>> recipeEntry = getCurrentRecipe();
@@ -164,21 +186,21 @@ public class AlloyFurnaceBlockEntity
         this.maxProgress = recipe.burnTime();
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
     }
-
-    private Optional<RecipeEntry<AlloyingRecipe>> getCurrentRecipe() {
-        return ((ServerRecipeManager)this.getWorld().getRecipeManager())
-                .getFirstMatch(JAAVAARecipes.Types.ALLOYING, new AlloyingRecipeInput(INV.get(INPUT_SLOT_1), INV.get(INPUT_SLOT_2)), this.getWorld());
+    private boolean isOutputNotFull() {
+        return this.getStack(OUTPUT_SLOT).isEmpty() ||
+                this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
     }
 
-    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
-        return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getItem() == output.getItem();
+    //Progress Management
+    private boolean hasCraftingFinished() {
+        return this.progress >= this.maxProgress;
     }
-
-    private boolean canInsertAmountIntoOutputSlot(int count) {
-        int maxCount = this.getStack(OUTPUT_SLOT).isEmpty() ? 64 : this.getStack(OUTPUT_SLOT).getMaxCount();
-        int currentCount = this.getStack(OUTPUT_SLOT).getCount();
-
-        return maxCount >= currentCount + count;
+    private void increaseCraftingProgress() {
+        this.progress++;
+    }
+    private void resetProgress() {
+        this.progress = 0;
+        this.maxProgress = this.getCurrentRecipe().isPresent() ? this.getCurrentRecipe().get().value().burnTime() : DEFAULT_MAX_PROGRESS;
     }
 
     @Nullable

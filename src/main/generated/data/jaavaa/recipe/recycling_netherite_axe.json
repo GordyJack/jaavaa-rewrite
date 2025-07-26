@@ -1,12 +1,18 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 300,
   "inputStack": {
     "count": 1,
     "id": "minecraft:netherite_axe"
   },
-  "result": {
-    "count": 1,
-    "id": "minecraft:netherite_ingot"
-  }
+  "outputs": [
+    {
+      "count": 1,
+      "id": "minecraft:netherite_ingot"
+    },
+    {
+      "count": 3,
+      "id": "minecraft:diamond"
+    }
+  ]
 }

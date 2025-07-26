@@ -24,7 +24,7 @@ The purpose of this mod is 3-fold:
 #### **New Blocks**:
   * ✅ - **Blocktants** These are 1/8 the size of a normal block so that you can create any slab or stair shape that you might want.
   * ✅ - **Alloy Furnace**: A new kind of furnace that works passively off lava underneat it to craft new _(and old)_ alloys.
-  * ⚠️ - **Recycling Table**: A block that allows recycling of old gear or unused blocks to reclaim their most important components.
+  * ✅ - **Recycling Table**: A block that allows recycling of old gear or unused blocks to reclaim their most important components.
 #### **New Materials**:
   * ❌ - **Mercury**: Found as a liquid metal, this material is dense and poisonous to the touch making it near impossible to move through. But due to its conductivity, sensitivity, and reactivity it has many implications for new technologies and other advancements.
   * **Alloys**:

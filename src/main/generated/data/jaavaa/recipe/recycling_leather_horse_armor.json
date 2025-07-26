@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 600,
   "inputStack": {
     "count": 1,
     "id": "minecraft:leather_horse_armor"
   },
-  "result": {
-    "count": 7,
-    "id": "minecraft:leather"
-  }
+  "outputs": [
+    {
+      "count": 7,
+      "id": "minecraft:leather"
+    }
+  ]
 }

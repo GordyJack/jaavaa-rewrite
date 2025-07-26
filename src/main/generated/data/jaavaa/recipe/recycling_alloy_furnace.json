@@ -1,0 +1,22 @@
+{
+  "type": "jaavaa:recycling",
+  "crushTime": 300,
+  "inputStack": {
+    "count": 1,
+    "id": "jaavaa:alloy_furnace"
+  },
+  "outputs": [
+    {
+      "count": 1,
+      "id": "minecraft:blast_furnace"
+    },
+    {
+      "count": 4,
+      "id": "minecraft:iron_ingot"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:netherite_ingot"
+    }
+  ]
+}

@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 400,
   "inputStack": {
     "count": 1,
     "id": "minecraft:iron_chestplate"
   },
-  "result": {
-    "count": 8,
-    "id": "minecraft:iron_ingot"
-  }
+  "outputs": [
+    {
+      "count": 8,
+      "id": "minecraft:iron_ingot"
+    }
+  ]
 }

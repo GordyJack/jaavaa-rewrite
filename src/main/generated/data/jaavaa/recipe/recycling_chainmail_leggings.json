@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 400,
   "inputStack": {
     "count": 1,
     "id": "minecraft:chainmail_leggings"
   },
-  "result": {
-    "count": 28,
-    "id": "minecraft:iron_nugget"
-  }
+  "outputs": [
+    {
+      "count": 28,
+      "id": "minecraft:iron_nugget"
+    }
+  ]
 }

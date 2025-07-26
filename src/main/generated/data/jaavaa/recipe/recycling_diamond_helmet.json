@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 400,
   "inputStack": {
     "count": 1,
     "id": "minecraft:diamond_helmet"
   },
-  "result": {
-    "count": 5,
-    "id": "minecraft:diamond"
-  }
+  "outputs": [
+    {
+      "count": 5,
+      "id": "minecraft:diamond"
+    }
+  ]
 }

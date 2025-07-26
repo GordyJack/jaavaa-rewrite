@@ -1,12 +1,18 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 1200,
   "inputStack": {
-    "count": 1,
+    "count": 8,
     "id": "minecraft:brown_terracotta"
   },
-  "result": {
-    "count": 1,
-    "id": "minecraft:brown_dye"
-  }
+  "outputs": [
+    {
+      "count": 8,
+      "id": "minecraft:brick"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:brown_dye"
+    }
+  ]
 }

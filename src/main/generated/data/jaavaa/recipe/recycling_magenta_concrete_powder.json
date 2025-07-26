@@ -1,12 +1,22 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 800,
   "inputStack": {
-    "count": 1,
+    "count": 8,
     "id": "minecraft:magenta_concrete_powder"
   },
-  "result": {
-    "count": 1,
-    "id": "minecraft:magenta_dye"
-  }
+  "outputs": [
+    {
+      "count": 4,
+      "id": "minecraft:gravel"
+    },
+    {
+      "count": 4,
+      "id": "minecraft:sand"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:magenta_dye"
+    }
+  ]
 }

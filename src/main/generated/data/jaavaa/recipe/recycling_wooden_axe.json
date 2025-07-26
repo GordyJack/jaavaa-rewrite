@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 200,
   "inputStack": {
     "count": 1,
     "id": "minecraft:wooden_axe"
   },
-  "result": {
-    "count": 6,
-    "id": "minecraft:stick"
-  }
+  "outputs": [
+    {
+      "count": 6,
+      "id": "minecraft:stick"
+    }
+  ]
 }

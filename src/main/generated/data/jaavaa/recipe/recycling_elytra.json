@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 200,
   "inputStack": {
     "count": 1,
     "id": "minecraft:elytra"
   },
-  "result": {
-    "count": 2,
-    "id": "minecraft:phantom_membrane"
-  }
+  "outputs": [
+    {
+      "count": 2,
+      "id": "minecraft:phantom_membrane"
+    }
+  ]
 }

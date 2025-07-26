@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 200,
   "inputStack": {
     "count": 1,
     "id": "minecraft:raiser_armor_trim_smithing_template"
   },
-  "result": {
-    "count": 7,
-    "id": "minecraft:diamond"
-  }
+  "outputs": [
+    {
+      "count": 7,
+      "id": "minecraft:diamond"
+    }
+  ]
 }

@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 200,
   "inputStack": {
     "count": 1,
     "id": "jaavaa:cupaureum_hoe"
   },
-  "result": {
-    "count": 2,
-    "id": "jaavaa:cupaureum_ingot"
-  }
+  "outputs": [
+    {
+      "count": 2,
+      "id": "jaavaa:cupaureum_ingot"
+    }
+  ]
 }

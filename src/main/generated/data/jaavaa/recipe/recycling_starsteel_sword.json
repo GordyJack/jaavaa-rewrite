@@ -1,12 +1,18 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 300,
   "inputStack": {
     "count": 1,
     "id": "jaavaa:starsteel_sword"
   },
-  "result": {
-    "count": 1,
-    "id": "jaavaa:starsteel_ingot"
-  }
+  "outputs": [
+    {
+      "count": 1,
+      "id": "jaavaa:starsteel_ingot"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:netherite_sword"
+    }
+  ]
 }

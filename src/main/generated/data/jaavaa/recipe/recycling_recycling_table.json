@@ -1,0 +1,18 @@
+{
+  "type": "jaavaa:recycling",
+  "crushTime": 300,
+  "inputStack": {
+    "count": 1,
+    "id": "jaavaa:recycling_table"
+  },
+  "outputs": [
+    {
+      "count": 1,
+      "id": "minecraft:grindstone"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:anvil"
+    }
+  ]
+}

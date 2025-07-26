@@ -1,12 +1,18 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 200,
   "inputStack": {
     "count": 1,
     "id": "minecraft:netherite_ingot"
   },
-  "result": {
-    "count": 4,
-    "id": "minecraft:netherite_scrap"
-  }
+  "outputs": [
+    {
+      "count": 1,
+      "id": "minecraft:gold_ingot"
+    },
+    {
+      "count": 2,
+      "id": "minecraft:netherite_scrap"
+    }
+  ]
 }

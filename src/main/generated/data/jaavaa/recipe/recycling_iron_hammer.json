@@ -1,12 +1,22 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 800,
   "inputStack": {
     "count": 1,
     "id": "jaavaa:iron_hammer"
   },
-  "result": {
-    "count": 1,
-    "id": "minecraft:heavy_core"
-  }
+  "outputs": [
+    {
+      "count": 1,
+      "id": "minecraft:heavy_core"
+    },
+    {
+      "count": 2,
+      "id": "minecraft:iron_block"
+    },
+    {
+      "count": 1,
+      "id": "jaavaa:iron_rod"
+    }
+  ]
 }

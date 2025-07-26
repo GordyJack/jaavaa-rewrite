@@ -1,12 +1,14 @@
 {
   "type": "jaavaa:recycling",
-  "experience": 0.1,
+  "crushTime": 400,
   "inputStack": {
     "count": 1,
     "id": "minecraft:golden_helmet"
   },
-  "result": {
-    "count": 5,
-    "id": "minecraft:gold_ingot"
-  }
+  "outputs": [
+    {
+      "count": 5,
+      "id": "minecraft:gold_ingot"
+    }
+  ]
 }

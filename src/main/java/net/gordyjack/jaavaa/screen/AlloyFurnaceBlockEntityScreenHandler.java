@@ -13,8 +13,8 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
     private static final int INPUT_SLOT_2 = 1;
     private static final int OUTPUT_SLOT = 2;
     private static final int PLAYER_INVENTORY_START = OUTPUT_SLOT + 1; //2
-    private static final int HOTBAR_START = PLAYER_INVENTORY_START + 27; //29
-    private static final int PLAYER_INVENTORY_END = HOTBAR_START - 1; //28
+    private static final int PLAYER_INVENTORY_END = PLAYER_INVENTORY_START + 27; //29
+    private static final int HOTBAR_START = PLAYER_INVENTORY_END + 1; //30
     private static final int HOTBAR_END = HOTBAR_START + 8; //38
     private final ScreenHandlerContext CONTEXT;
     private final Inventory INV;
@@ -32,14 +32,9 @@ public class AlloyFurnaceBlockEntityScreenHandler extends ScreenHandler {
         this.INV = (Inventory) blockEntity;
         this.PROPERTY_DELEGATE = propertyDelegate;
         
-        this.addSlot(new Slot(INV, 0, 53, 17));
-        this.addSlot(new Slot(INV, 1, 107, 17));
-        this.addSlot(new Slot(INV, 2, 79, 57) {
-            @Override
-            public boolean canInsert(ItemStack stack) {
-                return false;
-            }
-        });
+        this.addSlot(new Slot(INV, INPUT_SLOT_1, 53, 17));
+        this.addSlot(new Slot(INV, INPUT_SLOT_2, 107, 17));
+        this.addSlot(new OutputSlot(INV, OUTPUT_SLOT, 79, 57));
         
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
